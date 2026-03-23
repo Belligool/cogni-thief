@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j3k3v7lxyaik"
+path="res://.godot/imported/Keroncong Kemayoran - Bing Slamet dan P. Ramlee (Lirik) - Irama dan Lagu.mp3-486b419e5b5deeeaeb2071bb324c823e.mp3str"
+
+[deps]
+
+source_file="res://assets/bg/Keroncong Kemayoran - Bing Slamet dan P. Ramlee (Lirik) - Irama dan Lagu.mp3"
+dest_files=["res://.godot/imported/Keroncong Kemayoran - Bing Slamet dan P. Ramlee (Lirik) - Irama dan Lagu.mp3-486b419e5b5deeeaeb2071bb324c823e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,12 @@
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://dp2l17hibc3i3"]
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
+resource_name = "Distortion"
+pre_gain = -7.28
+keep_hf_hz = 15960.0
+drive = 0.35
+
+[resource]
+bus/0/volume_db = -4.7681155
+bus/0/effect/0/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/0/effect/0/enabled = false
