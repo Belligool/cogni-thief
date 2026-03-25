@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b5ll47i2xs2fw"]
 
 [ext_resource type="Texture2D" uid="uid://bwmhatvs3rl5c" path="res://assets/Matthijs/Corridor Room/gramaphone.png" id="1_3bpq6"]
-[ext_resource type="Script" uid="uid://387uhq2744o" path="res://scripts/interactable objects/gramaphone.gd" id="1_d1qyr"]
+[ext_resource type="Script" uid="uid://387uhq2744o" path="res://interaction/interactable scripts/gramaphone.gd" id="1_d1qyr"]
 [ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="2_d1qyr"]
 [ext_resource type="Resource" uid="uid://clup1uyouhssy" path="res://dialog/definition/gramaphone_dialog.tres" id="2_m84q4"]
 

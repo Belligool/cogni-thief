@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cdu122bjcg3x1"]
 
-[ext_resource type="Script" uid="uid://cc8fqari5goi5" path="res://scripts/interactable objects/matthijs's_door.gd" id="1_761g5"]
+[ext_resource type="Script" uid="uid://cc8fqari5goi5" path="res://interaction/interactable scripts/matthijs's_door.gd" id="1_761g5"]
 [ext_resource type="Texture2D" uid="uid://db24i377j2845" path="res://assets/Matthijs/Corridor Room/door.png" id="2_mpxa8"]
 [ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="3_wxuyc"]
 [ext_resource type="AudioStream" uid="uid://cfdkyi1nu0xpx" path="res://assets/sounds/freesounds-4u-door-handle-1-401153.mp3" id="4_5pi44"]

@@ -25,6 +25,7 @@ PlayerManager="*res://autoloader/player_manager.gd"
 InteractionManager="*res://interaction/interactionManager.tscn"
 DialogManager="*res://autoloader/dialog_manager.gd"
 QuestManager="*res://autoloader/quest_manager.gd"
+TransitionManager="*res://autoloader/transition_manager.gd"
 
 [display]
 
