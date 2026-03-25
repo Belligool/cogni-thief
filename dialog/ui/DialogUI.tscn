@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt7ouuv3yxyo7"]
+
+[ext_resource type="Script" uid="uid://bdw3nvj0o2ibh" path="res://dialog/ui/dialog_ui.gd" id="1_b2cer"]
+
+[node name="dialog_ui" type="CanvasLayer"]
+script = ExtResource("1_b2cer")
+
+[node name="Bar" type="PanelContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBox" type="VBoxContainer" parent="Bar"]
+layout_mode = 2
+
+[node name="SpeakerRow" type="HBoxContainer" parent="Bar/VBox"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Bar/VBox/SpeakerRow"]
+layout_mode = 2
+
+[node name="TextBlock" type="VBoxContainer" parent="Bar/VBox/SpeakerRow"]
+layout_mode = 2
+
+[node name="SpeakerName" type="Label" parent="Bar/VBox/SpeakerRow/TextBlock"]
+layout_mode = 2
+
+[node name="DialogText" type="RichTextLabel" parent="Bar/VBox/SpeakerRow/TextBlock"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Bar/VBox"]
+layout_mode = 2
+
+[node name="Choice0" type="Button" parent="Bar/VBox/HBoxContainer"]
+layout_mode = 2
+
+[node name="Choice1" type="Button" parent="Bar/VBox/HBoxContainer"]
+layout_mode = 2
+
+[node name="Choice2" type="Button" parent="Bar/VBox/HBoxContainer"]
+layout_mode = 2

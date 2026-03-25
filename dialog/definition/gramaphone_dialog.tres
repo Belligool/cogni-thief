@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=6 format=3 uid="uid://clup1uyouhssy"]
+
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="1_mnbva"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="2_7qvrl"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="2_twa7e"]
+
+[sub_resource type="Resource" id="Resource_hcqsn"]
+script = ExtResource("1_mnbva")
+speaker = "Matthijs"
+text = "Wow, it's a song from Sam Saimun..."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_2270j"]
+script = ExtResource("1_mnbva")
+speaker = "Matthijs"
+text = "I haven't heard this in years."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[resource]
+script = ExtResource("2_twa7e")
+npc_id = "gramaphone"
+lines = Array[ExtResource("1_mnbva")]([SubResource("Resource_hcqsn"), SubResource("Resource_2270j")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"

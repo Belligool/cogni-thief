@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dptgw2p7efbc0"]
 
-[ext_resource type="Script" uid="uid://d2vsto5gaeqnm" path="res://scripts/interaction_manager.gd" id="1_jimth"]
+[ext_resource type="Script" uid="uid://d2vsto5gaeqnm" path="res://autoloader/interaction_manager.gd" id="1_jimth"]
 [ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="2_grehs"]
 
 [node name="InteractionManager" type="Node2D"]
@@ -8,12 +8,17 @@ script = ExtResource("1_jimth")
 
 [node name="Label" type="Label" parent="."]
 z_index = 20
-offset_right = 68.0
-offset_bottom = 23.0
-scale = Vector2(0.548374, 0.548374)
+offset_left = -15.0
+offset_top = -13.000002
+offset_right = 53.0
+offset_bottom = 9.999998
+scale = Vector2(0.4283744, 0.4283744)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.47058824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("2_grehs")
 theme_override_font_sizes/font_size = 8
 text = "[e] to interact"
 horizontal_alignment = 1
-vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
