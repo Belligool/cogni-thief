@@ -27,9 +27,10 @@ func choose(choice: DialogChoice) -> void:
 	if not is_active:
 		return
 	match choice.point_type:
-		"good": PlayerManager.add_good_point()
-		"bad": PlayerManager.add_bad_point()
-		"neutral": PlayerManager.add_neutral_point()
+		DialogChoice.PointType.GOOD      : PlayerManager.add_good_point()
+		DialogChoice.PointType.BAD       : PlayerManager.add_bad_point()
+		DialogChoice.PointType.NEUTRAL   : PlayerManager.add_neutral_point()
+		DialogChoice.PointType.NO_EFFECT : pass
 	# jump to whatever line this choice points to if branching is a feature else just make an increment
 	_show_line(choice.next_line_index)
 	
@@ -44,9 +45,13 @@ func _show_line(index: int) -> void:
 	
 func _end() -> void:
 	var npc_id = _current.npc_id
+	var is_quest = _current.is_quest_dialog
 	is_active = false
 	_current = null
 	dialog_ended.emit(npc_id)
+	if is_quest:
+		QuestManager.notify_dialog_ended(npc_id)
+		
 
 # For testing	
 func _unhandled_input(event: InputEvent) -> void:
