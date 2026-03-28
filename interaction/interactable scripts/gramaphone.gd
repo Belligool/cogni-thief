@@ -1,12 +1,22 @@
 extends Node2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
-@onready var sprite = $Sprite2D
+@onready var bubble: Node2D = $SpeechBubble
 @export var dialog: DialogData
+@export var puzzle_dialog: DialogData
+@export var puzzle_id: String = ""
 
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
+	DialogManager.line_changed.connect(_on_line_changed)
+	DialogManager.dialog_ended.connect(_on_dialog_ended)
 
 func _on_interact():
 	DialogManager.start(dialog)
 	await DialogManager.dialog_ended
+
+func _on_line_changed(line: DialogLine) -> void:
+	bubble.show_line(line.text)
+	
+func _on_dialog_ended(_npc_id: String) -> void:
+	bubble.clear()

@@ -8,10 +8,8 @@ script = ExtResource("1_jimth")
 
 [node name="Label" type="Label" parent="."]
 z_index = 20
-offset_left = -15.0
-offset_top = -13.000002
-offset_right = 53.0
-offset_bottom = 9.999998
+offset_right = 68.0
+offset_bottom = 23.0
 scale = Vector2(0.4283744, 0.4283744)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.47058824)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

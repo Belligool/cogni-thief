@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("walk")
 		if not walking_sfx.playing:
 			walking_sfx.play(1)
+		
 	
 	if direction:
 		velocity.x = direction * SPEED

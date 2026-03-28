@@ -27,11 +27,6 @@ DialogManager="*res://autoloader/dialog_manager.gd"
 QuestManager="*res://autoloader/quest_manager.gd"
 TransitionManager="*res://autoloader/transition_manager.gd"
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-
 [global_group]
 
 player=""
