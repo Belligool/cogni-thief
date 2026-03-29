@@ -9,7 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_m84q4"]
 radius = 170.10736
 
-[node name="Gramaphone" type="Node2D"]
+[node name="gramaphone" type="Node2D"]
 script = ExtResource("1_d1qyr")
 dialog = ExtResource("2_m84q4")
 
@@ -25,7 +25,7 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("2_d1qyr")
 action_name = "hear music"
-interactable_object_name = "Gramaphone"
+interactable_object_name = "gramaphone"
 metadata/_custom_type_script = "uid://cq6r3it7jjj3i"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]

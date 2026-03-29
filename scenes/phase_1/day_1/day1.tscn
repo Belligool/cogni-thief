@@ -1,7 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyvgohn20rlm7"]
+[gd_scene load_steps=24 format=3 uid="uid://dyvgohn20rlm7"]
 
+[ext_resource type="Script" uid="uid://0w5h6xcl0aks" path="res://scenes/phase_1/day_1/day_1.gd" id="1_r7yew"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_wi35l"]
+[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="2_dajpv"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_rkh0q"]
+[ext_resource type="Resource" uid="uid://br7fjfsh5j6ls" path="res://quests/definition/phase 1/q_examine_gramaphone.tres" id="3_1bhvo"]
 [ext_resource type="PackedScene" uid="uid://cdu122bjcg3x1" path="res://interaction/interactable objects/matthijs's door.tscn" id="3_pfpnu"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="4_r7yew"]
 [ext_resource type="PackedScene" uid="uid://2e4vei40e5c3" path="res://interaction/interactable objects/parent's door.tscn" id="5_dajpv"]
@@ -218,6 +221,8 @@ color = Color(1, 1, 1, 0.5921569)
 size = Vector2(3, 88)
 
 [node name="Phase_1_day_1" type="Node2D"]
+script = ExtResource("1_r7yew")
+quests = Array[ExtResource("2_dajpv")]([ExtResource("3_1bhvo")])
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999996)
@@ -255,7 +260,7 @@ position = Vector2(120, -29.999998)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("8_ljrn2")
 
-[node name="Gramaphone2" parent="." instance=ExtResource("9_8m3sr")]
+[node name="gramaphone" parent="." instance=ExtResource("9_8m3sr")]
 position = Vector2(51, -25)
 
 [node name="TileMap" type="Node" parent="."]

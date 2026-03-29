@@ -40,5 +40,6 @@ func _input(event):
 			label.hide()
 			
 			await active_areas[0].interact.call()
+			QuestManager.notify_interaction(active_areas[0].interactable_object_name)
 			
 			can_interact = true
