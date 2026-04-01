@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="QuestData" load_steps=2 format=3 uid="uid://br7fjfsh5j6ls"]
 
-[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_d7w12"]
+[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_u2d0i"]
 
 [resource]
-script = ExtResource("1_d7w12")
+script = ExtResource("1_u2d0i")
 id = "q_examine_gramaphone"
 title = "Examine the Gramaphone"
 objective = "Examine the old gramaphone"

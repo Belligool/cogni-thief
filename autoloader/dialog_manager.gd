@@ -53,7 +53,6 @@ func _end() -> void:
 		QuestManager.notify_dialog_ended(npc_id)
 		
 
-# For testing	
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:
 		return

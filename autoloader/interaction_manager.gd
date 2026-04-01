@@ -39,7 +39,9 @@ func _input(event):
 			can_interact = false
 			label.hide()
 			
-			await active_areas[0].interact.call()
-			QuestManager.notify_interaction(active_areas[0].interactable_object_name)
+			# Avoids empty array call
+			var area = active_areas[0]
+			await area.interact.call()
+			QuestManager.notify_interaction(area.interactable_object_name)
 			
 			can_interact = true

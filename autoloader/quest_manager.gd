@@ -1,5 +1,7 @@
 extends Node
 
+#TODO MASIH BELOM HANDLE PUZZLE
+
 signal quest_started (quest: QuestData)
 signal quest_completed (quest: QuestData)
 signal quest_list_loaded
@@ -30,6 +32,7 @@ func _try_complete(completion_type: QuestData.CompletionType, target: String) ->
 	var quest = get_current_quest()
 	if quest == null:
 		return 
+	#	Test
 	print("comparing type: ", quest.completion_type, " vs ", completion_type)
 	print("comparing target: '", quest.completion_target, "' vs '", target, "'")
 	if quest.completion_type == completion_type and quest.completion_target == target:
@@ -42,3 +45,6 @@ func notify_dialog_ended(npc_id: String) -> void:
 	
 func notify_interaction(object_name: String) -> void:
 	_try_complete(QuestData.CompletionType.INTERACTION, object_name)
+	
+func notify_puzzle(puzzle_name: String) -> void:
+	_try_complete(QuestData.CompletionType.PUZZLE, puzzle_name)

@@ -1,5 +1,7 @@
 extends Node2D
 
+#TODO UI MASIH BELOM BENER
+
 @onready var container: NinePatchRect = $BubbleContainer
 @onready var dialog_text:RichTextLabel = $BubbleContainer/DialogText
 
@@ -9,7 +11,7 @@ var _typing: bool = false
 var _typing_speed: float = 0.03
 var _typing_timer: float = 0.0
 
-func _ready() -> void:
+func _ready() -> void: 
 	hide()
 	
 func _process(delta: float) -> void:

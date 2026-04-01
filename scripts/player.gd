@@ -8,11 +8,9 @@ func _physics_process(delta: float) -> void:
 	# If a dialog is taking place stop movement entirely
 	if DialogManager.is_active:
 		velocity = Vector2.ZERO
+		animated_sprite.play("idle")
+		walking_sfx.stop()
 		return
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 
 	# Get input direction: -1, 0, 1
 	var direction := Input.get_axis("move_left", "move_right")

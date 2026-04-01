@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogData" load_steps=6 format=3 uid="uid://clup1uyouhssy"]
+[gd_resource type="Resource" script_class="DialogData" load_steps=10 format=3 uid="uid://clup1uyouhssy"]
 
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="1_mnbva"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="2_7qvrl"]
@@ -10,14 +10,41 @@ speaker = "Matthijs"
 text = "Wow, it's a song from Sam Saimun..."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
+[sub_resource type="Resource" id="Resource_twa7e"]
+script = ExtResource("2_7qvrl")
+label = "It brings back good memories."
+point_type = 1
+next_line_index = 2
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_7qvrl"]
+script = ExtResource("2_7qvrl")
+label = "I'm not sure how I feel."
+next_line_index = 2
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_eb6s6"]
+script = ExtResource("2_7qvrl")
+label = "I don't really care."
+point_type = 2
+next_line_index = 2
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
 [sub_resource type="Resource" id="Resource_2270j"]
 script = ExtResource("1_mnbva")
 speaker = "Matthijs"
-text = "I haven't heard this in years."
+text = "I wonder what this song means to me."
+choices = Array[ExtResource("2_7qvrl")]([SubResource("Resource_twa7e"), SubResource("Resource_7qvrl"), SubResource("Resource_eb6s6")])
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_1i5ca"]
+script = ExtResource("1_mnbva")
+speaker = "Matthijs"
+text = "..."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [resource]
 script = ExtResource("2_twa7e")
 npc_id = "gramaphone"
-lines = Array[ExtResource("1_mnbva")]([SubResource("Resource_hcqsn"), SubResource("Resource_2270j")])
+lines = Array[ExtResource("1_mnbva")]([SubResource("Resource_hcqsn"), SubResource("Resource_2270j"), SubResource("Resource_1i5ca")])
 metadata/_custom_type_script = "uid://cq8iorar8inmf"
