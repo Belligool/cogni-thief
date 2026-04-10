@@ -1,36 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt1pjdw052frb"]
+[gd_scene load_steps=4 format=3 uid="uid://bt1pjdw052frb"]
 
 [ext_resource type="Script" uid="uid://bksekc1uu6lbf" path="res://dialog/ui/speech_bubble.gd" id="1_1grvm"]
+[ext_resource type="Texture2D" uid="uid://60ungjhxc5j3" path="res://assets/ui/dialogs/IMG_4084.PNG" id="2_ec8re"]
 [ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="2_v5qyt"]
 
 [node name="SpeechBubble" type="Node2D"]
 script = ExtResource("1_1grvm")
 
-[node name="BubbleContainer" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(150, 60)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_right = 150.0
-offset_bottom = 60.0
-grow_horizontal = 2
-scale = Vector2(0.3, 0.3)
-pivot_offset = Vector2(0, -55)
-region_rect = Rect2(0, -80, 0, 0)
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(150, 0)
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 130.0
+offset_bottom = 20.0
+scale = Vector2(0.2, 0.2)
 
-[node name="DialogText" type="RichTextLabel" parent="BubbleContainer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 1
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/outline_size = 1
+[node name="BubbleContainer" type="NinePatchRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+texture = ExtResource("2_ec8re")
+region_rect = Rect2(0, 0, 18, 14)
+patch_margin_left = 15
+patch_margin_top = 12
+patch_margin_right = 4
+patch_margin_bottom = 12
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="DialogText" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_v5qyt")
 theme_override_font_sizes/normal_font_size = 8
 theme_override_font_sizes/bold_font_size = 8

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3euwavw74glh"
-path="res://.godot/imported/chara_2-Sheet.png-3bb6fd8824b005944a8c26fdd80d1cc9.ctex"
+uid="uid://dc8b1pnkla1ri"
+path="res://.godot/imported/child_idle-Sheet.png-3e399158a267e66eb319c9694941302b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/chara_2-Sheet.png"
-dest_files=["res://.godot/imported/chara_2-Sheet.png-3bb6fd8824b005944a8c26fdd80d1cc9.ctex"]
+source_file="res://assets/Matthijs/Sprite Sheet Char/child_idle-Sheet.png"
+dest_files=["res://.godot/imported/child_idle-Sheet.png-3e399158a267e66eb319c9694941302b.ctex"]
 
 [params]
 

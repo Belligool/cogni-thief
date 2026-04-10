@@ -2,8 +2,10 @@ extends Node2D
 
 #TODO UI MASIH BELOM BENER
 
-@onready var container: NinePatchRect = $BubbleContainer
-@onready var dialog_text:RichTextLabel = $BubbleContainer/DialogText
+@onready var sprite: AnimatedSprite2D = get_parent().get_node("AnimatedSprite2D")
+@onready var container: MarginContainer = $MarginContainer
+@onready var bubble_bg: NinePatchRect = $MarginContainer/BubbleContainer
+@onready var dialog_text:RichTextLabel = $MarginContainer/MarginContainer/DialogText
 
 var _full_text: String = ""
 var _chars_shown: int = 0
@@ -13,8 +15,14 @@ var _typing_timer: float = 0.0
 
 func _ready() -> void: 
 	hide()
-	
+	var texture_height = sprite.sprite_frames.get_frame_texture("idle", 0).get_height()
+	position.y = -texture_height * sprite.scale.y + 40
+	print(position.y)
+		
 func _process(delta: float) -> void:
+	bubble_bg.size = container.size
+	bubble_bg.position = Vector2.ZERO
+	
 	if not _typing:
 		return
 	_typing_timer += delta
