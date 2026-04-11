@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="cogni thief"
-run/main_scene="uid://dyvgohn20rlm7"
+run/main_scene="uid://de2j12tftcyv4"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -26,6 +26,7 @@ InteractionManager="*res://interaction/interactionManager.tscn"
 DialogManager="*res://autoloader/dialog_manager.gd"
 QuestManager="*res://autoloader/quest_manager.gd"
 TransitionManager="*res://autoloader/transition_manager.gd"
+NarrationUi="*res://transition/ui/narration_ui.tscn"
 
 [global_group]
 

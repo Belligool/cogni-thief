@@ -1,7 +1,5 @@
 extends Node2D
 
-#TODO UI MASIH BELOM BENER
-
 @onready var sprite: AnimatedSprite2D = get_parent().get_node("AnimatedSprite2D")
 @onready var container: MarginContainer = $MarginContainer
 @onready var bubble_bg: NinePatchRect = $MarginContainer/BubbleContainer
@@ -16,7 +14,7 @@ var _typing_timer: float = 0.0
 func _ready() -> void: 
 	hide()
 	var texture_height = sprite.sprite_frames.get_frame_texture("idle", 0).get_height()
-	position.y = -texture_height * sprite.scale.y + 40
+	position.y = -texture_height * sprite.scale.y + 30
 	print(position.y)
 		
 func _process(delta: float) -> void:

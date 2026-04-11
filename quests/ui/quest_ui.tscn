@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxeg4f1oegwdu"]
+
+[ext_resource type="Script" uid="uid://bj0d0hvfp1he2" path="res://quests/ui/quest_ui.gd" id="1_htiun"]
+[ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="2_a614q"]
+
+[node name="QuestUI" type="CanvasLayer"]
+script = ExtResource("1_htiun")
+
+[node name="Container" type="Control" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 20.0
+offset_right = 300.0001
+offset_bottom = 79.0
+scale = Vector2(2, 2)
+
+[node name="Objective" type="Label" parent="Container"]
+layout_mode = 0
+offset_right = 200.00009
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_a614q")
+theme_override_font_sizes/font_size = 16
+text = "
+"

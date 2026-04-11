@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cvailsahsh57i"]
 
-[ext_resource type="Texture2D" uid="uid://d3euwavw74glh" path="res://assets/sprites/chara_2-Sheet.png" id="1_eyc40"]
+[ext_resource type="Texture2D" path="res://assets/sprites/chara_2-Sheet.png" id="1_eyc40"]
 [ext_resource type="AudioStream" uid="uid://qt4y7x3sqqri" path="res://assets/sounds/freesound_community-walking-on-a-wooden-floor-14743.mp3" id="2_q34ow"]
 
 [sub_resource type="GDScript" id="GDScript_37fl5"]

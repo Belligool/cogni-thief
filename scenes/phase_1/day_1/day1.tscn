@@ -1,10 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://dyvgohn20rlm7"]
+[gd_scene load_steps=20 format=3 uid="uid://dyvgohn20rlm7"]
 
-[ext_resource type="Script" uid="uid://0w5h6xcl0aks" path="res://scenes/phase_1/day_1/day_1.gd" id="1_r7yew"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_wi35l"]
-[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="2_dajpv"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_rkh0q"]
-[ext_resource type="Resource" uid="uid://br7fjfsh5j6ls" path="res://quests/definition/phase 1/q_examine_gramaphone.tres" id="3_1bhvo"]
 [ext_resource type="PackedScene" uid="uid://cdu122bjcg3x1" path="res://interaction/interactable objects/matthijs's door.tscn" id="3_pfpnu"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="4_r7yew"]
 [ext_resource type="PackedScene" uid="uid://2e4vei40e5c3" path="res://interaction/interactable objects/parent's door.tscn" id="5_dajpv"]
@@ -15,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="11_h6at1"]
 [ext_resource type="AudioStream" uid="uid://dpja14x86qmdk" path="res://assets/music/Sam Saimun - Dibawah Sinar Bulan Purnama (1952) - Penggiat Bunyi.mp3" id="12_lk34k"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="15_r7yew"]
+[ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="16_dajpv"]
 
 [sub_resource type="GDScript" id="GDScript_lbhrr"]
 script/source = "extends AudioStreamPlayer2D
@@ -56,8 +54,6 @@ scale_curve = SubResource("CurveTexture_iywne")
 color = Color(1, 1, 1, 0.5921569)
 
 [node name="Phase_1_day_1" type="Node2D"]
-script = ExtResource("1_r7yew")
-quests = Array[ExtResource("2_dajpv")]([ExtResource("3_1bhvo")])
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999996)
@@ -142,13 +138,14 @@ process_material = SubResource("ParticleProcessMaterial_p57ef")
 position = Vector2(-40, -7)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-physics_interpolation_mode = 1
 offset = Vector2(0, -33.425)
 zoom = Vector2(12.245, 12.245)
 limit_left = -80
 limit_right = 169
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 4.0
+position_smoothing_speed = 3.0
 
 [node name="ChoicesUI" parent="." instance=ExtResource("15_r7yew")]
+
+[node name="QuestUI" parent="." instance=ExtResource("16_dajpv")]

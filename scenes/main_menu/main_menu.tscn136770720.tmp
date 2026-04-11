@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://de2j12tftcyv4"]
+
+[ext_resource type="Script" uid="uid://87e6kxv50q8n" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
+[ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="2_ob46e"]
+[ext_resource type="Texture2D" uid="uid://clmyfdl0pm4oo" path="res://assets/ui/misc/IMG_4149.PNG" id="3_ob46e"]
+
+[sub_resource type="Curve" id="Curve_uqeha"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iywne"]
+curve = SubResource("Curve_uqeha")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wem23"]
+emission_shape_scale = Vector3(21.275, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(6.18, 31.195, 0)
+spread = 180.0
+initial_velocity_max = 335.58
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 26.46
+scale_curve = SubResource("CurveTexture_iywne")
+color = Color(1, 1, 1, 0.5921569)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uqeha"]
+texture = ExtResource("3_ob46e")
+expand_margin_right = 400.0
+modulate_color = Color(1.0142009, 1.0324234, 1.1660546, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ebjn")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(34, 4)
+scale = Vector2(10.602997, 17.842997)
+amount = 150
+speed_scale = 0.5
+randomness = 1.0
+collision_base_size = 100.0
+trail_lifetime = 0.5
+trail_sections = 2
+trail_section_subdivisions = 2
+process_material = SubResource("ParticleProcessMaterial_wem23")
+
+[node name="Logo" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -910.0
+offset_top = -56.000008
+offset_right = -143.182
+offset_bottom = 710.818
+grow_horizontal = 0
+grow_vertical = 2
+rotation = -0.3848124
+scale = Vector2(0.9139573, 0.9139573)
+theme_override_styles/panel = SubResource("StyleBoxTexture_uqeha")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 293.0
+offset_top = -78.0
+offset_right = 584.91943
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.7991943, 1.7991943)
+theme_override_constants/separation = 10
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ob46e")
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ob46e")
+text = "Exit
+"
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+position = Vector2(569, 314)
+color = Color(5.602208, 5.602208, 5.602208, 1)
+energy = 0.35
+max_distance = 0.0

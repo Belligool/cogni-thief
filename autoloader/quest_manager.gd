@@ -15,6 +15,8 @@ func loaded_quests(quests: Array[QuestData]) -> void:
 	_current_index = 0
 	quest_list_loaded.emit()
 	print("Quest Started")
+	print("quests size: ", _quests.size())
+	print("current index: ", _current_index)
 	_start_current()
 	
 func get_current_quest() -> QuestData:
@@ -26,7 +28,8 @@ func _start_current() -> void:
 	var quest = get_current_quest()
 	if quest == null:
 		return
-	quest_started.emit()
+	print("emitting quest_started: ", quest.title)
+	quest_started.emit(quest)
 	
 func _try_complete(completion_type: QuestData.CompletionType, target: String) -> void:
 	var quest = get_current_quest()
@@ -36,7 +39,7 @@ func _try_complete(completion_type: QuestData.CompletionType, target: String) ->
 	print("comparing type: ", quest.completion_type, " vs ", completion_type)
 	print("comparing target: '", quest.completion_target, "' vs '", target, "'")
 	if quest.completion_type == completion_type and quest.completion_target == target:
-		quest_completed.emit()
+		quest_completed.emit(quest)
 		_current_index += 1
 		_start_current()
 		
