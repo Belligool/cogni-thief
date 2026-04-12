@@ -13,4 +13,4 @@ func _on_interact():
 	audio.play()
 	await audio.finished
 	TransitionManager.change_scene(next_scene, spawn_point_id)
-	await TransitionManager.scene_change_finished 
+	await TransitionManager.scene_change_finished

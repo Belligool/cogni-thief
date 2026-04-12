@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://coekt5yjokfbs"]
+
+[ext_resource type="Script" uid="uid://cs5elske23ivw" path="res://transition/ui/scene_transition_ui.gd" id="1_c07hd"]
+
+[node name="SceneTransitionUi" type="CanvasLayer"]
+script = ExtResource("1_c07hd")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

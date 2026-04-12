@@ -1,14 +1,24 @@
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
 @onready var label = $Label
 
 const base_text = "[E] to "
 
+var player = null
 var active_areas = []
 var can_interact = true
 
+func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
+	TransitionManager.scene_change_finished.connect(_on_scene_changed)
+	
+func _on_scene_changed(_spawn_id: String) -> void:
+	player = get_tree().get_first_node_in_group("player")
+	active_areas.clear()  
+	can_interact = true
+
 func register_area(area: InteractionArea):
+	#print("registering area: ", area.interactable_object_name)
 	active_areas.push_back(area)
 	
 func unregister_area(area: InteractionArea):

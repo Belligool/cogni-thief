@@ -27,6 +27,7 @@ DialogManager="*res://autoloader/dialog_manager.gd"
 QuestManager="*res://autoloader/quest_manager.gd"
 TransitionManager="*res://autoloader/transition_manager.gd"
 NarrationUi="*res://transition/ui/narration_ui.tscn"
+SceneTransitionUi="*res://transition/ui/scene_transition_ui.tscn"
 
 [global_group]
 

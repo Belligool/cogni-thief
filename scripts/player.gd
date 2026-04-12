@@ -4,6 +4,7 @@ const SPEED = 50.0
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var walking_sfx = $AudioStreamPlayer2D
 
+
 func _physics_process(_delta: float) -> void:
 	# If a dialog is taking place stop movement entirely
 	if DialogManager.is_active:
@@ -35,3 +36,4 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	

@@ -1,0 +1,104 @@
+[gd_scene load_steps=15 format=3 uid="uid://b6ow5h7v7ua60"]
+
+[ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_ng7av"]
+[ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_a4w4h"]
+[ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="4_wa7me"]
+[ext_resource type="Script" uid="uid://umadqsrqu4bb" path="res://interaction/interactable scripts/corridors's_door.gd" id="5_3t8rd"]
+[ext_resource type="PackedScene" uid="uid://2e4vei40e5c3" path="res://interaction/interactable objects/door.tscn" id="5_ej4jq"]
+[ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="7_4t4xs"]
+[ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="11_cdy5v"]
+[ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="12_3ygka"]
+[ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="13_jmnus"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+distance = -2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi35l"]
+size = Vector2(3, 88)
+
+[sub_resource type="Curve" id="Curve_lbhrr"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iywne"]
+curve = SubResource("Curve_lbhrr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p57ef"]
+emission_shape_scale = Vector3(21.275, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(6.18, 31.195, 0)
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_iywne")
+color = Color(1, 1, 1, 0.5921569)
+
+[node name="day_1_matthijs_room" type="Node2D"]
+
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(44.999996, -43.999996)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("1_ng7av")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(44.999996, -7.000004)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("2_a4w4h")
+
+[node name="Rug" type="Sprite2D" parent="."]
+position = Vector2(103, -7)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("4_wa7me")
+
+[node name="Corridor\'sDoor" parent="." instance=ExtResource("5_ej4jq")]
+position = Vector2(103, -14)
+script = ExtResource("5_3t8rd")
+next_scene = "res://scenes/phase_1/day_1/day1_corridor.tscn"
+spawn_point_id = "SpawnPoint_FromMatthijsDoor"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="LeftCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCollision"]
+position = Vector2(-24, -44)
+shape = SubResource("RectangleShape2D_wi35l")
+
+[node name="RightCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCollision"]
+position = Vector2(174, -44)
+shape = SubResource("RectangleShape2D_wi35l")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(53, -53)
+amount = 150
+amount_ratio = 0.25
+process_material = SubResource("ParticleProcessMaterial_p57ef")
+
+[node name="Player" parent="." instance=ExtResource("11_cdy5v")]
+position = Vector2(11, -7)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, -33.425)
+zoom = Vector2(12.245, 12.245)
+limit_left = -80
+limit_right = 169
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("7_4t4xs")
+
+[node name="ChoicesUI" parent="." instance=ExtResource("12_3ygka")]
+
+[node name="QuestUI" parent="." instance=ExtResource("13_jmnus")]
+
+[node name="SpawnPoint_FromCorridor" type="Node2D" parent="." groups=["SpawnPoint_FromCorridor"]]
+position = Vector2(103, -7)

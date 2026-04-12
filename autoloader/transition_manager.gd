@@ -4,10 +4,14 @@ signal transition_started
 signal transition_finished
 signal narration_finished
 signal narration_line_changed(text: String)
+signal scene_change_started
+signal scene_change_finished
 
 var is_active: bool = false
 var _data: NarrationData = null
 var _narration_line_index: int = 0
+var _pending_spawn: String = ""
+var _pending_scene: String = ""
 
 #TODO Testing and UI belom
 
@@ -46,6 +50,7 @@ func show_first_line() -> void:
 	_show_line(0)
 	
 func finish() -> void:
+	is_active = false
 	var next = _data.next_scene
 	var quests = _data.next_day_quests
 	_data = null
@@ -55,3 +60,22 @@ func finish() -> void:
 		print("loading quests")
 		QuestManager.loaded_quests(quests)
 	get_tree().change_scene_to_file(next)
+	
+func change_scene(next_scene: String, spawn_point_id: String = "") -> void:
+	if is_active:
+		return
+	is_active = true
+	_pending_spawn = spawn_point_id
+	_pending_scene = next_scene
+	scene_change_started.emit()
+	
+func finish_scene_change() -> void:
+	var next = _pending_scene # temp store
+	var spawn = _pending_spawn
+	_pending_scene = ""
+	_pending_spawn = ""
+	get_tree().change_scene_to_file(next)
+	await get_tree().process_frame
+	await get_tree().process_frame
+	is_active = false
+	scene_change_finished.emit(spawn)

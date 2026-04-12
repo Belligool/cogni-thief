@@ -1,15 +1,16 @@
-[gd_scene load_steps=20 format=3 uid="uid://dyvgohn20rlm7"]
+[gd_scene load_steps=21 format=3 uid="uid://dyvgohn20rlm7"]
 
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_wi35l"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_rkh0q"]
-[ext_resource type="PackedScene" uid="uid://cdu122bjcg3x1" path="res://interaction/interactable objects/matthijs's door.tscn" id="3_pfpnu"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="4_r7yew"]
-[ext_resource type="PackedScene" uid="uid://2e4vei40e5c3" path="res://interaction/interactable objects/parent's door.tscn" id="5_dajpv"]
+[ext_resource type="PackedScene" uid="uid://2e4vei40e5c3" path="res://interaction/interactable objects/door.tscn" id="5_dajpv"]
+[ext_resource type="Script" uid="uid://dfi2vv4g550hj" path="res://interaction/interactable scripts/matthijs's_door.gd" id="5_dkydb"]
 [ext_resource type="Texture2D" uid="uid://de6jaxtvdylg3" path="res://assets/Matthijs/Corridor Room/grandfather_clock.png" id="6_1bhvo"]
 [ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_qa4qy"]
 [ext_resource type="Texture2D" uid="uid://cvrra6jd0q8mb" path="res://assets/Matthijs/Corridor Room/dining_table.png" id="8_ljrn2"]
 [ext_resource type="PackedScene" uid="uid://b5ll47i2xs2fw" path="res://interaction/interactable objects/gramaphone.tscn" id="9_8m3sr"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="11_h6at1"]
+[ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="12_dkydb"]
 [ext_resource type="AudioStream" uid="uid://dpja14x86qmdk" path="res://assets/music/Sam Saimun - Dibawah Sinar Bulan Purnama (1952) - Penggiat Bunyi.mp3" id="12_lk34k"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="15_r7yew"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="16_dajpv"]
@@ -53,7 +54,7 @@ scale_max = 0.59999996
 scale_curve = SubResource("CurveTexture_iywne")
 color = Color(1, 1, 1, 0.5921569)
 
-[node name="Phase_1_day_1" type="Node2D"]
+[node name="day_1_corridor" type="Node2D"]
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999996)
@@ -65,9 +66,6 @@ position = Vector2(44.999996, -7.000004)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("2_rkh0q")
 
-[node name="Matthijs\'sDoor" parent="." instance=ExtResource("3_pfpnu")]
-position = Vector2(-55, -14)
-
 [node name="Rug" type="Sprite2D" parent="."]
 position = Vector2(22.999998, -7)
 scale = Vector2(0.076626636, 0.080555566)
@@ -75,6 +73,12 @@ texture = ExtResource("4_r7yew")
 
 [node name="Parent\'sDoor" parent="." instance=ExtResource("5_dajpv")]
 position = Vector2(8, -14)
+
+[node name="Matthijs\'sDoor" parent="." instance=ExtResource("5_dajpv")]
+position = Vector2(-52, -14)
+script = ExtResource("5_dkydb")
+next_scene = "res://scenes/phase_1/day_1/day1_matthijs_room.tscn"
+spawn_point_id = "SpawnPoint_FromCorridor"
 
 [node name="Grandfather\'s Clock" type="Sprite2D" parent="."]
 position = Vector2(-24.999998, -37.000004)
@@ -135,7 +139,7 @@ amount_ratio = 0.25
 process_material = SubResource("ParticleProcessMaterial_p57ef")
 
 [node name="Player" parent="." instance=ExtResource("11_h6at1")]
-position = Vector2(-40, -7)
+position = Vector2(-33, -7)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -33.425)
@@ -145,7 +149,11 @@ limit_right = 169
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
+script = ExtResource("12_dkydb")
 
 [node name="ChoicesUI" parent="." instance=ExtResource("15_r7yew")]
 
 [node name="QuestUI" parent="." instance=ExtResource("16_dajpv")]
+
+[node name="SpawnPoint_FromMatthijsDoor" type="Node2D" parent="." groups=["SpawnPoint_FromMatthijsDoor"]]
+position = Vector2(-52, -7)

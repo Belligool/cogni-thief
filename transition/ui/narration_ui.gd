@@ -69,14 +69,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			TransitionManager._advance()
 	
 func _on_last_line_done() -> void:
-	# Fade text
+	print("last line done, starting fade")
 	_tween = create_tween()
 	_tween.tween_property(narration_label, "modulate:a", 0.0, 0.5)
 	await _tween.finished
-	# Fade background to black
-	_tween = create_tween()		
+	print("text faded, fading background")
+	_tween = create_tween()
 	_tween.tween_property(background, "modulate:a", 0.0, 1.0)
 	await _tween.finished
-	_is_playing = false 
+	print("background faded, calling finish")
+	_is_playing = false
 	hide()
 	TransitionManager.finish()

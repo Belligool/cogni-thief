@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_sx78k"]
 [ext_resource type="Resource" uid="uid://br7fjfsh5j6ls" path="res://quests/definition/phase 1/q_examine_gramaphone.tres" id="2_22afi"]
-[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_ihmdu"]
+[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://narration_data.gd" id="3_ihmdu"]
 
 [resource]
-script = ExtResource("2_ihmdu")
-lines = Array[String](["Some things are better left unremembered.\",", "But memory has a way of finding you.", "Whether you're ready or not."])
+script = ExtResource("3_ihmdu")
+lines = Array[String](["test"])
 delay_between_lines = 10.0
-next_scene = "res://scenes/phase_1/day_1/day1.tscn"
+next_scene = "res://scenes/phase_1/day_1/day1_matthijs_room.tscn"
 next_day_quests = Array[ExtResource("1_sx78k")]([ExtResource("2_22afi")])
 metadata/_custom_type_script = "uid://bhqs24s4ximjh"
