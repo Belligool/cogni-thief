@@ -70,7 +70,6 @@ trail_section_subdivisions = 2
 process_material = SubResource("ParticleProcessMaterial_wem23")
 
 [node name="Logo" type="Panel" parent="."]
-modulate = Color(1.0180118, 1.0180118, 0.5752277, 1)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0

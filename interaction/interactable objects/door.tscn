@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cfdkyi1nu0xpx" path="res://assets/sounds/freesounds-4u-door-handle-1-401153.mp3" id="4_nlo4m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7khpm"]
-radius = 170.10736
+radius = 104.40234
 
 [node name="Parent\'sDoor" type="Node2D"]
 script = ExtResource("1_sqlxn")
@@ -27,7 +27,7 @@ interactable_object_name = "Parent's Door"
 metadata/_custom_type_script = "uid://cq6r3it7jjj3i"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-13.050293, 1.1838716e-05)
+position = Vector2(-13.050293, -99.31033)
 shape = SubResource("CircleShape2D_7khpm")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

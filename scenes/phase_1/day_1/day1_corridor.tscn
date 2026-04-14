@@ -1,5 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyvgohn20rlm7"]
+[gd_scene load_steps=23 format=3 uid="uid://dyvgohn20rlm7"]
 
+[ext_resource type="Script" uid="uid://cqffuuiyukf4x" path="res://scenes/phase_1/day_1/day_1_corridor.gd" id="1_e7do7"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_wi35l"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_rkh0q"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="4_r7yew"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="11_h6at1"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="12_dkydb"]
 [ext_resource type="AudioStream" uid="uid://dpja14x86qmdk" path="res://assets/music/Sam Saimun - Dibawah Sinar Bulan Purnama (1952) - Penggiat Bunyi.mp3" id="12_lk34k"]
+[ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://scenes/moeder.tscn" id="13_yqwqt"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="15_r7yew"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="16_dajpv"]
 
@@ -55,6 +57,7 @@ scale_curve = SubResource("CurveTexture_iywne")
 color = Color(1, 1, 1, 0.5921569)
 
 [node name="day_1_corridor" type="Node2D"]
+script = ExtResource("1_e7do7")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999996)
@@ -86,7 +89,7 @@ scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("6_1bhvo")
 
 [node name="Cabinet" type="Sprite2D" parent="."]
-position = Vector2(50.999996, -19)
+position = Vector2(37.80821, -19)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("7_qa4qy")
 
@@ -96,7 +99,7 @@ scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("8_ljrn2")
 
 [node name="gramaphone" parent="." instance=ExtResource("9_8m3sr")]
-position = Vector2(51, -25)
+position = Vector2(37.808212, -25)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(51, -28)
@@ -138,8 +141,15 @@ amount = 150
 amount_ratio = 0.25
 process_material = SubResource("ParticleProcessMaterial_p57ef")
 
+[node name="ChoicesUI" parent="." instance=ExtResource("15_r7yew")]
+
+[node name="QuestUI" parent="." instance=ExtResource("16_dajpv")]
+
+[node name="SpawnPoint_FromMatthijsDoor" type="Node2D" parent="." groups=["SpawnPoint_FromMatthijsDoor"]]
+position = Vector2(-52, -7)
+
 [node name="Player" parent="." instance=ExtResource("11_h6at1")]
-position = Vector2(-33, -7)
+position = Vector2(-54, -6)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -33.425)
@@ -151,9 +161,5 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("12_dkydb")
 
-[node name="ChoicesUI" parent="." instance=ExtResource("15_r7yew")]
-
-[node name="QuestUI" parent="." instance=ExtResource("16_dajpv")]
-
-[node name="SpawnPoint_FromMatthijsDoor" type="Node2D" parent="." groups=["SpawnPoint_FromMatthijsDoor"]]
-position = Vector2(-52, -7)
+[node name="moeder" parent="." instance=ExtResource("13_yqwqt")]
+position = Vector2(80, -5)

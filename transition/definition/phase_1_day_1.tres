@@ -1,13 +1,31 @@
-[gd_resource type="Resource" script_class="NarrationData" load_steps=4 format=3 uid="uid://n3we65shm320"]
+[gd_resource type="Resource" script_class="NarrationData" load_steps=5 format=3 uid="uid://n3we65shm320"]
 
 [ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_sx78k"]
-[ext_resource type="Resource" uid="uid://br7fjfsh5j6ls" path="res://quests/definition/phase 1/q_examine_gramaphone.tres" id="2_22afi"]
-[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://narration_data.gd" id="3_ihmdu"]
+[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="3_ihmdu"]
+
+[sub_resource type="Resource" id="Resource_22afi"]
+script = ExtResource("1_sx78k")
+id = "q_reorganize_your_thoughts"
+title = "Reorganize your thoughts"
+objective = "Reorganize your thoughts"
+completion_type = 2
+required_targets = Array[String](["toybox", "family_photo"])
+flag = "unlock_matthijs_door"
+cutscene = "matthijs_bedroom_day1"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[sub_resource type="Resource" id="Resource_ihmdu"]
+script = ExtResource("1_sx78k")
+id = "q_interact_with_mom"
+title = "Talk to the woman in the photo"
+objective = "Talk to the woman in the photo"
+completion_target = "moeder"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
 
 [resource]
 script = ExtResource("3_ihmdu")
 lines = Array[String](["test"])
 delay_between_lines = 10.0
 next_scene = "res://scenes/phase_1/day_1/day1_matthijs_room.tscn"
-next_day_quests = Array[ExtResource("1_sx78k")]([ExtResource("2_22afi")])
+next_day_quests = Array[ExtResource("1_sx78k")]([SubResource("Resource_22afi"), SubResource("Resource_ihmdu")])
 metadata/_custom_type_script = "uid://bhqs24s4ximjh"

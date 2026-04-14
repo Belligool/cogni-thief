@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
 @onready var player = get_tree().get_first_node_in_group("player")
-@onready var bubble = player.get_node("SpeechBubble")
+@onready var thought_bubble = player.get_node("SpeechBubble")
 @export var dialog: DialogData
 @export var puzzle_dialog: DialogData
 @export var puzzle_id: String = ""
@@ -17,7 +17,7 @@ func _on_interact():
 	await DialogManager.dialog_ended
 
 func _on_line_changed(line: DialogLine) -> void:
-	bubble.show_line(line.text)
+	thought_bubble.show_line(line)
 	
 func _on_dialog_ended(_npc_id: String) -> void:
-	bubble.clear()
+	thought_bubble.clear()

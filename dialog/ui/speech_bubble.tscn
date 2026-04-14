@@ -1,24 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt1pjdw052frb"]
+[gd_scene load_steps=5 format=3 uid="uid://bt1pjdw052frb"]
 
-[ext_resource type="Script" uid="uid://bksekc1uu6lbf" path="res://dialog/ui/speech_bubble.gd" id="1_1grvm"]
-[ext_resource type="Texture2D" uid="uid://60ungjhxc5j3" path="res://assets/ui/dialogs/IMG_4084.PNG" id="2_ec8re"]
-[ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="2_v5qyt"]
+[ext_resource type="Script" uid="uid://bksekc1uu6lbf" path="res://dialog/ui/speech_bubble.gd" id="1_vhus8"]
+[ext_resource type="Texture2D" uid="uid://cl0klsbafy0fy" path="res://assets/ui/dialogs/IMG_4085.PNG" id="2_5wdhv"]
+[ext_resource type="Texture2D" uid="uid://60ungjhxc5j3" path="res://assets/ui/dialogs/IMG_4084.PNG" id="3_pyj2l"]
+[ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="4_3vnme"]
 
 [node name="SpeechBubble" type="Node2D"]
-script = ExtResource("1_1grvm")
+script = ExtResource("1_vhus8")
+normal_margins = Vector4(2, 2, 2, 2)
+normal_texture = ExtResource("2_5wdhv")
+thought_texture = ExtResource("3_pyj2l")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(200, 0)
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 130.0
-offset_bottom = 20.0
-scale = Vector2(0.195, 0.195)
+offset_top = -35.0
+offset_right = 25.0
+offset_bottom = -11.0
+scale = Vector2(0.235, 0.235)
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="BubbleContainer" type="NinePatchRect" parent="MarginContainer"]
-custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
-texture = ExtResource("2_ec8re")
+texture = ExtResource("3_pyj2l")
 region_rect = Rect2(0, 0, 18, 14)
 patch_margin_left = 15
 patch_margin_top = 12
@@ -27,6 +30,8 @@ patch_margin_bottom = 12
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 12
@@ -34,8 +39,9 @@ theme_override_constants/margin_bottom = 12
 
 [node name="DialogText" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_v5qyt")
+theme_override_fonts/normal_font = ExtResource("4_3vnme")
 theme_override_font_sizes/normal_font_size = 8
 theme_override_font_sizes/bold_font_size = 8
 theme_override_font_sizes/bold_italics_font_size = 8
@@ -43,3 +49,5 @@ theme_override_font_sizes/italics_font_size = 8
 theme_override_font_sizes/mono_font_size = 8
 bbcode_enabled = true
 fit_content = true
+scroll_active = false
+autowrap_mode = 2

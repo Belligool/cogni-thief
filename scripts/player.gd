@@ -3,9 +3,11 @@ const SPEED = 50.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var walking_sfx = $AudioStreamPlayer2D
-
+@onready var is_frozen = false
 
 func _physics_process(_delta: float) -> void:
+	if is_frozen:
+		return
 	# If a dialog is taking place stop movement entirely
 	if DialogManager.is_active:
 		velocity = Vector2.ZERO

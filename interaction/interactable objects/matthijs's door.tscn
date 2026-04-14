@@ -22,7 +22,7 @@ func _on_interact():
 [sub_resource type="CircleShape2D" id="CircleShape2D_7khpm"]
 radius = 170.10736
 
-[node name="Matthijs\'sDoor" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 script = SubResource("GDScript_44s2o")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -36,7 +36,6 @@ scale = Vector2(0.076626636, 0.08055556)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("3_wxuyc")
-action_name = "open door"
 interactable_object_name = "Matthijs's Door"
 metadata/_custom_type_script = "uid://cq6r3it7jjj3i"
 

@@ -45,12 +45,16 @@ func _show_line(index: int) -> void:
 	
 func _end() -> void:
 	var npc_id = _current.npc_id
+	var object_id = _current.object_id
 	var is_quest = _current.is_quest_dialog
 	is_active = false
 	_current = null
 	dialog_ended.emit(npc_id)
 	if is_quest:
-		QuestManager.notify_dialog_ended(npc_id)
+		if npc_id == null:
+			QuestManager.notify_dialog_ended(object_id)
+		else:
+			QuestManager.notify_dialog_ended(npc_id)
 		
 
 func _unhandled_input(event: InputEvent) -> void:

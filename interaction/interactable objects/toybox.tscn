@@ -1,29 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5ll47i2xs2fw"]
+[gd_scene load_steps=6 format=3 uid="uid://bfs16q60d3aqi"]
 
-[ext_resource type="Texture2D" uid="uid://bwmhatvs3rl5c" path="res://assets/Matthijs/Corridor Room/gramaphone.png" id="1_3bpq6"]
-[ext_resource type="Script" uid="uid://387uhq2744o" path="res://interaction/interactable objects/gramaphone.gd" id="1_d1qyr"]
-[ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="2_d1qyr"]
-[ext_resource type="Resource" uid="uid://clup1uyouhssy" path="res://dialog/definition/gramaphone_dialog.tres" id="2_m84q4"]
+[ext_resource type="Script" uid="uid://duwqelo2pn3pi" path="res://interaction/interactable objects/toybox.gd" id="1_rxcj8"]
+[ext_resource type="Resource" uid="uid://cufpb155vvoh4" path="res://dialog/definition/toybox.tres" id="2_vi3db"]
+[ext_resource type="Texture2D" uid="uid://bwmhatvs3rl5c" path="res://assets/Matthijs/Corridor Room/gramaphone.png" id="3_r1tiq"]
+[ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="4_gw1bu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m84q4"]
 radius = 170.10736
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_d1qyr")
-dialog = ExtResource("2_m84q4")
+script = ExtResource("1_rxcj8")
+dialog = ExtResource("2_vi3db")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3.8146973e-06, -12.000002)
 scale = Vector2(0.076626636, 0.080555566)
-texture = ExtResource("1_3bpq6")
+texture = ExtResource("3_r1tiq")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 position = Vector2(1, -13.000001)
 scale = Vector2(0.076626636, 0.08055556)
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("2_d1qyr")
-interactable_object_name = "gramaphone"
+script = ExtResource("4_gw1bu")
+interactable_object_name = "toybox"
 metadata/_custom_type_script = "uid://cq6r3it7jjj3i"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]

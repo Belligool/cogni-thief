@@ -20,7 +20,6 @@ func _ready() -> void:
 	background.modulate.a = 0.0
 	hide()
  
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not _typing:
 		return
