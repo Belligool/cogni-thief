@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var audio = $AudioListener2D
 @onready var sprite: AnimatedSprite2D = get_parent().get_node("AnimatedSprite2D")
 @onready var container: MarginContainer = $MarginContainer
 @onready var bubble_bg: NinePatchRect = $MarginContainer/BubbleContainer
@@ -15,16 +16,20 @@ var _chars_shown: int = 0
 var _typing: bool = false
 var _typing_speed: float = 0.03
 var _typing_timer: float = 0.0
+var _speaker: String = ""
+var _is_visible_and_active: bool = false
 
 func _ready() -> void: 
 	hide()
 	# Position handling for the bubble to always be ontop of the current talking sprite
 func _process(delta: float) -> void:
+	if not _is_visible_and_active or not _typing:
+		return
 	bubble_bg.size = container.size
 	bubble_bg.position = Vector2.ZERO
 	var texture_height = sprite.sprite_frames.get_frame_texture("idle", 0).get_height()
 	position.y = -texture_height * sprite.scale.y + 28
-	position.x = -10
+	#position.x = -10
 	
 	if not _typing:
 		return
@@ -32,9 +37,17 @@ func _process(delta: float) -> void:
 	if _typing_timer >= _typing_speed:
 		_typing_timer = 0.0
 		_chars_shown += 1
+		
+		var current_char = _full_text[_chars_shown - 1]
 		dialog_text.text = _full_text.left(_chars_shown)
+		
+		# Only play sound if the character isn't a space
+		if current_char.strip_edges() != "" and current_char != ".":
+			_play_voice_blip()
+		
 		if _chars_shown >= _full_text.length():
 			_typing = false
+			dialog_text.text = _full_text
 			
 		var last_char = _full_text[_chars_shown - 1]
 		if last_char in [".", "!", "?", "—"]:
@@ -44,7 +57,8 @@ func _process(delta: float) -> void:
 
 func show_line(data: DialogLine) ->  void:
 	show()
-	
+	_is_visible_and_active = true 
+	_speaker = data.speaker
 	dialog_text.autowrap_mode = TextServer.AUTOWRAP_OFF
 	dialog_text.custom_minimum_size.x = 0
 	
@@ -71,10 +85,12 @@ func show_line(data: DialogLine) ->  void:
 	# Handle UI if dialog is thought or not
 	if data.is_dialog_thought and thought_texture:
 		bubble_bg.texture = thought_texture
+		#bubble_bg.modulate.a = 0.5
 		_update_margin(thought_margin)
 		
 	elif normal_texture:
 		bubble_bg.texture = normal_texture
+		#bubble_bg.modulate.a = 1.0
 		_update_margin(normal_margins)
 
 	_chars_shown = 0
@@ -94,6 +110,15 @@ func _update_margin(m: Vector4) -> void:
 
 func clear() -> void:
 	hide()
+	_is_visible_and_active = false
 	dialog_text.text = ""
 	_full_text = ""
 	_typing = false
+
+func _play_voice_blip() -> void:
+	if _speaker != "mc":
+		audio.pitch_scale = randf_range(1.5,2.0) 
+		audio.play()
+	else:
+		audio.pitch_scale = randf_range(0.7, 1.1) 
+		audio.play()

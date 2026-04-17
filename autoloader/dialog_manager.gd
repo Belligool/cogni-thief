@@ -8,6 +8,9 @@ var is_active: bool = false
 var _current: DialogData = null
 var _line_index: int = 0
 
+func _ready() -> void:
+	pass
+
 func start(dialog: DialogData) -> void:
 	if is_active:
 		return # Don't disturb current dialog

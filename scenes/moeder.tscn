@@ -65,7 +65,7 @@ size = Vector2(14.5, 31)
 
 [node name="moeder" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 5
+collision_mask = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.09375095, -20.435211)
@@ -84,3 +84,4 @@ stream = ExtResource("4_7oqnh")
 pitch_scale = 1.16
 
 [node name="SpeechBubble" parent="." instance=ExtResource("4_m57o5")]
+position = Vector2(-29, -2)

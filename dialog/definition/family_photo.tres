@@ -12,7 +12,7 @@ metadata/_custom_type_script = "uid://dlfh74f7gy1re"
 
 [sub_resource type="Resource" id="Resource_iikge"]
 script = ExtResource("1_gq7s7")
-speaker = "Matthijs"
+speaker = "mc"
 text = "That woman… feels warm, safe. "
 choices = Array[ExtResource("2_xe6i3")]([SubResource("Resource_5nlx6")])
 is_dialog_thought = true
@@ -20,18 +20,21 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_d8ria"]
 script = ExtResource("1_gq7s7")
+speaker = "mc"
 text = "Pretty words..."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_xe6i3"]
 script = ExtResource("1_gq7s7")
+speaker = "mc"
 text = "Matthijs."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_a52w4"]
 script = ExtResource("1_gq7s7")
+speaker = "mc"
 text = "Me?"
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"

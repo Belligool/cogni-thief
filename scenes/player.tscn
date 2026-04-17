@@ -83,7 +83,8 @@ shape = SubResource("RectangleShape2D_g2els")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qhqgy")
+volume_db = 10.0
 pitch_scale = 1.16
 
 [node name="SpeechBubble" parent="." instance=ExtResource("4_dqkch")]
-position = Vector2(-9, -11)
+position = Vector2(-3, -2)

@@ -6,12 +6,14 @@
 
 [sub_resource type="Resource" id="Resource_j78uk"]
 script = ExtResource("1_h7tm5")
+speaker = "mc"
 text = "So full.."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_5blex"]
 script = ExtResource("1_h7tm5")
+speaker = "mc"
 text = "..too much. For this little body."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 

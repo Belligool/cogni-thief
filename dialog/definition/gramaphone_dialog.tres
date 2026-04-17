@@ -6,26 +6,28 @@
 
 [sub_resource type="Resource" id="Resource_hcqsn"]
 script = ExtResource("1_mnbva")
-speaker = "Matthijs"
+speaker = "mc"
 text = "The plate just keeps spinning, dizzy and dark."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_1i5ca"]
 script = ExtResource("1_mnbva")
-speaker = "Matthijs"
+speaker = "mc"
 text = "The little needle is eating the silence and turning it into gold."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_twa7e"]
 script = ExtResource("1_mnbva")
+speaker = "mc"
 text = "Moedera is smiling, swaying her head just a little bit, but I’m just staring at that brass horn."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_7qvrl"]
 script = ExtResource("1_mnbva")
+speaker = "mc"
 text = "It’s shouting something at us, yet it feels soothing."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"

@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bt1pjdw052frb"]
+[gd_scene load_steps=6 format=3 uid="uid://bt1pjdw052frb"]
 
 [ext_resource type="Script" uid="uid://bksekc1uu6lbf" path="res://dialog/ui/speech_bubble.gd" id="1_vhus8"]
-[ext_resource type="Texture2D" uid="uid://cl0klsbafy0fy" path="res://assets/ui/dialogs/IMG_4085.PNG" id="2_5wdhv"]
+[ext_resource type="Texture2D" uid="uid://c6085jreqqmlr" path="res://assets/ui/dialogs/IMG_4151.PNG" id="2_vhus8"]
 [ext_resource type="Texture2D" uid="uid://60ungjhxc5j3" path="res://assets/ui/dialogs/IMG_4084.PNG" id="3_pyj2l"]
 [ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="4_3vnme"]
+[ext_resource type="AudioStream" uid="uid://dnfjxagnvwjls" path="res://assets/sounds/dialog/Fast01/SFX_FastSinglev4.wav" id="5_5wdhv"]
 
 [node name="SpeechBubble" type="Node2D"]
 script = ExtResource("1_vhus8")
 normal_margins = Vector4(2, 2, 2, 2)
-normal_texture = ExtResource("2_5wdhv")
+normal_texture = ExtResource("2_vhus8")
 thought_texture = ExtResource("3_pyj2l")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -21,8 +22,8 @@ size_flags_vertical = 0
 
 [node name="BubbleContainer" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("3_pyj2l")
-region_rect = Rect2(0, 0, 18, 14)
+texture = ExtResource("2_vhus8")
+region_rect = Rect2(0, 0, 18, 15)
 patch_margin_left = 15
 patch_margin_top = 12
 patch_margin_right = 4
@@ -51,3 +52,8 @@ bbcode_enabled = true
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
+
+[node name="AudioListener2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_5wdhv")
+volume_db = -5.0
+autoplay = true

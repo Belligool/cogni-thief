@@ -12,7 +12,7 @@ func _on_started() -> void:
 	if _tween:
 		_tween.kill()
 	_tween = create_tween()
-	_tween.tween_property(background, "modulate:a", 1.0, 1.0)
+	_tween.tween_property(background, "modulate:a", 1.0, 0.2)
 	await _tween.finished
 	TransitionManager.finish_scene_change()
 	
@@ -29,6 +29,6 @@ func _on_finished(spawn_id: String) -> void:
 	if _tween:
 		_tween.kill()
 	_tween = create_tween()
-	_tween.tween_property(background, "modulate:a", 0.0, 1.0)
+	_tween.tween_property(background, "modulate:a", 0.0, 0.2)
 	
 	
