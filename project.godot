@@ -29,6 +29,12 @@ TransitionManager="*res://autoloader/transition_manager.gd"
 NarrationUi="*res://transition/ui/narration_ui.tscn"
 SceneTransitionUi="*res://transition/ui/scene_transition_ui.tscn"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+
 [global_group]
 
 player=""
