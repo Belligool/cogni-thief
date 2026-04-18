@@ -86,5 +86,5 @@ stream = ExtResource("3_qhqgy")
 volume_db = 10.0
 pitch_scale = 1.16
 
-[node name="SpeechBubble" parent="." instance=ExtResource("4_dqkch")]
+[node name="SpeechBubble" parent="." groups=["speech_bubble"] instance=ExtResource("4_dqkch")]
 position = Vector2(-3, -2)

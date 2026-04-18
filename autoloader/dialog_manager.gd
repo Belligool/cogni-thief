@@ -64,5 +64,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:
 		return
 	if event.is_action_pressed("next_dialog"):
-		advance()
+		var bubble = _get_bubble()
+		if bubble._typing:
+			bubble.skip_typing()
+		else:
+			advance()
+
+func _get_bubble() -> Node:
+	return get_tree().get_first_node_in_group("speech_bubble")
 		
