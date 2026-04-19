@@ -24,7 +24,7 @@ metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
 
 [resource]
 script = ExtResource("3_ihmdu")
-lines = Array[String](["test"])
+lines = Array[String](["Day 1"])
 delay_between_lines = 10.0
 next_scene = "res://scenes/phase_1/day_1/day1_matthijs_room.tscn"
 next_day_quests = Array[ExtResource("1_sx78k")]([SubResource("Resource_22afi"), SubResource("Resource_ihmdu")])

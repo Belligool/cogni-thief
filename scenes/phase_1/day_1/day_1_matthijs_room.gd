@@ -30,20 +30,20 @@ func start_cutscene(cutscene_id: String) -> void:
 	_shake_camera(0.4, 10)
 	await _walk_player_to_moeder()
 	
-	await _play_bubble(moeder_bubble, "???", "Schatje.. Darling, are you awake?", false)
+	await _play_bubble(moeder_bubble, "???", "Schatje.. Darling, are you awake?", false, "Sweetie.. Darling, are you awake?")
 	
 	
-	await _play_bubble(moeder_bubble, "???", "Liefje?", false)
+	await _play_bubble(moeder_bubble, "???", "Liefje?", false, "Darling?")
 	await get_tree().create_timer(0.5).timeout
 	
 	await _play_bubble(player_bubble, "mc", "Mamma..? I'm- Matthijs' is sorry..", false)
 	
-	await _play_bubble(moeder_bubble, "Mamma", "Worry not, Schatje.", false)
+	await _play_bubble(moeder_bubble, "Mamma", "Worry not, Schatje.", false, "Worry not, Sweetie.")
 	await _play_bubble(moeder_bubble, "Mamma", "You just woke up from your nap.", false)
 	await _play_bubble(moeder_bubble, "Mamma", "Have you not?", false)
 	await _play_bubble(moeder_bubble, "Mamma", "It's time for afternoon tea.", false)
 	await _play_bubble(moeder_bubble, "Mamma", "Your father is waiting for you.", false)
-	await _play_bubble(moeder_bubble, "Mamma", "Be sure to look presentable, verstaan?", false)
+	await _play_bubble(moeder_bubble, "Mamma", "Be sure to look presentable, verstaan?", false, "Be sure to look presentable, understood?")
 	
 	var tween = create_tween()
 	tween.tween_property(moeder, "modulate:a", 0.0, 1)
@@ -55,11 +55,12 @@ func start_cutscene(cutscene_id: String) -> void:
 	await _play_bubble(player_bubble, "mc", "That was involuntary.", true)
 	player.is_frozen = false
 	
-func _play_bubble(bubble_node, speaker_name, text_content, is_thought) -> void:
+func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translation: String = "") -> void:
 	var data = DialogLine.new()
 	data.text = text_content
 	data.is_dialog_thought = is_thought
 	data.speaker = speaker_name
+	data.translation = translation
 	
 	bubble_node.show_line(data)
 	

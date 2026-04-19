@@ -4,7 +4,8 @@ extends Node2D
 @onready var sprite: AnimatedSprite2D = get_parent().get_node("AnimatedSprite2D")
 @onready var container: MarginContainer = $MarginContainer
 @onready var bubble_bg: NinePatchRect = $MarginContainer/BubbleContainer
-@onready var dialog_text:RichTextLabel = $MarginContainer/MarginContainer/DialogText
+@onready var dialog_text:RichTextLabel = $MarginContainer/MarginContainer/VBoxContainer/DialogText
+@onready var translation_text: RichTextLabel = $MarginContainer/MarginContainer/VBoxContainer/TranslationText
 
 @export var thought_margin: Vector4 = Vector4(15, 12, 4, 12) # Left, Top, Right, Bottom
 @export var normal_margins: Vector4 = Vector4(16, 16, 16, 16)
@@ -18,6 +19,8 @@ var _typing_speed: float = 0.03
 var _typing_timer: float = 0.0
 var _speaker: String = ""
 var _is_visible_and_active: bool = false
+var _full_translation: String = ""
+var _translation_chars_shown: int = 0
 
 func _ready() -> void: 
 	hide()
@@ -41,6 +44,10 @@ func _process(delta: float) -> void:
 		var current_char = _full_text[_chars_shown - 1]
 		dialog_text.text = _full_text.left(_chars_shown)
 		
+		if _full_translation != "" and _translation_chars_shown < _full_translation.length():
+			_translation_chars_shown += 1
+			translation_text.text = _full_translation.left(_translation_chars_shown)
+		
 		# Only play sound if the character isn't a space
 		if current_char.strip_edges() != "" and current_char != ".":
 			_play_voice_blip()
@@ -49,6 +56,10 @@ func _process(delta: float) -> void:
 			_typing = false
 			dialog_text.text = _full_text
 			
+			if _full_translation != "":
+				translation_text.text = _full_translation
+				_translation_chars_shown = _full_translation.length()
+		
 		var last_char = _full_text[_chars_shown - 1]
 		if last_char in [".", "!", "?", "—"]:
 			_typing_timer = -0.5 # Wait an extra 0.5 seconds
@@ -61,6 +72,8 @@ func show_line(data: DialogLine) ->  void:
 	_speaker = data.speaker
 	dialog_text.autowrap_mode = TextServer.AUTOWRAP_OFF
 	dialog_text.custom_minimum_size.x = 0
+	
+	_translation_chars_shown = 0
 	
 	_full_text = data.text
 	dialog_text.text = ""
@@ -92,6 +105,13 @@ func show_line(data: DialogLine) ->  void:
 		bubble_bg.texture = normal_texture
 		#bubble_bg.modulate.a = 1.0
 		_update_margin(normal_margins)
+	
+	_full_translation = data.translation
+	translation_text.text = ""
+	if data.translation != "":
+		translation_text.show()
+	else:
+		translation_text.hide()
 
 	_chars_shown = 0
 	_typing_timer = 0.0
@@ -101,6 +121,8 @@ func skip_typing() -> void:
 	if _typing:
 		_typing = false
 		dialog_text.text = _full_text
+		translation_text.text = _full_translation
+		_translation_chars_shown = _full_translation.length()
 		
 func _update_margin(m: Vector4) -> void:
 	bubble_bg.patch_margin_left = int(m.x)
@@ -114,6 +136,10 @@ func clear() -> void:
 	dialog_text.text = ""
 	_full_text = ""
 	_typing = false
+	_full_translation = ""
+	_translation_chars_shown = 0
+	translation_text.text = ""
+	translation_text.hide()
 
 func _play_voice_blip() -> void:
 	if _speaker != "mc":
