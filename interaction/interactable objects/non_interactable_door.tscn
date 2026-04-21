@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqctrra2rk5pi"]
+
+[ext_resource type="Script" uid="uid://c8hg6ory8qmup" path="res://interaction/interactable scripts/parent's_door.gd" id="1_jouuc"]
+[ext_resource type="Texture2D" uid="uid://db24i377j2845" path="res://assets/Matthijs/Corridor Room/door.png" id="2_bl1ww"]
+
+[node name="door" type="Node2D"]
+script = ExtResource("1_jouuc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -26)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("2_bl1ww")

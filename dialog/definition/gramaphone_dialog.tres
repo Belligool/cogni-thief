@@ -34,6 +34,7 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [resource]
 script = ExtResource("2_twa7e")
+npc_id = "gramaphone"
 object_id = "gramaphone"
 lines = Array[ExtResource("1_mnbva")]([SubResource("Resource_hcqsn"), SubResource("Resource_1i5ca"), SubResource("Resource_twa7e"), SubResource("Resource_7qvrl")])
 metadata/_custom_type_script = "uid://cq8iorar8inmf"

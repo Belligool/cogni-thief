@@ -8,6 +8,7 @@ signal quest_list_loaded
 signal trigger_cutscene(scene: String)
 signal trigger_flag(flag: String)
 
+var _current_day: int = 0
 var triggered_flags: Array[String] = []
 var _completed_targets: Array[String] = []
 var _completed_cutscenes: Array[String] = []
@@ -43,7 +44,7 @@ func _try_complete(completion_type: QuestData.CompletionType, target: String) ->
 	if quest == null:
 		return 
 	
-	print("comparing type: ", quest.completion_type, " vs ", completion_type)
+	#d
 	if quest.completion_type == completion_type and quest.completion_target == target:
 		print("comparing target: '", quest.completion_target, "' vs '", target, "'")
 		quest_completed.emit(quest)
@@ -59,13 +60,14 @@ func _try_complete(completion_type: QuestData.CompletionType, target: String) ->
 		
 func _trigger_flag(quest: QuestData) -> void:
 	if quest.flag != null:
-		trigger_flag.emit(quest.flag)
 		triggered_flags.append(quest.flag)
+		trigger_flag.emit(quest.flag)
 		
 func _trigger_cutscene(quest: QuestData) -> void:
 	if quest.cutscene != null:
-		trigger_cutscene.emit(quest.cutscene)
 		_completed_cutscenes.append(quest.cutscene)
+		trigger_cutscene.emit(quest.cutscene)
+		print(quest.cutscene)
 
 func is_flag_active(flag_name: String) -> bool:
 	return triggered_flags.has(flag_name)
@@ -87,7 +89,14 @@ func _try_complete_multi(target: String) -> void:
 		_trigger_flag(quest)
 		_trigger_cutscene(quest)
 		_start_current()
-	
+
+
+func set_day(day: int) -> void:
+	_current_day = day
+
+func get_current_day() -> int:
+	return _current_day
+
 func notify_dialog_ended(npc_id: String) -> void:
 	_try_complete(QuestData.CompletionType.DIALOG, npc_id)
 	
@@ -97,6 +106,12 @@ func notify_interaction(object_name: String) -> void:
 func was_intro_seen(scene_id: String) -> bool:
 	return _completed_intros.has(scene_id)
 	
-func mark_intro_dome(scene_id: String) -> void:
+func was_cutscene_seen(scene_id: String) -> bool:
+	return _completed_cutscenes.has(scene_id)
+	
+func mark_intro_done(scene_id: String) -> void:
 	if not _completed_intros.has(scene_id):
 		_completed_intros.append(scene_id)
+		
+func notify_proximity(target_id: String) -> void:
+	_try_complete(QuestData.CompletionType.PROXIMITY, target_id)

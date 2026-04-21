@@ -1,0 +1,56 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhdcosw252jm1"]
+
+[ext_resource type="Script" uid="uid://s2unlfpw8rms" path="res://interaction/interactable objects/drawer.gd" id="1_hrci6"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_n8bys"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_erqi5"]
+[ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="3_xms4f"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_k6r4v"]
+[ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="4_n8bys"]
+
+[sub_resource type="Resource" id="Resource_4lpms"]
+script = ExtResource("2_n8bys")
+speaker = "mc"
+text = "Another poor drawing in a crumpled paper."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_uoi5y"]
+script = ExtResource("2_n8bys")
+speaker = "mc"
+text = " This should be… the huge clock?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_i1e3u"]
+script = ExtResource("4_k6r4v")
+npc_id = "drawer"
+object_id = "drawer"
+lines = Array[ExtResource("2_n8bys")]([SubResource("Resource_4lpms"), SubResource("Resource_uoi5y")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m84q4"]
+radius = 170.10736
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hrci6")
+dialog = SubResource("Resource_i1e3u")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("3_xms4f")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(1, -13.000001)
+scale = Vector2(0.076626636, 0.08055556)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_n8bys")
+interactable_object_name = "drawer"
+metadata/_custom_type_script = "uid://cq6r3it7jjj3i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-13.0503235, 24.827606)
+shape = SubResource("CircleShape2D_m84q4")
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]

@@ -7,6 +7,7 @@ const SPEED = 50.0
 
 func _physics_process(_delta: float) -> void:
 	if is_frozen:
+		walking_sfx.stop()
 		return
 	# If a dialog is taking place stop movement entirely
 	if DialogManager.is_active:

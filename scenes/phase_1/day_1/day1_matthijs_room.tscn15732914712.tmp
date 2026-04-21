@@ -9,13 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://2e4vei40e5c3" path="res://interaction/interactable objects/door.tscn" id="5_ej4jq"]
 [ext_resource type="PackedScene" uid="uid://cutpsqt7xhtt0" path="res://interaction/interactable objects/family_photo.tscn" id="5_s0e10"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="7_4t4xs"]
-[ext_resource type="PackedScene" uid="uid://bhdcosw252jm1" path="res://interaction/interactable objects/drawer.tscn" id="8_ej4jq"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="8_ng7av"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="9_3jg8l"]
 [ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="9_a4w4h"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="11_cdy5v"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="12_3ygka"]
-[ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://npc/moeder.tscn" id="12_wa7me"]
+[ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://scenes/moeder.tscn" id="12_wa7me"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="13_jmnus"]
 
 [sub_resource type="Resource" id="Resource_dftoo"]
@@ -60,27 +59,30 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_ulpun"]
 script = ExtResource("9_a4w4h")
-npc_id = "premise"
 lines = Array[ExtResource("8_ng7av")]([SubResource("Resource_dftoo"), SubResource("Resource_cdy5v"), SubResource("Resource_p8yx6"), SubResource("Resource_y61dt"), SubResource("Resource_0fmxo")])
 metadata/_custom_type_script = "uid://cq8iorar8inmf"
 
 [sub_resource type="Resource" id="Resource_wa7me"]
 script = ExtResource("8_ng7av")
-text = "Wait"
+text = "The brass handle feels a mile high, and my hands... they're so small."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_ej4jq"]
 script = ExtResource("8_ng7av")
-text = "I need to remember."
+text = "I can't walk outside just yet."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_a4w4h"]
+script = ExtResource("8_ng7av")
+text = "Everything here is a clue to a life I don't remember."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_3jg8l"]
 script = ExtResource("9_a4w4h")
-npc_id = "corridor'sDoor"
-object_id = "corridor'sDoor"
-lines = Array[ExtResource("8_ng7av")]([SubResource("Resource_wa7me"), SubResource("Resource_ej4jq")])
+lines = Array[ExtResource("8_ng7av")]([SubResource("Resource_wa7me"), SubResource("Resource_ej4jq"), SubResource("Resource_a4w4h")])
 metadata/_custom_type_script = "uid://cq8iorar8inmf"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
@@ -127,9 +129,6 @@ position = Vector2(55.999996, -19)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("3_4t4xs")
 
-[node name="Drawer" parent="." instance=ExtResource("8_ej4jq")]
-position = Vector2(81, -12)
-
 [node name="Toybox" parent="." instance=ExtResource("4_5w55o")]
 position = Vector2(57, -25)
 
@@ -174,10 +173,7 @@ amount_ratio = 0.25
 process_material = SubResource("ParticleProcessMaterial_p57ef")
 
 [node name="Moeder" parent="." instance=ExtResource("12_wa7me")]
-position = Vector2(128, -8)
-required_flag = "unlock_interact_with_mother_day_1"
-sets_flag = ""
-one_time_only = false
+position = Vector2(145, -8)
 
 [node name="Player" parent="." instance=ExtResource("11_cdy5v")]
 position = Vector2(11, -8)

@@ -2,23 +2,50 @@ extends Node2D
 
 @onready var moeder = $Moeder
 @onready var player = $Player
+@onready var camera = $Player/Camera2D
+@onready var initialPos = camera.offset
 @onready var player_bubble = $Player/SpeechBubble
 @onready var moeder_bubble = $Moeder/SpeechBubble
 
 @export var intro_dialog: DialogData
 @export var scene_id: String = "matthijs_bedroom_day1"
 
+var shake_strength: float = 0.0
+var shake_fade: float = 5.0
+var randomStrength: float = 30.0
+
+func _process(delta: float) -> void:
+	if shake_strength > 0:
+		shake_strength = lerpf(shake_strength, 0, shake_fade * delta)
+		camera.offset = initialPos + _shake_camera()
+	else:
+		camera.offset = initialPos
+	
+func _on_premise_line_changed(line: DialogLine) -> void:
+	if not DialogManager.is_active:
+		return
+	# only handle the premise dialog
+	if DialogManager._current.npc_id != "premise":  # ← match npc_id in intro_dialog.tres
+		return
+	if line.speaker == "mc":
+		player_bubble.show_line(line)
+
+func _on_premise_dialog_ended(_npc_id: String) -> void:
+	player_bubble.clear()
+
 func _ready() -> void:
+	DialogManager.line_changed.connect(_on_premise_line_changed)
+	DialogManager.dialog_ended.connect(_on_premise_dialog_ended)
 	if not QuestManager.was_intro_seen(scene_id):
 		_play_premise()
 	QuestManager.trigger_cutscene.connect(start_cutscene) 
-	moeder.hide()
+	_hide_npc(moeder)
 
 func _play_premise() -> void:
 	player.is_frozen = true
 	await get_tree().create_timer(1.0).timeout
 	DialogManager.start(intro_dialog)
-	QuestManager.mark_intro_dome(scene_id)
+	QuestManager.mark_intro_done(scene_id)
 	player.is_frozen = false
 
 func start_cutscene(cutscene_id: String) -> void:
@@ -27,32 +54,40 @@ func start_cutscene(cutscene_id: String) -> void:
 	moeder.show()
 	_mamma_face_player()
 	
-	_shake_camera(0.4, 10)
+	shake_strength = randomStrength
+	await get_tree().create_timer(1).timeout
+	
 	await _walk_player_to_moeder()
 	
-	await _play_bubble(moeder_bubble, "???", "Schatje.. Darling, are you awake?", false, "Sweetie.. Darling, are you awake?")
+	await _play_bubble(moeder_bubble, "???", "Schatje...", false, "Sweetie...")
+	await _play_bubble(moeder_bubble, "???", "Are you awake?", false)
 	
 	
-	await _play_bubble(moeder_bubble, "???", "Liefje?", false, "Darling?")
+	await _play_bubble(moeder_bubble, "???", "Liefje?", false, "Little treasure?")
 	await get_tree().create_timer(0.5).timeout
-	
+	await _play_bubble(player_bubble, "mc", "The... warm lady from that picture?", true)
+	await get_tree().create_timer(0.8).timeout
 	await _play_bubble(player_bubble, "mc", "Mamma..? I'm- Matthijs' is sorry..", false)
 	
 	await _play_bubble(moeder_bubble, "Mamma", "Worry not, Schatje.", false, "Worry not, Sweetie.")
 	await _play_bubble(moeder_bubble, "Mamma", "You just woke up from your nap.", false)
 	await _play_bubble(moeder_bubble, "Mamma", "Have you not?", false)
 	await _play_bubble(moeder_bubble, "Mamma", "It's time for afternoon tea.", false)
-	await _play_bubble(moeder_bubble, "Mamma", "Your father is waiting for you.", false)
-	await _play_bubble(moeder_bubble, "Mamma", "Be sure to look presentable, verstaan?", false, "Be sure to look presentable, understood?")
+	await _play_bubble(moeder_bubble, "Mamma", "Father is waiting for you.", false)
+	await _play_bubble(moeder_bubble, "Mamma", "Be sure to look presentable.", false)
+	await _play_bubble(moeder_bubble, "Mamma", "verstaan?", false, "understand?  ")
 	
+	await _play_bubble(player_bubble, "mc", "Yes, Mamma.", false)
 	var tween = create_tween()
 	tween.tween_property(moeder, "modulate:a", 0.0, 1)
 	await tween.finished
-	moeder.hide()
+	_hide_npc(moeder)
 	
 	await get_tree().create_timer(1).timeout
-	
 	await _play_bubble(player_bubble, "mc", "That was involuntary.", true)
+	await _play_bubble(player_bubble, "mc", "Seems like Matthijs is a good child.", false)
+	await _play_bubble(player_bubble, "mc", "Especially to his Mamma", false)
+	await _play_bubble(player_bubble, "mc", "..I should follow her.", false)
 	player.is_frozen = false
 	
 func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translation: String = "") -> void:
@@ -101,23 +136,15 @@ func _walk_player_to_moeder() -> void:
 	
 	player_sprite.play("idle")
 	
-func _shake_camera(duration: float, strength: float) -> void:
-	var cam = get_viewport().get_camera_2d()
-	if not cam: return
+func _shake_camera() -> Vector2:
+	var rng = RandomNumberGenerator.new()
+	return Vector2(rng.randf_range(-shake_strength, shake_strength), rng.randf_range(-shake_strength, shake_strength))
 	
-	var original_offset = cam.offset
-	var tween = create_tween()
-	
-	var shake_count = 8
-	var shake_duration = duration / shake_count
-	
-	for i in range(shake_count):
-		var rand_offset = original_offset + Vector2(
-			randf_range(-strength, strength),
-			randf_range(-strength, strength)
-		)
-		tween.tween_property(cam, "offset", rand_offset, shake_duration)
-		
-	tween.tween_property(cam, "offset", original_offset, 0.1)
-	await tween.finished
 #mother_cutscene
+func _hide_npc(npc: Node2D) -> void:
+	npc.hide()
+	# hide interaction area so player can't interact with hidden NPC
+	var interaction = npc.get_node_or_null("NpcInteractionArea")
+	if interaction:
+		interaction.monitoring = false
+		interaction.monitorable = false

@@ -17,6 +17,10 @@ func _on_interact():
 	await DialogManager.dialog_ended
 
 func _on_line_changed(line: DialogLine) -> void:
+	if not DialogManager.is_active:
+		return
+	if DialogManager._current.npc_id != interaction_area.interactable_object_name:
+		return
 	thought_bubble.show_line(line)
 	
 func _on_dialog_ended(_npc_id: String) -> void:

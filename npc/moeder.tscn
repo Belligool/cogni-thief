@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3 uid="uid://bgvxixema1q8q"]
+
+[ext_resource type="Script" uid="uid://4vpp87ji75l0" path="res://npc/moeder_npc.gd" id="1_2e0j8"]
+[ext_resource type="Resource" uid="uid://dpsi0kverucwk" path="res://dialog/definition/mom_corridor_day1_after_papa_mad.tres" id="2_rrek8"]
+[ext_resource type="Texture2D" uid="uid://dc8b1pnkla1ri" path="res://assets/Matthijs/Sprite Sheet Char/child_idle-Sheet.png" id="2_vrw6g"]
+[ext_resource type="Texture2D" uid="uid://dr4keuafsy35a" path="res://assets/Matthijs/Sprite Sheet Char/child_walk-Sheet.png" id="3_a38di"]
+[ext_resource type="PackedScene" uid="uid://bt1pjdw052frb" path="res://dialog/ui/speech_bubble.tscn" id="4_m57o5"]
+[ext_resource type="Script" uid="uid://pof7ten1isde" path="res://npc/npc_interaction_area.gd" id="5_2e0j8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+atlas = ExtResource("2_vrw6g")
+region = Rect2(0, 0, 184, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("2_vrw6g")
+region = Rect2(184, 0, 184, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("3_a38di")
+region = Rect2(0, 0, 200, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("3_a38di")
+region = Rect2(200, 0, 200, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("3_a38di")
+region = Rect2(400, 0, 200, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+atlas = ExtResource("3_a38di")
+region = Rect2(600, 0, 200, 448)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4r1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smehm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur7pv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4x81n"]
+radius = 21.095022
+
+[node name="moeder" type="Node2D"]
+script = ExtResource("1_2e0j8")
+dialog = ExtResource("2_rrek8")
+required_flag = null
+sets_flag = null
+one_time_only = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.09375095, -20.435211)
+scale = Vector2(0.09093751, 0.090937465)
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"walk"
+autoplay = "idle"
+
+[node name="SpeechBubble" parent="." instance=ExtResource("4_m57o5")]
+position = Vector2(-3, -2)
+
+[node name="NpcInteractionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("5_2e0j8")
+npc_bubble_path = NodePath("../SpeechBubble")
+action_name = "talk"
+interactable_object_name = "moeder"
+metadata/_custom_type_script = "uid://pof7ten1isde"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcInteractionArea"]
+position = Vector2(0, -21)
+shape = SubResource("CircleShape2D_4x81n")
+
+[connection signal="body_entered" from="NpcInteractionArea" to="NpcInteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="NpcInteractionArea" to="NpcInteractionArea" method="_on_body_exited"]

@@ -1,0 +1,348 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=56 format=3 uid="uid://dpsi0kverucwk"]
+
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="1_p1rai"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="2_eil0s"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="2_lq0cu"]
+
+[sub_resource type="Resource" id="Resource_u3ne6"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Schatje, is it not to your taste?"
+translation = "Dear"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_nq1pr"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Do you want Njai to make a new one for you?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_i7t2x"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "Mamma is worried… about a mere tea?"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_b7h1x"]
+script = ExtResource("2_lq0cu")
+label = "Mamma, Njai looked scared… is she alright?"
+point_type = 1
+next_line_index = 4
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_xt2uk"]
+script = ExtResource("2_lq0cu")
+label = "No, Mamma. The tea tasted great."
+next_line_index = 19
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_ff1u6"]
+script = ExtResource("2_lq0cu")
+label = "Mamma, I don’t like this tea!"
+point_type = 2
+next_line_index = 25
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_28qex"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "After Pappa looked so angry?"
+choices = Array[ExtResource("2_lq0cu")]([SubResource("Resource_b7h1x"), SubResource("Resource_xt2uk"), SubResource("Resource_ff1u6")])
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_cdvyr"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "Mamma, Njai looked scared. Is she alright?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_465j4"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Schatje, Pappa scolded Njai because she was wrong."
+translation = "Dear"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_3ol13"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "She did something bad, hence why your Pappa was so angry."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_prfth"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Pappa and Mamma wanted the best for you—for us"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_0bl42"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "as tomorrow we would go back to Pappa’s work."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_e2c8k"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "It would be bad if our time together is ruined because of Njai’s mistake"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_vuxrn"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "don’t you think?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_4tftr"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "(nods slowly)"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_aljrv"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "Even so, is it allowed?"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_m8agl"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "It’s alright, Liefje. Pappa will be back next Saturday."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_s6kb3"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Pappa will bring you more toys"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_ge2tl"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "more of your favorite sweets!"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_x5twj"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "Thank you, Mamma."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_khpef"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Nou, you should try these koekjes, Schatje."
+translation = "Well"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_0vtjd"]
+script = ExtResource("2_lq0cu")
+label = "ok mamma."
+point_type = 3
+next_line_index = 38
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_5gbir"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Mamma baked them just for you!"
+choices = Array[ExtResource("2_lq0cu")]([SubResource("Resource_0vtjd")])
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_210eg"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "No, Mamma. The tea tasted great."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_1rlss"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "It does taste nice. But is this really okay?"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_sb70v"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "If you like it so much, Liefje"
+translation = "Sweetheart"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_4a1na"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Mamma will tell Papa so he will buy you some more."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_227k3"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Nou, you should try these koekjes, Schatje. "
+translation = "well"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_g20d6"]
+script = ExtResource("2_lq0cu")
+label = "ok mamma."
+next_line_index = 38
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_ey0pg"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Mamma baked them just for you!"
+choices = Array[ExtResource("2_lq0cu")]([SubResource("Resource_g20d6")])
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_m146k"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "Mamma, I don’t like this tea!"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_6d0bq"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "..."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_pnrlq"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Mamma will make sure this will not happen again, Schatje."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_kr1rf"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Mamma promise."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_eomeu"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "The tea is too intense at first."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_wdn60"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "But all this, over a cup of tea?"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_ass7b"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Nou, you should try these koekjes, Schatje."
+translation = "Well"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_d3svu"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Mamma baked them just for you!"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_0bknd"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "Mamma acted like this is normal…"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_8wnmo"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "..I guess it is?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_i0tqo"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "Tasty!"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_7e2iw"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Nou nou, slow down, Schatje."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_pbqtr"]
+script = ExtResource("2_lq0cu")
+label = "mamma"
+next_line_index = 38
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_4kr4h"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "The new tea is still brewing."
+choices = Array[ExtResource("2_lq0cu")]([SubResource("Resource_pbqtr")])
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_vuhen"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "Time goes by so fast when I’m with Mamma…"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_5ixjo"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "And Mamma’s koekjes are delicious! "
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_iov12"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "Too bad I finished eating them all…"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_6qenx"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Now, let’s get dressed up, Schatje."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_w0ghy"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Be a darling for Mamma"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_0gu0q"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Mamma will knock on your door when Ma and Pa are ready."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_j2110"]
+script = ExtResource("1_p1rai")
+speaker = "moeder"
+text = "Understood?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_dvkl0"]
+script = ExtResource("1_p1rai")
+speaker = "mc"
+text = "Yes, Mamma."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[resource]
+script = ExtResource("2_eil0s")
+npc_id = "moeder"
+object_id = "moeder"
+lines = Array[ExtResource("1_p1rai")]([SubResource("Resource_u3ne6"), SubResource("Resource_nq1pr"), SubResource("Resource_i7t2x"), SubResource("Resource_28qex"), SubResource("Resource_cdvyr"), SubResource("Resource_465j4"), SubResource("Resource_3ol13"), SubResource("Resource_prfth"), SubResource("Resource_0bl42"), SubResource("Resource_e2c8k"), SubResource("Resource_vuxrn"), SubResource("Resource_4tftr"), SubResource("Resource_aljrv"), SubResource("Resource_m8agl"), SubResource("Resource_s6kb3"), SubResource("Resource_ge2tl"), SubResource("Resource_x5twj"), SubResource("Resource_khpef"), SubResource("Resource_5gbir"), SubResource("Resource_210eg"), SubResource("Resource_1rlss"), SubResource("Resource_sb70v"), SubResource("Resource_4a1na"), SubResource("Resource_227k3"), SubResource("Resource_ey0pg"), SubResource("Resource_m146k"), SubResource("Resource_6d0bq"), SubResource("Resource_pnrlq"), SubResource("Resource_kr1rf"), SubResource("Resource_eomeu"), SubResource("Resource_wdn60"), SubResource("Resource_ass7b"), SubResource("Resource_d3svu"), SubResource("Resource_0bknd"), SubResource("Resource_8wnmo"), SubResource("Resource_i0tqo"), SubResource("Resource_7e2iw"), SubResource("Resource_4kr4h"), SubResource("Resource_vuhen"), SubResource("Resource_5ixjo"), SubResource("Resource_iov12"), SubResource("Resource_6qenx"), SubResource("Resource_w0ghy"), SubResource("Resource_0gu0q"), SubResource("Resource_j2110"), SubResource("Resource_dvkl0")])
+is_quest_dialog = true
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
