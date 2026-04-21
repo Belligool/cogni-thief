@@ -95,7 +95,7 @@ size = Vector2(3, 88)
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_iywne"]
+[sub_resource type="CurveTexture" id="CurveTexture_wa7me"]
 curve = SubResource("Curve_lbhrr")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p57ef"]
@@ -107,7 +107,7 @@ initial_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.0
 scale_max = 0.59999996
-scale_curve = SubResource("CurveTexture_iywne")
+scale_curve = SubResource("CurveTexture_wa7me")
 color = Color(1, 1, 1, 0.5921569)
 
 [node name="day_1_matthijs_room" type="Node2D"]

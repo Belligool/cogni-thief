@@ -1,19 +1,22 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6vyxllr4qfje"]
+[gd_scene load_steps=22 format=3 uid="uid://c6vyxllr4qfje"]
 
+[ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_einkh"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_abjth"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="3_q16m6"]
 [ext_resource type="PackedScene" uid="uid://2e4vei40e5c3" path="res://interaction/interactable objects/door.tscn" id="4_mx8wo"]
+[ext_resource type="Script" uid="uid://dfi2vv4g550hj" path="res://interaction/interactable scripts/matthijs's_door.gd" id="5_einkh"]
 [ext_resource type="Texture2D" uid="uid://de6jaxtvdylg3" path="res://assets/Matthijs/Corridor Room/grandfather_clock.png" id="6_v270p"]
 [ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_cmkk6"]
 [ext_resource type="Texture2D" uid="uid://cvrra6jd0q8mb" path="res://assets/Matthijs/Corridor Room/dining_table.png" id="8_wa147"]
 [ext_resource type="PackedScene" uid="uid://b5ll47i2xs2fw" path="res://interaction/interactable objects/gramaphone.tscn" id="9_23dcx"]
 [ext_resource type="AudioStream" uid="uid://dpja14x86qmdk" path="res://assets/music/Sam Saimun - Dibawah Sinar Bulan Purnama (1952) - Penggiat Bunyi.mp3" id="10_cdgaj"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="11_va7lu"]
+[ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://scenes/moeder.tscn" id="11_wa147"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="12_f1n2q"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="13_whnhr"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="14_46y8x"]
 
-[sub_resource type="GDScript" id="GDScript_rxh6h"]
+[sub_resource type="GDScript" id="GDScript_abjth"]
 script/source = "extends AudioStreamPlayer2D
 
 
@@ -27,20 +30,20 @@ func _process(_delta: float) -> void:
 	pass
 "
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jlsh5"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q16m6"]
 distance = -2.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_53rl5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8wo"]
 size = Vector2(3, 88)
 
-[sub_resource type="Curve" id="Curve_o3mkx"]
+[sub_resource type="Curve" id="Curve_udfyw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_iywne"]
-curve = SubResource("Curve_o3mkx")
+curve = SubResource("Curve_udfyw")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7h8i6"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v270p"]
 emission_shape_scale = Vector3(21.275, 1, 1)
 emission_shape = 3
 emission_box_extents = Vector3(6.18, 31.195, 0)
@@ -54,6 +57,11 @@ color = Color(1, 1, 1, 0.5921569)
 
 [node name="day1_ruby_room" type="Node2D"]
 
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(44.999996, -43.999996)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("1_einkh")
+
 [node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -7.000004)
 scale = Vector2(0.076626636, 0.080555566)
@@ -64,8 +72,14 @@ position = Vector2(22.999998, -7)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("3_q16m6")
 
-[node name="Ruby\'sDoor" parent="." instance=ExtResource("4_mx8wo")]
+[node name="Parent\'sDoor" parent="." instance=ExtResource("4_mx8wo")]
 position = Vector2(8, -14)
+
+[node name="Matthijs\'sDoor" parent="." instance=ExtResource("4_mx8wo")]
+position = Vector2(-52, -14)
+script = ExtResource("5_einkh")
+next_scene = "res://scenes/phase_1/day_1/day1_matthijs_room.tscn"
+spawn_point_id = "SpawnPoint_FromCorridor"
 
 [node name="Grandfather\'s Clock" type="Sprite2D" parent="."]
 position = Vector2(-24.999998, -37.000004)
@@ -83,7 +97,7 @@ scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("8_wa147")
 
 [node name="gramaphone" parent="." instance=ExtResource("9_23dcx")]
-position = Vector2(38.808212, -25)
+position = Vector2(37.808212, -25)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(51, -28)
@@ -98,38 +112,38 @@ max_polyphony = 2
 panning_strength = 2.5
 area_mask = 0
 parameters/looping = true
-script = SubResource("GDScript_rxh6h")
+script = SubResource("GDScript_abjth")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -4)
-shape = SubResource("WorldBoundaryShape2D_jlsh5")
+shape = SubResource("WorldBoundaryShape2D_q16m6")
 
 [node name="LeftCollision" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCollision"]
 position = Vector2(-83.5, -44)
-shape = SubResource("RectangleShape2D_53rl5")
+shape = SubResource("RectangleShape2D_mx8wo")
 
 [node name="RightCollision" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightCollision"]
 position = Vector2(174, -44)
-shape = SubResource("RectangleShape2D_53rl5")
+shape = SubResource("RectangleShape2D_mx8wo")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 position = Vector2(53, -53)
 amount = 150
 amount_ratio = 0.25
-process_material = SubResource("ParticleProcessMaterial_7h8i6")
+process_material = SubResource("ParticleProcessMaterial_v270p")
 
 [node name="ChoicesUI" parent="." instance=ExtResource("11_va7lu")]
 
 [node name="QuestUI" parent="." instance=ExtResource("12_f1n2q")]
 
-[node name="SpawnPoint_FromRubysDoor" type="Node2D" parent="." groups=["SpawnPoint_FromMatthijsDoor"]]
+[node name="SpawnPoint_FromMatthijsDoor" type="Node2D" parent="." groups=["SpawnPoint_FromMatthijsDoor"]]
 position = Vector2(-52, -7)
 
 [node name="Player" parent="." instance=ExtResource("13_whnhr")]
@@ -144,3 +158,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("14_46y8x")
+
+[node name="moeder" parent="." instance=ExtResource("11_wa147")]
+position = Vector2(80, -5)
