@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://libdlapvtnta"]
+
+[ext_resource type="Script" uid="uid://chr8g3iaul3l5" path="res://interaction/interactable objects/desktop.gd" id="1_mnxox"]
+[ext_resource type="Texture2D" uid="uid://cw6yov0nag51t" path="res://assets/Ruby/Bedroom/desktop.png" id="2_2adnv"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_j54ur"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="3_x85gv"]
+[ext_resource type="Script" uid="uid://ddfjpxs00vxxp" path="res://interaction/interactable objects/bed.gd" id="4_j54ur"]
+[ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="4_x85gv"]
+
+[sub_resource type="Resource" id="Resource_raq1u"]
+script = ExtResource("3_x85gv")
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x85gv"]
+radius = 1149.6542
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_mnxox")
+dialog = SubResource("Resource_raq1u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.06250119, -12.759615)
+scale = Vector2(0.08713943, 0.08713944)
+texture = ExtResource("2_2adnv")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(-1.9999999, -13.999998)
+scale = Vector2(0.015656887, 0.016459672)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("4_x85gv")
+interactable_object_name = "bed"
+metadata/_custom_type_script = "uid://cq6r3it7jjj3i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-0.00024414063, -0.00012207031)
+shape = SubResource("CircleShape2D_x85gv")
+script = ExtResource("4_j54ur")
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]

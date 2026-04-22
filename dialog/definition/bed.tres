@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=7 format=3 uid="uid://hgad5io7l85"]
+
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="1_233ah"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="2_4gycv"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="2_qeegn"]
+
+[sub_resource type="Resource" id="Resource_4vv6q"]
+script = ExtResource("1_233ah")
+speaker = "mc"
+text = "Why is it small?"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_qeegn"]
+script = ExtResource("1_233ah")
+speaker = "mc"
+text = "..."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_rcrbr"]
+script = ExtResource("1_233ah")
+speaker = "mc"
+text = "It doesn’t fit with my old bed."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[resource]
+script = ExtResource("2_qeegn")
+object_id = "bed"
+lines = Array[ExtResource("1_233ah")]([SubResource("Resource_4vv6q"), SubResource("Resource_qeegn"), SubResource("Resource_rcrbr")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"

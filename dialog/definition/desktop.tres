@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=7 format=3 uid="uid://baw1p6mdovot0"]
+
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="1_sdti2"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="2_8gs87"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="2_gbjgk"]
+
+[sub_resource type="Resource" id="Resource_orjlm"]
+script = ExtResource("1_sdti2")
+text = "What’s this big thingy?"
+is_dialog_thought = true
+typing_speed = 0.5
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_hrj8n"]
+script = ExtResource("1_sdti2")
+text = "..."
+is_dialog_thought = true
+typing_speed = 0.5
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_r8758"]
+script = ExtResource("1_sdti2")
+text = "I’ve never seen anything like this."
+is_dialog_thought = true
+typing_speed = 0.5
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[resource]
+script = ExtResource("2_8gs87")
+object_id = "desktop"
+lines = Array[ExtResource("1_sdti2")]([SubResource("Resource_orjlm"), SubResource("Resource_hrj8n"), SubResource("Resource_r8758")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"

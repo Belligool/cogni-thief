@@ -49,7 +49,7 @@ func get_data() -> NarrationData:
 func show_first_line() -> void:
 	_show_line(0)
 	
-func finish() -> void:
+func finish() -> void: 
 	is_active = false
 	var next = _data.next_scene
 	var quests = _data.next_day_quests
