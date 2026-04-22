@@ -32,7 +32,6 @@ func _process(delta: float) -> void:
 	bubble_bg.position = Vector2.ZERO
 	var texture_height = sprite.sprite_frames.get_frame_texture("idle", 0).get_height()
 	position.y = -texture_height * sprite.scale.y + 28
-	#position.x = -10
 	
 	if not _typing:
 		return
@@ -66,6 +65,7 @@ func _process(delta: float) -> void:
 		elif last_char in [",", ";", ":"]:
 			_typing_timer = -0.4 # Wait an extra 0.4  seconds
 
+
 func show_line(data: DialogLine) ->  void:
 	show()
 	_is_visible_and_active = true 
@@ -98,12 +98,14 @@ func show_line(data: DialogLine) ->  void:
 	# Handle UI if dialog is thought or not
 	if data.is_dialog_thought and thought_texture:
 		bubble_bg.texture = thought_texture
-		#bubble_bg.modulate.a = 0.5
+		dialog_text.modulate.a = 0.5
+		bubble_bg.modulate.a = 0.7
 		_update_margin(thought_margin)
 		
 	elif normal_texture:
 		bubble_bg.texture = normal_texture
-		#bubble_bg.modulate.a = 1.0
+		dialog_text.modulate.a = 1.0
+		bubble_bg.modulate.a = 1.0
 		_update_margin(normal_margins)
 	
 	_full_translation = data.translation

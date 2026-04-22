@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NarrationData" load_steps=5 format=3 uid="uid://n3we65shm320"]
+[gd_resource type="Resource" script_class="NarrationData" load_steps=8 format=3 uid="uid://n3we65shm320"]
 
 [ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_sx78k"]
 [ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="3_ihmdu"]
@@ -16,16 +16,52 @@ metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
 
 [sub_resource type="Resource" id="Resource_ihmdu"]
 script = ExtResource("1_sx78k")
-id = "q_interact_with_mom"
-title = "Talk to the woman in the photo"
-objective = "Talk to the woman in the photo"
+id = "q_interact_with_father"
+title = "Go to the dining room"
+objective = "Go to the dining room"
+completion_type = 3
+completion_target = "father"
+flag = "unlock_interact_with_mother_day_1"
+cutscene = "corridor_day_1_father_mad"
+distance = 20
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[sub_resource type="Resource" id="Resource_sx78k"]
+script = ExtResource("1_sx78k")
+id = "q_talk_with_mama"
+title = "Talk to mother"
+objective = "Talk to mother"
 completion_target = "moeder"
+flag = "unlock_sweet_mini_game"
+cutscene = "corridor_day_1_after_moeder_talk"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[sub_resource type="Resource" id="Resource_x5ss4"]
+script = ExtResource("1_sx78k")
+id = "q_search_drawer"
+title = "Search drawer in the room"
+objective = "Search drawer in the room"
+completion_type = 1
+completion_target = "drawer"
+required_targets = Array[String](["", ""])
+flag = "unlock_grandfather_clock"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[sub_resource type="Resource" id="Resource_nbaao"]
+script = ExtResource("1_sx78k")
+id = "q_search_grandfather_clock"
+title = "Search sweets in the clock"
+objective = "Search sweets in the clock"
+completion_type = 1
+completion_target = "grandfather_clock"
+flag = "end_phase_1"
+cutscene = "corridor_day_1_ending"
 metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
 
 [resource]
 script = ExtResource("3_ihmdu")
-lines = Array[String](["Day 1"])
+lines = Array[String](["I jerked awake.", "Orange light graced the room I was in,", "the shining sun gracing me with its bearable warmth.", "It was almost like an invitation to tuck myself in once again,", "but something felt off.", "Hesitantly, I rose from the soft mattress."])
 delay_between_lines = 10.0
 next_scene = "res://scenes/phase_1/day_1/day1_matthijs_room.tscn"
-next_day_quests = Array[ExtResource("1_sx78k")]([SubResource("Resource_22afi"), SubResource("Resource_ihmdu")])
+next_day_quests = Array[ExtResource("1_sx78k")]([SubResource("Resource_22afi"), SubResource("Resource_ihmdu"), SubResource("Resource_sx78k"), SubResource("Resource_x5ss4"), SubResource("Resource_nbaao")])
 metadata/_custom_type_script = "uid://bhqs24s4ximjh"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogData" load_steps=6 format=3 uid="uid://cufpb155vvoh4"]
+[gd_resource type="Resource" script_class="DialogData" load_steps=5 format=3 uid="uid://cufpb155vvoh4"]
 
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="1_h7tm5"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="2_8klkb"]
@@ -7,19 +7,14 @@
 [sub_resource type="Resource" id="Resource_j78uk"]
 script = ExtResource("1_h7tm5")
 speaker = "mc"
-text = "So full.."
+text = "So full.. This much toys for a child?"
 is_dialog_thought = true
-metadata/_custom_type_script = "uid://nw5gof71bqt3"
-
-[sub_resource type="Resource" id="Resource_5blex"]
-script = ExtResource("1_h7tm5")
-speaker = "mc"
-text = "..too much. For this little body."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [resource]
 script = ExtResource("2_18rxw")
+npc_id = "toybox"
 object_id = "toybox"
-lines = Array[ExtResource("1_h7tm5")]([SubResource("Resource_j78uk"), SubResource("Resource_5blex")])
+lines = Array[ExtResource("1_h7tm5")]([SubResource("Resource_j78uk")])
 is_quest_dialog = true
 metadata/_custom_type_script = "uid://cq8iorar8inmf"

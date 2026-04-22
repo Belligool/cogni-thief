@@ -15,6 +15,8 @@ var is_interactable : bool = false
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	QuestManager.trigger_flag.connect(_on_quest_flag_changed)
+	DialogManager.line_changed.connect(_on_line_changed)
+	DialogManager.dialog_ended.connect(_on_dialog_ended)
 	if QuestManager.is_flag_active(flag_name):
 		is_interactable = true
 	
@@ -38,7 +40,11 @@ func _on_interact():
 		return
 
 func _on_line_changed(line: DialogLine) -> void:
-	thought_bubble.show_line(line.text, line.is_dialog_thought)
+	if not DialogManager.is_active:
+		return
+	if DialogManager._current.npc_id != interaction_area.interactable_object_name:
+		return
+	thought_bubble.show_line(line)
 	
 func _on_dialog_ended(_npc_id: String) -> void:
 	thought_bubble.clear()

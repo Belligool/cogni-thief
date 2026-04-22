@@ -1,21 +1,32 @@
-[gd_scene load_steps=23 format=3 uid="uid://dyvgohn20rlm7"]
+[gd_scene load_steps=29 format=3 uid="uid://dyvgohn20rlm7"]
 
 [ext_resource type="Script" uid="uid://cqffuuiyukf4x" path="res://scenes/phase_1/day_1/day_1_corridor.gd" id="1_e7do7"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_wi35l"]
+[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="2_b8fi7"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_rkh0q"]
+[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="3_w2red"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="4_r7yew"]
 [ext_resource type="PackedScene" uid="uid://2e4vei40e5c3" path="res://interaction/interactable objects/door.tscn" id="5_dajpv"]
 [ext_resource type="Script" uid="uid://dfi2vv4g550hj" path="res://interaction/interactable scripts/matthijs's_door.gd" id="5_dkydb"]
-[ext_resource type="Texture2D" uid="uid://de6jaxtvdylg3" path="res://assets/Matthijs/Corridor Room/grandfather_clock.png" id="6_1bhvo"]
 [ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_qa4qy"]
 [ext_resource type="Texture2D" uid="uid://cvrra6jd0q8mb" path="res://assets/Matthijs/Corridor Room/dining_table.png" id="8_ljrn2"]
 [ext_resource type="PackedScene" uid="uid://b5ll47i2xs2fw" path="res://interaction/interactable objects/gramaphone.tscn" id="9_8m3sr"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="11_h6at1"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="12_dkydb"]
 [ext_resource type="AudioStream" uid="uid://dpja14x86qmdk" path="res://assets/music/Sam Saimun - Dibawah Sinar Bulan Purnama (1952) - Penggiat Bunyi.mp3" id="12_lk34k"]
-[ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://scenes/moeder.tscn" id="13_yqwqt"]
+[ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://npc/moeder.tscn" id="13_yqwqt"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="15_r7yew"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="16_dajpv"]
+[ext_resource type="PackedScene" uid="uid://dduf4xofnbcle" path="res://scenes/father.tscn" id="17_rmfg0"]
+[ext_resource type="PackedScene" uid="uid://c3echx27rx2vp" path="res://scenes/njai.tscn" id="18_7nniv"]
+[ext_resource type="PackedScene" uid="uid://bqctrra2rk5pi" path="res://interaction/interactable objects/non_interactable_door.tscn" id="19_7nniv"]
+[ext_resource type="PackedScene" uid="uid://bm1dhjgsqu3o3" path="res://interaction/interactable objects/grandfather_clock.tscn" id="21_b8fi7"]
+
+[sub_resource type="Resource" id="Resource_tw8xg"]
+script = ExtResource("3_w2red")
+lines = Array[String](["test day2 "])
+next_scene = "res://scenes/phase_1/day_1/day1_matthijs_room.tscn"
+metadata/_custom_type_script = "uid://bhqs24s4ximjh"
 
 [sub_resource type="GDScript" id="GDScript_lbhrr"]
 script/source = "extends AudioStreamPlayer2D
@@ -58,6 +69,7 @@ color = Color(1, 1, 1, 0.5921569)
 
 [node name="day_1_corridor" type="Node2D"]
 script = ExtResource("1_e7do7")
+intro_narration = SubResource("Resource_tw8xg")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999996)
@@ -74,19 +86,18 @@ position = Vector2(22.999998, -7)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("4_r7yew")
 
-[node name="Parent\'sDoor" parent="." instance=ExtResource("5_dajpv")]
-position = Vector2(8, -14)
-
 [node name="Matthijs\'sDoor" parent="." instance=ExtResource("5_dajpv")]
 position = Vector2(-52, -14)
 script = ExtResource("5_dkydb")
 next_scene = "res://scenes/phase_1/day_1/day1_matthijs_room.tscn"
 spawn_point_id = "SpawnPoint_FromCorridor"
 
-[node name="Grandfather\'s Clock" type="Sprite2D" parent="."]
-position = Vector2(-24.999998, -37.000004)
-scale = Vector2(0.076626636, 0.080555566)
-texture = ExtResource("6_1bhvo")
+[node name="Parent\'sDoor" parent="." instance=ExtResource("19_7nniv")]
+position = Vector2(4, -14)
+script = null
+
+[node name="Grandfather\'sClock" parent="." instance=ExtResource("21_b8fi7")]
+position = Vector2(-24, -13)
 
 [node name="Cabinet" type="Sprite2D" parent="."]
 position = Vector2(37.80821, -19)
@@ -148,12 +159,18 @@ process_material = SubResource("ParticleProcessMaterial_p57ef")
 [node name="SpawnPoint_FromMatthijsDoor" type="Node2D" parent="." groups=["SpawnPoint_FromMatthijsDoor"]]
 position = Vector2(-52, -7)
 
+[node name="Moeder" parent="." instance=ExtResource("13_yqwqt")]
+position = Vector2(72, -8)
+required_flag = "unlock_interact_with_mother_day_1"
+sets_flag = ""
+one_time_only = false
+
 [node name="Player" parent="." instance=ExtResource("11_h6at1")]
 position = Vector2(-54, -6)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-offset = Vector2(0, -33.425)
-zoom = Vector2(12.245, 12.245)
+offset = Vector2(0, -36.25)
+zoom = Vector2(12.525, 12.525)
 limit_left = -80
 limit_right = 169
 limit_smoothed = true
@@ -161,5 +178,8 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("12_dkydb")
 
-[node name="moeder" parent="." instance=ExtResource("13_yqwqt")]
-position = Vector2(80, -5)
+[node name="Father" parent="." instance=ExtResource("17_rmfg0")]
+position = Vector2(122, -8)
+
+[node name="Njai" parent="." instance=ExtResource("18_7nniv")]
+position = Vector2(145, -8)
