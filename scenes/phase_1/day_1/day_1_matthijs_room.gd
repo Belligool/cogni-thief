@@ -13,6 +13,7 @@ extends Node2D
 var shake_strength: float = 0.0
 var shake_fade: float = 5.0
 var randomStrength: float = 30.0
+var _skip_bubble = false
 
 func _process(delta: float) -> void:
 	if shake_strength > 0:
@@ -50,6 +51,7 @@ func _play_premise() -> void:
 
 func start_cutscene(cutscene_id: String) -> void:
 	if cutscene_id != scene_id: return
+	InteractionManager.can_interact = false
 	
 	moeder.show()
 	_mamma_face_player()
@@ -89,6 +91,7 @@ func start_cutscene(cutscene_id: String) -> void:
 	await _play_bubble(player_bubble, "mc", "Especially to his Mamma", false)
 	await _play_bubble(player_bubble, "mc", "..I should follow her.", false)
 	player.is_frozen = false
+	InteractionManager.can_interact = true
 	
 func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translation: String = "") -> void:
 	var data = DialogLine.new()
@@ -97,12 +100,20 @@ func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translati
 	data.speaker = speaker_name
 	data.translation = translation
 	
+	_skip_bubble = false
 	bubble_node.show_line(data)
 	
 	var wait_time = (text_content.length() * 0.05) + 1.5
-	await get_tree().create_timer(wait_time).timeout
+	var elapsed = 0.0
+	
+	while  elapsed < wait_time:
+		if _skip_bubble:
+			break
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
 	
 	bubble_node.clear()
+	_skip_bubble = false
 	
 func _mamma_face_player():
 	var mamma_sprite = moeder.get_node("AnimatedSprite2D") # Adjust path if needed
@@ -148,3 +159,7 @@ func _hide_npc(npc: Node2D) -> void:
 	if interaction:
 		interaction.monitoring = false
 		interaction.monitorable = false
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		_skip_bubble = true

@@ -14,14 +14,14 @@ var is_interactable : bool = false
 
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
-	QuestManager.trigger_flag.connect(_on_quest_flag_changed)
+	QuestManager.trigger_flag.connect(_evaluate_availibilty)
 	DialogManager.line_changed.connect(_on_line_changed)
 	DialogManager.dialog_ended.connect(_on_dialog_ended)
 	if QuestManager.is_flag_active(flag_name):
 		is_interactable = true
 	
-func _on_quest_flag_changed(flag: String) -> void:
-	if flag == flag_name:
+func _evaluate_availibilty(quest: QuestData) -> void:
+	if quest.flag == flag_name:
 		is_interactable = true
 	else:
 		return

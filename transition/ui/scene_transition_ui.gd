@@ -14,6 +14,7 @@ func _on_started() -> void:
 	_tween = create_tween()
 	_tween.tween_property(background, "modulate:a", 1.0, 0.2)
 	await _tween.finished
+	background.modulate.a = 1.0
 	TransitionManager.finish_scene_change()
 	
 func _on_finished(spawn_id: String) -> void:
@@ -26,7 +27,9 @@ func _on_finished(spawn_id: String) -> void:
 		if spawn and player:
 			print("spawn global_position: ", spawn.global_position)
 			player.global_position = spawn.global_position
-	if _tween:
+	await get_tree().process_frame
+	await get_tree().process_frame
+	if _tween: 
 		_tween.kill()
 	_tween = create_tween()
 	_tween.tween_property(background, "modulate:a", 0.0, 0.2)

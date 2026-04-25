@@ -15,6 +15,8 @@ extends Node2D
 @export var intro_dialog: DialogData
 @export var scene_id: String = "corridor_day1"
 
+var _skip_bubble: bool = false
+
 var shake_strength: float = 0.0
 var shake_fade: float = 5.0
 var randomStrength: float = 30.0
@@ -26,9 +28,7 @@ func _process(delta: float) -> void:
 		camera.offset = initialPos + _shake_camera()
 	else:
 		camera.offset = initialPos
-	
-	if not QuestManager.was_cutscene_seen("_cutscene_after_moeder_talk"):
-		_mamma_face_player()
+	_mamma_face_player()
 	if QuestManager.was_cutscene_seen(scene_id):
 		pass
 	else:
@@ -66,14 +66,15 @@ func _cutsene_after_sweet_finding() -> void:
 	await _play_bubble(player_bubble, "mc", "Oh, I need to change my clothes too.", false)
 	await _play_bubble(player_bubble, "mc", "Ma promised we’re going to spend some time together outside!", false)
 	await _play_bubble(player_bubble, "mc", "I should get ready.", false)
-
+	
 	_sprite_face(player, -52.0)
-	_sprite_walk(player, -52)
+	InteractionManager.can_interact = false
+	await _sprite_walk(player, -52)
 	player.is_frozen = false
 	QuestManager.set_day(2)
+	InteractionManager.can_interact = true
 	TransitionManager.start(intro_narration)
 	
-
 func _cutscene_after_moeder_talk() -> void:
 	player.is_frozen = true
 	
@@ -122,6 +123,8 @@ func _cutscene_corridor_father_mad() -> void:
 	player.is_frozen = false
 
 func _mamma_face_player():
+	if QuestManager.is_flag_active("unlock_sweet_mini_game"):
+		return
 	var mamma_sprite = moeder.get_node("AnimatedSprite2D") # Adjust path if needed
 	if player.global_position.x < moeder.global_position.x:
 		# Player is to the left, so Mamma flips left
@@ -153,7 +156,7 @@ func _sprite_walk(sprite, dest: float) -> void:
 	else:
 		animated_sprite.flip_h = true
 		
-	animated_sprite.play("walk")dd
+	animated_sprite.play("walk")
 	
 	var walk_duration = 2
 	var tween = create_tween()
@@ -168,16 +171,23 @@ func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translati
 	data.speaker = speaker_name
 	data.translation = translation
 	
+	_skip_bubble = false
 	bubble_node.show_line(data)
 	
 	var wait_time = (text_content.length() * 0.05) + 1.5
-	await get_tree().create_timer(wait_time).timeout
+	var elapsed = 0.0
+	
+	while  elapsed < wait_time:
+		if _skip_bubble:
+			break
+		await get_tree().process_frame
+		elapsed += get_process_delta_time()
 	
 	bubble_node.clear()
+	_skip_bubble = false
 
 func _shake_camera() -> Vector2:
 	return Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
-
 
 func _hide_npc(npc: Node2D) -> void:
 	npc.hide()
@@ -186,3 +196,7 @@ func _hide_npc(npc: Node2D) -> void:
 	if interaction:
 		interaction.monitoring = false
 		interaction.monitorable = false
+		
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		_skip_bubble = true

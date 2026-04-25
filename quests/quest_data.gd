@@ -10,6 +10,7 @@ enum CompletionType { DIALOG, INTERACTION, MULTI_INTERACTION, PROXIMITY }
 @export var completion_target: String = ""
 @export var required_targets: Array[String] = []
 @export var flag: String = ""
+@export var flag_target: String = ""
 @export var cutscene: String = ""
 @export var distance: int = 0
 # completion_target matches:

@@ -4,9 +4,9 @@ extends Node2D
 @onready var bubble: Node2D = $SpeechBubble
 @export var dialog: DialogData
 @export var dialogs_per_day: Array[DialogData] = []
-@export var required_flag: String = "unlock_interact_with_mother_day_1"     
-@export var sets_flag: String = ""          # set after interaction completes
 @export var one_time_only: bool = false     # can only interact once
+@export var current_flag: String = "lock"
+
 
 var player = null
 var player_bubble = null
@@ -19,20 +19,30 @@ func _ready() -> void:
 	DialogManager.line_changed.connect(_on_line_changed)
 	DialogManager.dialog_ended.connect(_on_dialog_ended)
 	QuestManager.trigger_flag.connect(_evaluate_availability)
-	_evaluate_availability("")
-	
-func _evaluate_availability(_flag: String) -> void:
-	print("evaluating availability for: ", interaction_area.interactable_object_name)
-	print("required_flag: '", required_flag, "'")
-	print(QuestManager.triggered_flags)
-	print("flag active: ", QuestManager.is_flag_active(required_flag))
+	dialog = _get_current_dialog()
+	_evaluate_availability()
+  
+func _evaluate_availability(quest: QuestData = null) -> void:
 	var available = true
-	# check required flag
-	if required_flag != "" and not QuestManager.is_flag_active(required_flag):
+	if quest != null:
+		if quest.flag_target != interaction_area.interactable_object_name:
+			return
+		else:
+			#print("evaluating availability for: ", interaction_area.interactable_object_name)
+			#print("required_flag: '", required_flag, "'")
+			#print(QuestManager.triggered_flags)
+			#print("flag active: ", QuestManager.is_flag_active(required_flag))
+			if !quest.flag.contains("unlock"):
+				available = false
+			current_flag = "unlock"
+			interaction_area.monitoring = available
+			interaction_area.monitorable = available
+			return
+	if current_flag.contains("lock"):
 		available = false
-	print("available: ", available)
 	interaction_area.monitoring = available
 	interaction_area.monitorable = available
+	return
 
 func _get_current_dialog() -> DialogData:
 	if not dialogs_per_day.is_empty():
@@ -66,5 +76,5 @@ func _on_dialog_ended(_npc_id: String) -> void:
 	bubble.clear()
 	if player:
 		player.get_node("SpeechBubble").clear()
-		
-	
+	current_flag = "lock"
+	_evaluate_availability()
