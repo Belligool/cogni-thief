@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://87e6kxv50q8n" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
 [ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="2_ob46e"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="2_uqeha"]
-[ext_resource type="Resource" uid="uid://n3we65shm320" path="res://transition/definition/phase_1_day_1.tres" id="2_wem23"]
+[ext_resource type="Resource" uid="uid://wwajf3y4yqvq" path="res://transition/definition/phase_1_day_2.tres" id="2_wem23"]
 [ext_resource type="Texture2D" uid="uid://clmyfdl0pm4oo" path="res://assets/ui/misc/IMG_4149.PNG" id="3_ob46e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wem23"]

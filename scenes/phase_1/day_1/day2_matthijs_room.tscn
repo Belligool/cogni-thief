@@ -1,6 +1,6 @@
-[gd_scene load_steps=32 format=3 uid="uid://d22ctwu4nch63"]
+[gd_scene load_steps=45 format=3 uid="uid://d22ctwu4nch63"]
 
-[ext_resource type="Script" uid="uid://csqcfqf13g787" path="res://scenes/phase_1/day_1/day_1_matthijs_room.gd" id="1_l3u63"]
+[ext_resource type="Script" uid="uid://ctlqhp3rellv3" path="res://scenes/phase_1/day_1/day_2_matthijs_room.gd" id="1_l3u63"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_773hi"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_spsl7"]
 [ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_mg67m"]
@@ -17,51 +17,114 @@
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="15_brhmk"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="16_cy3ln"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="17_s88am"]
+[ext_resource type="PackedScene" uid="uid://dgynbr3f2h36g" path="res://npc/child1.tscn" id="18_mg67m"]
+[ext_resource type="PackedScene" uid="uid://jo6bcw6ueylh" path="res://npc/child2.tscn" id="19_a7yt2"]
+[ext_resource type="PackedScene" uid="uid://6dd4h46jr18l" path="res://npc/saleh.tscn" id="20_5xrfy"]
 
-[sub_resource type="Resource" id="Resource_dftoo"]
+[sub_resource type="Resource" id="Resource_l3u63"]
 script = ExtResource("2_773hi")
 speaker = "mc"
-text = "..where?"
+text = "Looks like these children are this body’s friends.."
 is_dialog_thought = true
-typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
-[sub_resource type="Resource" id="Resource_cdy5v"]
+[sub_resource type="Resource" id="Resource_773hi"]
 script = ExtResource("2_773hi")
 speaker = "mc"
-text = "..."
+text = "In school, they followed me around and treated me like one of their own."
 is_dialog_thought = true
-typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
-[sub_resource type="Resource" id="Resource_p8yx6"]
+[sub_resource type="Resource" id="Resource_spsl7"]
 script = ExtResource("2_773hi")
 speaker = "mc"
-text = "Weird… feels, weird."
+text = "But that boy… "
 is_dialog_thought = true
-typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
-[sub_resource type="Resource" id="Resource_y61dt"]
+[sub_resource type="Resource" id="Resource_mg67m"]
 script = ExtResource("2_773hi")
 speaker = "mc"
-text = "Everything looks so big, and these hands… so soft."
+text = " What was his name again? Saleh?"
 is_dialog_thought = true
-typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
-[sub_resource type="Resource" id="Resource_0fmxo"]
+[sub_resource type="Resource" id="Resource_a7yt2"]
 script = ExtResource("2_773hi")
 speaker = "mc"
-text = "Who am I?"
+text = "He annoys me, somehow."
 is_dialog_thought = true
-typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
-[sub_resource type="Resource" id="Resource_ulpun"]
+[sub_resource type="Resource" id="Resource_brbnu"]
+script = ExtResource("2_773hi")
+speaker = "child1"
+text = "Wauw!"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_cy3ln"]
+script = ExtResource("2_773hi")
+speaker = "child1"
+text = " I can see toys are spilling out of your box!"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_f1cxe"]
+script = ExtResource("2_773hi")
+speaker = "child2"
+text = "Do you have any cars?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_bog4s"]
+script = ExtResource("2_773hi")
+speaker = "child2"
+text = "Oh! Or trains?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_2ior5"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "So noisy.."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_0trp5"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "Compared to the others"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_tkuns"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = " Saleh only kept his mouth shut."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_tj6ej"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "Is he scared? Bored?"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_m426d"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "..the thought irks me."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_brhmk"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "Let me go through my toy box."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_5xrfy"]
 script = ExtResource("4_mg67m")
 npc_id = "premise"
-lines = Array[ExtResource("2_773hi")]([SubResource("Resource_dftoo"), SubResource("Resource_cdy5v"), SubResource("Resource_p8yx6"), SubResource("Resource_y61dt"), SubResource("Resource_0fmxo")])
+lines = Array[ExtResource("2_773hi")]([SubResource("Resource_l3u63"), SubResource("Resource_773hi"), SubResource("Resource_spsl7"), SubResource("Resource_mg67m"), SubResource("Resource_a7yt2"), SubResource("Resource_brbnu"), SubResource("Resource_cy3ln"), SubResource("Resource_f1cxe"), SubResource("Resource_bog4s"), SubResource("Resource_2ior5"), SubResource("Resource_0trp5"), SubResource("Resource_tkuns"), SubResource("Resource_tj6ej"), SubResource("Resource_m426d"), SubResource("Resource_brhmk")])
 metadata/_custom_type_script = "uid://cq8iorar8inmf"
 
 [sub_resource type="Resource" id="Resource_wa7me"]
@@ -108,9 +171,9 @@ scale_max = 0.59999996
 scale_curve = SubResource("CurveTexture_iywne")
 color = Color(1, 1, 1, 0.5921569)
 
-[node name="day_1_matthijs_room" type="Node2D"]
+[node name="day_2_matthijs_room" type="Node2D"]
 script = ExtResource("1_l3u63")
-intro_dialog = SubResource("Resource_ulpun")
+intro_dialog = SubResource("Resource_5xrfy")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999996)
@@ -174,10 +237,10 @@ amount_ratio = 0.25
 process_material = SubResource("ParticleProcessMaterial_p57ef")
 
 [node name="Moeder" parent="." instance=ExtResource("13_tj6ej")]
-position = Vector2(128, -8)
+position = Vector2(145, -8)
 
 [node name="Player" parent="." instance=ExtResource("14_m426d")]
-position = Vector2(11, -8)
+position = Vector2(10, -8)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -36.25)
@@ -195,3 +258,12 @@ script = ExtResource("15_brhmk")
 
 [node name="SpawnPoint_FromCorridor" type="Node2D" parent="." groups=["SpawnPoint_FromCorridor"]]
 position = Vector2(146, -6)
+
+[node name="child2" parent="." instance=ExtResource("19_a7yt2")]
+position = Vector2(-9, -8)
+
+[node name="saleh" parent="." instance=ExtResource("20_5xrfy")]
+position = Vector2(93, -8)
+
+[node name="child1" parent="." instance=ExtResource("18_mg67m")]
+position = Vector2(28, -8)

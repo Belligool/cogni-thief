@@ -44,7 +44,6 @@ title = "Search drawer in the room"
 objective = "Search drawer in the room"
 completion_type = 1
 completion_target = "drawer"
-required_targets = Array[String](["", ""])
 flag = "unlock_grandfather_clock"
 metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
 

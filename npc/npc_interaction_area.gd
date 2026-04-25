@@ -12,7 +12,7 @@ func get_bubble():
 	return _npc_bubble
 	
 func _on_body_entered(_body: Node2D) -> void:
-	print("hello from npc signald")
+	print("hello from npc signal")
 	InteractionManager.register_area(self)
 	
 func _on_body_exited(_body: Node2D) -> void:

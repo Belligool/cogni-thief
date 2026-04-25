@@ -38,7 +38,7 @@ func _evaluate_availability(quest: QuestData = null) -> void:
 			interaction_area.monitoring = available
 			interaction_area.monitorable = available
 			return
-	if current_flag.contains("lock"):
+	if current_flag == "lock":
 		available = false
 	interaction_area.monitoring = available
 	interaction_area.monitorable = available
@@ -47,7 +47,7 @@ func _evaluate_availability(quest: QuestData = null) -> void:
 func _get_current_dialog() -> DialogData:
 	if not dialogs_per_day.is_empty():
 		var day = QuestManager.get_current_day()
-		var index = clamp(day, 0, dialogs_per_day.size() - 1)
+		var index = day-1
 		return dialogs_per_day[index]
 	return dialog
 

@@ -7,4 +7,5 @@ extends Resource
 @export var is_dialog_thought: bool = false
 @export var typing_speed: float
 @export var translation: String = ""
+
 # Empty choices = no decision, player just presses confirm to advance

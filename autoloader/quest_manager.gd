@@ -26,6 +26,7 @@ func loaded_quests(quests: Array[QuestData]) -> void:
 	print("current index: ", _current_index)
 	_start_current()
 	
+	
 func get_current_quest() -> QuestData:
 	if _quests.is_empty() or _current_index >= _quests.size():
 		return null

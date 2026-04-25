@@ -1,11 +1,19 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgvxixema1q8q"]
+[gd_scene load_steps=18 format=3 uid="uid://bgvxixema1q8q"]
 
 [ext_resource type="Script" uid="uid://4vpp87ji75l0" path="res://npc/moeder_npc.gd" id="1_2e0j8"]
 [ext_resource type="Resource" uid="uid://dpsi0kverucwk" path="res://dialog/definition/mom_corridor_day1_after_papa_mad.tres" id="2_rrek8"]
 [ext_resource type="Texture2D" uid="uid://dc8b1pnkla1ri" path="res://assets/Matthijs/Sprite Sheet Char/child_idle-Sheet.png" id="2_vrw6g"]
 [ext_resource type="Texture2D" uid="uid://dr4keuafsy35a" path="res://assets/Matthijs/Sprite Sheet Char/child_walk-Sheet.png" id="3_a38di"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="3_ju71i"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_a12u7"]
 [ext_resource type="PackedScene" uid="uid://bt1pjdw052frb" path="res://dialog/ui/speech_bubble.tscn" id="4_m57o5"]
 [ext_resource type="Script" uid="uid://pof7ten1isde" path="res://npc/npc_interaction_area.gd" id="5_2e0j8"]
+
+[sub_resource type="Resource" id="Resource_r1k13"]
+script = ExtResource("4_a12u7")
+npc_id = "moeder"
+object_id = "moeder"
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
 atlas = ExtResource("2_vrw6g")
@@ -68,7 +76,7 @@ radius = 21.095022
 [node name="moeder" type="Node2D"]
 script = ExtResource("1_2e0j8")
 dialog = ExtResource("2_rrek8")
-dialogs_per_day = Array[Object]([ExtResource("2_rrek8")])
+dialogs_per_day = Array[Object]([ExtResource("2_rrek8"), SubResource("Resource_r1k13")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.09375095, -20.435211)

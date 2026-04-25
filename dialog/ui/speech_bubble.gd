@@ -103,13 +103,11 @@ func show_line(data: DialogLine) ->  void:
 	if data.is_dialog_thought:
 		dialog_text.add_theme_color_override("default_color", Color.WHITE)
 		bubble_bg.modulate = Color(0, 0, 0, 1)
-		# 
 		
 	elif normal_texture:
 		bubble_bg.texture = normal_texture
 		dialog_text.add_theme_color_override("default_color", Color.BLACK)
 		bubble_bg.modulate = Color(1, 1, 1, 1)
-		_update_margin(normal_margins)
 	
 	_full_translation = data.translation
 	translation_text.text = ""
