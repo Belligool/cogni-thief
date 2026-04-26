@@ -4,8 +4,6 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var thought_bubble = player.get_node("SpeechBubble")
 @export var dialog: DialogData
-@export var puzzle_dialog: DialogData
-@export var puzzle_id: String = ""
 
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")

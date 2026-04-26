@@ -1,15 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6vyxllr4qfje"]
+[gd_scene load_steps=19 format=3 uid="uid://c6vyxllr4qfje"]
 
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_einkh"]
+[ext_resource type="Script" uid="uid://chqyig45mc2ev" path="res://scenes/phase_2/day_1/day_1_ruby_room.gd" id="1_keyft"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_abjth"]
+[ext_resource type="Texture2D" uid="uid://db24i377j2845" path="res://assets/Matthijs/Corridor Room/door.png" id="3_iny67"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="3_q16m6"]
-[ext_resource type="PackedScene" uid="uid://2e4vei40e5c3" path="res://interaction/interactable objects/door.tscn" id="4_mx8wo"]
 [ext_resource type="Texture2D" uid="uid://de6jaxtvdylg3" path="res://assets/Matthijs/Corridor Room/grandfather_clock.png" id="6_v270p"]
 [ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_cmkk6"]
-[ext_resource type="PackedScene" uid="uid://bohydro1535rr" path="res://interaction/interactable objects/bed.tscn" id="7_pa2hq"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="11_va7lu"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="12_f1n2q"]
 [ext_resource type="PackedScene" uid="uid://libdlapvtnta" path="res://interaction/interactable objects/desktop.tscn" id="12_iny67"]
+[ext_resource type="PackedScene" uid="uid://bohydro1535rr" path="res://interaction/interactable objects/bed.tscn" id="13_keyft"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="13_whnhr"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="14_46y8x"]
 
@@ -39,11 +40,17 @@ scale_curve = SubResource("CurveTexture_iywne")
 color = Color(1, 1, 1, 0.5921569)
 
 [node name="day1_ruby_room" type="Node2D"]
+script = ExtResource("1_keyft")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999992)
 scale = Vector2(0.076626636, 0.08055556)
 texture = ExtResource("1_einkh")
+
+[node name="rubydoor" type="Sprite2D" parent="."]
+position = Vector2(-52, -37)
+scale = Vector2(0.07065218, 0.07065219)
+texture = ExtResource("3_iny67")
 
 [node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -7.000004)
@@ -55,24 +62,15 @@ position = Vector2(22.999998, -7)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("3_q16m6")
 
-[node name="Ruby\'sDoor" parent="." instance=ExtResource("4_mx8wo")]
-position = Vector2(-53, -14)
-
 [node name="Grandfather\'s Clock" type="Sprite2D" parent="."]
 position = Vector2(-24.999998, -37.000004)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("6_v270p")
 
-[node name="desktop" parent="." instance=ExtResource("12_iny67")]
-position = Vector2(38, -25)
-
 [node name="Cabinet" type="Sprite2D" parent="."]
 position = Vector2(37.80821, -19)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("7_cmkk6")
-
-[node name="bed" parent="." instance=ExtResource("7_pa2hq")]
-position = Vector2(117, -14)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, -6)
@@ -118,3 +116,9 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("14_46y8x")
+
+[node name="desktop" parent="." instance=ExtResource("12_iny67")]
+position = Vector2(39, -25)
+
+[node name="bed" parent="." instance=ExtResource("13_keyft")]
+position = Vector2(115, -14)
