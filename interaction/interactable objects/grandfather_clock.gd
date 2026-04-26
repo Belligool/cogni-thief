@@ -8,23 +8,28 @@ extends Node2D
 @export var interact_once = true 
 
 func _ready() -> void:
-	interaction_area.monitoring = false
-	interaction_area.monitorable = false
 	interaction_area.interact = Callable(self, "_on_interact")
 	DialogManager.line_changed.connect(_on_line_changed)
 	DialogManager.dialog_ended.connect(_on_dialog_ended)
-	if QuestManager.is_flag_active(required_flag):
-		print("grandfather clock is active")
+	_evaluate_availability()
+
+func _evaluate_availability() -> void:
+	if QuestManager.is_flag_active(required_flag) and !PlayerManager.is_item_used("grandfather_clock"):
 		interaction_area.monitoring = true
 		interaction_area.monitorable = true
+	elif !QuestManager.is_flag_active(required_flag):
+		interaction_area.monitoring = false
+		interaction_area.monitorable = false
+	elif PlayerManager.is_item_used("grandfather_clock"):
+		interaction_area.monitoring = false
+		interaction_area.monitorable = false
+	return
 
 func _on_interact():
 	DialogManager.start(dialog)
 	await DialogManager.dialog_ended
-	if interact_once:
-		interaction_area.monitoring = false
-		interaction_area.monitorable = false
-		InteractionManager.unregister_area(interaction_area)
+	PlayerManager.add_used_item("grandfather_clock")
+	_evaluate_availability()
 
 func _on_line_changed(line: DialogLine) -> void:
 	if not DialogManager.is_active:

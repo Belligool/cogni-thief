@@ -22,6 +22,7 @@ objective = "Go to the dining room"
 completion_type = 3
 completion_target = "father"
 flag = "unlock_interact_with_mother_day_1"
+flag_target = "moeder"
 cutscene = "corridor_day_1_father_mad"
 distance = 20
 metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
@@ -43,7 +44,6 @@ title = "Search drawer in the room"
 objective = "Search drawer in the room"
 completion_type = 1
 completion_target = "drawer"
-required_targets = Array[String](["", ""])
 flag = "unlock_grandfather_clock"
 metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
 

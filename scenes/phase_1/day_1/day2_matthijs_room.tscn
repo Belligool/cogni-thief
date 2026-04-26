@@ -1,0 +1,269 @@
+[gd_scene load_steps=45 format=3 uid="uid://d22ctwu4nch63"]
+
+[ext_resource type="Script" uid="uid://ctlqhp3rellv3" path="res://scenes/phase_1/day_1/day_2_matthijs_room.gd" id="1_l3u63"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_773hi"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_spsl7"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_mg67m"]
+[ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="5_a7yt2"]
+[ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="6_5xrfy"]
+[ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_brbnu"]
+[ext_resource type="PackedScene" uid="uid://bhdcosw252jm1" path="res://interaction/interactable objects/drawer.tscn" id="8_f1cxe"]
+[ext_resource type="PackedScene" uid="uid://bfs16q60d3aqi" path="res://interaction/interactable objects/toybox.tscn" id="9_bog4s"]
+[ext_resource type="PackedScene" uid="uid://cutpsqt7xhtt0" path="res://interaction/interactable objects/family_photo.tscn" id="10_2ior5"]
+[ext_resource type="PackedScene" uid="uid://2e4vei40e5c3" path="res://interaction/interactable objects/door.tscn" id="11_0trp5"]
+[ext_resource type="Script" uid="uid://umadqsrqu4bb" path="res://interaction/interactable scripts/corridors's_door.gd" id="12_tkuns"]
+[ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://npc/moeder.tscn" id="13_tj6ej"]
+[ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="14_m426d"]
+[ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="15_brhmk"]
+[ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="16_cy3ln"]
+[ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="17_s88am"]
+[ext_resource type="PackedScene" uid="uid://dgynbr3f2h36g" path="res://npc/child1.tscn" id="18_mg67m"]
+[ext_resource type="PackedScene" uid="uid://jo6bcw6ueylh" path="res://npc/child2.tscn" id="19_a7yt2"]
+[ext_resource type="PackedScene" uid="uid://6dd4h46jr18l" path="res://npc/saleh.tscn" id="20_5xrfy"]
+
+[sub_resource type="Resource" id="Resource_l3u63"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "Looks like these children are this body’s friends.."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_773hi"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "In school, they followed me around and treated me like one of their own."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_spsl7"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "But that boy… "
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_mg67m"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = " What was his name again? Saleh?"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_a7yt2"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "He annoys me, somehow."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_brbnu"]
+script = ExtResource("2_773hi")
+speaker = "child1"
+text = "Wauw!"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_cy3ln"]
+script = ExtResource("2_773hi")
+speaker = "child1"
+text = " I can see toys are spilling out of your box!"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_f1cxe"]
+script = ExtResource("2_773hi")
+speaker = "child2"
+text = "Do you have any cars?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_bog4s"]
+script = ExtResource("2_773hi")
+speaker = "child2"
+text = "Oh! Or trains?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_2ior5"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "So noisy.."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_0trp5"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "Compared to the others"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_tkuns"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = " Saleh only kept his mouth shut."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_tj6ej"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "Is he scared? Bored?"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_m426d"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "..the thought irks me."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_brhmk"]
+script = ExtResource("2_773hi")
+speaker = "mc"
+text = "Let me go through my toy box."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_5xrfy"]
+script = ExtResource("4_mg67m")
+npc_id = "premise"
+lines = Array[ExtResource("2_773hi")]([SubResource("Resource_l3u63"), SubResource("Resource_773hi"), SubResource("Resource_spsl7"), SubResource("Resource_mg67m"), SubResource("Resource_a7yt2"), SubResource("Resource_brbnu"), SubResource("Resource_cy3ln"), SubResource("Resource_f1cxe"), SubResource("Resource_bog4s"), SubResource("Resource_2ior5"), SubResource("Resource_0trp5"), SubResource("Resource_tkuns"), SubResource("Resource_tj6ej"), SubResource("Resource_m426d"), SubResource("Resource_brhmk")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
+
+[sub_resource type="Resource" id="Resource_wa7me"]
+script = ExtResource("2_773hi")
+text = "Wait"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_ej4jq"]
+script = ExtResource("2_773hi")
+text = "I need to remember."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_3jg8l"]
+script = ExtResource("4_mg67m")
+npc_id = "corridor'sDoor"
+object_id = "corridor'sDoor"
+lines = Array[ExtResource("2_773hi")]([SubResource("Resource_wa7me"), SubResource("Resource_ej4jq")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
+distance = -2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi35l"]
+size = Vector2(3, 88)
+
+[sub_resource type="Curve" id="Curve_lbhrr"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iywne"]
+curve = SubResource("Curve_lbhrr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p57ef"]
+emission_shape_scale = Vector3(21.275, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(6.18, 31.195, 0)
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_iywne")
+color = Color(1, 1, 1, 0.5921569)
+
+[node name="day_2_matthijs_room" type="Node2D"]
+script = ExtResource("1_l3u63")
+intro_dialog = SubResource("Resource_5xrfy")
+
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(44.999996, -43.999996)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("5_a7yt2")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(44.999996, -7.000004)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("6_5xrfy")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(55.999996, -19)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("7_brbnu")
+
+[node name="Drawer" parent="." instance=ExtResource("8_f1cxe")]
+position = Vector2(81, -12)
+
+[node name="Toybox" parent="." instance=ExtResource("9_bog4s")]
+position = Vector2(57, -25)
+
+[node name="Bed" type="Sprite2D" parent="."]
+position = Vector2(-34.000004, -19)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("7_brbnu")
+
+[node name="Family_Photo" parent="." instance=ExtResource("10_2ior5")]
+position = Vector2(-33, -25)
+
+[node name="Corridor\'sDoor" parent="." instance=ExtResource("11_0trp5")]
+position = Vector2(145, -14)
+script = ExtResource("12_tkuns")
+next_scene = "res://scenes/phase_1/day_1/day1_corridor.tscn"
+spawn_point_id = "SpawnPoint_FromMatthijsDoor"
+dialog = SubResource("Resource_3jg8l")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
+shape = SubResource("WorldBoundaryShape2D_lbhrr")
+
+[node name="LeftCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCollision"]
+position = Vector2(-81, -44)
+shape = SubResource("RectangleShape2D_wi35l")
+
+[node name="RightCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCollision"]
+position = Vector2(174, -44)
+shape = SubResource("RectangleShape2D_wi35l")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(53, -53)
+amount = 150
+amount_ratio = 0.25
+process_material = SubResource("ParticleProcessMaterial_p57ef")
+
+[node name="Moeder" parent="." instance=ExtResource("13_tj6ej")]
+position = Vector2(145, -8)
+
+[node name="Player" parent="." instance=ExtResource("14_m426d")]
+position = Vector2(10, -8)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, -36.25)
+zoom = Vector2(12.525, 12.525)
+limit_left = -80
+limit_right = 169
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("15_brhmk")
+
+[node name="ChoicesUI" parent="." instance=ExtResource("16_cy3ln")]
+
+[node name="QuestUI" parent="." instance=ExtResource("17_s88am")]
+
+[node name="SpawnPoint_FromCorridor" type="Node2D" parent="." groups=["SpawnPoint_FromCorridor"]]
+position = Vector2(146, -6)
+
+[node name="child2" parent="." instance=ExtResource("19_a7yt2")]
+position = Vector2(-9, -8)
+
+[node name="saleh" parent="." instance=ExtResource("20_5xrfy")]
+position = Vector2(93, -8)
+
+[node name="child1" parent="." instance=ExtResource("18_mg67m")]
+position = Vector2(28, -8)

@@ -10,34 +10,33 @@ extends Node2D
 @export var dialog: DialogData
 
 var flag_name: String = "unlock_matthijs_door"
-var is_interactable : bool = false
 
 func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
-	QuestManager.trigger_flag.connect(_on_quest_flag_changed)
 	DialogManager.line_changed.connect(_on_line_changed)
 	DialogManager.dialog_ended.connect(_on_dialog_ended)
-	if QuestManager.is_flag_active(flag_name):
-		is_interactable = true
-	
-func _on_quest_flag_changed(flag: String) -> void:
-	if flag == flag_name:
-		is_interactable = true
+	QuestManager.trigger_flag.connect(_evaluate_availibilty)
+	_evaluate_availibilty()
+
+func _evaluate_availibilty(quest: QuestData = null) -> void:
+	if quest != null:
+		if quest.flag == flag_name:
+			interaction_area.monitoring = true
+			interaction_area.monitorable = true
+			return
 	else:
-		return
+		if (QuestManager.get_current_day() == 1)  and !QuestManager.is_flag_active(flag_name):
+			interaction_area.monitoring = false
+			interaction_area.monitorable = false
+		elif (QuestManager.get_current_day() == 2):
+			interaction_area.monitoring = false
+			interaction_area.monitorable = false
 
 func _on_interact():
-	if is_interactable != true:
-		DialogManager.start(dialog)
-		await DialogManager.dialog_ended 
-		return
 	audio.play()
 	await audio.finished
-	if is_interactable:
-		TransitionManager.change_scene(next_scene, spawn_point_id)
-		await TransitionManager.scene_change_finished
-	else: 
-		return
+	TransitionManager.change_scene(next_scene, spawn_point_id)
+	await TransitionManager.scene_change_finished
 
 func _on_line_changed(line: DialogLine) -> void:
 	if not DialogManager.is_active:

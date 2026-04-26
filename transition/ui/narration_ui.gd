@@ -67,7 +67,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			TransitionManager._advance()
 	
-func _on_last_line_done() -> void:
+func _on_last_line_done(scene: String) -> void:
+	get_tree().change_scene_to_file(scene)
+	await get_tree().process_frame
+	await get_tree().process_frame
 	print("last line done, starting fade")
 	_tween = create_tween()
 	_tween.tween_property(narration_label, "modulate:a", 0.0, 0.5)
@@ -80,3 +83,4 @@ func _on_last_line_done() -> void:
 	_is_playing = false
 	hide()
 	TransitionManager.finish()
+	

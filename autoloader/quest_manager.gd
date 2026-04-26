@@ -26,6 +26,7 @@ func loaded_quests(quests: Array[QuestData]) -> void:
 	print("current index: ", _current_index)
 	_start_current()
 	
+	
 func get_current_quest() -> QuestData:
 	if _quests.is_empty() or _current_index >= _quests.size():
 		return null
@@ -61,7 +62,8 @@ func _try_complete(completion_type: QuestData.CompletionType, target: String) ->
 func _trigger_flag(quest: QuestData) -> void:
 	if quest.flag != null:
 		triggered_flags.append(quest.flag)
-		trigger_flag.emit(quest.flag)
+		
+		trigger_flag.emit(quest)
 		
 func _trigger_cutscene(quest: QuestData) -> void:
 	if quest.cutscene != null:

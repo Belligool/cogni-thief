@@ -95,18 +95,19 @@ func show_line(data: DialogLine) ->  void:
 	#else: 
 		#bubble_bg.flip_h = false
 	
+	dialog_text.modulate = Color.WHITE
+	dialog_text.remove_theme_color_override("default_color")
+	bubble_bg.modulate = Color.WHITE
+	
 	# Handle UI if dialog is thought or not
-	if data.is_dialog_thought and thought_texture:
-		bubble_bg.texture = thought_texture
-		dialog_text.modulate.a = 0.5
-		bubble_bg.modulate.a = 0.7
-		_update_margin(thought_margin)
+	if data.is_dialog_thought:
+		dialog_text.add_theme_color_override("default_color", Color.WHITE)
+		bubble_bg.modulate = Color(0, 0, 0, 1)
 		
 	elif normal_texture:
 		bubble_bg.texture = normal_texture
-		dialog_text.modulate.a = 1.0
-		bubble_bg.modulate.a = 1.0
-		_update_margin(normal_margins)
+		dialog_text.add_theme_color_override("default_color", Color.BLACK)
+		bubble_bg.modulate = Color(1, 1, 1, 1)
 	
 	_full_translation = data.translation
 	translation_text.text = ""
