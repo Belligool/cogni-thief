@@ -60,7 +60,7 @@ scale_max = 0.59999996
 scale_curve = SubResource("CurveTexture_iywne")
 color = Color(1, 1, 1, 0.5921569)
 
-[node name="day_1_corridor" type="Node2D"]
+[node name="day1_corridor" type="Node2D"]
 script = ExtResource("1_e7do7")
 intro_narration = ExtResource("2_0tekh")
 

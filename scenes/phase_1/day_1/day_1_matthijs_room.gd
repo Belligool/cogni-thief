@@ -72,7 +72,7 @@ func start_cutscene(cutscene_id: String) -> void:
 	await _play_bubble(player_bubble, "mc", "Mamma..? I'm- Matthijs' is sorry..", false)
 	
 	await _play_bubble(moeder_bubble, "Mamma", "Worry not, Schatje.", false, "Worry not, Sweetie.")
-	await _play_bubble(moeder_bubble, "Mamma", "You just woke up from your nap.", false)
+	await _play_bubble(moeder_bubble, "Mamma", "You just woke up.", false)
 	await _play_bubble(moeder_bubble, "Mamma", "Have you not?", false)
 	await _play_bubble(moeder_bubble, "Mamma", "It's time for afternoon tea.", false)
 	await _play_bubble(moeder_bubble, "Mamma", "Father is waiting for you.", false)
@@ -100,20 +100,10 @@ func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translati
 	data.speaker = speaker_name
 	data.translation = translation
 	
-	_skip_bubble = false
 	bubble_node.show_line(data)
-	
-	var wait_time = (text_content.length() * 0.05) + 1.5
-	var elapsed = 0.0
-	
-	while  elapsed < wait_time:
-		if _skip_bubble:
-			break
-		await get_tree().process_frame
-		elapsed += get_process_delta_time()
+	await _wait_for_input(bubble_node)
 	
 	bubble_node.clear()
-	_skip_bubble = false
 	
 func _mamma_face_player():
 	var mamma_sprite = moeder.get_node("AnimatedSprite2D") # Adjust path if needed
@@ -163,3 +153,12 @@ func _hide_npc(npc: Node2D) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		_skip_bubble = true
+
+func _wait_for_input(bubble_node) -> void:
+	while true:
+		await get_tree().process_frame
+		if Input.is_action_just_pressed("ui_accept"):
+			if bubble_node.is_typing():
+				bubble_node.skip_typing()
+			else:
+				break

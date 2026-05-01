@@ -17,6 +17,7 @@ extends Node2D
 
 @export var intro_dialog: DialogData
 @export var scene_id: String = "matthijs_bedroom_day2"
+@export var intro_narration: NarrationData
  
 var shake_strength: float = 0.0
 var player_shake_strength: float = 0.0
@@ -72,10 +73,13 @@ func start_cutscene(cutscene_id: String) -> void:
 	
 	if points_gained > 0:
 		await _cutscene_map["matthijs_room_day_2_aftermath_good"].call()
+		_on_end_cutscene()
 	elif points_gained == 0:
 		await _cutscene_map["matthijs_room_day_2_aftermath_neutral"].call()
+		_on_end_cutscene()
 	else:
 		await _cutscene_map["matthijs_room_day_2_aftermath_bad"].call()
+		_on_end_cutscene()
 	
 func _matthijs_room_day_2_aftermath_good(): 
 	_sprite_face(player, saleh.global_position.x)
@@ -181,7 +185,7 @@ func _matthijs_room_day_2_aftermath_neutral():
 
 	await _walk_sprite_to_player(child1, -20.0)
 	await _sprite_face(child1,  player.global_position.x)
-	await _walk_sprite_to_player(child2, 20.0)
+	await _sprite_walk(child2, player.global_position.x -  20.0, 20)
 	await _play_bubble(child1_bubble, "child1", "Matthijs! You shouldn’t snitch at times like that!", false)
 	await _play_bubble(player_bubble, "mc", "Snitch? But I did nothing?", false)
 	await _play_bubble(player_bubble, "mc", "All of you made him cry", false)
@@ -253,6 +257,7 @@ func _matthijs_room_day_2_aftermath_bad():
 	"After that, we all had some tea before they went back home.",
 	"A knock could be heard upon my door after they went back"
 	])
+	await InterludeManager.interlude_finished
 	await _walk_sprite_to_player(moeder, 20.0)
 	await _play_bubble(moeder_bubble, "moeder", "Schatje? Mamma wants to talk. About what happened earlier…", false, "Darling? Mamma wants to talk. About what happened earlier…")
 	await _play_bubble(player_bubble, "mc", "My palms… are sweaty. Scary…", true)
@@ -295,10 +300,14 @@ func _on_premise_line_changed(line: DialogLine) -> void:
 		child1_bubble.show_line(line)
 	elif line.speaker == 'child2':
 		child2_bubble.show_line(line)
+		
+func _on_end_cutscene():
+	QuestManager.set_day(3)
+	InteractionManager.can_interact = true
+	TransitionManager.start(intro_narration)
 
 func _on_premise_dialog_ended(_npc_id: String) -> void:
 	player_bubble.clear()
-
 
 func _play_premise() -> void:
 	player.is_frozen = true
@@ -314,7 +323,7 @@ func _sprite_face(sprite, pos: float):
 	else:
 		animated_sprite.flip_h = true
 
-func _sprite_walk(sprite, dest: float) -> void:
+func _sprite_walk(sprite, dest: float, speed: float = 0.0) -> void:
 	var animated_sprite = sprite.get_node("AnimatedSprite2D")
 	if sprite.global_position.x < dest:
 		animated_sprite.flip_h = false
@@ -322,8 +331,9 @@ func _sprite_walk(sprite, dest: float) -> void:
 		animated_sprite.flip_h = true
 		
 	animated_sprite.play("walk")
-	
-	var speed = 40.0  # adjust to match your walk animation speed
+
+	if speed == 0:
+		speed = 40.0  # adjust to match your walk animation speed
 	var distance = abs(sprite.global_position.x - dest)
 	var walk_duration = distance / speed
 	
@@ -331,6 +341,7 @@ func _sprite_walk(sprite, dest: float) -> void:
 	tween.tween_property(sprite, "global_position:x", dest, walk_duration)
 
 	await tween.finished
+	animated_sprite.play("idle")
 	
 func _sprite_facing_player(sprite):
 	var animated_sprite = sprite.get_node("AnimatedSprite2D") # Adjust path if needed
@@ -357,12 +368,10 @@ func _wait_for_input(bubble_node) -> void:
 	while true:
 		await get_tree().process_frame
 		if Input.is_action_just_pressed("ui_accept"):
-			bubble_node.skip_typing()
-			break
-	while true:
-		await get_tree().process_frame
-		if Input.is_action_just_pressed("ui_accept"):
-			break
+			if bubble_node.is_typing():
+				bubble_node.skip_typing()
+			else:
+				break
 		
 func _walk_sprite_to_player(sprite, distance: float) -> void:
 	var animated_sprite = sprite.get_node("AnimatedSprite2D")

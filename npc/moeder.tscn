@@ -76,7 +76,7 @@ radius = 21.095022
 [node name="moeder" type="Node2D"]
 script = ExtResource("1_2e0j8")
 dialog = ExtResource("2_rrek8")
-dialogs_per_day = Array[Object]([ExtResource("2_rrek8"), SubResource("Resource_r1k13")])
+dialogs_per_day = Array[ExtResource("4_a12u7")]([ExtResource("2_rrek8"), SubResource("Resource_r1k13"), null])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.09375095, -20.435211)

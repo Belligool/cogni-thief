@@ -5,8 +5,21 @@ const SPEED = 50.0
 @onready var walking_sfx = $AudioStreamPlayer2D
 @onready var is_frozen = false
 
+@export var animated_sprites: Array[SpriteFrames] = []
+
+func _ready() -> void:
+	match QuestManager.get_current_phase():
+		1:
+			print("phase1")
+			animated_sprite.sprite_frames = animated_sprites[0]
+		2:
+			print("phase2")
+		3:
+			print("phase3")
+
 func _physics_process(_delta: float) -> void:
 	if is_frozen:
+		velocity = Vector2.ZERO
 		walking_sfx.stop()
 		return
 	# If a dialog is taking place stop movement entirely

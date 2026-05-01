@@ -9,6 +9,7 @@ extends Node2D
 @export var spawn_point_id: String = ""
 @export var dialog: DialogData
 
+
 var flag_name: String = "unlock_matthijs_door"
 
 func _ready() -> void:

@@ -3,17 +3,34 @@ extends Node
 signal dialog_started(npc_id: String)
 signal line_changed(line: DialogLine)
 signal dialog_ended(npc_id: String)
+signal choice_prompt_started 
+signal choice_prompt_ended
+signal choice_made(choice: DialogChoice)
 
 var is_active: bool = false
 var _current: DialogData = null
 var _line_index: int = 0
+var _is_choice_only: bool = false
 
 func _ready() -> void:
 	pass
 
+func show_choices(choices: Array[DialogChoice]) -> void:
+	if is_active:
+		return
+	
+	_is_choice_only = true
+	is_active = true
+	choice_prompt_started.emit()
+	var temp_line = DialogLine.new()
+	temp_line.choices = choices
+	temp_line.text = ""
+	line_changed.emit(temp_line)
+
 func start(dialog: DialogData) -> void:
 	if is_active:
 		return # Don't disturb current dialog
+	_is_choice_only = false
 	_current = dialog
 	_line_index = 0
 	is_active = true
@@ -22,6 +39,8 @@ func start(dialog: DialogData) -> void:
 	
 func advance() -> void:
 	if not is_active:
+		return
+	if _is_choice_only:
 		return
 	if _current.lines[_line_index].choices.is_empty():
 		_show_line(_line_index + 1)
@@ -34,7 +53,12 @@ func choose(choice: DialogChoice) -> void:
 		DialogChoice.PointType.BAD       : PlayerManager.add_bad_point()
 		DialogChoice.PointType.NEUTRAL   : PlayerManager.add_neutral_point()
 		DialogChoice.PointType.NO_EFFECT : pass
+	choice_made.emit(choice) 
 	# jump to whatever line this choice points to if branching is a feature else just make an increment
+	if _is_choice_only:
+		_end_choice_prompt()
+		return
+	
 	_show_line(choice.next_line_index)
 	
 func _show_line(index: int) -> void:
@@ -59,6 +83,10 @@ func _end() -> void:
 		else:
 			QuestManager.notify_dialog_ended(npc_id)
 		
+func _end_choice_prompt() -> void:
+	is_active = false
+	_is_choice_only = false
+	choice_prompt_ended.emit()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_active:

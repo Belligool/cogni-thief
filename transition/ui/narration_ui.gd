@@ -8,7 +8,7 @@ var _tween: Tween = null
 var _full_text: String = ""
 var _chars_shown: int = 0
 var _typing: bool = false
-var _typing_speed: float = 0.05
+var _typing_speed: float = 0.1
 var _typing_timer: float = 0.0
 var _is_playing: bool = false
 
