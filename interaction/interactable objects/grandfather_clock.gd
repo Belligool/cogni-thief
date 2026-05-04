@@ -34,6 +34,8 @@ func _on_interact():
 func _on_line_changed(line: DialogLine) -> void:
 	if not DialogManager.is_active:
 		return
+	if DialogManager._current == null:  
+		return
 	if DialogManager._current.npc_id != interaction_area.interactable_object_name:
 		return
 	thought_bubble.show_line(line)

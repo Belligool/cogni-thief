@@ -1,13 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://de2j12tftcyv4"]
+[gd_scene load_steps=10 format=3 uid="uid://de2j12tftcyv4"]
 
 [ext_resource type="Script" uid="uid://87e6kxv50q8n" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
 [ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="2_ob46e"]
-[ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="2_uqeha"]
-[ext_resource type="Resource" uid="uid://wwajf3y4yqvq" path="res://transition/definition/phase_1_day_2.tres" id="2_wem23"]
+[ext_resource type="Resource" uid="uid://n3we65shm320" path="res://transition/definition/phase_1_day_1.tres" id="2_wem23"]
 [ext_resource type="Texture2D" uid="uid://clmyfdl0pm4oo" path="res://assets/ui/misc/IMG_4149.PNG" id="3_ob46e"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wem23"]
-texture = ExtResource("2_uqeha")
+[ext_resource type="Texture2D" uid="uid://cf4bt345dv24c" path="res://assets/ui/misc/IMG_4081.PNG" id="3_wem23"]
 
 [sub_resource type="Curve" id="Curve_uqeha"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -45,18 +42,16 @@ grow_vertical = 2
 script = ExtResource("1_0ebjn")
 intro_narration = ExtResource("2_wem23")
 
-[node name="Panel" type="Panel" parent="."]
-modulate = Color(0.46600792, 0.46600792, 0.46600792, 1)
-self_modulate = Color(0.38453078, 0.40304828, 0.27154002, 1)
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -1296.0
-offset_top = -492.0
-offset_right = 1206.1863
-offset_bottom = 486.0
-rotation = 0.0042685275
-theme_override_styles/panel = SubResource("StyleBoxTexture_wem23")
+offset_left = -955.0
+offset_top = -525.0
+offset_right = 965.0
+offset_bottom = 555.0
+texture = ExtResource("3_wem23")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 modulate = Color(0.2159017, 0.21590173, 0.2159017, 1)
 position = Vector2(34, 4)
 scale = Vector2(10.602997, 17.842997)
@@ -71,45 +66,43 @@ process_material = SubResource("ParticleProcessMaterial_wem23")
 
 [node name="Logo" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -910.0
-offset_top = -56.000008
-offset_right = -143.182
-offset_bottom = 710.818
+anchors_preset = -1
+offset_left = -84.0
+offset_top = -448.40857
+offset_right = 616.2516
+offset_bottom = 251.84302
 grow_horizontal = 0
 grow_vertical = 2
-rotation = -0.32547578
 scale = Vector2(0.9139573, 0.9139573)
 theme_override_styles/panel = SubResource("StyleBoxTexture_uqeha")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 293.0
-offset_top = -78.0
-offset_right = 584.91943
-offset_bottom = 29.0
+offset_left = 93.0
+offset_top = 304.0
+offset_right = 509.29745
+offset_bottom = 362.64505
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.7991943, 1.7991943)
 theme_override_constants/separation = 10
+alignment = 1
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_ob46e")
 text = "Start"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_ob46e")
 text = "Exit

@@ -1,9 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://d22ctwu4nch63"]
+[gd_scene load_steps=46 format=3 uid="uid://d22ctwu4nch63"]
 
 [ext_resource type="Script" uid="uid://ctlqhp3rellv3" path="res://scenes/phase_1/day_1/day_2_matthijs_room.gd" id="1_l3u63"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_773hi"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_spsl7"]
 [ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_mg67m"]
+[ext_resource type="Resource" uid="uid://dyi8twgb5c1lj" path="res://transition/definition/phase_1_day3.tres" id="5_5xrfy"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="5_a7yt2"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="6_5xrfy"]
 [ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_brbnu"]
@@ -174,6 +175,7 @@ color = Color(1, 1, 1, 0.5921569)
 [node name="day_2_matthijs_room" type="Node2D"]
 script = ExtResource("1_l3u63")
 intro_dialog = SubResource("Resource_5xrfy")
+intro_narration = ExtResource("5_5xrfy")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999996)

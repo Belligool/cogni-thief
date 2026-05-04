@@ -15,6 +15,8 @@ func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	DialogManager.line_changed.connect(_on_line_changed)
 	DialogManager.dialog_ended.connect(_on_dialog_ended)
+	if (QuestManager.get_current_day() == 2):
+		PlayerManager.reset_used_item("toybox")
 	_evaluate_availability()
 
 func _get_current_dialog() -> DialogData:
@@ -26,13 +28,7 @@ func _get_current_dialog() -> DialogData:
 
 func _evaluate_availability() -> void:
 	var available = true
-	if (QuestManager.get_current_day() == 2) and PlayerManager.is_item_used("toybox"):
-		PlayerManager.reset_used_item("toybox")
-		interaction_area.monitoring = available
-		interaction_area.monitorable = available
-		return
-		 
-	if (QuestManager.get_current_day() == 3) or PlayerManager.is_item_used("toybox"):
+	if PlayerManager.is_item_used("toybox"):
 		available = false
 	interaction_area.monitoring = available
 	interaction_area.monitorable = available

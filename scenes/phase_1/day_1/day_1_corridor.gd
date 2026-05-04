@@ -72,7 +72,6 @@ func _cutsene_after_sweet_finding() -> void:
 	await _sprite_walk(player, -52)
 	player.is_frozen = false
 	QuestManager.set_day(2)
-	InteractionManager.can_interact = true
 	TransitionManager.start(intro_narration)
 	
 func _cutscene_after_moeder_talk() -> void:
@@ -171,20 +170,10 @@ func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translati
 	data.speaker = speaker_name
 	data.translation = translation
 	
-	_skip_bubble = false
 	bubble_node.show_line(data)
-	
-	var wait_time = (text_content.length() * 0.05) + 1.5
-	var elapsed = 0.0
-	
-	while  elapsed < wait_time:
-		if _skip_bubble:
-			break
-		await get_tree().process_frame
-		elapsed += get_process_delta_time()
+	await _wait_for_input(bubble_node)
 	
 	bubble_node.clear()
-	_skip_bubble = false
 
 func _shake_camera() -> Vector2:
 	return Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
@@ -200,3 +189,12 @@ func _hide_npc(npc: Node2D) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
 		_skip_bubble = true
+
+func _wait_for_input(bubble_node) -> void:
+	while true:
+		await get_tree().process_frame
+		if Input.is_action_just_pressed("ui_accept"):
+			if bubble_node.is_typing():
+				bubble_node.skip_typing()
+			else:
+				break

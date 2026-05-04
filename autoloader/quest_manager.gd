@@ -15,6 +15,7 @@ var _completed_cutscenes: Array[String] = []
 var _completed_intros: Array[String] = []
 var _quests: Array[QuestData] = []
 var _current_index: int = 0
+var _current_phase: int = 0
 
 func loaded_quests(quests: Array[QuestData]) -> void:
 	# Called at the start of each phase with that phase's quest list
@@ -92,6 +93,11 @@ func _try_complete_multi(target: String) -> void:
 		_trigger_cutscene(quest)
 		_start_current()
 
+func set_phase(phase: int) -> void:
+	_current_phase = phase
+	
+func get_current_phase() -> int:
+	return _current_phase
 
 func set_day(day: int) -> void:
 	_current_day = day

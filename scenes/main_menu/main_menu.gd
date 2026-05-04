@@ -28,7 +28,8 @@ func _start() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.8)
 	await tween.finished
-	QuestManager.set_day(2)
+	QuestManager.set_day(1)
+	QuestManager.set_phase(1)
 	TransitionManager.start(intro_narration)
 	
 func _quit() -> void:

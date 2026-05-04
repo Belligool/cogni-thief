@@ -23,26 +23,32 @@ func _ready() -> void:
 	_evaluate_availability()
   
 func _evaluate_availability(quest: QuestData = null) -> void:
+	print("evaluating availability for: ", interaction_area.interactable_object_name)
 	var available = true
 	if quest != null:
 		if quest.flag_target != interaction_area.interactable_object_name:
 			return
 		else:
-			#print("evaluating availability for: ", interaction_area.interactable_object_name)
-			#print("required_flag: '", required_flag, "'")
-			#print(QuestManager.triggered_flags)
-			#print("flag active: ", QuestManager.is_flag_active(required_flag))
+			print(QuestManager.triggered_flags)
 			if !quest.flag.contains("unlock"):
 				available = false
-			current_flag = "unlock"
 			interaction_area.monitoring = available
 			interaction_area.monitorable = available
 			return
-	if current_flag == "lock":
-		available = false
-	interaction_area.monitoring = available
-	interaction_area.monitorable = available
-	return
+	else:
+		print("interacted_npc array: ", PlayerManager.interacted_npc)
+		if PlayerManager.interacted_npc.has("moeder"):
+			print('moeder lock')
+			available = false
+		elif (QuestManager.is_flag_active('unlock_interact_with_mother_day_1')) and (QuestManager.get_current_day() == 1) and (get_tree().current_scene.name == 'day1_corridor') and !(PlayerManager.is_npc_interacted("moeder")):
+			print('moeder unlock')
+			available = true
+		elif current_flag == "lock":
+			print('moeder locked')
+			available = false
+		interaction_area.monitoring = available
+		interaction_area.monitorable = available
+		return
 
 func _get_current_dialog() -> DialogData:
 	if not dialogs_per_day.is_empty():
@@ -57,10 +63,13 @@ func _on_interact() -> void:
 		return
 	print("starting interaction with npc ")
 	DialogManager.start(current_dialog)
+	PlayerManager.add_interacted_npc("moeder")
 	await DialogManager.dialog_ended
 	
 func _on_line_changed(line: DialogLine) -> void:
 	if not DialogManager.is_active:
+		return
+	if DialogManager._current == null:
 		return
 	if DialogManager._current.npc_id != interaction_area.interactable_object_name:
 		return
@@ -76,5 +85,4 @@ func _on_dialog_ended(_npc_id: String) -> void:
 	bubble.clear()
 	if player:
 		player.get_node("SpeechBubble").clear()
-	current_flag = "lock"
 	_evaluate_availability()

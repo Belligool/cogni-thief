@@ -174,10 +174,7 @@ amount_ratio = 0.25
 process_material = SubResource("ParticleProcessMaterial_p57ef")
 
 [node name="Moeder" parent="." instance=ExtResource("12_wa7me")]
-position = Vector2(128, -8)
-required_flag = "unlock_interact_with_mother_day_1"
-sets_flag = ""
-one_time_only = false
+position = Vector2(124, -9)
 
 [node name="Player" parent="." instance=ExtResource("11_cdy5v")]
 position = Vector2(11, -8)

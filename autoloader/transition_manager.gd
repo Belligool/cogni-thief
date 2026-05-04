@@ -56,6 +56,7 @@ func finish() -> void:
 	if not quests.is_empty():
 		print("loading quests")
 		QuestManager.loaded_quests(quests)
+	InteractionManager.can_interact = true
 	
 func change_scene(next_scene: String, spawn_point_id: String = "") -> void:
 	if is_active:
