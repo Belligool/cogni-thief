@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NarrationData" load_steps=3 format=3 uid="uid://bsklgxbucral8"]
+
+[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_7eojm"]
+[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_dw6vq"]
+
+[resource]
+script = ExtResource("2_dw6vq")
+lines = Array[String](["It happened again...", "My body feels… heavy…", "And uncomfortable...", "", ""])
+metadata/_custom_type_script = "uid://bhqs24s4ximjh"

@@ -1,10 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6vyxllr4qfje"]
+[gd_scene load_steps=30 format=3 uid="uid://c6vyxllr4qfje"]
 
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_einkh"]
 [ext_resource type="Script" uid="uid://chqyig45mc2ev" path="res://scenes/phase_2/day_1/day_1_ruby_room.gd" id="1_keyft"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_abjth"]
+[ext_resource type="Resource" uid="uid://bsklgxbucral8" path="res://transition/definition/phase_2_day_1.tres" id="2_mx8wo"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_q16m6"]
 [ext_resource type="Texture2D" uid="uid://db24i377j2845" path="res://assets/Matthijs/Corridor Room/door.png" id="3_iny67"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_mx8wo"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="3_q16m6"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_udfyw"]
 [ext_resource type="Texture2D" uid="uid://de6jaxtvdylg3" path="res://assets/Matthijs/Corridor Room/grandfather_clock.png" id="6_v270p"]
 [ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_cmkk6"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="11_va7lu"]
@@ -13,6 +17,48 @@
 [ext_resource type="PackedScene" uid="uid://bohydro1535rr" path="res://interaction/interactable objects/bed.tscn" id="13_keyft"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="13_whnhr"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="14_46y8x"]
+
+[sub_resource type="Resource" id="Resource_udfyw"]
+script = ExtResource("2_q16m6")
+speaker = "mc"
+text = "How long has this body even slept?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_v270p"]
+script = ExtResource("2_q16m6")
+speaker = "mc"
+text = " Ow ow, my back!"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_cmkk6"]
+script = ExtResource("2_q16m6")
+speaker = "mc"
+text = "Why does it hurt so much?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_wa147"]
+script = ExtResource("2_q16m6")
+speaker = "mc"
+text = "This room is…"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_23dcx"]
+script = ExtResource("2_q16m6")
+speaker = "mc"
+text = "small, compared to Matthijs"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_cdgaj"]
+script = ExtResource("2_q16m6")
+speaker = "mc"
+text = "And that beaming light—what is that?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_va7lu"]
+script = ExtResource("4_udfyw")
+npc_id = "premise"
+lines = Array[ExtResource("2_q16m6")]([SubResource("Resource_udfyw"), SubResource("Resource_v270p"), SubResource("Resource_cmkk6"), SubResource("Resource_wa147"), SubResource("Resource_23dcx"), SubResource("Resource_cdgaj")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jlsh5"]
 distance = -2.0
@@ -41,6 +87,8 @@ color = Color(1, 1, 1, 0.5921569)
 
 [node name="day1_ruby_room" type="Node2D"]
 script = ExtResource("1_keyft")
+intro_narration = ExtResource("2_mx8wo")
+intro_dialog = SubResource("Resource_va7lu")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999992)
