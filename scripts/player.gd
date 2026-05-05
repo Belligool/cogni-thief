@@ -14,6 +14,7 @@ func _ready() -> void:
 			animated_sprite.sprite_frames = animated_sprites[0]
 		2:
 			print("phase2")
+			animated_sprite.sprite_frames = animated_sprites[1]
 		3:
 			print("phase3")
 

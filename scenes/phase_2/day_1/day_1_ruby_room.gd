@@ -6,9 +6,10 @@ extends Node2D
 @onready var player_bubble = $Player/SpeechBubble
 @onready var initial_point = PlayerManager.get_total_points()
 
-@export var intro_narration: NarrationData
+
 @export var intro_dialog: DialogData
 @export var scene_id: String = "ruby_bedroom_day1"
+@export var intro_narration: NarrationData
 
 var shake_strength: float = 0.0
 var shake_fade: float = 5.0
@@ -37,6 +38,8 @@ func _on_premise_dialog_ended(_npc_id: String) -> void:
 func start_cutscene(cutscene_id: String) -> void:
 	if cutscene_id != scene_id: 
 		return
+		
+	InteractionManager.can_interact = false
 	
 	player.is_frozen = true
 	
@@ -47,12 +50,10 @@ func start_cutscene(cutscene_id: String) -> void:
 	await get_tree().create_timer(0.5).timeout
 	
 	await _play_bubble(player_bubble, "mc", "And what are… these lines of words?", false)
-	await get_tree().create_timer(0.5).tineout
+	await get_tree().create_timer(0.5).timeout
 	
 	await _play_bubble(player_bubble, "mc", "Weird...These lines are weird", false)
 	await get_tree().create_timer(0.5).timeout
-	
-	
 	
 	var current_points = PlayerManager.get_total_points()
 	var points_gained = current_points - initial_point
@@ -185,13 +186,14 @@ func _ready() -> void:
 	DialogManager.line_changed.connect(_on_premise_line_changed)
 	DialogManager.dialog_ended.connect(_on_premise_dialog_ended)
 	if not QuestManager.was_intro_seen(scene_id):
-		_play_premise()
+		_play_premise()	
 	_cutscene_map = {
-		"ruby_room_day_1_aftermath_good": _ruby_room_day_1_aftermath_good,
+		"ruby_room_day_1_aftermath_goodddd": _ruby_room_day_1_aftermath_good,
 		"ruby_room_day_1_aftermath_neutral": _ruby_room_day_1_aftermath_neutral,
 		"ruby_room_day_1_aftermath_bad": _ruby_room_day_1_aftermath_bad,
 	}
-	QuestManager.trigger_cutscene.connect(start_cutscene) 
+	QuestManager.trigger_cutscene.connect(start_cutscene)
+	player.add_to_group("player") 
 
 func _play_premise() -> void:
 	player.is_frozen = true
@@ -208,11 +210,18 @@ func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translati
 	data.translation = translation
 	
 	bubble_node.show_line(data)
-	
-	var wait_time = (text_content.length() * 0.05) + 1.5
-	await get_tree().create_timer(wait_time).timeout
+	await _wait_for_input(bubble_node)
 	
 	bubble_node.clear()
+
+func _wait_for_input(bubble_node) -> void:
+	while true:
+		await get_tree().process_frame
+		if Input.is_action_just_pressed("ui_accept"):
+			if bubble_node.is_typing():
+				bubble_node.skip_typing()
+			else:
+				break
 	
 func _shake_camera() -> Vector2:
 	var rng = RandomNumberGenerator.new()
@@ -226,3 +235,4 @@ func _hide_npc(npc: Node2D) -> void:
 	if interaction:
 		interaction.monitoring = false
 		interaction.monitorable = false
+		

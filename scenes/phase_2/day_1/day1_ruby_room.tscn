@@ -1,9 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://c6vyxllr4qfje"]
+[gd_scene load_steps=29 format=3 uid="uid://c6vyxllr4qfje"]
 
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_einkh"]
 [ext_resource type="Script" uid="uid://chqyig45mc2ev" path="res://scenes/phase_2/day_1/day_1_ruby_room.gd" id="1_keyft"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_abjth"]
-[ext_resource type="Resource" uid="uid://bsklgxbucral8" path="res://transition/definition/phase_2_day_1.tres" id="2_mx8wo"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_q16m6"]
 [ext_resource type="Texture2D" uid="uid://db24i377j2845" path="res://assets/Matthijs/Corridor Room/door.png" id="3_iny67"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_mx8wo"]
@@ -22,36 +21,42 @@
 script = ExtResource("2_q16m6")
 speaker = "mc"
 text = "How long has this body even slept?"
+typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_v270p"]
 script = ExtResource("2_q16m6")
 speaker = "mc"
 text = " Ow ow, my back!"
+typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_cmkk6"]
 script = ExtResource("2_q16m6")
 speaker = "mc"
 text = "Why does it hurt so much?"
+typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_wa147"]
 script = ExtResource("2_q16m6")
 speaker = "mc"
 text = "This room is…"
+typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_23dcx"]
 script = ExtResource("2_q16m6")
 speaker = "mc"
 text = "small, compared to Matthijs"
+typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_cdgaj"]
 script = ExtResource("2_q16m6")
 speaker = "mc"
 text = "And that beaming light—what is that?"
+typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_va7lu"]
@@ -64,7 +69,7 @@ metadata/_custom_type_script = "uid://cq8iorar8inmf"
 distance = -2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53rl5"]
-size = Vector2(3, 88)
+size = Vector2(4, 89)
 
 [sub_resource type="Curve" id="Curve_o3mkx"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -87,22 +92,21 @@ color = Color(1, 1, 1, 0.5921569)
 
 [node name="day1_ruby_room" type="Node2D"]
 script = ExtResource("1_keyft")
-intro_narration = ExtResource("2_mx8wo")
 intro_dialog = SubResource("Resource_va7lu")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
-position = Vector2(44.999996, -43.999992)
-scale = Vector2(0.076626636, 0.08055556)
+position = Vector2(41.335987, -45.249996)
+scale = Vector2(0.07882857, 0.08287039)
 texture = ExtResource("1_einkh")
 
 [node name="rubydoor" type="Sprite2D" parent="."]
-position = Vector2(-52, -37)
-scale = Vector2(0.07065218, 0.07065219)
+position = Vector2(-52.000004, -46.000004)
+scale = Vector2(0.09782608, 0.09782611)
 texture = ExtResource("3_iny67")
 
 [node name="Floor" type="Sprite2D" parent="."]
-position = Vector2(44.999996, -7.000004)
-scale = Vector2(0.076626636, 0.080555566)
+position = Vector2(41.253357, -7.455557)
+scale = Vector2(0.07887822, 0.085732296)
 texture = ExtResource("2_abjth")
 
 [node name="Rug" type="Sprite2D" parent="."]
@@ -111,32 +115,38 @@ scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("3_q16m6")
 
 [node name="Grandfather\'s Clock" type="Sprite2D" parent="."]
-position = Vector2(-24.999998, -37.000004)
-scale = Vector2(0.076626636, 0.080555566)
+position = Vector2(-15.871571, -44.729755)
+scale = Vector2(0.10081331, 0.10598237)
 texture = ExtResource("6_v270p")
 
+[node name="desktop" parent="." instance=ExtResource("12_iny67")]
+position = Vector2(36, -29)
+
+[node name="bed" parent="." instance=ExtResource("13_keyft")]
+position = Vector2(131, -10)
+
 [node name="Cabinet" type="Sprite2D" parent="."]
-position = Vector2(37.80821, -19)
-scale = Vector2(0.076626636, 0.080555566)
+position = Vector2(35.000004, -21)
+scale = Vector2(0.10059603, 0.105753966)
 texture = ExtResource("7_cmkk6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -4)
+position = Vector2(20, -4)
 shape = SubResource("WorldBoundaryShape2D_jlsh5")
 
 [node name="LeftCollision" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCollision"]
-position = Vector2(-83.5, -44)
+position = Vector2(-92, -44)
 shape = SubResource("RectangleShape2D_53rl5")
 
 [node name="RightCollision" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightCollision"]
-position = Vector2(174, -44)
+position = Vector2(171, -44)
 shape = SubResource("RectangleShape2D_53rl5")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -152,7 +162,7 @@ process_material = SubResource("ParticleProcessMaterial_7h8i6")
 [node name="SpawnPoint_FromRubysDoor" type="Node2D" parent="."]
 position = Vector2(-52, -7)
 
-[node name="Player" parent="." groups=["speech_bubble"] instance=ExtResource("13_whnhr")]
+[node name="Player" parent="." instance=ExtResource("13_whnhr")]
 position = Vector2(-54, -6)
 
 [node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
@@ -164,9 +174,3 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("14_46y8x")
-
-[node name="desktop" parent="." instance=ExtResource("12_iny67")]
-position = Vector2(39, -25)
-
-[node name="bed" parent="." instance=ExtResource("13_keyft")]
-position = Vector2(115, -14)

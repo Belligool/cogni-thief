@@ -93,8 +93,6 @@ func start_cutscene(cutscene_id: String) -> void:
 	player.is_frozen = false
 	InteractionManager.can_interact = true
 	
-	await get_tree().create_timer(1.5).timeout
-	get_tree().change_scene_to_file("res://scenes/phase_2/day_1/day1_ruby_room.tscn" )
 
 	
 func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translation: String = "") -> void:
