@@ -45,11 +45,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -600.0
-offset_top = -64.0
+offset_top = -99.91998
 offset_right = 600.0
+offset_bottom = -35.919983
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_3ly3b")
+theme_override_constants/separation = 35
 
 [node name="Choice0" type="Button" parent="ChoicesContainer"]
 layout_mode = 2
