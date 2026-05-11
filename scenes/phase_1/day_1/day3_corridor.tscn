@@ -166,6 +166,7 @@ process_material = SubResource("ParticleProcessMaterial_p57ef")
 [node name="ChoicesUI" parent="." instance=ExtResource("14_56crn")]
 
 [node name="QuestUI" parent="." instance=ExtResource("15_8swt2")]
+visible = false
 
 [node name="SpawnPoint_FromMatthijsDoor" type="Node2D" parent="." groups=["SpawnPoint_FromMatthijsDoor"]]
 position = Vector2(-52, -7)
