@@ -4,44 +4,41 @@
 [ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="2_d8ria"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="2_xe6i3"]
 
-[sub_resource type="Resource" id="Resource_5nlx6"]
-script = ExtResource("2_xe6i3")
-label = "I wonder who she is . . ."
-next_line_index = 1
-metadata/_custom_type_script = "uid://dlfh74f7gy1re"
-
 [sub_resource type="Resource" id="Resource_iikge"]
 script = ExtResource("1_gq7s7")
 speaker = "mc"
-text = "That woman… feels warm, safe. "
-choices = Array[ExtResource("2_xe6i3")]([SubResource("Resource_5nlx6")])
+text = "That woman… feels warm, safe."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_d8ria"]
 script = ExtResource("1_gq7s7")
 speaker = "mc"
-text = "Pretty words..."
+text = "Am I that baby?"
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_xe6i3"]
 script = ExtResource("1_gq7s7")
-speaker = "mc"
+text = "Pretty words..."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_5nlx6"]
+script = ExtResource("1_gq7s7")
 text = "Matthijs."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_a52w4"]
 script = ExtResource("1_gq7s7")
-speaker = "mc"
-text = "Me?"
-is_dialog_thought = true
+text = "My name?"
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [resource]
 script = ExtResource("2_d8ria")
+npc_id = "family_photo"
 object_id = "family_photo"
-lines = Array[ExtResource("1_gq7s7")]([SubResource("Resource_iikge"), SubResource("Resource_d8ria"), SubResource("Resource_xe6i3"), SubResource("Resource_a52w4")])
+lines = Array[ExtResource("1_gq7s7")]([SubResource("Resource_iikge"), SubResource("Resource_d8ria"), SubResource("Resource_xe6i3"), SubResource("Resource_5nlx6"), SubResource("Resource_a52w4")])
 is_quest_dialog = true
 metadata/_custom_type_script = "uid://cq8iorar8inmf"

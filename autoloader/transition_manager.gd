@@ -1,8 +1,7 @@
 extends Node
 
 signal transition_started
-signal transition_finished
-signal narration_finished
+signal narration_finished(scene: String)
 signal narration_line_changed(text: String)
 signal scene_change_started
 signal scene_change_finished
@@ -24,7 +23,7 @@ func start(data: NarrationData) -> void:
 	
 func _end() -> void:
 	is_active = false
-	narration_finished.emit()
+	narration_finished.emit(_data.next_scene)
 
 func _show_line(index: int) -> void:
 	# if index is out of range or -1, the narration is over
@@ -51,15 +50,13 @@ func show_first_line() -> void:
 	
 func finish() -> void:
 	is_active = false
-	var next = _data.next_scene
 	var quests = _data.next_day_quests
 	_data = null
-	transition_finished.emit()
 	# Load new quests for every transition (new day)
 	if not quests.is_empty():
 		print("loading quests")
 		QuestManager.loaded_quests(quests)
-	get_tree().change_scene_to_file(next)
+	InteractionManager.can_interact = true
 	
 func change_scene(next_scene: String, spawn_point_id: String = "") -> void:
 	if is_active:

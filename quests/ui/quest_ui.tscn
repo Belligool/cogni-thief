@@ -30,3 +30,4 @@ theme_override_fonts/font = ExtResource("2_a614q")
 theme_override_font_sizes/font_size = 16
 text = "
 "
+justification_flags = 162

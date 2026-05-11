@@ -28,12 +28,8 @@ QuestManager="*res://autoloader/quest_manager.gd"
 TransitionManager="*res://autoloader/transition_manager.gd"
 NarrationUi="*res://transition/ui/narration_ui.tscn"
 SceneTransitionUi="*res://transition/ui/scene_transition_ui.tscn"
-
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
+InterludeManager="*res://autoloader/interlude_manager.gd"
+InterludeUi="*res://transition/ui/interlude_ui.tscn"
 
 [global_group]
 
@@ -80,6 +76,7 @@ next_narration={
 2d_physics/layer_1="Environment"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Interactions"
+2d_physics/layer_4="NPC"
 
 [rendering]
 

@@ -7,11 +7,6 @@ extends Node2D
 @onready var dialog_text:RichTextLabel = $MarginContainer/MarginContainer/VBoxContainer/DialogText
 @onready var translation_text: RichTextLabel = $MarginContainer/MarginContainer/VBoxContainer/TranslationText
 
-@export var thought_margin: Vector4 = Vector4(15, 12, 4, 12) # Left, Top, Right, Bottom
-@export var normal_margins: Vector4 = Vector4(16, 16, 16, 16)
-@export var normal_texture: Texture2D
-@export var thought_texture: Texture2D
-
 var _full_text: String = ""
 var _chars_shown: int = 0
 var _typing: bool = false
@@ -32,7 +27,6 @@ func _process(delta: float) -> void:
 	bubble_bg.position = Vector2.ZERO
 	var texture_height = sprite.sprite_frames.get_frame_texture("idle", 0).get_height()
 	position.y = -texture_height * sprite.scale.y + 28
-	#position.x = -10
 	
 	if not _typing:
 		return
@@ -66,6 +60,7 @@ func _process(delta: float) -> void:
 		elif last_char in [",", ";", ":"]:
 			_typing_timer = -0.4 # Wait an extra 0.4  seconds
 
+
 func show_line(data: DialogLine) ->  void:
 	show()
 	_is_visible_and_active = true 
@@ -95,16 +90,18 @@ func show_line(data: DialogLine) ->  void:
 	#else: 
 		#bubble_bg.flip_h = false
 	
+	dialog_text.modulate = Color.WHITE
+	dialog_text.remove_theme_color_override("default_color")
+	bubble_bg.modulate = Color.WHITE
+	
 	# Handle UI if dialog is thought or not
-	if data.is_dialog_thought and thought_texture:
-		bubble_bg.texture = thought_texture
-		#bubble_bg.modulate.a = 0.5
-		_update_margin(thought_margin)
+	if data.is_dialog_thought:
+		dialog_text.add_theme_color_override("default_color", Color.WHITE)
+		bubble_bg.modulate = Color("3a2359")
 		
-	elif normal_texture:
-		bubble_bg.texture = normal_texture
-		#bubble_bg.modulate.a = 1.0
-		_update_margin(normal_margins)
+	else:
+		dialog_text.add_theme_color_override("default_color", Color("3a2359"))
+		bubble_bg.modulate = Color(1, 1, 1, 1)
 	
 	_full_translation = data.translation
 	translation_text.text = ""
@@ -117,18 +114,15 @@ func show_line(data: DialogLine) ->  void:
 	_typing_timer = 0.0
 	_typing = true
 	
+func is_typing() -> bool:
+	return _typing
+	
 func skip_typing() -> void:
 	if _typing:
 		_typing = false
 		dialog_text.text = _full_text
 		translation_text.text = _full_translation
 		_translation_chars_shown = _full_translation.length()
-		
-func _update_margin(m: Vector4) -> void:
-	bubble_bg.patch_margin_left = int(m.x)
-	bubble_bg.patch_margin_top = int(m.y)
-	bubble_bg.patch_margin_right = int(m.z)
-	bubble_bg.patch_margin_bottom = int(m.w)
 
 func clear() -> void:
 	hide()

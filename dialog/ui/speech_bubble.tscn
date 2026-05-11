@@ -1,16 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bt1pjdw052frb"]
+[gd_scene load_steps=5 format=3 uid="uid://bt1pjdw052frb"]
 
 [ext_resource type="Script" uid="uid://bksekc1uu6lbf" path="res://dialog/ui/speech_bubble.gd" id="1_vhus8"]
-[ext_resource type="Texture2D" uid="uid://c6085jreqqmlr" path="res://assets/ui/dialogs/IMG_4151.PNG" id="2_vhus8"]
-[ext_resource type="Texture2D" uid="uid://60ungjhxc5j3" path="res://assets/ui/dialogs/IMG_4084.PNG" id="3_pyj2l"]
 [ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="4_3vnme"]
-[ext_resource type="AudioStream" uid="uid://dnfjxagnvwjls" path="res://assets/sounds/dialog/Fast01/SFX_FastSinglev4.wav" id="5_5wdhv"]
+[ext_resource type="Texture2D" uid="uid://b4i0s4fda3yse" path="res://assets/ui/dialogs/IMG_4187.PNG" id="4_pyj2l"]
+[ext_resource type="AudioStream" uid="uid://dnfjxagnvwjls" path="res://assets/dialog/Fast01/SFX_FastSinglev4.wav" id="5_5wdhv"]
 
 [node name="SpeechBubble" type="Node2D"]
 script = ExtResource("1_vhus8")
-normal_margins = Vector4(2, 2, 2, 2)
-normal_texture = ExtResource("2_vhus8")
-thought_texture = ExtResource("3_pyj2l")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_top = -35.0
@@ -22,12 +18,12 @@ size_flags_vertical = 0
 
 [node name="BubbleContainer" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
-texture = ExtResource("2_vhus8")
-region_rect = Rect2(0, 0, 18, 15)
-patch_margin_left = 15
-patch_margin_top = 12
-patch_margin_right = 4
-patch_margin_bottom = 12
+texture = ExtResource("4_pyj2l")
+region_rect = Rect2(0, 3, 24, 19)
+patch_margin_left = 20
+patch_margin_top = 15
+patch_margin_right = 20
+patch_margin_bottom = 15
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -44,7 +40,9 @@ layout_mode = 2
 [node name="DialogText" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0.25688925, 0.15769011, 0.3907981, 1)
+theme_override_colors/selection_color = Color(0.100000024, 0.100000024, 1, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.06666667)
 theme_override_fonts/normal_font = ExtResource("4_3vnme")
 theme_override_font_sizes/normal_font_size = 8
 theme_override_font_sizes/bold_font_size = 8
@@ -73,5 +71,5 @@ autowrap_mode = 2
 
 [node name="AudioListener2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_5wdhv")
-volume_db = -5.0
-autoplay = true
+volume_db = -10.0
+attenuation = 6.7271767

@@ -8,7 +8,7 @@ var _tween: Tween = null
 var _full_text: String = ""
 var _chars_shown: int = 0
 var _typing: bool = false
-var _typing_speed: float = 0.05
+var _typing_speed: float = 0.1
 var _typing_timer: float = 0.0
 var _is_playing: bool = false
 
@@ -67,7 +67,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			TransitionManager._advance()
 	
-func _on_last_line_done() -> void:
+func _on_last_line_done(scene: String) -> void:
+	get_tree().change_scene_to_file(scene)
+	await get_tree().process_frame
+	await get_tree().process_frame
 	print("last line done, starting fade")
 	_tween = create_tween()
 	_tween.tween_property(narration_label, "modulate:a", 0.0, 0.5)
@@ -80,3 +83,4 @@ func _on_last_line_done() -> void:
 	_is_playing = false
 	hide()
 	TransitionManager.finish()
+	
