@@ -257,6 +257,7 @@ script = ExtResource("15_brhmk")
 [node name="ChoicesUI" parent="." instance=ExtResource("16_cy3ln")]
 
 [node name="QuestUI" parent="." instance=ExtResource("17_s88am")]
+visible = false
 
 [node name="SpawnPoint_FromCorridor" type="Node2D" parent="." groups=["SpawnPoint_FromCorridor"]]
 position = Vector2(146, -6)
