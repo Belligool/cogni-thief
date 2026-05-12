@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d22ctwu4nch63"]
+[gd_scene load_steps=48 format=3 uid="uid://d22ctwu4nch63"]
 
 [ext_resource type="Script" uid="uid://ctlqhp3rellv3" path="res://scenes/phase_1/day_1/day_2_matthijs_room.gd" id="1_l3u63"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_773hi"]
@@ -7,7 +7,8 @@
 [ext_resource type="Resource" uid="uid://dyi8twgb5c1lj" path="res://transition/definition/phase_1_day3.tres" id="5_5xrfy"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="5_a7yt2"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="6_5xrfy"]
-[ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_brbnu"]
+[ext_resource type="Texture2D" uid="uid://cl4nd40v4vhf3" path="res://assets/Matthijs/Matthijs Room/Child_Jendela.png" id="7_brbnu"]
+[ext_resource type="Texture2D" uid="uid://cec2pndclwodu" path="res://assets/Matthijs/Matthijs Room/Child_Meja.png" id="8_bog4s"]
 [ext_resource type="PackedScene" uid="uid://bhdcosw252jm1" path="res://interaction/interactable objects/drawer.tscn" id="8_f1cxe"]
 [ext_resource type="PackedScene" uid="uid://bfs16q60d3aqi" path="res://interaction/interactable objects/toybox.tscn" id="9_bog4s"]
 [ext_resource type="PackedScene" uid="uid://cutpsqt7xhtt0" path="res://interaction/interactable objects/family_photo.tscn" id="10_2ior5"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://dgynbr3f2h36g" path="res://npc/child1.tscn" id="18_mg67m"]
 [ext_resource type="PackedScene" uid="uid://jo6bcw6ueylh" path="res://npc/child2.tscn" id="19_a7yt2"]
 [ext_resource type="PackedScene" uid="uid://6dd4h46jr18l" path="res://npc/saleh.tscn" id="20_5xrfy"]
+[ext_resource type="Texture2D" uid="uid://vftnxxf1faby" path="res://assets/Matthijs/Matthijs Room/Child_Kasur.png" id="23_2ior5"]
 
 [sub_resource type="Resource" id="Resource_l3u63"]
 script = ExtResource("2_773hi")
@@ -182,29 +184,34 @@ position = Vector2(44.999996, -43.999996)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("5_a7yt2")
 
+[node name="window" type="Sprite2D" parent="."]
+position = Vector2(92, -49.977146)
+scale = Vector2(0.073895805, 0.07768472)
+texture = ExtResource("7_brbnu")
+
+[node name="window2" type="Sprite2D" parent="."]
+position = Vector2(-11, -49.977146)
+scale = Vector2(0.073895805, 0.07768472)
+texture = ExtResource("7_brbnu")
+
+[node name="Table2" type="Sprite2D" parent="."]
+position = Vector2(-10.3987665, -20.672222)
+scale = Vector2(0.061887573, 0.06506078)
+texture = ExtResource("8_bog4s")
+
 [node name="Floor" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -7.000004)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("6_5xrfy")
 
-[node name="Table" type="Sprite2D" parent="."]
-position = Vector2(55.999996, -19)
-scale = Vector2(0.076626636, 0.080555566)
-texture = ExtResource("7_brbnu")
-
 [node name="Drawer" parent="." instance=ExtResource("8_f1cxe")]
-position = Vector2(81, -12)
+position = Vector2(92, -12)
 
 [node name="Toybox" parent="." instance=ExtResource("9_bog4s")]
-position = Vector2(57, -25)
-
-[node name="Bed" type="Sprite2D" parent="."]
-position = Vector2(-34.000004, -19)
-scale = Vector2(0.076626636, 0.080555566)
-texture = ExtResource("7_brbnu")
+position = Vector2(57, -11)
 
 [node name="Family_Photo" parent="." instance=ExtResource("10_2ior5")]
-position = Vector2(-33, -25)
+position = Vector2(-11, -20)
 
 [node name="Corridor\'sDoor" parent="." instance=ExtResource("11_0trp5")]
 position = Vector2(145, -14)
@@ -270,3 +277,8 @@ position = Vector2(93, -8)
 
 [node name="child1" parent="." instance=ExtResource("18_mg67m")]
 position = Vector2(28, -8)
+
+[node name="Bed2" type="Sprite2D" parent="."]
+position = Vector2(-55, -25)
+scale = Vector2(0.08851697, 0.09305556)
+texture = ExtResource("23_2ior5")

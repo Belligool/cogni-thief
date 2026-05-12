@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://duwqelo2pn3pi" path="res://interaction/interactable objects/toybox.gd" id="1_rxcj8"]
 [ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="2_r1tiq"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="3_gw1bu"]
-[ext_resource type="Texture2D" uid="uid://bwmhatvs3rl5c" path="res://assets/Matthijs/Corridor Room/gramaphone.png" id="3_r1tiq"]
 [ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="4_gw1bu"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="4_hcdv6"]
+[ext_resource type="Texture2D" uid="uid://ce7i73vpp5vng" path="res://assets/Matthijs/Matthijs Room/Child_Toy Box.png" id="5_r1tiq"]
 
 [sub_resource type="Resource" id="Resource_45w4w"]
 script = ExtResource("3_gw1bu")
@@ -70,7 +70,7 @@ dialogs_per_day = Array[ExtResource("2_r1tiq")]([SubResource("Resource_ea663"), 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3.8146973e-06, -12.000002)
 scale = Vector2(0.076626636, 0.080555566)
-texture = ExtResource("3_r1tiq")
+texture = ExtResource("5_r1tiq")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 position = Vector2(1, -13.000001)

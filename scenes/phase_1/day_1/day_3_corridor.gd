@@ -111,6 +111,8 @@ func _matthijs_corridor_day_3_aftermath_good():
 	_hide_npc(njai1)
 	_hide_npc(njai2)
 	moeder.show()
+	var tween = create_tween()
+	tween.tween_property(moeder, "modulate:a", 1.0, 0.01)
 	await _sprite_walk(player, moeder.global_position.x + 30, 20)
 	initialPlayerPos = player.position
 	player.animated_sprite.play("idle")
