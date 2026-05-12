@@ -2,8 +2,10 @@ extends CanvasLayer
 
 @onready var background: ColorRect = $Background
 @onready var narration_label: Label = $Background/NarrationLabel
+@onready var advance_label: Label = $AdvanceLabel
 
 var _tween: Tween = null
+var _advance_tween: Tween = null
 
 var _full_text: String = ""
 var _chars_shown: int = 0
@@ -18,6 +20,7 @@ func _ready() -> void:
 	TransitionManager.narration_line_changed.connect(_on_line_changed)
 	TransitionManager.narration_finished.connect(_on_last_line_done)
 	background.modulate.a = 0.0
+	advance_label.modulate.a = 0.0
 	hide()
  
 func _process(delta: float) -> void:
@@ -30,6 +33,7 @@ func _process(delta: float) -> void:
 		narration_label.text = _full_text.left(_chars_shown)
 		if _chars_shown >= _full_text.length():
 			_typing = false
+			_show_advance_prompt()
 			
 func _on_transition_started() -> void:
 	if _is_playing:
@@ -46,6 +50,7 @@ func _on_transition_started() -> void:
 	
 func _on_line_changed(text: String) -> void:
 	print("line changed fired: ", text)
+	_hide_advance_prompt()
 	if narration_label.text != "":
 		_tween = create_tween()
 		_tween.tween_property(narration_label, "modulate:a", 0.0, 0.4)
@@ -64,10 +69,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		if _typing:
 			_typing = false
 			narration_label.text = _full_text
+			_show_advance_prompt()
 		else:
+			_hide_advance_prompt()
 			TransitionManager._advance()
 	
 func _on_last_line_done(scene: String) -> void:
+	_hide_advance_prompt()
 	get_tree().change_scene_to_file(scene)
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -84,3 +92,14 @@ func _on_last_line_done(scene: String) -> void:
 	hide()
 	TransitionManager.finish()
 	
+func _show_advance_prompt() -> void:
+	if _advance_tween:
+		_advance_tween.kill()
+	_advance_tween = create_tween()
+	# Fades to 1.0 alpha over 0.5 seconds, but waits 1.0 seconds before starting
+	_advance_tween.tween_property(advance_label, "modulate:a", 1.0, 0.5).set_delay(1.0)
+
+func _hide_advance_prompt() -> void:
+	if _advance_tween:
+		_advance_tween.kill()
+	advance_label.modulate.a = 0.0
