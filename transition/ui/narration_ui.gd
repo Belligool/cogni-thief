@@ -13,6 +13,7 @@ var _typing: bool = false
 var _typing_speed: float = 0.1
 var _typing_timer: float = 0.0
 var _is_playing: bool = false
+var _has_shown_advance_prompt = false
 
 func _ready() -> void:
 	print("narration ui ready")
@@ -40,6 +41,7 @@ func _on_transition_started() -> void:
 		return
 	print("transition started fired!")
 	_is_playing = true
+	_has_shown_advance_prompt = false
 	show()
 	narration_label.modulate.a = 0.0
 	narration_label.text = ""
@@ -93,6 +95,9 @@ func _on_last_line_done(scene: String) -> void:
 	TransitionManager.finish()
 	
 func _show_advance_prompt() -> void:
+	if _has_shown_advance_prompt:
+		return
+	_has_shown_advance_prompt = true
 	if _advance_tween:
 		_advance_tween.kill()
 	_advance_tween = create_tween()
