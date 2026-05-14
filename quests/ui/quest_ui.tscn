@@ -1,10 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxeg4f1oegwdu"]
+[gd_scene load_steps=5 format=3 uid="uid://cxeg4f1oegwdu"]
 
 [ext_resource type="Script" uid="uid://bj0d0hvfp1he2" path="res://quests/ui/quest_ui.gd" id="1_htiun"]
 [ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="2_a614q"]
+[ext_resource type="Shader" uid="uid://5002hfknpsub" path="res://quests/ui/quest_ui.gdshader" id="2_rsu42"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lydnc"]
+shader = ExtResource("2_rsu42")
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+shader_parameter/vignette_intensity = 0.5
+shader_parameter/vignette_opacity = 0.8
 
 [node name="QuestUI" type="CanvasLayer"]
 script = ExtResource("1_htiun")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.5176471)
+self_modulate = Color(1, 1, 1, 0.47843137)
+material = SubResource("ShaderMaterial_lydnc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Container" type="Control" parent="."]
 custom_minimum_size = Vector2(200, 50)
@@ -18,10 +37,10 @@ scale = Vector2(2, 2)
 
 [node name="Objective" type="Label" parent="Container"]
 layout_mode = 0
-offset_right = 200.00009
-offset_bottom = 59.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = -10.5
+offset_top = 10.0
+offset_right = 189.50009
+offset_bottom = 69.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2

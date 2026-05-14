@@ -7,7 +7,7 @@
 script = ExtResource("1_k4iw3")
 id = "q_search_for_toys"
 title = "Search the toybox"
-objective = "Search the toybox"
+objective = "Search the toybox."
 completion_type = 1
 completion_target = "toybox"
 cutscene = "matthijs_room_day_2_aftermath"

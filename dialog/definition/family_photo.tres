@@ -20,18 +20,21 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_xe6i3"]
 script = ExtResource("1_gq7s7")
+speaker = "mc"
 text = "Pretty words..."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_5nlx6"]
 script = ExtResource("1_gq7s7")
+speaker = "mc"
 text = "Matthijs."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_a52w4"]
 script = ExtResource("1_gq7s7")
+speaker = "mc"
 text = "My name?"
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 

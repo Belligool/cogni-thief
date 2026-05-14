@@ -352,6 +352,7 @@ func _on_premise_line_changed(line: DialogLine) -> void:
 		moeder_bubble.show_line(line)
 		
 func _on_end_cutscene():
+	await get_tree().create_timer(0.2).timeout
 	QuestManager.set_day(1)
 	QuestManager.set_phase(2)
 	InteractionManager.can_interact = true
@@ -416,9 +417,11 @@ func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translati
 	bubble_node.clear()
 
 func _wait_for_input(bubble_node) -> void:
+	await get_tree().process_frame
 	while true:
 		await get_tree().process_frame
 		if Input.is_action_just_pressed("ui_accept"):
+			get_viewport().set_input_as_handled()
 			if bubble_node.is_typing():
 				bubble_node.skip_typing()
 			else:

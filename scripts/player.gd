@@ -6,6 +6,7 @@ const SPEED = 50.0
 @onready var is_frozen = false
 
 @export var animated_sprites: Array[SpriteFrames] = []
+@export var walk_sfx : Array[AudioStreamMP3] = []
 
 func _ready() -> void:
 	match QuestManager.get_current_phase():

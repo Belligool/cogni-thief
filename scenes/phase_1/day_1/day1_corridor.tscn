@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dyvgohn20rlm7"]
+[gd_scene load_steps=28 format=3 uid="uid://dyvgohn20rlm7"]
 
 [ext_resource type="Script" uid="uid://cqffuuiyukf4x" path="res://scenes/phase_1/day_1/day_1_corridor.gd" id="1_e7do7"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_wi35l"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_qa4qy"]
 [ext_resource type="Texture2D" uid="uid://cvrra6jd0q8mb" path="res://assets/Matthijs/Corridor Room/dining_table.png" id="8_ljrn2"]
 [ext_resource type="PackedScene" uid="uid://b5ll47i2xs2fw" path="res://interaction/interactable objects/gramaphone.tscn" id="9_8m3sr"]
+[ext_resource type="Texture2D" uid="uid://cl4nd40v4vhf3" path="res://assets/Matthijs/Matthijs Room/Child_Jendela.png" id="10_b8fi7"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="11_h6at1"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="12_dkydb"]
 [ext_resource type="AudioStream" uid="uid://dpja14x86qmdk" path="res://assets/music/Sam Saimun - Dibawah Sinar Bulan Purnama (1952) - Penggiat Bunyi.mp3" id="12_lk34k"]
@@ -92,6 +93,11 @@ script = null
 [node name="Grandfather\'sClock" parent="." instance=ExtResource("21_b8fi7")]
 position = Vector2(-24, -13)
 
+[node name="window" type="Sprite2D" parent="."]
+position = Vector2(121, -51)
+scale = Vector2(0.073895805, 0.07768472)
+texture = ExtResource("10_b8fi7")
+
 [node name="Cabinet" type="Sprite2D" parent="."]
 position = Vector2(37.80821, -19)
 scale = Vector2(0.076626636, 0.080555566)
@@ -101,6 +107,11 @@ texture = ExtResource("7_qa4qy")
 position = Vector2(120, -29.999998)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("8_ljrn2")
+
+[node name="window2" type="Sprite2D" parent="."]
+position = Vector2(37.000004, -50)
+scale = Vector2(0.073895805, 0.07768472)
+texture = ExtResource("10_b8fi7")
 
 [node name="gramaphone" parent="." instance=ExtResource("9_8m3sr")]
 position = Vector2(37.808212, -25)
@@ -148,7 +159,6 @@ process_material = SubResource("ParticleProcessMaterial_p57ef")
 [node name="ChoicesUI" parent="." instance=ExtResource("15_r7yew")]
 
 [node name="QuestUI" parent="." instance=ExtResource("16_dajpv")]
-visible = false
 
 [node name="SpawnPoint_FromMatthijsDoor" type="Node2D" parent="." groups=["SpawnPoint_FromMatthijsDoor"]]
 position = Vector2(-52, -7)

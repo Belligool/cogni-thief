@@ -8,7 +8,7 @@
 script = ExtResource("1_p1rai")
 speaker = "moeder"
 text = "Schatje, is it not to your taste?"
-translation = "Dear"
+translation = "Dear, is it not to your taste? "
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_nq1pr"]

@@ -5,6 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_mvfq6"]
 script = ExtResource("1_mvfq6")
+objective = "Hear what their talking about."
 completion_type = 3
 completion_target = "njai"
 cutscene = "njai_talking_about_mother_day3_phase1"

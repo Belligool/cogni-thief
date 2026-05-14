@@ -136,6 +136,11 @@ position = Vector2(92, -12)
 [node name="Toybox" parent="." instance=ExtResource("4_5w55o")]
 position = Vector2(61, -11)
 
+[node name="window2" type="Sprite2D" parent="."]
+position = Vector2(-11, -49.977146)
+scale = Vector2(0.073895805, 0.07768472)
+texture = ExtResource("7_p8yx6")
+
 [node name="Bed" type="Sprite2D" parent="."]
 position = Vector2(-55, -25)
 scale = Vector2(0.08851697, 0.09305556)
@@ -145,11 +150,6 @@ texture = ExtResource("10_y61dt")
 position = Vector2(36.000008, -16)
 scale = Vector2(0.08851697, 0.09305556)
 texture = ExtResource("11_0fmxo")
-
-[node name="window2" type="Sprite2D" parent="."]
-position = Vector2(-11, -49.977146)
-scale = Vector2(0.073895805, 0.07768472)
-texture = ExtResource("7_p8yx6")
 
 [node name="Table2" type="Sprite2D" parent="."]
 position = Vector2(-10.3987665, -20.672222)
@@ -195,7 +195,7 @@ process_material = SubResource("ParticleProcessMaterial_p57ef")
 position = Vector2(124, -9)
 
 [node name="Player" parent="." instance=ExtResource("11_cdy5v")]
-position = Vector2(11, -8)
+position = Vector2(15, -8)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -36.25)
@@ -210,7 +210,6 @@ script = ExtResource("7_4t4xs")
 [node name="ChoicesUI" parent="." instance=ExtResource("12_3ygka")]
 
 [node name="QuestUI" parent="." instance=ExtResource("13_jmnus")]
-visible = false
 
 [node name="SpawnPoint_FromCorridor" type="Node2D" parent="." groups=["SpawnPoint_FromCorridor"]]
 position = Vector2(146, -6)
