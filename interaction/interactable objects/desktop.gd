@@ -9,12 +9,27 @@ func _ready() -> void:
 	interaction_area.interact = Callable(self, "_on_interact")
 	DialogManager.line_changed.connect(_on_line_changed)
 	DialogManager.dialog_ended.connect(_on_dialog_ended)
+	_evaluate_availability()
 
 func _on_interact():
 	DialogManager.start(dialog)
 	await DialogManager.dialog_ended
-
+	PlayerManager.add_used_item("desktop")
+	_evaluate_availability()
+	
+func _evaluate_availability() -> void:
+	if PlayerManager.is_item_used("desktop"):
+		interaction_area.monitoring = false
+		interaction_area.monitorable = false
+	return
+	
 func _on_line_changed(line: DialogLine) -> void:
+	if not DialogManager.is_active:
+		return
+	if DialogManager._current == null:  
+		return
+	if DialogManager._current.npc_id != interaction_area.interactable_object_name:
+		return
 	thought_bubble.show_line(line)
 	
 func _on_dialog_ended(_npc_id: String) -> void:

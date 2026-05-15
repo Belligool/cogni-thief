@@ -41,25 +41,19 @@ func _on_premise_dialog_ended(_npc_id: String) -> void:
 	player_bubble.clear()
 
 func start_cutscene(cutscene_id: String) -> void:
-	print("DEBUG: start_cutscene called with cutscene_id: ", cutscene_id)
 	var current_points = PlayerManager.get_total_points()
 	var points_gained = current_points - initial_point
-	print("DEBUG: points_gained: ", points_gained)
 	
 	if cutscene_id == "ruby_bedroom_day1":
 		await _cutscene_map["ruby_room_day1_after_premise"].call()
 	elif cutscene_id == "aftermath_ruby_conversation":
-		print("DEBUG: aftermath_ruby_conversation cutscene triggered")
 		if points_gained > 0:
-			print("DEBUG: Good path - calling aftermath_good")
 			await _cutscene_map["ruby_room_day_1_aftermath_good"].call()
 			_on_end_cutscene()
 		elif points_gained == 0:
-			print("DEBUG: Neutral path - calling aftermath_neutral")
 			await _cutscene_map["ruby_room_day_1_aftermath_neutral"].call()
 			_on_end_cutscene()
 		else:
-			print("DEBUG: Bad path - calling aftermath_bad")
 			await _cutscene_map["ruby_room_day_1_aftermath_bad"].call()
 			_on_end_cutscene()
 
@@ -239,13 +233,15 @@ func _ruby_room_day_1_aftermath_good():
 	
 	await _play_bubble(player_bubble, "mc", "I hope you can find a suitable candidate for this position.", false)
 	
+	await InterludeManager.interlude_finished
+	
 func _ruby_room_day_1_aftermath_neutral():
 	player.is_frozen = true
 	
 	await _play_bubble(player_bubble, "mc", "Not my problem", true) 
 	await get_tree().create_timer(0.5).timeout
 	
-	await _play_bubble(player_bubble, "mc", "Who cares?", true) 
+	await _play_bubble(player_bubble, "mc", "How cares?", true) 
 	await get_tree().create_timer(0.5).timeout
 	
 	await _play_bubble(player_bubble, "mc", "I still have a lot of things to do....", true)
@@ -253,6 +249,8 @@ func _ruby_room_day_1_aftermath_neutral():
 	
 	await _play_bubble(player_bubble, "mc", "This tasks wouldn't be finished by itself", true)
 	await get_tree().create_timer(0.5).timeout
+
+	await InterludeManager.interlude_finished
 	
 func _ruby_room_day_1_aftermath_bad():
 	player.is_frozen = true
@@ -302,6 +300,8 @@ func _ruby_room_day_1_aftermath_bad():
 	
 	await _play_bubble(player_bubble, "mc", "I would like to express my gratitude for the offer.", false)
 	await get_tree().create_timer(0.5).timeout
+	
+	await InterludeManager.interlude_finished
 		
 func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translation: String = "") -> void:
 	var data = DialogLine.new()
@@ -333,6 +333,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_skip_bubble = true
 
 func _on_end_cutscene():
-	QuestManager.set_day(2)
+	QuestManager.set_phase(2)
+	QuestManager.set_day(3)
 	InteractionManager.can_interact = true
 	TransitionManager.start(intro_narration)

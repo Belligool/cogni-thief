@@ -1,11 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://c6vyxllr4qfje"]
+[gd_scene load_steps=23 format=3 uid="uid://c6vyxllr4qfje"]
 
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_einkh"]
 [ext_resource type="Script" uid="uid://chqyig45mc2ev" path="res://scenes/phase_2/day_1/day_1_ruby_room.gd" id="1_keyft"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_abjth"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_q16m6"]
 [ext_resource type="Texture2D" uid="uid://db24i377j2845" path="res://assets/Matthijs/Corridor Room/door.png" id="3_iny67"]
-[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_mx8wo"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="3_q16m6"]
 [ext_resource type="Resource" uid="uid://cpujr3531atun" path="res://transition/definition/phase_2_day_2.tres" id="4_abjth"]
 [ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_udfyw"]
@@ -18,65 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="13_whnhr"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="14_46y8x"]
 
-[sub_resource type="Resource" id="Resource_udfyw"]
-script = ExtResource("2_q16m6")
-speaker = "mc"
-text = "How long has this body even slept?"
-is_dialog_thought = true
-typing_speed = 0.03
-metadata/_custom_type_script = "uid://nw5gof71bqt3"
-
-[sub_resource type="Resource" id="Resource_v270p"]
-script = ExtResource("2_q16m6")
-speaker = "mc"
-text = "Ow ow...my back! "
-is_dialog_thought = true
-metadata/_custom_type_script = "uid://nw5gof71bqt3"
-
-[sub_resource type="Resource" id="Resource_cmkk6"]
-script = ExtResource("2_q16m6")
-speaker = "mc"
-text = "Why does it hurt so much?"
-is_dialog_thought = true
-typing_speed = 0.03
-metadata/_custom_type_script = "uid://nw5gof71bqt3"
-
-[sub_resource type="Resource" id="Resource_wa147"]
-script = ExtResource("2_q16m6")
-speaker = "mc"
-text = "This room is…"
-is_dialog_thought = true
-typing_speed = 0.03
-metadata/_custom_type_script = "uid://nw5gof71bqt3"
-
-[sub_resource type="Resource" id="Resource_23dcx"]
-script = ExtResource("2_q16m6")
-speaker = "mc"
-text = "small... compared to Matthijs"
-is_dialog_thought = true
-typing_speed = 0.03
-metadata/_custom_type_script = "uid://nw5gof71bqt3"
-
-[sub_resource type="Resource" id="Resource_cdgaj"]
-script = ExtResource("2_q16m6")
-speaker = "mc"
-text = "And that beaming light..."
-is_dialog_thought = true
-typing_speed = 0.03
-metadata/_custom_type_script = "uid://nw5gof71bqt3"
-
-[sub_resource type="Resource" id="Resource_f1n2q"]
-script = ExtResource("2_q16m6")
-speaker = "mc"
-text = "what is that?"
-is_dialog_thought = true
-typing_speed = 0.03
-metadata/_custom_type_script = "uid://nw5gof71bqt3"
-
 [sub_resource type="Resource" id="Resource_va7lu"]
 script = ExtResource("4_udfyw")
 npc_id = "premise"
-lines = Array[ExtResource("2_q16m6")]([SubResource("Resource_udfyw"), SubResource("Resource_v270p"), SubResource("Resource_cmkk6"), SubResource("Resource_wa147"), SubResource("Resource_23dcx"), SubResource("Resource_cdgaj"), SubResource("Resource_f1n2q")])
 metadata/_custom_type_script = "uid://cq8iorar8inmf"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jlsh5"]

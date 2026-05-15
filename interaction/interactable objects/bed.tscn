@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dimrd3jqyub2n" path="res://assets/Ruby/Bedroom/bed.png" id="2_w34qr"]
 [ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="3_hulmn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hjpo2"]
-radius = 223.23988
+[sub_resource type="CircleShape2D" id="CircleShape2D_w34qr"]
+radius = 235.23305
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hulmn")
@@ -18,7 +18,7 @@ scale = Vector2(0.07751771, 0.07416213)
 texture = ExtResource("2_w34qr")
 
 [node name="InteractionArea" type="Area2D" parent="."]
-position = Vector2(-9.000001, -6.9999995)
+position = Vector2(1, -13.000001)
 scale = Vector2(0.076626636, 0.08055556)
 collision_layer = 4
 collision_mask = 2
@@ -27,9 +27,8 @@ interactable_object_name = "bed"
 metadata/_custom_type_script = "uid://cq6r3it7jjj3i"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-visible = false
-position = Vector2(-626.41406, -273.10342)
-shape = SubResource("CircleShape2D_hjpo2")
+position = Vector2(-678.61523, -86.89654)
+shape = SubResource("CircleShape2D_w34qr")
 
 [connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]

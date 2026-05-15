@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="NarrationData" load_steps=4 format=3 uid="uid://cpujr3531atun"]
+
+[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_6aruk"]
+[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_lrv7p"]
+
+[sub_resource type="Resource" id="Resource_6aruk"]
+script = ExtResource("1_6aruk")
+id = "q_do_freelance_job"
+title = "Do Freelance Job"
+objective = "Do Freelance Job"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[resource]
+script = ExtResource("2_lrv7p")
+lines = Array[String](["Man…", "All this is so tiring...", "How could she go through all this on her own?", "Must’ve been hard…", "Could it be worse"])
+delay_between_lines = 10.0
+next_scene = "res://scenes/phase_2/day_1/day2_ruby_room.tscn"
+next_day_quests = Array[ExtResource("1_6aruk")]([SubResource("Resource_6aruk")])
+metadata/_custom_type_script = "uid://bhqs24s4ximjh"
