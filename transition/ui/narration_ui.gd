@@ -11,6 +11,7 @@ var _typing: bool = false
 var _typing_speed: float = 0.1
 var _typing_timer: float = 0.0
 var _is_playing: bool = false
+var _is_fading_out: bool = false # Add this at the top
 
 func _ready() -> void:
 	print("narration ui ready")
@@ -45,11 +46,14 @@ func _on_transition_started() -> void:
 	TransitionManager.show_first_line()
 	
 func _on_line_changed(text: String) -> void:
+	_is_fading_out = true # Block advancing while fading old text
+	_typing = false       # Ensure we aren't "typing" during fade-out
 	print("line changed fired: ", text)
 	if narration_label.text != "":
 		_tween = create_tween()
 		_tween.tween_property(narration_label, "modulate:a", 0.0, 0.4)
 		await _tween.finished
+	_is_fading_out = false
 	narration_label.modulate.a = 1.0
 	_full_text = text
 	_chars_shown = 0
@@ -58,6 +62,8 @@ func _on_line_changed(text: String) -> void:
 	_typing = true
 	
 func _unhandled_input(event: InputEvent) -> void:
+	if not TransitionManager.is_active or _is_fading_out:
+		return
 	if not TransitionManager.is_active:
 		return
 	if event.is_action_pressed("next_narration"):

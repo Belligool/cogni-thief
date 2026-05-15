@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://duucinsb3d881" path="res://interaction/interactable objects/family_photo.gd" id="1_fn7gq"]
 [ext_resource type="Resource" uid="uid://n8ev46hk4qxq" path="res://dialog/definition/family_photo.tres" id="2_j1alp"]
-[ext_resource type="Texture2D" uid="uid://bwmhatvs3rl5c" path="res://assets/Matthijs/Corridor Room/gramaphone.png" id="3_74rnt"]
+[ext_resource type="Texture2D" uid="uid://dbjcapkvr6wct" path="res://assets/Matthijs/Matthijs Room/Child_Foto.png" id="3_j1alp"]
 [ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="4_pt7wr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8gq52"]
@@ -15,7 +15,7 @@ dialog = ExtResource("2_j1alp")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-3.8146973e-06, -12.000002)
 scale = Vector2(0.076626636, 0.080555566)
-texture = ExtResource("3_74rnt")
+texture = ExtResource("3_j1alp")
 
 [node name="InteractionArea" type="Area2D" parent="."]
 position = Vector2(1, -13.000001)

@@ -15,8 +15,6 @@ extends Node2D
 @export var intro_dialog: DialogData
 @export var scene_id: String = "corridor_day1"
 
-var _skip_bubble: bool = false
-
 var shake_strength: float = 0.0
 var shake_fade: float = 5.0
 var randomStrength: float = 30.0
@@ -72,6 +70,7 @@ func _cutsene_after_sweet_finding() -> void:
 	await _sprite_walk(player, -52)
 	player.is_frozen = false
 	QuestManager.set_day(2)
+	await get_tree().create_timer(0.2).timeout
 	TransitionManager.start(intro_narration)
 	
 func _cutscene_after_moeder_talk() -> void:
@@ -185,15 +184,13 @@ func _hide_npc(npc: Node2D) -> void:
 	if interaction:
 		interaction.monitoring = false
 		interaction.monitorable = false
-		
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		_skip_bubble = true
 
 func _wait_for_input(bubble_node) -> void:
+	await get_tree().process_frame
 	while true:
 		await get_tree().process_frame
 		if Input.is_action_just_pressed("ui_accept"):
+			get_viewport().set_input_as_handled()
 			if bubble_node.is_typing():
 				bubble_node.skip_typing()
 			else:

@@ -12,9 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://bm1dhjgsqu3o3" path="res://interaction/interactable objects/grandfather_clock.tscn" id="9_shi4s"]
 [ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="10_mx6el"]
 [ext_resource type="Texture2D" uid="uid://cvrra6jd0q8mb" path="res://assets/Matthijs/Corridor Room/dining_table.png" id="11_cnrn8"]
+[ext_resource type="Texture2D" uid="uid://cl4nd40v4vhf3" path="res://assets/Matthijs/Matthijs Room/Child_Jendela.png" id="11_cyyt8"]
 [ext_resource type="PackedScene" uid="uid://b5ll47i2xs2fw" path="res://interaction/interactable objects/gramaphone.tscn" id="12_2t82q"]
-[ext_resource type="AudioStream" uid="uid://dpja14x86qmdk" path="res://assets/music/Sam Saimun - Dibawah Sinar Bulan Purnama (1952) - Penggiat Bunyi.mp3" id="13_n5iam"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="14_56crn"]
+[ext_resource type="AudioStream" uid="uid://j3k3v7lxyaik" path="res://assets/music/Keroncong Kemayoran - Bing Slamet dan P. Ramlee (Lirik) - Irama dan Lagu.mp3" id="14_cyyt8"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="15_8swt2"]
 [ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://npc/moeder.tscn" id="16_3hxct"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="17_00bqs"]
@@ -117,22 +118,32 @@ position = Vector2(37.80821, -19)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("10_mx6el")
 
+[node name="window" type="Sprite2D" parent="."]
+position = Vector2(118.99999, -51)
+scale = Vector2(0.073895805, 0.07768472)
+texture = ExtResource("11_cyyt8")
+
 [node name="Dining Table" type="Sprite2D" parent="."]
 position = Vector2(120, -29.999998)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("11_cnrn8")
 
+[node name="window2" type="Sprite2D" parent="."]
+position = Vector2(37.000004, -50)
+scale = Vector2(0.073895805, 0.07768472)
+texture = ExtResource("11_cyyt8")
+
 [node name="gramaphone" parent="." instance=ExtResource("12_2t82q")]
 position = Vector2(37.808212, -25)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(51, -28)
+position = Vector2(37, -28)
 scale = Vector2(0.049336817, 0.050347213)
-stream = ExtResource("13_n5iam")
+stream = ExtResource("14_cyyt8")
 volume_db = 10.0
-pitch_scale = 0.85
+pitch_scale = 0.95
 autoplay = true
-max_distance = 75.0
+max_distance = 70.0
 attenuation = 2.0
 max_polyphony = 2
 panning_strength = 2.5
@@ -189,7 +200,7 @@ position_smoothing_speed = 3.0
 script = ExtResource("18_fc6ng")
 
 [node name="njai2" parent="." instance=ExtResource("21_3mop2")]
-position = Vector2(43, -8)
+position = Vector2(46, -7)
 
 [node name="njai1" parent="." instance=ExtResource("22_px5mw")]
 position = Vector2(25, -8)

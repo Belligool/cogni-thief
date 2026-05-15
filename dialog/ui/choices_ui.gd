@@ -9,6 +9,7 @@ func _ready() -> void:
 	DialogManager.line_changed.connect(_on_line_changed)
 	DialogManager.dialog_ended.connect(_on_dialog_ended)
 	
+	
 	for child in container.get_children():
 		if child is Button:
 			_buttons.append(child)
