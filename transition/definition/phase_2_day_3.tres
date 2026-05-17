@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="NarrationData" load_steps=4 format=3 uid="uid://1nletv7qqqi0"]
+
+[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_rirnd"]
+[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_mmkr6"]
+
+[sub_resource type="Resource" id="Resource_rirnd"]
+script = ExtResource("1_rirnd")
+id = "q_finish_her_freelance_job"
+title = "Finish Freelance Job"
+objective = "Finish Freelance Job"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[resource]
+script = ExtResource("2_mmkr6")
+lines = Array[String](["It hurts...", "When I'm with Matthjis...", "I’m so happy…", "It’s like my life was really fun….", "But this one…", "It feels like a nightmare...", "It has to end!", "No!", "She must run away from him!", "It’s the only way to save herself!"])
+next_scene = "res://scenes/phase_2/day_1/day3_ruby_room.tscn"
+next_day_quests = Array[ExtResource("1_rirnd")]([SubResource("Resource_rirnd")])
+metadata/_custom_type_script = "uid://bhqs24s4ximjh"
