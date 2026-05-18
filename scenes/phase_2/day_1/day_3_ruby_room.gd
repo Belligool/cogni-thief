@@ -19,7 +19,7 @@ var _cutscene_map: Dictionary = {}
 var _skip_bubble = false 
 
 func _process(delta: float) -> void:
-	if QuestManager.was_cutscene_seen("ruby_bedroom_day1"):
+	if QuestManager.was_cutscene_seen("ruby_bedroom_day3"):
 		pass
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength, 0, shake_fade * delta)
@@ -91,7 +91,7 @@ func _play_premise() -> void:
 	
 	await get_tree().create_timer(0.5).timeout
 	print("DEBUG: About to call start_auto_cutscene")
-	desktop.start_auto_cutscenes(scene_id)
+	desktop.start_auto_cutscene(scene_id)
 	print("DEBUG: start_auto_cutscene called")
 
 func _ruby_room_day_3_after_premise():
@@ -188,6 +188,7 @@ func _ruby_room_day_3_after_premise():
 	
 	InterludeManager.show_interlude(["Mom just ignore what I want", "She obviously only care for herself", "She doesn't care about her child one bit", "But...", "No matter how it is", "I still have to make decision"])
 	await InterludeManager.interlude_finished
+	await get_tree().create_timer(1).timeout
 	
 	await _play_bubble(player_bubble, "mc", "I don't know what to do...", true)
 	await _play_bubble(player_bubble, "mc", "Should I run away?", true)

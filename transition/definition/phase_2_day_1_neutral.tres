@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NarrationData" load_steps=5 format=3 uid="uid://cs5ff2egxa505"]
+[gd_resource type="Resource" script_class="NarrationData" load_steps=5 format=3 uid="uid://dkk5c4f1aysne"]
 
 [ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_7eojm"]
 [ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_dw6vq"]
