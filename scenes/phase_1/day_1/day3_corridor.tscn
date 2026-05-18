@@ -1,12 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://cmgkcary0k8k7"]
+[gd_scene load_steps=28 format=3 uid="uid://cmgkcary0k8k7"]
 
 [ext_resource type="Script" uid="uid://bbv3ariu71nj2" path="res://scenes/phase_1/day_1/day_3_corridor.gd" id="1_cyyt8"]
-[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_3mop2"]
+[ext_resource type="Resource" uid="uid://cdxfpnohqb31i" path="res://transition/definition/phase_2_day_1_good.tres" id="2_cyyt8"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="3_3mop2"]
-[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_px5mw"]
+[ext_resource type="Resource" uid="uid://cs5ff2egxa505" path="res://transition/definition/phase_2_day_1_neutral.tres" id="3_px5mw"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="4_px5mw"]
-[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_uwgap"]
-[ext_resource type="Resource" uid="uid://bsklgxbucral8" path="res://transition/definition/phase_2_day_1.tres" id="5_cyyt8"]
+[ext_resource type="Resource" uid="uid://cbaxhcpie1478" path="res://transition/definition/phase_2_day_1_bad.tres" id="4_uwgap"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="5_uwgap"]
 [ext_resource type="PackedScene" uid="uid://bqctrra2rk5pi" path="res://interaction/interactable objects/non_interactable_door.tscn" id="8_n7dsj"]
 [ext_resource type="PackedScene" uid="uid://bm1dhjgsqu3o3" path="res://interaction/interactable objects/grandfather_clock.tscn" id="9_shi4s"]
@@ -22,26 +21,6 @@
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="18_fc6ng"]
 [ext_resource type="PackedScene" uid="uid://vvwihb1xdlpj" path="res://npc/njai2.tscn" id="21_3mop2"]
 [ext_resource type="PackedScene" uid="uid://dkqxqtqnr3of0" path="res://npc/njai1.tscn" id="22_px5mw"]
-
-[sub_resource type="Resource" id="Resource_o54sr"]
-script = ExtResource("2_3mop2")
-speaker = "mc"
-text = "So tired. I want sweets.."
-is_dialog_thought = true
-metadata/_custom_type_script = "uid://nw5gof71bqt3"
-
-[sub_resource type="Resource" id="Resource_4bgup"]
-script = ExtResource("2_3mop2")
-speaker = "mc"
-text = "Is it tea time yet?"
-is_dialog_thought = true
-metadata/_custom_type_script = "uid://nw5gof71bqt3"
-
-[sub_resource type="Resource" id="Resource_n7dsj"]
-script = ExtResource("4_uwgap")
-npc_id = "premise"
-lines = Array[ExtResource("2_3mop2")]([SubResource("Resource_o54sr"), SubResource("Resource_4bgup")])
-metadata/_custom_type_script = "uid://cq8iorar8inmf"
 
 [sub_resource type="GDScript" id="GDScript_lbhrr"]
 script/source = "extends AudioStreamPlayer2D
@@ -84,8 +63,9 @@ color = Color(1, 1, 1, 0.5921569)
 
 [node name="day_3_corridor" type="Node2D"]
 script = ExtResource("1_cyyt8")
-intro_dialog = SubResource("Resource_n7dsj")
-intro_narration = ExtResource("5_cyyt8")
+intro_narration_good = ExtResource("2_cyyt8")
+intro_narration_neutral = ExtResource("3_px5mw")
+intro_narration_bad = ExtResource("4_uwgap")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999996)
