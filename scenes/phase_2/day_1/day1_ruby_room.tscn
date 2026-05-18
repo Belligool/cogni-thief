@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_mx8wo"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="3_q16m6"]
 [ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_udfyw"]
-[ext_resource type="Resource" uid="uid://1nletv7qqqi0" path="res://transition/definition/phase_2_day_3.tres" id="5_q16m6"]
+[ext_resource type="Resource" uid="uid://cpujr3531atun" path="res://transition/definition/phase_2_day_2.tres" id="5_q16m6"]
 [ext_resource type="Texture2D" uid="uid://de6jaxtvdylg3" path="res://assets/Matthijs/Corridor Room/grandfather_clock.png" id="6_v270p"]
 [ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_cmkk6"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="11_va7lu"]

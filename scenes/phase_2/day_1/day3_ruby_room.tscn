@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://d2b185jlfkbds"]
+[gd_scene load_steps=44 format=3 uid="uid://d2b185jlfkbds"]
 
 [ext_resource type="Script" uid="uid://bs55f4rj7ut2y" path="res://scenes/phase_2/day_1/day_3_ruby_room.gd" id="1_8mf6p"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="2_mr4op"]
@@ -16,8 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="11_pt74q"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="12_8vehw"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="13_34o5a"]
-[ext_resource type="SpriteFrames" uid="uid://cmleldxwpmlwd" path="res://assets/sprite_frames/matthijs.tres" id="16_qhko6"]
-[ext_resource type="SpriteFrames" uid="uid://b15of1h8hhnsr" path="res://assets/sprite_frames/ruby.tres" id="17_bmcfx"]
 
 [sub_resource type="Resource" id="Resource_qhko6"]
 script = ExtResource("2_uu5ap")
@@ -272,7 +270,6 @@ position = Vector2(-27, -7)
 
 [node name="Player" parent="." instance=ExtResource("12_8vehw")]
 position = Vector2(-28, -6)
-animated_sprites = Array[SpriteFrames]([ExtResource("16_qhko6"), ExtResource("17_bmcfx")])
 
 [node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
 offset = Vector2(0, -33.425)

@@ -23,9 +23,9 @@ func _evaluate_availability() -> void:
 		interaction_area.monitorable = false
 	return
 	
-func  start_auto_cutscene() -> void:
+func start_auto_cutscene(cutscene_id: String) -> void:
 	"""Called automatically after premise, no interaction needed"""
-	print("DEBUG: start_auto_cutscene() on desktop STARTED")
+	print("DEBUG: start_auto_cutscene() on desktop STARTED for: ", cutscene_id)
 	PlayerManager.add_used_item("desktop")
 	print("DEBUG: Item marked as used")
 	_evaluate_availability()
@@ -33,9 +33,10 @@ func  start_auto_cutscene() -> void:
 	
 	var main_scene = get_parent()
 	print("DEBUG: main_scene = ", main_scene)
-	print("DEBUG: About to call start_cutscene")
-	main_scene.start_cutscene("ruby_bedroom_day3")
+	print("DEBUG: About to call start_cutscene with: ", cutscene_id)
+	main_scene.start_cutscene(cutscene_id)
 	print("DEBUG: start_cutscene called on main_scene")
+	
 func _on_line_changed(line: DialogLine) -> void:
 	if not DialogManager.is_active:
 		return

@@ -91,13 +91,14 @@ func _play_premise() -> void:
 	
 	await get_tree().create_timer(0.5).timeout
 	print("DEBUG: About to call start_auto_cutscene")
-	desktop.start_auto_cutscene()
+	desktop.start_auto_cutscenes(scene_id)
 	print("DEBUG: start_auto_cutscene called")
 
 func _ruby_room_day_3_after_premise():
 	player.is_frozen = true
 	player.animated_sprite.play("idle")
 	
+	await get_tree().create_timer(1).timeout
 	InterludeManager.show_interlude(["I worked so hard to finish my tasks.","We able to finish this faster than I thought.", "I hope we can support each other"])
 	await InterludeManager.interlude_finished
 	await get_tree().create_timer(1).timeout
