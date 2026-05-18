@@ -27,7 +27,6 @@ func start(data: NarrationData) -> void:
 	transition_started.emit()
 	
 	await get_tree().process_frame
-	show_first_line()
 	
 	await get_tree().create_timer(STARTUP_COOLDOWN).timeout
 	_can_advance = true 
