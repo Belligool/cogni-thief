@@ -16,25 +16,12 @@
 [ext_resource type="AudioStream" uid="uid://dpja14x86qmdk" path="res://assets/music/Sam Saimun - Dibawah Sinar Bulan Purnama (1952) - Penggiat Bunyi.mp3" id="12_lk34k"]
 [ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://npc/moeder.tscn" id="13_yqwqt"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="15_r7yew"]
+[ext_resource type="Script" uid="uid://cxrv6emmmr6gx" path="res://scenes/phase_1/day_1/audio_stream_player_2d.gd" id="15_w2red"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="16_dajpv"]
 [ext_resource type="PackedScene" uid="uid://dduf4xofnbcle" path="res://scenes/father.tscn" id="17_rmfg0"]
 [ext_resource type="PackedScene" uid="uid://c3echx27rx2vp" path="res://scenes/njai.tscn" id="18_7nniv"]
 [ext_resource type="PackedScene" uid="uid://bqctrra2rk5pi" path="res://interaction/interactable objects/non_interactable_door.tscn" id="19_7nniv"]
 [ext_resource type="PackedScene" uid="uid://bm1dhjgsqu3o3" path="res://interaction/interactable objects/grandfather_clock.tscn" id="21_b8fi7"]
-
-[sub_resource type="GDScript" id="GDScript_lbhrr"]
-script/source = "extends AudioStreamPlayer2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 distance = -2.0
@@ -120,7 +107,7 @@ position = Vector2(37.808212, -25)
 position = Vector2(51, -28)
 scale = Vector2(0.049336817, 0.050347213)
 stream = ExtResource("12_lk34k")
-volume_db = 10.0
+volume_db = -80.0
 pitch_scale = 0.85
 autoplay = true
 max_distance = 75.0
@@ -129,7 +116,7 @@ max_polyphony = 2
 panning_strength = 2.5
 area_mask = 0
 parameters/looping = true
-script = SubResource("GDScript_lbhrr")
+script = ExtResource("15_w2red")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, -6)

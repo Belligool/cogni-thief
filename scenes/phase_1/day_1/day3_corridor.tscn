@@ -1,14 +1,14 @@
 [gd_scene load_steps=34 format=3 uid="uid://cmgkcary0k8k7"]
 
 [ext_resource type="Script" uid="uid://bbv3ariu71nj2" path="res://scenes/phase_1/day_1/day_3_corridor.gd" id="1_cyyt8"]
-[ext_resource type="Resource" path="res://transition/definition/phase_2_day_1_good.tres" id="2_cyyt8"]
+[ext_resource type="Resource" uid="uid://bkp85hiuodgwk" path="res://transition/definition/phase_2_day_1_good.tres" id="2_cyyt8"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_uwgap"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="3_3mop2"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_o54sr"]
-[ext_resource type="Resource" path="res://transition/definition/phase_2_day_1_neutral.tres" id="3_px5mw"]
+[ext_resource type="Resource" uid="uid://dkk5c4f1aysne" path="res://transition/definition/phase_2_day_1_neutral.tres" id="3_px5mw"]
 [ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_4bgup"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="4_px5mw"]
-[ext_resource type="Resource" path="res://transition/definition/phase_2_day_1_bad.tres" id="4_uwgap"]
+[ext_resource type="Resource" uid="uid://cwspd0i6dicfg" path="res://transition/definition/phase_2_day_1_bad.tres" id="4_uwgap"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="5_uwgap"]
 [ext_resource type="PackedScene" uid="uid://bqctrra2rk5pi" path="res://interaction/interactable objects/non_interactable_door.tscn" id="8_n7dsj"]
 [ext_resource type="PackedScene" uid="uid://bm1dhjgsqu3o3" path="res://interaction/interactable objects/grandfather_clock.tscn" id="9_shi4s"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://npc/moeder.tscn" id="16_3hxct"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="17_00bqs"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="18_fc6ng"]
+[ext_resource type="Script" uid="uid://cxrv6emmmr6gx" path="res://scenes/phase_1/day_1/audio_stream_player_2d.gd" id="18_o54sr"]
 [ext_resource type="PackedScene" uid="uid://vvwihb1xdlpj" path="res://npc/njai2.tscn" id="21_3mop2"]
 [ext_resource type="PackedScene" uid="uid://dkqxqtqnr3of0" path="res://npc/njai1.tscn" id="22_px5mw"]
 
@@ -44,20 +45,6 @@ script = ExtResource("4_4bgup")
 npc_id = "premise"
 lines = Array[ExtResource("2_uwgap")]([SubResource("Resource_n7dsj"), SubResource("Resource_shi4s")])
 metadata/_custom_type_script = "uid://cq8iorar8inmf"
-
-[sub_resource type="GDScript" id="GDScript_lbhrr"]
-script/source = "extends AudioStreamPlayer2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 distance = -2.0
@@ -144,16 +131,16 @@ position = Vector2(37.808212, -25)
 position = Vector2(37, -28)
 scale = Vector2(0.049336817, 0.050347213)
 stream = ExtResource("14_cyyt8")
-volume_db = 10.0
+volume_db = -80.0
 pitch_scale = 0.95
 autoplay = true
-max_distance = 70.0
+max_distance = 94.0
 attenuation = 2.0
 max_polyphony = 2
 panning_strength = 2.5
 area_mask = 0
 parameters/looping = true
-script = SubResource("GDScript_lbhrr")
+script = ExtResource("18_o54sr")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, -6)
