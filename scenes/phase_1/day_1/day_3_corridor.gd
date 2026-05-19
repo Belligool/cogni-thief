@@ -15,7 +15,9 @@ extends Node2D
 
 @export var intro_dialog: DialogData
 @export var scene_id: String = "corridor_day3"
-@export var intro_narration: NarrationData
+@export var intro_narration_good: NarrationData
+@export var intro_narration_neutral: NarrationData
+@export var intro_narration_bad: NarrationData
  
 var shake_strength: float = 0.0
 var player_shake_strength: float = 0.0
@@ -23,6 +25,7 @@ var shake_fade: float = 5.0
 var randomStrength: float = 30.0
 var _cutscene_map: Dictionary = {}
 var _player_is_shaking: bool = false
+var points_gained: float = 0.0
 
 func _process(delta: float) -> void:
 	if shake_strength > 0:
@@ -76,7 +79,7 @@ func _ready() -> void:
 
 func start_cutscene(cutscene_id: String) -> void:
 	var current_points = PlayerManager.get_total_points()
-	var points_gained = current_points - initial_point
+	points_gained = current_points - initial_point
 	
 	if cutscene_id == "njai_talking_about_mother_day3_phase1":
 		await _cutscene_map["matthijs_corridor_day3_after_premise"].call()
@@ -111,6 +114,8 @@ func _matthijs_corridor_day_3_aftermath_good():
 	_hide_npc(njai1)
 	_hide_npc(njai2)
 	moeder.show()
+	var tween = create_tween()
+	tween.tween_property(moeder, "modulate:a", 1.0, 0.01)
 	await _sprite_walk(player, moeder.global_position.x + 30, 20)
 	initialPlayerPos = player.position
 	player.animated_sprite.play("idle")
@@ -142,11 +147,6 @@ func _matthijs_corridor_day_3_aftermath_good():
 	await _play_bubble(moeder_bubble, "moeder", "A breath of fresh air would be delightful", false)
 	await _play_bubble(moeder_bubble, "moeder", "Finish your tea and eat more kaasstengels, ja?", false, "Finish your tea and eat more kaasstengels, yes?")
 	await _play_bubble(player_bubble, "mc", "Yes, Mamma.", false)
-	InterludeManager.show_interlude(["After we went for a walk, the rest of the day stayed the same.",
-	"Mamma tucked me into bed and sang until I fell asleep.","“Thank you for being considerate, Schatje. Mamma loves you.”"
-	])
-
-	await InterludeManager.interlude_finished
 
 func _matthijs_corridor_day_3_aftermath_neutral():
 	await _play_bubble(player_bubble, "mc", "What do you mean?", false)
@@ -207,12 +207,6 @@ func _matthijs_corridor_day_3_aftermath_neutral():
 	await _play_bubble(moeder_bubble, "moeder", "Let’s go for a walk after tea time.", false)
 	await _play_bubble(player_bubble, "mc", "Yes, Mamma.", false)
 	await _sprite_walk(moeder, 200.0, 20)
-	InterludeManager.show_interlude(["Me and Ma then took a walk in silence.",
-	"I was too confused and scared.","I don’t want to make Mamma sad again.","The rest of the day passed by, and Mamma tucked me in and sang until I fell asleep.",
-	"“Mamma loves Schatje lots.”"
-	])
-
-	await InterludeManager.interlude_finished
 
 func _matthijs_corridor_day_3_aftermath_bad():
 	await _play_bubble(player_bubble, "mc", "The nerve…", true)
@@ -282,13 +276,6 @@ func _matthijs_corridor_day_3_aftermath_bad():
 	await _play_bubble(moeder_bubble, "moeder", "The weather is suitable for a nice walk today.", false)
 	await _play_bubble(player_bubble, "mc", "Yes, Mamma.", false)
 	await _sprite_walk(moeder, 200.0, 20)
-	InterludeManager.show_interlude(["Me and Ma then took a walk",
-	" accompanied by small conversations about my day. ","Though, Mamma didn’t seem to mention the topic of miscarriage"," perhaps not wanting to talk about it anymore.",
-	"The rest of the day passed by", "and Mamma tucked me in and sang until I fell asleep", "“My dearest, Mamma’s Schatje, Mamma hopes Matthijs will always remember that Mamma loves you lots. Even if you did wrong.”"
-	])
-	await InterludeManager.interlude_finished
-
-	
 
 func matthijs_corridor_day3_after_premise():
 	player.is_frozen = true
@@ -350,10 +337,16 @@ func _on_premise_line_changed(line: DialogLine) -> void:
 		moeder_bubble.show_line(line)
 		
 func _on_end_cutscene():
+	await get_tree().create_timer(0.2).timeout
 	QuestManager.set_day(1)
 	QuestManager.set_phase(2)
 	InteractionManager.can_interact = true
-	TransitionManager.start(intro_narration)
+	if points_gained > 0:
+		TransitionManager.start(intro_narration_good)
+	elif points_gained == 0:
+		TransitionManager.start(intro_narration_neutral)
+	else:
+		TransitionManager.start(intro_narration_good)
 
 func _on_premise_dialog_ended(_npc_id: String) -> void:
 	player_bubble.clear()
@@ -414,9 +407,11 @@ func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translati
 	bubble_node.clear()
 
 func _wait_for_input(bubble_node) -> void:
+	await get_tree().process_frame
 	while true:
 		await get_tree().process_frame
 		if Input.is_action_just_pressed("ui_accept"):
+			get_viewport().set_input_as_handled()
 			if bubble_node.is_typing():
 				bubble_node.skip_typing()
 			else:

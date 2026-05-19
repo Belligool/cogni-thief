@@ -30,6 +30,7 @@ NarrationUi="*res://transition/ui/narration_ui.tscn"
 SceneTransitionUi="*res://transition/ui/scene_transition_ui.tscn"
 InterludeManager="*res://autoloader/interlude_manager.gd"
 InterludeUi="*res://transition/ui/interlude_ui.tscn"
+AudioStreamPlayer2d="*res://scenes/phase_1/day_1/audio_stream_player_2d.gd"
 
 [display]
 

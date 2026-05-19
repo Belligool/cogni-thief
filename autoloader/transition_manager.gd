@@ -11,6 +11,10 @@ var _data: NarrationData = null
 var _narration_line_index: int = 0
 var _pending_spawn: String = ""
 var _pending_scene: String = ""
+var _can_advance: bool = true  
+
+const ADVANCE_COOLDOWN: float = 0.3 
+const STARTUP_COOLDOWN: float = 0.1 
 
 #TODO Testing and UI belom
 
@@ -19,7 +23,13 @@ func start(data: NarrationData) -> void:
 		return
 	_data = data
 	is_active = true
+	_can_advance = false
 	transition_started.emit()
+	
+	await get_tree().process_frame
+	
+	await get_tree().create_timer(STARTUP_COOLDOWN).timeout
+	_can_advance = true 
 	
 func _end() -> void:
 	is_active = false
@@ -40,7 +50,12 @@ func _show_line(index: int) -> void:
 func _advance() -> void:
 	if not is_active or _data == null:
 		return
+	if not _can_advance:  
+		return
+	_can_advance = false  
 	_show_line(_narration_line_index + 1)
+	await get_tree().create_timer(ADVANCE_COOLDOWN).timeout
+	_can_advance = true
 	
 func get_data() -> NarrationData:
 	return _data
@@ -48,7 +63,7 @@ func get_data() -> NarrationData:
 func show_first_line() -> void:
 	_show_line(0)
 	
-func finish() -> void:
+func finish() -> void: 
 	is_active = false
 	var quests = _data.next_day_quests
 	_data = null

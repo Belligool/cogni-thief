@@ -93,6 +93,8 @@ func start_cutscene(cutscene_id: String) -> void:
 	player.is_frozen = false
 	InteractionManager.can_interact = true
 	
+
+	
 func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translation: String = "") -> void:
 	var data = DialogLine.new()
 	data.text = text_content

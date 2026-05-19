@@ -33,4 +33,4 @@ func _start() -> void:
 	TransitionManager.start(intro_narration)
 	
 func _quit() -> void:
-	get_tree().quit()
+	get_tree().quit() 

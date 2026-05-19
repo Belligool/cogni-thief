@@ -1,0 +1,134 @@
+[gd_scene load_steps=23 format=3 uid="uid://c6vyxllr4qfje"]
+
+[ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_einkh"]
+[ext_resource type="Script" uid="uid://chqyig45mc2ev" path="res://scenes/phase_2/day_1/day_1_ruby_room.gd" id="1_keyft"]
+[ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="2_abjth"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_q16m6"]
+[ext_resource type="Texture2D" uid="uid://db24i377j2845" path="res://assets/Matthijs/Corridor Room/door.png" id="3_iny67"]
+[ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="3_q16m6"]
+[ext_resource type="Resource" uid="uid://cpujr3531atun" path="res://transition/definition/phase_2_day_2.tres" id="4_abjth"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_udfyw"]
+[ext_resource type="Texture2D" uid="uid://de6jaxtvdylg3" path="res://assets/Matthijs/Corridor Room/grandfather_clock.png" id="6_v270p"]
+[ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="7_cmkk6"]
+[ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="11_va7lu"]
+[ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="12_f1n2q"]
+[ext_resource type="PackedScene" uid="uid://libdlapvtnta" path="res://interaction/interactable objects/desktop.tscn" id="12_iny67"]
+[ext_resource type="PackedScene" uid="uid://bohydro1535rr" path="res://interaction/interactable objects/bed.tscn" id="13_keyft"]
+[ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="13_whnhr"]
+[ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="14_46y8x"]
+
+[sub_resource type="Resource" id="Resource_va7lu"]
+script = ExtResource("4_udfyw")
+npc_id = "premise"
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jlsh5"]
+distance = -2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53rl5"]
+size = Vector2(4, 93)
+
+[sub_resource type="Curve" id="Curve_o3mkx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iywne"]
+curve = SubResource("Curve_o3mkx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7h8i6"]
+emission_shape_scale = Vector3(21.275, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(6.18, 31.195, 0)
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_iywne")
+color = Color(1, 1, 1, 0.5921569)
+
+[node name="day1_ruby_room" type="Node2D"]
+script = ExtResource("1_keyft")
+intro_dialog = SubResource("Resource_va7lu")
+intro_narration = ExtResource("4_abjth")
+
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(41.335983, -44.249996)
+scale = Vector2(0.07882857, 0.08287039)
+texture = ExtResource("1_einkh")
+
+[node name="rubydoor" type="Sprite2D" parent="."]
+position = Vector2(-52, -43.000004)
+scale = Vector2(0.09782608, 0.09782611)
+texture = ExtResource("3_iny67")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(41.253357, -4.4555573)
+scale = Vector2(0.07887822, 0.085732296)
+texture = ExtResource("2_abjth")
+
+[node name="Rug" type="Sprite2D" parent="."]
+position = Vector2(22.999998, -5)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("3_q16m6")
+
+[node name="Grandfather\'s Clock" type="Sprite2D" parent="."]
+position = Vector2(35.128426, -41.729755)
+scale = Vector2(0.10081331, 0.10598237)
+texture = ExtResource("6_v270p")
+
+[node name="desktop" parent="." instance=ExtResource("12_iny67")]
+position = Vector2(-3, -27)
+
+[node name="bed" parent="." instance=ExtResource("13_keyft")]
+position = Vector2(131, -7)
+
+[node name="Cabinet" type="Sprite2D" parent="."]
+position = Vector2(-4.9999924, -19)
+scale = Vector2(0.10059603, 0.105753966)
+texture = ExtResource("7_cmkk6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20, -3)
+shape = SubResource("WorldBoundaryShape2D_jlsh5")
+
+[node name="LeftCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCollision"]
+position = Vector2(-88, -43.25)
+shape = SubResource("RectangleShape2D_53rl5")
+
+[node name="RightCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCollision"]
+position = Vector2(171, -42.5)
+shape = SubResource("RectangleShape2D_53rl5")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(53, -53)
+amount = 150
+amount_ratio = 0.25
+process_material = SubResource("ParticleProcessMaterial_7h8i6")
+
+[node name="ChoicesUI" parent="." instance=ExtResource("11_va7lu")]
+
+[node name="QuestUI" parent="." instance=ExtResource("12_f1n2q")]
+
+[node name="SpawnPoint_FromRubysDoor" type="Node2D" parent="."]
+position = Vector2(-52, -7)
+
+[node name="Player" parent="." instance=ExtResource("13_whnhr")]
+position = Vector2(-54, -6)
+
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
+offset = Vector2(0, -33.425)
+zoom = Vector2(12.245, 12.245)
+limit_left = -80
+limit_right = 169
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("14_46y8x")

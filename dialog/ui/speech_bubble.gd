@@ -140,5 +140,5 @@ func _play_voice_blip() -> void:
 		audio.pitch_scale = randf_range(1.5,2.0) 
 		audio.play()
 	else:
-		audio.pitch_scale = randf_range(0.7, 1.1) 
+		audio.pitch_scale = randf_range(0.4, 0.7) 
 		audio.play()

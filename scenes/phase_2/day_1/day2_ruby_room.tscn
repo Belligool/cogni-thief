@@ -1,0 +1,331 @@
+[gd_scene load_steps=53 format=3 uid="uid://ddptpqo6jchm8"]
+
+[ext_resource type="Script" uid="uid://swsgvtx8qly6" path="res://scenes/phase_2/day_1/day_2_ruby_room.gd" id="1_1f8gi"]
+[ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_vksvb"]
+[ext_resource type="Resource" uid="uid://1nletv7qqqi0" path="res://transition/definition/phase_2_day_3.tres" id="2_5hn2m"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_kw0wf"]
+[ext_resource type="Texture2D" uid="uid://db24i377j2845" path="res://assets/Matthijs/Corridor Room/door.png" id="2_sinai"]
+[ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="3_1f8gi"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_82b33"]
+[ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="4_5hn2m"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_gjc58"]
+[ext_resource type="Texture2D" uid="uid://de6jaxtvdylg3" path="res://assets/Matthijs/Corridor Room/grandfather_clock.png" id="5_6i4c0"]
+[ext_resource type="PackedScene" uid="uid://libdlapvtnta" path="res://interaction/interactable objects/desktop.tscn" id="6_kw0wf"]
+[ext_resource type="PackedScene" uid="uid://bohydro1535rr" path="res://interaction/interactable objects/bed.tscn" id="7_82b33"]
+[ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="8_gjc58"]
+[ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="9_v2jdy"]
+[ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="10_d8jb2"]
+[ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="11_ogbap"]
+[ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="12_uvqab"]
+[ext_resource type="PackedScene" uid="uid://byuu2dfs2wkb1" path="res://npc/roby.tscn" id="16_82b33"]
+
+[sub_resource type="Resource" id="Resource_v2jdy"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "Huh...I'm so tired"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_d8jb2"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "Wait???"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_ogbap"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "Fikri???"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_uvqab"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "Who is he?"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_u3wig"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'Ruby'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_civae"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'Here’s some of the pictures I’ve taken for the new game'"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_4c8bh"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'It’s Force Horrific 4.'"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_otuwk"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'Hope you can finish it tomorrow night.'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_f010v"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "Force Horrific 4???"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_6aac8"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "New game?"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_ir0wi"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "Huh...who is Arya?"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_kw0wf"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'By...I need your help...'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_82b33"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'Can you work together with Icha to finish the article?'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_gjc58"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'Our client, Rasyid...needs the article ASAP...'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_h4sai"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'He said that he needs to promote a new game'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_palcy"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'Don’t worry about the game…'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_qf00b"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'it is safe based on the Directorate General of Customs and Excise...'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_h07mf"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "...another message from Icha?"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_x3xcg"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'By! Here’s the docs for the article'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_xltf2"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'I already wrote five paragraphs.'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_kcf0f"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'The rest of it is from you.'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_s8iyo"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'Make sure you finish it'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_5m0qw"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "'Or else, Arya would be mad at me'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_8c3qe"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "Huh?"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_nyv5n"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "Fikri?? Arya?? Icha?? Rasyid??"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_jpvej"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "Force Horrific 4?? Article??"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_q025s"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "I'm so confused"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_66nkc"]
+script = ExtResource("2_kw0wf")
+speaker = "mc"
+text = "What is this about??"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_rja55"]
+script = ExtResource("4_gjc58")
+npc_id = "premise"
+lines = Array[ExtResource("2_kw0wf")]([SubResource("Resource_v2jdy"), SubResource("Resource_d8jb2"), SubResource("Resource_ogbap"), SubResource("Resource_uvqab"), SubResource("Resource_u3wig"), SubResource("Resource_civae"), SubResource("Resource_4c8bh"), SubResource("Resource_otuwk"), SubResource("Resource_f010v"), SubResource("Resource_6aac8"), SubResource("Resource_ir0wi"), SubResource("Resource_kw0wf"), SubResource("Resource_82b33"), SubResource("Resource_gjc58"), SubResource("Resource_h4sai"), SubResource("Resource_palcy"), SubResource("Resource_qf00b"), SubResource("Resource_h07mf"), SubResource("Resource_x3xcg"), SubResource("Resource_xltf2"), SubResource("Resource_kcf0f"), SubResource("Resource_s8iyo"), SubResource("Resource_5m0qw"), SubResource("Resource_8c3qe"), SubResource("Resource_nyv5n"), SubResource("Resource_jpvej"), SubResource("Resource_q025s"), SubResource("Resource_66nkc")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u3wig"]
+distance = -2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_civae"]
+size = Vector2(4, 93)
+
+[sub_resource type="Curve" id="Curve_4c8bh"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iywne"]
+curve = SubResource("Curve_4c8bh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_otuwk"]
+emission_shape_scale = Vector3(21.275, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(6.18, 31.195, 0)
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_iywne")
+color = Color(1, 1, 1, 0.5921569)
+
+[node name="day2_ruby_room" type="Node2D"]
+script = ExtResource("1_1f8gi")
+intro_dialog = SubResource("Resource_rja55")
+intro_narration = ExtResource("2_5hn2m")
+
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(41.335983, -44.249996)
+scale = Vector2(0.07882857, 0.08287039)
+texture = ExtResource("1_vksvb")
+
+[node name="rubydoor" type="Sprite2D" parent="."]
+position = Vector2(-52, -43.000004)
+scale = Vector2(0.09782608, 0.09782611)
+texture = ExtResource("2_sinai")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(41.253357, -4.4555573)
+scale = Vector2(0.07887822, 0.085732296)
+texture = ExtResource("3_1f8gi")
+
+[node name="Rug" type="Sprite2D" parent="."]
+position = Vector2(22.999998, -5)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("4_5hn2m")
+
+[node name="Grandfather\'s Clock" type="Sprite2D" parent="."]
+position = Vector2(35.128426, -41.729755)
+scale = Vector2(0.10081331, 0.10598237)
+texture = ExtResource("5_6i4c0")
+
+[node name="desktop" parent="." instance=ExtResource("6_kw0wf")]
+position = Vector2(-3, -27)
+
+[node name="bed" parent="." instance=ExtResource("7_82b33")]
+position = Vector2(131, -7)
+
+[node name="Cabinet" type="Sprite2D" parent="."]
+position = Vector2(-4.9999924, -19)
+scale = Vector2(0.10059603, 0.105753966)
+texture = ExtResource("8_gjc58")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20, -3)
+shape = SubResource("WorldBoundaryShape2D_u3wig")
+
+[node name="LeftCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCollision"]
+position = Vector2(-88, -43.25)
+shape = SubResource("RectangleShape2D_civae")
+
+[node name="RightCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCollision"]
+position = Vector2(171, -42.5)
+shape = SubResource("RectangleShape2D_civae")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(53, -53)
+amount = 150
+amount_ratio = 0.25
+process_material = SubResource("ParticleProcessMaterial_otuwk")
+
+[node name="ChoicesUI" parent="." instance=ExtResource("9_v2jdy")]
+
+[node name="QuestUI" parent="." instance=ExtResource("10_d8jb2")]
+
+[node name="SpawnPoint_FromRubysDoor" type="Node2D" parent="."]
+position = Vector2(-52, -7)
+
+[node name="roby" parent="." instance=ExtResource("16_82b33")]
+position = Vector2(-67, -1)
+
+[node name="Player" parent="." instance=ExtResource("11_ogbap")]
+position = Vector2(-30, -6)
+
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
+offset = Vector2(0, -33.425)
+zoom = Vector2(12.245, 12.245)
+limit_left = -80
+limit_right = 169
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("12_uvqab")

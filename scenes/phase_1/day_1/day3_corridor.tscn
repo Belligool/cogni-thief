@@ -1,59 +1,50 @@
-[gd_scene load_steps=30 format=3 uid="uid://cmgkcary0k8k7"]
+[gd_scene load_steps=34 format=3 uid="uid://cmgkcary0k8k7"]
 
 [ext_resource type="Script" uid="uid://bbv3ariu71nj2" path="res://scenes/phase_1/day_1/day_3_corridor.gd" id="1_cyyt8"]
-[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_3mop2"]
+[ext_resource type="Resource" uid="uid://bkp85hiuodgwk" path="res://transition/definition/phase_2_day_1_good.tres" id="2_cyyt8"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_uwgap"]
 [ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="3_3mop2"]
-[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_px5mw"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_o54sr"]
+[ext_resource type="Resource" uid="uid://dkk5c4f1aysne" path="res://transition/definition/phase_2_day_1_neutral.tres" id="3_px5mw"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_4bgup"]
 [ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="4_px5mw"]
-[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_uwgap"]
+[ext_resource type="Resource" uid="uid://cwspd0i6dicfg" path="res://transition/definition/phase_2_day_1_bad.tres" id="4_uwgap"]
 [ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="5_uwgap"]
 [ext_resource type="PackedScene" uid="uid://bqctrra2rk5pi" path="res://interaction/interactable objects/non_interactable_door.tscn" id="8_n7dsj"]
 [ext_resource type="PackedScene" uid="uid://bm1dhjgsqu3o3" path="res://interaction/interactable objects/grandfather_clock.tscn" id="9_shi4s"]
 [ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="10_mx6el"]
 [ext_resource type="Texture2D" uid="uid://cvrra6jd0q8mb" path="res://assets/Matthijs/Corridor Room/dining_table.png" id="11_cnrn8"]
+[ext_resource type="Texture2D" uid="uid://cl4nd40v4vhf3" path="res://assets/Matthijs/Matthijs Room/Child_Jendela.png" id="11_cyyt8"]
 [ext_resource type="PackedScene" uid="uid://b5ll47i2xs2fw" path="res://interaction/interactable objects/gramaphone.tscn" id="12_2t82q"]
-[ext_resource type="AudioStream" uid="uid://dpja14x86qmdk" path="res://assets/music/Sam Saimun - Dibawah Sinar Bulan Purnama (1952) - Penggiat Bunyi.mp3" id="13_n5iam"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="14_56crn"]
+[ext_resource type="AudioStream" uid="uid://j3k3v7lxyaik" path="res://assets/music/Keroncong Kemayoran - Bing Slamet dan P. Ramlee (Lirik) - Irama dan Lagu.mp3" id="14_cyyt8"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="15_8swt2"]
 [ext_resource type="PackedScene" uid="uid://bgvxixema1q8q" path="res://npc/moeder.tscn" id="16_3hxct"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="17_00bqs"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="18_fc6ng"]
+[ext_resource type="Script" uid="uid://cxrv6emmmr6gx" path="res://scenes/phase_1/day_1/audio_stream_player_2d.gd" id="18_o54sr"]
 [ext_resource type="PackedScene" uid="uid://vvwihb1xdlpj" path="res://npc/njai2.tscn" id="21_3mop2"]
 [ext_resource type="PackedScene" uid="uid://dkqxqtqnr3of0" path="res://npc/njai1.tscn" id="22_px5mw"]
 
-[sub_resource type="Resource" id="Resource_o54sr"]
-script = ExtResource("2_3mop2")
+[sub_resource type="Resource" id="Resource_n7dsj"]
+script = ExtResource("2_uwgap")
 speaker = "mc"
-text = "So tired. I want sweets.."
+text = "So tired. I want sweets..."
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
-[sub_resource type="Resource" id="Resource_4bgup"]
-script = ExtResource("2_3mop2")
+[sub_resource type="Resource" id="Resource_shi4s"]
+script = ExtResource("2_uwgap")
 speaker = "mc"
 text = "Is it tea time yet?"
 is_dialog_thought = true
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
-[sub_resource type="Resource" id="Resource_n7dsj"]
-script = ExtResource("4_uwgap")
+[sub_resource type="Resource" id="Resource_mx6el"]
+script = ExtResource("4_4bgup")
 npc_id = "premise"
-lines = Array[ExtResource("2_3mop2")]([SubResource("Resource_o54sr"), SubResource("Resource_4bgup")])
+lines = Array[ExtResource("2_uwgap")]([SubResource("Resource_n7dsj"), SubResource("Resource_shi4s")])
 metadata/_custom_type_script = "uid://cq8iorar8inmf"
-
-[sub_resource type="GDScript" id="GDScript_lbhrr"]
-script/source = "extends AudioStreamPlayer2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lbhrr"]
 distance = -2.0
@@ -82,7 +73,10 @@ color = Color(1, 1, 1, 0.5921569)
 
 [node name="day_3_corridor" type="Node2D"]
 script = ExtResource("1_cyyt8")
-intro_dialog = SubResource("Resource_n7dsj")
+intro_dialog = SubResource("Resource_mx6el")
+intro_narration_good = ExtResource("2_cyyt8")
+intro_narration_neutral = ExtResource("3_px5mw")
+intro_narration_bad = ExtResource("4_uwgap")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(44.999996, -43.999996)
@@ -115,28 +109,38 @@ position = Vector2(37.80821, -19)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("10_mx6el")
 
+[node name="window" type="Sprite2D" parent="."]
+position = Vector2(118.99999, -51)
+scale = Vector2(0.073895805, 0.07768472)
+texture = ExtResource("11_cyyt8")
+
 [node name="Dining Table" type="Sprite2D" parent="."]
 position = Vector2(120, -29.999998)
 scale = Vector2(0.076626636, 0.080555566)
 texture = ExtResource("11_cnrn8")
 
+[node name="window2" type="Sprite2D" parent="."]
+position = Vector2(37.000004, -50)
+scale = Vector2(0.073895805, 0.07768472)
+texture = ExtResource("11_cyyt8")
+
 [node name="gramaphone" parent="." instance=ExtResource("12_2t82q")]
 position = Vector2(37.808212, -25)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(51, -28)
+position = Vector2(37, -28)
 scale = Vector2(0.049336817, 0.050347213)
-stream = ExtResource("13_n5iam")
-volume_db = 10.0
-pitch_scale = 0.85
+stream = ExtResource("14_cyyt8")
+volume_db = -80.0
+pitch_scale = 0.95
 autoplay = true
-max_distance = 75.0
+max_distance = 94.0
 attenuation = 2.0
 max_polyphony = 2
 panning_strength = 2.5
 area_mask = 0
 parameters/looping = true
-script = SubResource("GDScript_lbhrr")
+script = ExtResource("18_o54sr")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(1, -6)
@@ -166,7 +170,6 @@ process_material = SubResource("ParticleProcessMaterial_p57ef")
 [node name="ChoicesUI" parent="." instance=ExtResource("14_56crn")]
 
 [node name="QuestUI" parent="." instance=ExtResource("15_8swt2")]
-visible = false
 
 [node name="SpawnPoint_FromMatthijsDoor" type="Node2D" parent="." groups=["SpawnPoint_FromMatthijsDoor"]]
 position = Vector2(-52, -7)
@@ -188,7 +191,7 @@ position_smoothing_speed = 3.0
 script = ExtResource("18_fc6ng")
 
 [node name="njai2" parent="." instance=ExtResource("21_3mop2")]
-position = Vector2(43, -8)
+position = Vector2(46, -7)
 
 [node name="njai1" parent="." instance=ExtResource("22_px5mw")]
 position = Vector2(25, -8)

@@ -2,10 +2,8 @@ extends CanvasLayer
 
 @onready var background: ColorRect = $Background
 @onready var narration_label: Label = $Background/NarrationLabel
-@onready var advance_label: Label = $AdvanceLabel
 
 var _tween: Tween = null
-var _advance_tween: Tween = null
 
 var _full_text: String = ""
 var _chars_shown: int = 0
@@ -13,7 +11,7 @@ var _typing: bool = false
 var _typing_speed: float = 0.1
 var _typing_timer: float = 0.0
 var _is_playing: bool = false
-var _has_shown_advance_prompt = false
+var _is_fading_out: bool = false # Add this at the top
 
 func _ready() -> void:
 	print("narration ui ready")
@@ -21,7 +19,6 @@ func _ready() -> void:
 	TransitionManager.narration_line_changed.connect(_on_line_changed)
 	TransitionManager.narration_finished.connect(_on_last_line_done)
 	background.modulate.a = 0.0
-	advance_label.modulate.a = 0.0
 	hide()
  
 func _process(delta: float) -> void:
@@ -34,14 +31,12 @@ func _process(delta: float) -> void:
 		narration_label.text = _full_text.left(_chars_shown)
 		if _chars_shown >= _full_text.length():
 			_typing = false
-			_show_advance_prompt()
 			
 func _on_transition_started() -> void:
 	if _is_playing:
 		return
 	print("transition started fired!")
 	_is_playing = true
-	_has_shown_advance_prompt = false
 	show()
 	narration_label.modulate.a = 0.0
 	narration_label.text = ""
@@ -51,12 +46,14 @@ func _on_transition_started() -> void:
 	TransitionManager.show_first_line()
 	
 func _on_line_changed(text: String) -> void:
+	_is_fading_out = true # Block advancing while fading old text
+	_typing = false       # Ensure we aren't "typing" during fade-out
 	print("line changed fired: ", text)
-	_hide_advance_prompt()
 	if narration_label.text != "":
 		_tween = create_tween()
 		_tween.tween_property(narration_label, "modulate:a", 0.0, 0.4)
 		await _tween.finished
+	_is_fading_out = false
 	narration_label.modulate.a = 1.0
 	_full_text = text
 	_chars_shown = 0
@@ -65,19 +62,18 @@ func _on_line_changed(text: String) -> void:
 	_typing = true
 	
 func _unhandled_input(event: InputEvent) -> void:
+	if not TransitionManager.is_active or _is_fading_out:
+		return
 	if not TransitionManager.is_active:
 		return
 	if event.is_action_pressed("next_narration"):
 		if _typing:
 			_typing = false
 			narration_label.text = _full_text
-			_show_advance_prompt()
 		else:
-			_hide_advance_prompt()
 			TransitionManager._advance()
 	
 func _on_last_line_done(scene: String) -> void:
-	_hide_advance_prompt()
 	get_tree().change_scene_to_file(scene)
 	await get_tree().process_frame
 	await get_tree().process_frame
@@ -94,17 +90,3 @@ func _on_last_line_done(scene: String) -> void:
 	hide()
 	TransitionManager.finish()
 	
-func _show_advance_prompt() -> void:
-	if _has_shown_advance_prompt:
-		return
-	_has_shown_advance_prompt = true
-	if _advance_tween:
-		_advance_tween.kill()
-	_advance_tween = create_tween()
-	# Fades to 1.0 alpha over 0.5 seconds, but waits 1.0 seconds before starting
-	_advance_tween.tween_property(advance_label, "modulate:a", 1.0, 0.5).set_delay(1.0)
-
-func _hide_advance_prompt() -> void:
-	if _advance_tween:
-		_advance_tween.kill()
-	advance_label.modulate.a = 0.0

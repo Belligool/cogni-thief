@@ -1,0 +1,59 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://b15of1h8hhnsr"]
+
+[ext_resource type="Texture2D" uid="uid://bhx8mgs0euud6" path="res://assets/Ruby/Sprite Sheet Char/adult_idle-Sheet.png" id="1_0tbyk"]
+[ext_resource type="Texture2D" uid="uid://8ei8elgr2j13" path="res://assets/Ruby/Sprite Sheet Char/adult_walk-Sheet.png" id="2_0ehvh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+atlas = ExtResource("1_0tbyk")
+region = Rect2(0, 0, 230, 560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+atlas = ExtResource("1_0tbyk")
+region = Rect2(230, 0, 230, 560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+atlas = ExtResource("2_0ehvh")
+region = Rect2(0, 0, 250, 560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("2_0ehvh")
+region = Rect2(250, 0, 250, 560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("2_0ehvh")
+region = Rect2(500, 0, 250, 560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("2_0ehvh")
+region = Rect2(750, 0, 250, 560)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v2ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jej6c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oprun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8ls1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfm1y")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

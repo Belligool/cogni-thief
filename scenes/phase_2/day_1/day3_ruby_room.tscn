@@ -1,0 +1,282 @@
+[gd_scene load_steps=44 format=3 uid="uid://d2b185jlfkbds"]
+
+[ext_resource type="Script" uid="uid://bs55f4rj7ut2y" path="res://scenes/phase_2/day_1/day_3_ruby_room.gd" id="1_8mf6p"]
+[ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="2_mr4op"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_uu5ap"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="3_4hixy"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_adka4"]
+[ext_resource type="Texture2D" uid="uid://db24i377j2845" path="res://assets/Matthijs/Corridor Room/door.png" id="3_uu5ap"]
+[ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="4_4hixy"]
+[ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="5_adka4"]
+[ext_resource type="Texture2D" uid="uid://de6jaxtvdylg3" path="res://assets/Matthijs/Corridor Room/grandfather_clock.png" id="6_qhko6"]
+[ext_resource type="PackedScene" uid="uid://libdlapvtnta" path="res://interaction/interactable objects/desktop.tscn" id="7_bmcfx"]
+[ext_resource type="PackedScene" uid="uid://bohydro1535rr" path="res://interaction/interactable objects/bed.tscn" id="8_m0p5i"]
+[ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="9_bo7us"]
+[ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="10_ordt4"]
+[ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="11_pt74q"]
+[ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="12_8vehw"]
+[ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="13_34o5a"]
+
+[sub_resource type="Resource" id="Resource_qhko6"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "I'm so exhausted"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_bmcfx"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "I really want to end this..."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_m0p5i"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "But I can't..."
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_bo7us"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "Wait...Arya just messaged me..."
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_e64uv"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "'Ruby!'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_ordt4"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "'Rasyid is too kind to us.'"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_pt74q"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "'He said that it’s alright if it is done this afternoon.'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_8vehw"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "He said that he’ll give us a bonus for our fee."
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_34o5a"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "'But he said that the article must be done tonight.'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_0j0hv"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "'So, please elaborate it ASAP!'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_3klp8"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "'Thanks.'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_gda7n"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "Another message from Icha.."
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_q67ob"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "'By….'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_2mde2"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "'Is there something you need to help with?'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_mmkuc"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "'Since I heard from Arya you still have other work to do…'"
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_74ehy"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "'Reach me out if there’s something you need….'"
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_dywep"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "Even though she has an awful life…"
+is_dialog_thought = true
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_a7chj"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "she still has kind friends"
+is_dialog_thought = true
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_liq7k"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "Thank you Arya, Icha, and the others for supporting her…"
+is_dialog_thought = true
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_36hn6"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "Hopefully, she could maintain their friendship…."
+is_dialog_thought = true
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_dkktf"]
+script = ExtResource("2_uu5ap")
+speaker = "mc"
+text = "And also thank you Rasyid for save her…"
+is_dialog_thought = true
+typing_speed = 0.03
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_adka4"]
+script = ExtResource("3_4hixy")
+npc_id = "premise"
+lines = Array[ExtResource("2_uu5ap")]([SubResource("Resource_qhko6"), SubResource("Resource_bmcfx"), SubResource("Resource_m0p5i"), SubResource("Resource_bo7us"), SubResource("Resource_e64uv"), SubResource("Resource_ordt4"), SubResource("Resource_pt74q"), SubResource("Resource_8vehw"), SubResource("Resource_34o5a"), SubResource("Resource_0j0hv"), SubResource("Resource_3klp8"), SubResource("Resource_gda7n"), SubResource("Resource_q67ob"), SubResource("Resource_2mde2"), SubResource("Resource_mmkuc"), SubResource("Resource_74ehy"), SubResource("Resource_dywep"), SubResource("Resource_a7chj"), SubResource("Resource_liq7k"), SubResource("Resource_36hn6"), SubResource("Resource_dkktf")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0j0hv"]
+distance = -2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3klp8"]
+size = Vector2(4, 93)
+
+[sub_resource type="Curve" id="Curve_e64uv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iywne"]
+curve = SubResource("Curve_e64uv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gda7n"]
+emission_shape_scale = Vector3(21.275, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(6.18, 31.195, 0)
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_iywne")
+color = Color(1, 1, 1, 0.5921569)
+
+[node name="day3_ruby_room" type="Node2D"]
+script = ExtResource("1_8mf6p")
+intro_dialog = SubResource("Resource_adka4")
+
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(41.335983, -44.249996)
+scale = Vector2(0.07882857, 0.08287039)
+texture = ExtResource("2_mr4op")
+
+[node name="rubydoor" type="Sprite2D" parent="."]
+position = Vector2(-52, -43.000004)
+scale = Vector2(0.09782608, 0.09782611)
+texture = ExtResource("3_uu5ap")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(41.253357, -4.4555573)
+scale = Vector2(0.07887822, 0.085732296)
+texture = ExtResource("4_4hixy")
+
+[node name="Rug" type="Sprite2D" parent="."]
+position = Vector2(22.999998, -5)
+scale = Vector2(0.076626636, 0.080555566)
+texture = ExtResource("5_adka4")
+
+[node name="Grandfather\'s Clock" type="Sprite2D" parent="."]
+position = Vector2(35.128426, -41.729755)
+scale = Vector2(0.10081331, 0.10598237)
+texture = ExtResource("6_qhko6")
+
+[node name="desktop" parent="." instance=ExtResource("7_bmcfx")]
+position = Vector2(-3, -27)
+
+[node name="bed" parent="." instance=ExtResource("8_m0p5i")]
+position = Vector2(131, -7)
+
+[node name="Cabinet" type="Sprite2D" parent="."]
+position = Vector2(-4.9999924, -19)
+scale = Vector2(0.10059603, 0.105753966)
+texture = ExtResource("9_bo7us")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20, -3)
+shape = SubResource("WorldBoundaryShape2D_0j0hv")
+
+[node name="LeftCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCollision"]
+position = Vector2(-88, -43.25)
+shape = SubResource("RectangleShape2D_3klp8")
+
+[node name="RightCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCollision"]
+position = Vector2(171, -42.5)
+shape = SubResource("RectangleShape2D_3klp8")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(53, -53)
+amount = 150
+amount_ratio = 0.25
+process_material = SubResource("ParticleProcessMaterial_gda7n")
+
+[node name="ChoicesUI" parent="." instance=ExtResource("10_ordt4")]
+
+[node name="QuestUI" parent="." instance=ExtResource("11_pt74q")]
+
+[node name="SpawnPoint_Desktop" type="Node2D" parent="."]
+position = Vector2(-27, -7)
+
+[node name="Player" parent="." instance=ExtResource("12_8vehw")]
+position = Vector2(-28, -6)
+
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
+offset = Vector2(0, -33.425)
+zoom = Vector2(12.245, 12.245)
+limit_left = -80
+limit_right = 169
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("13_34o5a")

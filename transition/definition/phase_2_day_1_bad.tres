@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="NarrationData" load_steps=5 format=3 uid="uid://cwspd0i6dicfg"]
+
+[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_7eojm"]
+[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_dw6vq"]
+
+[sub_resource type="Resource" id="Resource_7eojm"]
+script = ExtResource("1_7eojm")
+id = "q_find_something_bright"
+title = "Find something bright"
+objective = "Find something bright"
+completion_type = 1
+completion_target = "desktop"
+cutscene = "ruby_bedroom_day1"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[sub_resource type="Resource" id="Resource_dw6vq"]
+script = ExtResource("1_7eojm")
+id = "q_interact_with_desktop"
+title = "Interact With Desktop"
+objective = "Interact With Desktop"
+cutscene = "aftermath_ruby_conversation"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[resource]
+script = ExtResource("2_dw6vq")
+lines = Array[String](["Me and Ma then took a walk", "accompanied by small conversations about my day.", "Though, Mamma didn’t seem to mention the topic of miscarriage", "perhaps not wanting to talk about it anymore.", "The rest of the day passed by", "and Mamma tucked me in and sang until I fell asleep", "“My dearest, Mamma’s Schatje\"", "\"Mamma hopes Matthijs will always remember that Mamma loves you lots.\"", "\"Even if you did wrong.\"", "...", "It happened again...", "My body feels… heavy…", "And uncomfortable..."])
+delay_between_lines = 10.0
+next_scene = "res://scenes/phase_2/day_1/day1_ruby_room.tscn"
+next_day_quests = Array[ExtResource("1_7eojm")]([SubResource("Resource_7eojm"), SubResource("Resource_dw6vq")])
+metadata/_custom_type_script = "uid://bhqs24s4ximjh"
