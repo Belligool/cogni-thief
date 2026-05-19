@@ -1,23 +1,32 @@
-[gd_scene load_steps=53 format=3 uid="uid://ddptpqo6jchm8"]
+[gd_scene load_steps=62 format=3 uid="uid://ddptpqo6jchm8"]
 
 [ext_resource type="Script" uid="uid://swsgvtx8qly6" path="res://scenes/phase_2/day_1/day_2_ruby_room.gd" id="1_1f8gi"]
-[ext_resource type="Texture2D" uid="uid://ccqctdxg3hdif" path="res://assets/Matthijs/Corridor Room/corridor_wall.png" id="1_vksvb"]
 [ext_resource type="Resource" uid="uid://1nletv7qqqi0" path="res://transition/definition/phase_2_day_3.tres" id="2_5hn2m"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_kw0wf"]
-[ext_resource type="Texture2D" uid="uid://db24i377j2845" path="res://assets/Matthijs/Corridor Room/door.png" id="2_sinai"]
-[ext_resource type="Texture2D" uid="uid://dlbqrpl8htdvr" path="res://assets/Matthijs/Corridor Room/corridor_floor.png" id="3_1f8gi"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_82b33"]
-[ext_resource type="Texture2D" uid="uid://cni8a5u23nm6t" path="res://assets/Matthijs/Corridor Room/rug.png" id="4_5hn2m"]
 [ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_gjc58"]
-[ext_resource type="Texture2D" uid="uid://de6jaxtvdylg3" path="res://assets/Matthijs/Corridor Room/grandfather_clock.png" id="5_6i4c0"]
+[ext_resource type="Texture2D" uid="uid://dnp5m5pw2kpdb" path="res://assets/Ruby/Bedroom/wall.png" id="6_4c8bh"]
 [ext_resource type="PackedScene" uid="uid://libdlapvtnta" path="res://interaction/interactable objects/desktop.tscn" id="6_kw0wf"]
 [ext_resource type="PackedScene" uid="uid://bohydro1535rr" path="res://interaction/interactable objects/bed.tscn" id="7_82b33"]
-[ext_resource type="Texture2D" uid="uid://cvu1agvqr8ny5" path="res://assets/Matthijs/Corridor Room/cabinet.png" id="8_gjc58"]
+[ext_resource type="Texture2D" uid="uid://bymxcp26o4aar" path="res://assets/Ruby/Bedroom/door.png" id="7_otuwk"]
+[ext_resource type="Texture2D" uid="uid://cdwgx1ivsi7ta" path="res://assets/Ruby/Bedroom/clock_10.14.png" id="8_f010v"]
+[ext_resource type="Texture2D" uid="uid://uon7hlwefu8n" path="res://assets/Ruby/Bedroom/floor.png" id="9_6aac8"]
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="9_v2jdy"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="10_d8jb2"]
+[ext_resource type="Texture2D" uid="uid://di0p4rlm3syld" path="res://assets/Ruby/Bedroom/bookshelf.png" id="10_ir0wi"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="11_ogbap"]
+[ext_resource type="Texture2D" uid="uid://77lufayjyqh1" path="res://assets/Ruby/Bedroom/wall_shelf.png" id="11_rja55"]
+[ext_resource type="Texture2D" uid="uid://bhdm4ksrcdhwf" path="res://assets/Ruby/Bedroom/hanging_photo.png" id="12_h4sai"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="12_uvqab"]
+[ext_resource type="Texture2D" uid="uid://c1b0qwpy8iwux" path="res://assets/Ruby/Bedroom/trashcan.png" id="13_palcy"]
+[ext_resource type="Texture2D" uid="uid://dfpix8gfy3yfr" path="res://assets/Ruby/Bedroom/doomat.png" id="14_qf00b"]
+[ext_resource type="Texture2D" uid="uid://cwylghk5gp6qb" path="res://assets/Ruby/Bedroom/desk.png" id="15_8c3qe"]
 [ext_resource type="PackedScene" uid="uid://byuu2dfs2wkb1" path="res://npc/roby.tscn" id="16_82b33"]
+[ext_resource type="Texture2D" uid="uid://c4llqe3kjrqex" path="res://assets/Ruby/Bedroom/ceiling_fan.png" id="16_nyv5n"]
+[ext_resource type="Texture2D" uid="uid://b807on1kayok2" path="res://assets/Ruby/Bedroom/window.png" id="17_jpvej"]
+[ext_resource type="Texture2D" uid="uid://caww70ca41ux0" path="res://assets/Ruby/Bedroom/side_table.png" id="18_66nkc"]
+[ext_resource type="Texture2D" uid="uid://cfylpwpntrhlh" path="res://assets/Ruby/Bedroom/curtain_close.png" id="19_q025s"]
+[ext_resource type="Texture2D" uid="uid://oq62pb08ijcg" path="res://assets/Ruby/Bedroom/chair.png" id="22_h07mf"]
 
 [sub_resource type="Resource" id="Resource_v2jdy"]
 script = ExtResource("2_kw0wf")
@@ -216,20 +225,20 @@ npc_id = "premise"
 lines = Array[ExtResource("2_kw0wf")]([SubResource("Resource_v2jdy"), SubResource("Resource_d8jb2"), SubResource("Resource_ogbap"), SubResource("Resource_uvqab"), SubResource("Resource_u3wig"), SubResource("Resource_civae"), SubResource("Resource_4c8bh"), SubResource("Resource_otuwk"), SubResource("Resource_f010v"), SubResource("Resource_6aac8"), SubResource("Resource_ir0wi"), SubResource("Resource_kw0wf"), SubResource("Resource_82b33"), SubResource("Resource_gjc58"), SubResource("Resource_h4sai"), SubResource("Resource_palcy"), SubResource("Resource_qf00b"), SubResource("Resource_h07mf"), SubResource("Resource_x3xcg"), SubResource("Resource_xltf2"), SubResource("Resource_kcf0f"), SubResource("Resource_s8iyo"), SubResource("Resource_5m0qw"), SubResource("Resource_8c3qe"), SubResource("Resource_nyv5n"), SubResource("Resource_jpvej"), SubResource("Resource_q025s"), SubResource("Resource_66nkc")])
 metadata/_custom_type_script = "uid://cq8iorar8inmf"
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u3wig"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_otuwk"]
 distance = -2.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_civae"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f010v"]
 size = Vector2(4, 93)
 
-[sub_resource type="Curve" id="Curve_4c8bh"]
+[sub_resource type="Curve" id="Curve_6aac8"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_iywne"]
-curve = SubResource("Curve_4c8bh")
+[sub_resource type="CurveTexture" id="CurveTexture_otuwk"]
+curve = SubResource("Curve_6aac8")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_otuwk"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ir0wi"]
 emission_shape_scale = Vector3(21.275, 1, 1)
 emission_shape = 3
 emission_box_extents = Vector3(6.18, 31.195, 0)
@@ -238,7 +247,7 @@ initial_velocity_max = 2.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.0
 scale_max = 0.59999996
-scale_curve = SubResource("CurveTexture_iywne")
+scale_curve = SubResource("CurveTexture_otuwk")
 color = Color(1, 1, 1, 0.5921569)
 
 [node name="day2_ruby_room" type="Node2D"]
@@ -247,78 +256,120 @@ intro_dialog = SubResource("Resource_rja55")
 intro_narration = ExtResource("2_5hn2m")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
-position = Vector2(41.335983, -44.249996)
-scale = Vector2(0.07882857, 0.08287039)
-texture = ExtResource("1_vksvb")
+position = Vector2(41.499996, -44.249996)
+scale = Vector2(0.102734365, 0.08287039)
+texture = ExtResource("6_4c8bh")
 
 [node name="rubydoor" type="Sprite2D" parent="."]
-position = Vector2(-52, -43.000004)
-scale = Vector2(0.09782608, 0.09782611)
-texture = ExtResource("2_sinai")
+position = Vector2(154.82608, -32.80436)
+scale = Vector2(0.0864131, 0.08641312)
+texture = ExtResource("7_otuwk")
+
+[node name="clock" type="Sprite2D" parent="."]
+position = Vector2(154, -68)
+scale = Vector2(0.08072912, 0.08072912)
+texture = ExtResource("8_f010v")
 
 [node name="Floor" type="Sprite2D" parent="."]
-position = Vector2(41.253357, -4.4555573)
-scale = Vector2(0.07887822, 0.085732296)
-texture = ExtResource("3_1f8gi")
+position = Vector2(41.5, -0.45555678)
+scale = Vector2(0.10273438, 0.085732296)
+texture = ExtResource("9_6aac8")
 
-[node name="Rug" type="Sprite2D" parent="."]
-position = Vector2(22.999998, -5)
-scale = Vector2(0.076626636, 0.080555566)
-texture = ExtResource("4_5hn2m")
+[node name="bookshelf" type="Sprite2D" parent="."]
+position = Vector2(114.31055, -36.172733)
+scale = Vector2(0.08322378, 0.08322375)
+texture = ExtResource("10_ir0wi")
 
-[node name="Grandfather\'s Clock" type="Sprite2D" parent="."]
-position = Vector2(35.128426, -41.729755)
-scale = Vector2(0.10081331, 0.10598237)
-texture = ExtResource("5_6i4c0")
+[node name="wallshelf" type="Sprite2D" parent="."]
+position = Vector2(67.51627, -58.361794)
+scale = Vector2(0.091627434, 0.0916274)
+texture = ExtResource("11_rja55")
+
+[node name="hangingphotos" type="Sprite2D" parent="."]
+position = Vector2(31.857338, -55.219036)
+scale = Vector2(0.10084323, 0.1008432)
+texture = ExtResource("12_h4sai")
+
+[node name="trashcan" type="Sprite2D" parent="."]
+position = Vector2(32, -15.655788)
+scale = Vector2(0.102941155, 0.102941155)
+texture = ExtResource("13_palcy")
+
+[node name="doormat" type="Sprite2D" parent="."]
+position = Vector2(154.89285, -5.625001)
+scale = Vector2(0.09375002, 0.093750015)
+texture = ExtResource("14_qf00b")
+
+[node name="desk" type="Sprite2D" parent="."]
+position = Vector2(66.82923, -16.34636)
+scale = Vector2(0.09481696, 0.09481696)
+texture = ExtResource("15_8c3qe")
+
+[node name="cellingfan" type="Sprite2D" parent="."]
+position = Vector2(32.07164, -76.6864)
+scale = Vector2(0.097633444, 0.097633414)
+texture = ExtResource("16_nyv5n")
+
+[node name="window" type="Sprite2D" parent="."]
+position = Vector2(-21.967598, -54.361797)
+scale = Vector2(0.0835629, 0.08356287)
+texture = ExtResource("17_jpvej")
+
+[node name="bookshelf2" type="Sprite2D" parent="."]
+position = Vector2(-69.17237, -17.80915)
+scale = Vector2(0.08819581, 0.088195786)
+texture = ExtResource("18_66nkc")
+
+[node name="curtainclose" type="Sprite2D" parent="."]
+position = Vector2(-22.103163, -50.16024)
+scale = Vector2(0.08799871, 0.08799867)
+texture = ExtResource("19_q025s")
 
 [node name="desktop" parent="." instance=ExtResource("6_kw0wf")]
-position = Vector2(-3, -27)
+position = Vector2(79, -7)
 
 [node name="bed" parent="." instance=ExtResource("7_82b33")]
-position = Vector2(131, -7)
+position = Vector2(-6, 7)
 
-[node name="Cabinet" type="Sprite2D" parent="."]
-position = Vector2(-4.9999924, -19)
-scale = Vector2(0.10059603, 0.105753966)
-texture = ExtResource("8_gjc58")
+[node name="chair" type="Sprite2D" parent="."]
+position = Vector2(62.375004, -16.796892)
+scale = Vector2(0.097656325, 0.097656325)
+texture = ExtResource("22_h07mf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(2, -4)
+position = Vector2(12, -6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(20, -3)
-shape = SubResource("WorldBoundaryShape2D_u3wig")
+position = Vector2(32, 3)
+shape = SubResource("WorldBoundaryShape2D_otuwk")
 
 [node name="LeftCollision" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCollision"]
-position = Vector2(-88, -43.25)
-shape = SubResource("RectangleShape2D_civae")
+position = Vector2(-91, -43.25)
+shape = SubResource("RectangleShape2D_f010v")
 
 [node name="RightCollision" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightCollision"]
-position = Vector2(171, -42.5)
-shape = SubResource("RectangleShape2D_civae")
+position = Vector2(174, -42.5)
+shape = SubResource("RectangleShape2D_f010v")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(53, -53)
+position = Vector2(41, -53)
 amount = 150
 amount_ratio = 0.25
-process_material = SubResource("ParticleProcessMaterial_otuwk")
+process_material = SubResource("ParticleProcessMaterial_ir0wi")
 
 [node name="ChoicesUI" parent="." instance=ExtResource("9_v2jdy")]
 
 [node name="QuestUI" parent="." instance=ExtResource("10_d8jb2")]
 
 [node name="SpawnPoint_FromRubysDoor" type="Node2D" parent="."]
-position = Vector2(-52, -7)
-
-[node name="roby" parent="." instance=ExtResource("16_82b33")]
-position = Vector2(-67, -1)
+position = Vector2(56, -2)
 
 [node name="Player" parent="." instance=ExtResource("11_ogbap")]
-position = Vector2(-30, -6)
+position = Vector2(56, -2)
 
 [node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
 offset = Vector2(0, -33.425)
@@ -329,3 +380,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 script = ExtResource("12_uvqab")
+
+[node name="roby" parent="." instance=ExtResource("16_82b33")]
+position = Vector2(9, 4)
