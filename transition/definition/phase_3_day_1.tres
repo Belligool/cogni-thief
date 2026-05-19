@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="NarrationData" load_steps=4 format=3 uid="uid://483nua47scyw"]
+
+[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_mg0ta"]
+[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_x4pbp"]
+
+[sub_resource type="Resource" id="Resource_mg0ta"]
+script = ExtResource("1_mg0ta")
+id = "q_check_cabinet"
+title = "Check The Cabinet"
+objective = "Check The Cabinet"
+completion_type = 1
+completion_target = "cabinet"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[resource]
+script = ExtResource("2_x4pbp")
+lines = Array[String](["...", "This keeps on happening.", "Oh, so hard to stand..."])
+next_scene = "res://scenes/phase_2/day_1/day_1_margaretha_room.tscn"
+next_day_quests = Array[ExtResource("1_mg0ta")]([SubResource("Resource_mg0ta")])
+metadata/_custom_type_script = "uid://bhqs24s4ximjh"

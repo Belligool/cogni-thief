@@ -16,6 +16,7 @@ func _ready() -> void:
 			print("phase2")
 		3:
 			print("phase3")
+			animated_sprite.sprite_frames = animated_sprites[2]
 
 func _physics_process(_delta: float) -> void:
 	if is_frozen:

@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwtqm5fiavqvo"]
+
+[ext_resource type="Script" uid="uid://opv5sbh1ohs6" path="res://npc/caretaker.gd" id="1_b0m7s"]
+[ext_resource type="Texture2D" uid="uid://llg3rcj7fj6d" path="res://assets/Margaretha/Npc/caretaker_sprite_flip.png" id="2_b0m7s"]
+[ext_resource type="PackedScene" uid="uid://bt1pjdw052frb" path="res://dialog/ui/speech_bubble.tscn" id="7_fucjr"]
+[ext_resource type="Script" uid="uid://pof7ten1isde" path="res://npc/npc_interaction_area.gd" id="8_36mq3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b0m7s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4x81n"]
+radius = 21.095022
+
+[node name="caretaker" type="Node2D"]
+script = ExtResource("1_b0m7s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.09375095, -20.435211)
+scale = Vector2(0.09093751, 0.090937465)
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="SpeechBubble" parent="." instance=ExtResource("7_fucjr")]
+position = Vector2(-3, -13.495)
+
+[node name="NpcInteractionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("8_36mq3")
+npc_bubble_path = NodePath("../SpeechBubble")
+action_name = "talk"
+interactable_object_name = "moeder"
+metadata/_custom_type_script = "uid://pof7ten1isde"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcInteractionArea"]
+position = Vector2(0, -21)
+shape = SubResource("CircleShape2D_4x81n")
+
+[connection signal="body_entered" from="NpcInteractionArea" to="NpcInteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="NpcInteractionArea" to="NpcInteractionArea" method="_on_body_exited"]

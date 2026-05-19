@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="DialogData" load_steps=8 format=3 uid="uid://4v7o0shlyhnt"]
+
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="1_byc2y"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="2_6jcpv"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="3_7rduy"]
+
+[sub_resource type="Resource" id="Resource_byc2y"]
+script = ExtResource("2_6jcpv")
+label = "What did she say?"
+point_type = 1
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_6jcpv"]
+script = ExtResource("2_6jcpv")
+label = "Later."
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_7rduy"]
+script = ExtResource("2_6jcpv")
+label = "Stop mentioning her."
+point_type = 2
+metadata/_custom_type_script = "uid://dlfh74f7gy1re"
+
+[sub_resource type="Resource" id="Resource_a5wx8"]
+script = ExtResource("1_byc2y")
+speaker = "mc"
+text = "What is this?"
+choices = Array[ExtResource("2_6jcpv")]([SubResource("Resource_byc2y"), SubResource("Resource_6jcpv"), SubResource("Resource_7rduy")])
+is_dialog_thought = true
+typing_speed = 0.5
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[resource]
+script = ExtResource("3_7rduy")
+object_id = "cabinet"
+lines = Array[ExtResource("1_byc2y")]([SubResource("Resource_a5wx8")])
+is_quest_dialog = true
+metadata/_custom_type_script = "uid://cq8iorar8inmf"

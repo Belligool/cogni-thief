@@ -1,0 +1,42 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://bgeh7nauy48yw"]
+
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="1_wolsq"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="2_20r8m"]
+
+[sub_resource type="Resource" id="Resource_4vv6q"]
+script = ExtResource("1_wolsq")
+speaker = "mc"
+text = "It seems like I’m older than Ruby now."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_qeegn"]
+script = ExtResource("1_wolsq")
+speaker = "mc"
+text = "This body is weak..."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_rcrbr"]
+script = ExtResource("1_wolsq")
+speaker = "mc"
+text = "...and my legs don't work"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="GDScript" id="GDScript_sxarg"]
+script/source = "class_name DialogData
+extends Resource
+
+@export var npc_id: String = \"\"
+@export var object_id: String = \"\"
+@export var portrait: Texture2D = null
+@export var lines: Array[DialogLine] = []
+@export var is_quest_dialog: bool = false
+"
+
+[resource]
+script = SubResource("GDScript_sxarg")
+object_id = "cabinet"
+lines = Array[ExtResource("1_wolsq")]([SubResource("Resource_4vv6q"), SubResource("Resource_qeegn"), SubResource("Resource_rcrbr")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"

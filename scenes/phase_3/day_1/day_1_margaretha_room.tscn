@@ -1,0 +1,174 @@
+[gd_scene load_steps=32 format=3 uid="uid://bjqddc0pnywbw"]
+
+[ext_resource type="Script" uid="uid://tyi1p613h5ii" path="res://scenes/phase_3/day_1/day_1_margaretha_room.gd" id="1_w0gmv"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_uby2m"]
+[ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_triqe"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_oan2p"]
+[ext_resource type="Texture2D" uid="uid://ded3scocqpnkx" path="res://assets/Margaretha/Room/elder room_wall.png" id="5_siq2m"]
+[ext_resource type="Texture2D" uid="uid://s6bk6sndybkt" path="res://assets/Margaretha/Objects/pintu_blank back.png" id="6_xwhrs"]
+[ext_resource type="Texture2D" uid="uid://d0o6vq42ra8hn" path="res://assets/Margaretha/Objects/pintu_frame.png" id="7_xunls"]
+[ext_resource type="Texture2D" uid="uid://2f4u6xgl2jdi" path="res://assets/Margaretha/Objects/pintu_slide.png" id="8_fv7g5"]
+[ext_resource type="Texture2D" uid="uid://gci8ycq5qqcx" path="res://assets/Margaretha/Room/elder room_floor.png" id="9_41j47"]
+[ext_resource type="PackedScene" uid="uid://cdw7upcf8bqm8" path="res://interaction/interactable objects/cabinet.tscn" id="10_hnjqw"]
+[ext_resource type="Texture2D" uid="uid://banxliyodov1h" path="res://assets/Margaretha/Objects/sofa.png" id="11_87gx1"]
+[ext_resource type="Script" uid="uid://ng7fhq06sj57" path="res://interaction/interactable objects/cabinet.gd" id="11_uby2m"]
+[ext_resource type="Texture2D" uid="uid://s61kt5k08sdo" path="res://assets/Margaretha/Objects/plant.png" id="12_x0hxd"]
+[ext_resource type="Texture2D" uid="uid://bfghiwb6om5n1" path="res://assets/Margaretha/Objects/screen.png" id="13_no7ai"]
+[ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="14_i4m5u"]
+[ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="15_y0l8x"]
+[ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="16_l1a2j"]
+[ext_resource type="SpriteFrames" uid="uid://cmleldxwpmlwd" path="res://assets/sprite_frames/matthijs.tres" id="17_wrtrn"]
+[ext_resource type="SpriteFrames" uid="uid://b15of1h8hhnsr" path="res://assets/sprite_frames/ruby.tres" id="18_oioo6"]
+[ext_resource type="SpriteFrames" uid="uid://cx8w1lesiacli" path="res://assets/sprite_frames/margaretha.tres" id="19_tpug6"]
+[ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="20_ebd3e"]
+[ext_resource type="PackedScene" uid="uid://cwtqm5fiavqvo" path="res://npc/caretaker.tscn" id="21_p20qc"]
+
+[sub_resource type="Resource" id="Resource_liw0j"]
+script = ExtResource("2_uby2m")
+speaker = "mc"
+text = "It seems like I’m older than Ruby now."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_dmg7y"]
+script = ExtResource("2_uby2m")
+speaker = "mc"
+text = "This body is weak..."
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_m3ees"]
+script = ExtResource("2_uby2m")
+speaker = "mc"
+text = "...and my legs don't work"
+is_dialog_thought = true
+metadata/_custom_type_script = "uid://nw5gof71bqt3"
+
+[sub_resource type="Resource" id="Resource_hj1jy"]
+script = ExtResource("4_oan2p")
+npc_id = "premise"
+lines = Array[ExtResource("2_uby2m")]([SubResource("Resource_liw0j"), SubResource("Resource_dmg7y"), SubResource("Resource_m3ees")])
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jlsh5"]
+distance = -2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53rl5"]
+size = Vector2(4, 93)
+
+[sub_resource type="Curve" id="Curve_o3mkx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iywne"]
+curve = SubResource("Curve_o3mkx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7h8i6"]
+emission_shape_scale = Vector3(21.275, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(6.18, 31.195, 0)
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_iywne")
+color = Color(1, 1, 1, 0.5921569)
+
+[node name="day_1_margaretha_room" type="Node2D"]
+script = ExtResource("1_w0gmv")
+intro_dialog = SubResource("Resource_hj1jy")
+
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(41.335983, -44.249996)
+scale = Vector2(0.07882857, 0.08287039)
+texture = ExtResource("5_siq2m")
+
+[node name="void" type="Sprite2D" parent="."]
+position = Vector2(-60.999996, -36)
+scale = Vector2(0.078, 0.078)
+texture = ExtResource("6_xwhrs")
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(-60.9, -36.115)
+scale = Vector2(0.079, 0.079)
+texture = ExtResource("7_xunls")
+
+[node name="Door_Door" type="Sprite2D" parent="Door"]
+position = Vector2(72.517, 20.98)
+scale = Vector2(1.003, 1.003)
+texture = ExtResource("8_fv7g5")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(41, -43)
+scale = Vector2(0.07887822, 0.085732296)
+texture = ExtResource("9_41j47")
+
+[node name="cabinet" parent="." instance=ExtResource("10_hnjqw")]
+position = Vector2(138.765, -11.94)
+scale = Vector2(1.02, 1.02)
+script = ExtResource("11_uby2m")
+
+[node name="Sofa" type="Sprite2D" parent="."]
+position = Vector2(21.763, -25.84)
+scale = Vector2(0.078764394, 0.08594682)
+texture = ExtResource("11_87gx1")
+
+[node name="Plant" type="Sprite2D" parent="."]
+position = Vector2(-29, -30.335)
+scale = Vector2(0.077, 0.076)
+texture = ExtResource("12_x0hxd")
+
+[node name="screen" type="Sprite2D" parent="."]
+position = Vector2(20.52, -67.655)
+scale = Vector2(0.08068181, 0.08068182)
+texture = ExtResource("13_no7ai")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20, -3)
+shape = SubResource("WorldBoundaryShape2D_jlsh5")
+
+[node name="LeftCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCollision"]
+position = Vector2(-86.68, -43)
+shape = SubResource("RectangleShape2D_53rl5")
+
+[node name="RightCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCollision"]
+position = Vector2(169.4, -42.5)
+shape = SubResource("RectangleShape2D_53rl5")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(53, -53)
+amount = 150
+amount_ratio = 0.25
+process_material = SubResource("ParticleProcessMaterial_7h8i6")
+
+[node name="ChoicesUI" parent="." instance=ExtResource("14_i4m5u")]
+
+[node name="QuestUI" parent="." instance=ExtResource("15_y0l8x")]
+
+[node name="SpawnPoint_FromRubysDoor" type="Node2D" parent="."]
+position = Vector2(-52, -7)
+
+[node name="Player" parent="." instance=ExtResource("16_l1a2j")]
+position = Vector2(19.74, -6)
+animated_sprites = Array[SpriteFrames]([ExtResource("17_wrtrn"), ExtResource("18_oioo6"), ExtResource("19_tpug6")])
+
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
+offset = Vector2(0, -33.425)
+zoom = Vector2(12.245, 12.245)
+limit_left = -80
+limit_right = 169
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("20_ebd3e")
+
+[node name="caretaker" parent="." instance=ExtResource("21_p20qc")]
+position = Vector2(-52, -6)
