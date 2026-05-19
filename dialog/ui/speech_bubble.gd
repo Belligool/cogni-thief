@@ -35,6 +35,9 @@ func _process(delta: float) -> void:
 		_typing_timer = 0.0
 		_chars_shown += 1
 		
+		if _chars_shown < 1 or _full_text.length() == 0:
+			return
+		
 		var current_char = _full_text[_chars_shown - 1]
 		dialog_text.text = _full_text.left(_chars_shown)
 		

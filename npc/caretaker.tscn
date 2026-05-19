@@ -30,7 +30,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="SpeechBubble" parent="." instance=ExtResource("7_fucjr")]
-position = Vector2(-3, -13.495)
+position = Vector2(-3, -16.945)
 
 [node name="NpcInteractionArea" type="Area2D" parent="."]
 collision_layer = 8

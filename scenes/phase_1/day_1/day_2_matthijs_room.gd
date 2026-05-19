@@ -256,11 +256,10 @@ func _matthijs_room_day_2_aftermath_bad():
 	"Perhaps too scared they would get a scolding.",
 	"After that, we all had some tea before they went back home.",
 	"A knock could be heard upon my door after they went back"
-	]) 
+	])
 	await InterludeManager.interlude_finished
 	await _walk_sprite_to_player(moeder, 20.0)
-	await _play_bubble(moeder_bubble, "moeder", "Schatje? Mamma wants to talk", false, "Darling? Mamma wants to talk.")
-	await _play_bubble(moeder_bubble, "moeder", "About what happened earlier…", false)
+	await _play_bubble(moeder_bubble, "moeder", "Schatje? Mamma wants to talk. About what happened earlier…", false, "Darling? Mamma wants to talk. About what happened earlier…")
 	await _play_bubble(player_bubble, "mc", "My palms… are sweaty. Scary…", true)
 	await _play_bubble(moeder_bubble, "moeder", "Did you lie to Mamma, Matthijs?", false)
 	await _play_bubble(player_bubble, "mc", "...Matthijs is sorry.", false)
@@ -303,7 +302,6 @@ func _on_premise_line_changed(line: DialogLine) -> void:
 		child2_bubble.show_line(line)
 		
 func _on_end_cutscene():
-	await get_tree().create_timer(0.2).timeout
 	QuestManager.set_day(3)
 	InteractionManager.can_interact = true
 	TransitionManager.start(intro_narration)
@@ -367,11 +365,9 @@ func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translati
 	bubble_node.clear()
 
 func _wait_for_input(bubble_node) -> void:
-	await get_tree().process_frame
 	while true:
 		await get_tree().process_frame
 		if Input.is_action_just_pressed("ui_accept"):
-			get_viewport().set_input_as_handled()
 			if bubble_node.is_typing():
 				bubble_node.skip_typing()
 			else:

@@ -5,16 +5,17 @@
 
 [sub_resource type="Resource" id="Resource_mg0ta"]
 script = ExtResource("1_mg0ta")
-id = "q_check_cabinet"
+id = "check_cabinet"
 title = "Check The Cabinet"
 objective = "Check The Cabinet"
 completion_type = 1
 completion_target = "cabinet"
+cutscene = "caretaker_arrival"
 metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
 
 [resource]
 script = ExtResource("2_x4pbp")
-lines = Array[String](["...", "This keeps on happening.", "Oh, so hard to stand..."])
-next_scene = "res://scenes/phase_2/day_1/day_1_margaretha_room.tscn"
+lines = Array[String](["T-This...", "This keeps on happening.", "Oh, so hard to stand..."])
+next_scene = "res://scenes/phase_3/day_1/day_1_margaretha_room.tscn"
 next_day_quests = Array[ExtResource("1_mg0ta")]([SubResource("Resource_mg0ta")])
 metadata/_custom_type_script = "uid://bhqs24s4ximjh"

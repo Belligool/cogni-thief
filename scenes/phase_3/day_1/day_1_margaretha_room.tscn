@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bjqddc0pnywbw"]
+[gd_scene load_steps=33 format=3 uid="uid://bjqddc0pnywbw"]
 
 [ext_resource type="Script" uid="uid://tyi1p613h5ii" path="res://scenes/phase_3/day_1/day_1_margaretha_room.gd" id="1_w0gmv"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_uby2m"]
@@ -48,6 +48,11 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 script = ExtResource("4_oan2p")
 npc_id = "premise"
 lines = Array[ExtResource("2_uby2m")]([SubResource("Resource_liw0j"), SubResource("Resource_dmg7y"), SubResource("Resource_m3ees")])
+is_quest_dialog = true
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
+
+[sub_resource type="Resource" id="Resource_uby2m"]
+script = ExtResource("4_oan2p")
 metadata/_custom_type_script = "uid://cq8iorar8inmf"
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jlsh5"]
@@ -105,9 +110,10 @@ scale = Vector2(0.07887822, 0.085732296)
 texture = ExtResource("9_41j47")
 
 [node name="cabinet" parent="." instance=ExtResource("10_hnjqw")]
-position = Vector2(138.765, -11.94)
+position = Vector2(86.765, -11.94)
 scale = Vector2(1.02, 1.02)
 script = ExtResource("11_uby2m")
+dialog = SubResource("Resource_uby2m")
 
 [node name="Sofa" type="Sprite2D" parent="."]
 position = Vector2(21.763, -25.84)
