@@ -144,7 +144,6 @@ func _start_caretaker_cutscene() -> void:
 
 func _caretaker_aftermath_good() -> void:
 	await _play_bubble(player_bubble, "mc", "What did she say?", false)
-	_maya_jump()
 	await get_tree().create_timer(0.3).timeout
 	await _play_bubble(caretaker_bubble, "Caretaker", "She asked if you're doing well.", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "She said she hasn't heard from you in a while.", false)
@@ -165,8 +164,9 @@ func _caretaker_aftermath_neutral() -> void:
 	await _fade_out_caretaker()
 
 func _caretaker_aftermath_bad() -> void:
-	await _play_bubble(player_bubble, "mc", "Stop mentioning her.", false)
+	shake_strength = randomStrength
 	_maya_jump()
+	await _play_bubble(player_bubble, "mc", "Stop mentioning her.", false)
 	await get_tree().create_timer(0.3).timeout
 	await _play_bubble(caretaker_bubble, "Caretaker", "...Understood.", false)
 	await _fade_out_caretaker()
