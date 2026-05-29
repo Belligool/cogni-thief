@@ -8,7 +8,6 @@
 script = ExtResource("1_p1rai")
 speaker = "moeder"
 text = "Schatje, is it not to your taste?"
-translation = "Dear, is it not to your taste? "
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_nq1pr"]
@@ -61,20 +60,19 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 [sub_resource type="Resource" id="Resource_465j4"]
 script = ExtResource("1_p1rai")
 speaker = "moeder"
-text = "Schatje, Pappa scolded Njai because she was wrong."
-translation = "Dear"
+text = "Pappa scolded Njai because she was wrong."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_3ol13"]
 script = ExtResource("1_p1rai")
 speaker = "moeder"
-text = "She did something bad, hence why your Pappa was so angry."
+text = "She did something bad."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_prfth"]
 script = ExtResource("1_p1rai")
 speaker = "moeder"
-text = "Pappa and Mamma wanted the best for you—for us"
+text = "Pappa and Mamma wanted the best for you-for us."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_0bl42"]
@@ -86,7 +84,7 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 [sub_resource type="Resource" id="Resource_e2c8k"]
 script = ExtResource("1_p1rai")
 speaker = "moeder"
-text = "It would be bad if our time together is ruined because of Njai’s mistake"
+text = "It would be bad if our time together is ruined."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_vuxrn"]
@@ -136,7 +134,6 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 script = ExtResource("1_p1rai")
 speaker = "moeder"
 text = "Nou, you should try these koekjes, Schatje."
-translation = "Well"
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_eil0s"]
@@ -169,7 +166,6 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 script = ExtResource("1_p1rai")
 speaker = "moeder"
 text = "If you like it so much, Liefje"
-translation = "Sweetheart"
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_4a1na"]
@@ -182,7 +178,6 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 script = ExtResource("1_p1rai")
 speaker = "moeder"
 text = "Nou, you should try these koekjes, Schatje. "
-translation = "well"
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_g20d6"]
@@ -240,7 +235,6 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 script = ExtResource("1_p1rai")
 speaker = "moeder"
 text = "Nou, you should try these koekjes, Schatje."
-translation = "Well"
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_d3svu"]
