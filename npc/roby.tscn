@@ -13,4 +13,4 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="SpeechBubble" parent="." instance=ExtResource("2_3puh2")]
-position = Vector2(3, -25)
+position = Vector2(5, -26)
