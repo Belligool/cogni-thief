@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://byuu2dfs2wkb1"]
 
-[ext_resource type="SpriteFrames" uid="uid://b15of1h8hhnsr" path="res://assets/sprite_frames/ruby.tres" id="1_0rjah"]
+[ext_resource type="SpriteFrames" uid="uid://bo5ct8cgf4nd5" path="res://npc/roby.tres" id="1_0rjah"]
 [ext_resource type="PackedScene" uid="uid://bt1pjdw052frb" path="res://dialog/ui/speech_bubble.tscn" id="2_3puh2"]
 
 [node name="roby" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5.3471894, -26.540987)
-scale = Vector2(0.09263314, 0.092633076)
+position = Vector2(5.5, -25.630413)
+scale = Vector2(0.11413044, 0.11413034)
 sprite_frames = ExtResource("1_0rjah")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="SpeechBubble" parent="." instance=ExtResource("2_3puh2")]

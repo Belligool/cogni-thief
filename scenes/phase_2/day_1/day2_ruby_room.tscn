@@ -382,4 +382,4 @@ position_smoothing_speed = 3.0
 script = ExtResource("12_uvqab")
 
 [node name="roby" parent="." instance=ExtResource("16_82b33")]
-position = Vector2(9, 4)
+position = Vector2(11, 3)
