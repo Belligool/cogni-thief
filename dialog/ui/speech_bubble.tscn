@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://dnfjxagnvwjls" path="res://assets/dialog/Fast01/SFX_FastSinglev4.wav" id="5_5wdhv"]
 
 [node name="SpeechBubble" type="Node2D"]
+z_index = 100
+z_as_relative = false
 script = ExtResource("1_vhus8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

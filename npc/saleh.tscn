@@ -1,41 +1,41 @@
 [gd_scene load_steps=11 format=3 uid="uid://6dd4h46jr18l"]
 
-[ext_resource type="Texture2D" uid="uid://dc8b1pnkla1ri" path="res://assets/Matthijs/Sprite Sheet Char/child_idle-Sheet.png" id="1_er8pp"]
-[ext_resource type="Texture2D" uid="uid://dr4keuafsy35a" path="res://assets/Matthijs/Sprite Sheet Char/child_walk-Sheet.png" id="2_kikc8"]
+[ext_resource type="Texture2D" uid="uid://c8vyh4goivn2n" path="res://assets/Matthijs/Sprite Sheet Char/Child_s friend_idle-Sheet.png" id="1_q8ckm"]
+[ext_resource type="Texture2D" uid="uid://mp0mier4yg6n" path="res://assets/Matthijs/Sprite Sheet Char/Child_s friend_walk-Sheet.png" id="2_er8pp"]
 [ext_resource type="PackedScene" uid="uid://bt1pjdw052frb" path="res://dialog/ui/speech_bubble.tscn" id="3_l2se8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
-atlas = ExtResource("1_er8pp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kikc8"]
+atlas = ExtResource("1_q8ckm")
 region = Rect2(0, 0, 184, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
-atlas = ExtResource("1_er8pp")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2se8"]
+atlas = ExtResource("1_q8ckm")
 region = Rect2(184, 0, 184, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
-atlas = ExtResource("2_kikc8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp0gf"]
+atlas = ExtResource("2_er8pp")
 region = Rect2(0, 0, 200, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
-atlas = ExtResource("2_kikc8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnm7m"]
+atlas = ExtResource("2_er8pp")
 region = Rect2(200, 0, 200, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
-atlas = ExtResource("2_kikc8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic0x5"]
+atlas = ExtResource("2_er8pp")
 region = Rect2(400, 0, 200, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
-atlas = ExtResource("2_kikc8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8c75"]
+atlas = ExtResource("2_er8pp")
 region = Rect2(600, 0, 200, 448)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y4r1p")
+"texture": SubResource("AtlasTexture_kikc8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d2wvv")
+"texture": SubResource("AtlasTexture_l2se8")
 }],
 "loop": true,
 "name": &"idle",
@@ -43,16 +43,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tuyoq")
+"texture": SubResource("AtlasTexture_lp0gf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fjrip")
+"texture": SubResource("AtlasTexture_fnm7m")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_smehm")
+"texture": SubResource("AtlasTexture_ic0x5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ur7pv")
+"texture": SubResource("AtlasTexture_c8c75")
 }],
 "loop": true,
 "name": &"walk",
