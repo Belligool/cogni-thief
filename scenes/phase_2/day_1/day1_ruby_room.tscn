@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c6vyxllr4qfje"]
+[gd_scene load_steps=42 format=3 uid="uid://c6vyxllr4qfje"]
 
 [ext_resource type="Script" uid="uid://chqyig45mc2ev" path="res://scenes/phase_2/day_1/day_1_ruby_room.gd" id="1_keyft"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_q16m6"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://c4llqe3kjrqex" path="res://assets/Ruby/Bedroom/ceiling_fan.png" id="15_rxh6h"]
 [ext_resource type="Texture2D" uid="uid://cwylghk5gp6qb" path="res://assets/Ruby/Bedroom/desk.png" id="18_jlsh5"]
 [ext_resource type="Texture2D" uid="uid://oq62pb08ijcg" path="res://assets/Ruby/Bedroom/chair.png" id="22_53rl5"]
+[ext_resource type="AudioStream" uid="uid://d3am00maw7cdi" path="res://assets/music/Telolet Basuri V3  Magic In The Air.mp3" id="27_46y8x"]
+[ext_resource type="Script" uid="uid://cxrv6emmmr6gx" path="res://scenes/phase_1/day_1/audio_stream_player_2d.gd" id="28_e0j0k"]
 
 [sub_resource type="Resource" id="Resource_udfyw"]
 script = ExtResource("2_q16m6")
@@ -190,6 +192,21 @@ texture = ExtResource("9_whnhr")
 
 [node name="desktop" parent="." instance=ExtResource("12_iny67")]
 position = Vector2(79, -7)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(51, -28)
+scale = Vector2(0.049336817, 0.050347213)
+stream = ExtResource("27_46y8x")
+volume_db = -72.0
+pitch_scale = 0.85
+autoplay = true
+max_distance = 95.0
+attenuation = 2.143546
+max_polyphony = 2
+panning_strength = 2.5
+area_mask = 0
+parameters/looping = true
+script = ExtResource("28_e0j0k")
 
 [node name="bed" parent="." instance=ExtResource("13_keyft")]
 position = Vector2(-6, 7)

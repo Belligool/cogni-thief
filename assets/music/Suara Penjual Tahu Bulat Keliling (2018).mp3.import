@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8pj146iop7h3"
+path="res://.godot/imported/Suara Penjual Tahu Bulat Keliling (2018).mp3-b19f182322e3e66f3dc3b21d02185fab.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Suara Penjual Tahu Bulat Keliling (2018).mp3"
+dest_files=["res://.godot/imported/Suara Penjual Tahu Bulat Keliling (2018).mp3-b19f182322e3e66f3dc3b21d02185fab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
