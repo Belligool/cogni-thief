@@ -148,9 +148,11 @@ func _ruby_room_day_2_part1_after_premise():
 	
 	shake_strength = randomStrength
 	await _play_bubble(desktop_bubble, "desktop", "By! This is urgent!", false)
-	await _play_bubble(desktop_bubble, "desktop", "Rasyid asked me to finish the article tomorrow morning", false)
-	await _play_bubble(desktop_bubble, "desktop", "He said that he really needs the article to be published tomorrow at noon", false)
+	await _play_bubble(desktop_bubble, "desktop", "Rasyid needs the article tomorrow", false)
+	await _play_bubble(desktop_bubble, "desktop", "He said that he really needs the article", false)
+	await _play_bubble(desktop_bubble, "desktop", "He wants to be published tomorrow", false)
 	await _play_bubble(desktop_bubble, "desktop", "Please By! Pretty please!", false)
+	
 	await get_tree().create_timer(0.5).timeout
 	
 	await _play_bubble(player_bubble, "mc", "Oh my god!", true)
@@ -220,7 +222,7 @@ func _ruby_room_day_2_part_1_aftermath_neutral():
 	await get_tree().create_timer(0.5).timeout
 	
 	await _play_bubble(desktop_bubble, "desktop", "Okay.", false)
-	await _play_bubble(desktop_bubble, "desktop", "Inform me when you're done", false)
+	await _play_bubble(desktop_bubble, "desktop", "Let me know when you're done", false)
 	await get_tree().create_timer(0.5).timeout
 	
 func _ruby_room_day_2_part_1_aftermath_bad():
@@ -308,7 +310,8 @@ func _ruby_room_day_2_part_2_aftermath_good():
 	
 	await _play_bubble(player_bubble, "mc", "You can have this...but...", false)
 	await _play_bubble(player_bubble, "mc", "You do whatever I tell you...", false)
-	await _play_bubble(player_bubble, "mc", "You must stop drinking alcohol and sleep properly.", false)
+	await _play_bubble(player_bubble, "mc", "You must stop drinking alcohol ", false)
+	await _play_bubble(player_bubble, "mc", "You also have to sleep properly", false)
 	await get_tree().create_timer(0.5).timeout
 	
 	await _play_bubble(roby_bubble, "roby", "Wait...what’s wrong, baby?", false)
