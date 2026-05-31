@@ -37,11 +37,6 @@ func _ready() -> void:
 	
 	_hide_npc(caretaker)
 	_hide_npc(daughter)
-	
-	# HARD-LOCK DAUGHTER VISIBILITY OFF
-	daughter.modulate.a = 0.0
-	daughter.process_mode = Node.PROCESS_MODE_DISABLED
-	
 	_set_interactable(door, true)
 	_set_interactable(cabinet, false)
 	
@@ -369,7 +364,7 @@ func _start_daughter_arrival_cutscene() -> void:
 	_set_interactable(door, false)
 	
 	# Teleport the daughter to the door immediately
-	daughter.global_position.x = door.global_position.x
+	daughter.global_position = door.global_position
 	daughter.z_index = 10
 	
 	# Daughter Enters

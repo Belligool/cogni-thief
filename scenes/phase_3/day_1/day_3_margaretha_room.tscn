@@ -1,0 +1,151 @@
+[gd_scene load_steps=29 format=3 uid="uid://dvdwaqxgn7m7s"]
+
+[ext_resource type="Script" uid="uid://djarplc30s1mm" path="res://scenes/phase_3/day_1/day_3_margaretha_room.gd" id="1_m64iu"]
+[ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_hb3ua"]
+[ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="4_jnq5e"]
+[ext_resource type="Texture2D" uid="uid://ded3scocqpnkx" path="res://assets/Margaretha/Room/elder room_wall.png" id="5_hfnh0"]
+[ext_resource type="Texture2D" uid="uid://s6bk6sndybkt" path="res://assets/Margaretha/Objects/pintu_blank back.png" id="6_e4kmq"]
+[ext_resource type="Texture2D" uid="uid://d0o6vq42ra8hn" path="res://assets/Margaretha/Objects/pintu_frame.png" id="7_s0q33"]
+[ext_resource type="PackedScene" uid="uid://dsh6vdbj4c635" path="res://interaction/interactable objects/Door_Door.tscn" id="8_trvvm"]
+[ext_resource type="Script" uid="uid://cia682gsywcom" path="res://interaction/interactable objects/Door_Door.gd" id="9_8ibno"]
+[ext_resource type="Texture2D" uid="uid://gci8ycq5qqcx" path="res://assets/Margaretha/Room/elder room_floor.png" id="10_y711v"]
+[ext_resource type="Texture2D" uid="uid://banxliyodov1h" path="res://assets/Margaretha/Objects/sofa.png" id="11_01tbw"]
+[ext_resource type="Texture2D" uid="uid://s61kt5k08sdo" path="res://assets/Margaretha/Objects/plant.png" id="12_5rlu3"]
+[ext_resource type="Texture2D" uid="uid://bfghiwb6om5n1" path="res://assets/Margaretha/Objects/screen.png" id="13_ugc3t"]
+[ext_resource type="PackedScene" uid="uid://cdw7upcf8bqm8" path="res://interaction/interactable objects/cabinet.tscn" id="14_mf4pk"]
+[ext_resource type="Script" uid="uid://ng7fhq06sj57" path="res://interaction/interactable objects/cabinet.gd" id="15_h5glo"]
+[ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="16_w2wuq"]
+[ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="17_c7k5f"]
+[ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="18_xo8ps"]
+[ext_resource type="SpriteFrames" uid="uid://cmleldxwpmlwd" path="res://assets/sprite_frames/matthijs.tres" id="19_2audf"]
+[ext_resource type="SpriteFrames" uid="uid://b15of1h8hhnsr" path="res://assets/sprite_frames/ruby.tres" id="20_57edd"]
+[ext_resource type="SpriteFrames" uid="uid://cx8w1lesiacli" path="res://assets/sprite_frames/margaretha.tres" id="21_wiprh"]
+[ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="22_m6qla"]
+[ext_resource type="PackedScene" uid="uid://d1tqknm461jxw" path="res://npc/daughter.tscn" id="24_6d4bn"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_jlsh5"]
+distance = -2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53rl5"]
+size = Vector2(4, 93)
+
+[sub_resource type="Resource" id="Resource_3ljal"]
+script = ExtResource("4_jnq5e")
+metadata/_custom_type_script = "uid://cq8iorar8inmf"
+
+[sub_resource type="Curve" id="Curve_o3mkx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_iywne"]
+curve = SubResource("Curve_o3mkx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7h8i6"]
+emission_shape_scale = Vector3(21.275, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(6.18, 31.195, 0)
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.0
+scale_max = 0.59999996
+scale_curve = SubResource("CurveTexture_iywne")
+color = Color(1, 1, 1, 0.5921569)
+
+[node name="day_3_margaretha_room" type="Node2D"]
+script = ExtResource("1_m64iu")
+
+[node name="Wallpaper" type="Sprite2D" parent="."]
+position = Vector2(41.335983, -44.249996)
+scale = Vector2(0.07882857, 0.08287039)
+texture = ExtResource("5_hfnh0")
+
+[node name="void" type="Sprite2D" parent="."]
+position = Vector2(-60.999996, -36)
+scale = Vector2(0.078, 0.078)
+texture = ExtResource("6_e4kmq")
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(-60.9, -36.115)
+scale = Vector2(0.079, 0.079)
+texture = ExtResource("7_s0q33")
+
+[node name="Door_Door" parent="Door" instance=ExtResource("8_trvvm")]
+position = Vector2(71.689, 307.138)
+scale = Vector2(12.205, 11.607)
+script = ExtResource("9_8ibno")
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(41, -43)
+scale = Vector2(0.07887822, 0.085732296)
+texture = ExtResource("10_y711v")
+
+[node name="Sofa" type="Sprite2D" parent="."]
+position = Vector2(21.763, -25.84)
+scale = Vector2(0.078764394, 0.08594682)
+texture = ExtResource("11_01tbw")
+
+[node name="Plant" type="Sprite2D" parent="."]
+position = Vector2(-29, -30.335)
+scale = Vector2(0.077, 0.076)
+texture = ExtResource("12_5rlu3")
+
+[node name="screen" type="Sprite2D" parent="."]
+position = Vector2(20.52, -67.655)
+scale = Vector2(0.08068181, 0.08068182)
+texture = ExtResource("13_ugc3t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(2, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20, -3)
+shape = SubResource("WorldBoundaryShape2D_jlsh5")
+
+[node name="LeftCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftCollision"]
+position = Vector2(-86.68, -43)
+shape = SubResource("RectangleShape2D_53rl5")
+
+[node name="RightCollision" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightCollision"]
+position = Vector2(169.4, -42.5)
+shape = SubResource("RectangleShape2D_53rl5")
+
+[node name="cabinet" parent="." instance=ExtResource("14_mf4pk")]
+position = Vector2(86.745, -11.96)
+scale = Vector2(1.015, 1.117)
+script = ExtResource("15_h5glo")
+dialog = SubResource("Resource_3ljal")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(53, -53)
+amount = 150
+amount_ratio = 0.25
+process_material = SubResource("ParticleProcessMaterial_7h8i6")
+
+[node name="daughter" parent="." instance=ExtResource("24_6d4bn")]
+position = Vector2(-63.09, -6)
+
+[node name="ChoicesUI" parent="." instance=ExtResource("16_w2wuq")]
+
+[node name="QuestUI" parent="." instance=ExtResource("17_c7k5f")]
+
+[node name="SpawnPoint_FromRubysDoor" type="Node2D" parent="."]
+position = Vector2(-52, -7)
+
+[node name="Player" parent="." instance=ExtResource("18_xo8ps")]
+position = Vector2(-25.2, -6)
+animated_sprites = Array[SpriteFrames]([ExtResource("19_2audf"), ExtResource("20_57edd"), ExtResource("21_wiprh")])
+
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
+offset = Vector2(0, -33.425)
+zoom = Vector2(12.245, 12.245)
+limit_left = -80
+limit_right = 169
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+script = ExtResource("22_m6qla")

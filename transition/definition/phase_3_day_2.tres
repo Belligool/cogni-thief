@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NarrationData" load_steps=6 format=3 uid="uid://gtla2mfal3xc"]
+[gd_resource type="Resource" script_class="NarrationData" load_steps=7 format=3 uid="uid://gtla2mfal3xc"]
 
 [ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_oyhff"]
 [ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_py1e7"]
@@ -27,15 +27,25 @@ metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
 script = ExtResource("1_oyhff")
 id = "check_the_drawer"
 title = "Check The Drawer"
-objective = "This Is My Chance. I Should Take A Look."
+objective = "Take A Look At The Drawer."
 completion_type = 1
 completion_target = "cabinet"
 cutscene = "check_the_drawer"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[sub_resource type="Resource" id="Resource_7kdcq"]
+script = ExtResource("1_oyhff")
+id = "answer_door_daughter"
+title = "See Who Is Knocking"
+objective = "See Who Is Knocking"
+completion_type = 1
+completion_target = "Door_Door"
+cutscene = "daughter_arrival"
 metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
 
 [resource]
 script = ExtResource("2_py1e7")
 lines = Array[String](["Goodness me...", "Another day, huh?", "The agonizing pain after waking up has become an expected routine at this point."])
 next_scene = "res://scenes/phase_3/day_1/day_2_margaretha_room.tscn"
-next_day_quests = Array[ExtResource("1_oyhff")]([SubResource("Resource_mg0ta"), SubResource("Resource_oyhff"), SubResource("Resource_py1e7")])
+next_day_quests = Array[ExtResource("1_oyhff")]([SubResource("Resource_mg0ta"), SubResource("Resource_oyhff"), SubResource("Resource_py1e7"), SubResource("Resource_7kdcq")])
 metadata/_custom_type_script = "uid://bhqs24s4ximjh"

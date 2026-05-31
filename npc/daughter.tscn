@@ -71,8 +71,10 @@ script = ExtResource("1_vep0b")
 position = Vector2(0.09375095, -20.435211)
 scale = Vector2(0.09093751, 0.090937465)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.876607
 
 [node name="SpeechBubble" parent="." instance=ExtResource("4_cf47r")]
 position = Vector2(-3, -16.945)
@@ -86,7 +88,7 @@ metadata/_custom_type_script = "uid://pof7ten1isde"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NpcInteractionArea"]
 position = Vector2(0, -21)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.335, 0.335)
 shape = SubResource("CircleShape2D_4x81n")
 
 [connection signal="body_entered" from="NpcInteractionArea" to="NpcInteractionArea" method="_on_body_entered"]

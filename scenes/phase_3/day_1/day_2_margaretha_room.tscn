@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://76suiuw75iqp"]
+[gd_scene load_steps=35 format=3 uid="uid://76suiuw75iqp"]
 
 [ext_resource type="Script" uid="uid://drafcy0ukvgwn" path="res://scenes/phase_3/day_1/day_2_margaretha_room.gd" id="1_7iy0a"]
 [ext_resource type="Texture2D" uid="uid://ded3scocqpnkx" path="res://assets/Margaretha/Room/elder room_wall.png" id="5_3ljal"]
@@ -23,6 +23,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cx8w1lesiacli" path="res://assets/sprite_frames/margaretha.tres" id="20_ncrmq"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="21_jurna"]
 [ext_resource type="PackedScene" uid="uid://cwtqm5fiavqvo" path="res://npc/caretaker.tscn" id="22_niqfw"]
+[ext_resource type="PackedScene" uid="uid://d1tqknm461jxw" path="res://npc/daughter.tscn" id="25_1ff0c"]
 
 [sub_resource type="Resource" id="Resource_1kvsk"]
 script = ExtResource("13_5tvur")
@@ -181,5 +182,7 @@ position_smoothing_speed = 3.0
 script = ExtResource("21_jurna")
 
 [node name="caretaker" parent="." instance=ExtResource("22_niqfw")]
-visible = false
 position = Vector2(-72.43, -6)
+
+[node name="daughter" parent="." instance=ExtResource("25_1ff0c")]
+position = Vector2(-67, -6.055)

@@ -149,7 +149,7 @@ func _caretaker_aftermath_good() -> void:
 	await _play_bubble(caretaker_bubble, "Caretaker", "She asked if you're doing well.", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "She said she hasn't heard from you in a while.", false)
 	await _play_bubble(player_bubble, "mc", "Simple. Those words were too simple to my liking. Mamma wouldn't ask more questions..", true)
-	await _play_bubble(player_bubble, "mc", "And yet this body—the owner of this heart, seems to like the news.", true)
+	await _play_bubble(player_bubble, "mc", "And yet this body, the owner of this heart, seems to like the news.", true)
 	await _play_bubble(player_bubble, "mc", "I can feel my chest getting warmer..", true)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Do you want to reply to her?", false)
 	await _play_bubble(player_bubble, "mc", "Seems like something is going on between this body and that daughter of hers.", true)
