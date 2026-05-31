@@ -408,11 +408,11 @@ func _start_daughter_arrival_cutscene() -> void:
 		DialogChoice.new(),
 		DialogChoice.new()
 	]
-	choices[0].label = "Answer honestly"
+	choices[0].label = "*Answer honestly*"
 	choices[0].point_type = DialogChoice.PointType.GOOD
-	choices[1].label = "Stay distant"
+	choices[1].label = "*Stay distant*"
 	choices[1].point_type = DialogChoice.PointType.NEUTRAL
-	choices[2].label = "Start an argument"
+	choices[2].label = "*Start an argument*"
 	choices[2].point_type = DialogChoice.PointType.BAD
 	
 	DialogManager.show_choices(choices)
