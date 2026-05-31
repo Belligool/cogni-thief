@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsh6vdbj4c635"]
+
+[ext_resource type="Script" uid="uid://c8hg6ory8qmup" path="res://interaction/interactable scripts/parent's_door.gd" id="1_8y0r4"]
+[ext_resource type="Texture2D" uid="uid://2f4u6xgl2jdi" path="res://assets/Margaretha/Objects/pintu_slide.png" id="2_vxn71"]
+[ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="3_260gd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7khpm"]
+radius = 104.40234
+
+[node name="Corridor\'sDoor" type="Node2D"]
+script = ExtResource("1_8y0r4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24.775)
+scale = Vector2(0.082, 0.086)
+texture = ExtResource("2_vxn71")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(1, -13.000001)
+scale = Vector2(0.076626636, 0.08055556)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("3_260gd")
+action_name = "open door"
+interactable_object_name = "corridor'sDoor"
+metadata/_custom_type_script = "uid://cq6r3it7jjj3i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-13.05, -59.23)
+shape = SubResource("CircleShape2D_7khpm")
+
+[connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]

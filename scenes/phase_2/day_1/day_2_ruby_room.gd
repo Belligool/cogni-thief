@@ -260,7 +260,7 @@ func _ruby_room_day2_part2_after_part1():
 	await get_tree().create_timer(1).timeout
 	
 	await _play_bubble(roby_bubble, "roby", "Ruby baby…", false)
-	await _walk_sprite_to_player(player, -5.0)
+	await _walk_sprite_to_player(player, -5)
 	await get_tree().create_timer(1).timeout
 	
 	await _play_bubble(roby_bubble, "roby", "I’ve lost my money because I got robbed...", false)

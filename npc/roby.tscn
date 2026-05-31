@@ -6,11 +6,11 @@
 [node name="roby" type="Node2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5.3471894, -25.540987)
+position = Vector2(5.3471894, -26.540987)
 scale = Vector2(0.09263314, 0.092633076)
 sprite_frames = ExtResource("1_0rjah")
 animation = &"walk"
 autoplay = "idle"
 
 [node name="SpeechBubble" parent="." instance=ExtResource("2_3puh2")]
-position = Vector2(-3, -24)
+position = Vector2(3, -25)

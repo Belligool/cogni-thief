@@ -6,15 +6,15 @@
 [ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="3_hulmn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w34qr"]
-radius = 235.23305
+radius = 274.33716
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_hulmn")
 dialog = ExtResource("2_hulmn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-12.532352, -21.531254)
-scale = Vector2(0.07751771, 0.07416213)
+position = Vector2(-13.7326765, -24.909197)
+scale = Vector2(0.11146755, 0.10664234)
 texture = ExtResource("2_w34qr")
 
 [node name="InteractionArea" type="Area2D" parent="."]
@@ -27,7 +27,7 @@ interactable_object_name = "bed"
 metadata/_custom_type_script = "uid://cq6r3it7jjj3i"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-678.61523, -86.89654)
+position = Vector2(-156.6035, -124.13792)
 shape = SubResource("CircleShape2D_w34qr")
 
 [connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]

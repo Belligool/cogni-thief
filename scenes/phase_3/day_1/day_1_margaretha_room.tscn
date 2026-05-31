@@ -29,6 +29,7 @@ script = ExtResource("2_uby2m")
 speaker = "mc"
 text = "It seems like I’m older than Ruby now."
 is_dialog_thought = true
+typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_dmg7y"]
@@ -36,6 +37,7 @@ script = ExtResource("2_uby2m")
 speaker = "mc"
 text = "This body is weak..."
 is_dialog_thought = true
+typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_m3ees"]
@@ -43,6 +45,7 @@ script = ExtResource("2_uby2m")
 speaker = "mc"
 text = "...and my legs don't work"
 is_dialog_thought = true
+typing_speed = 0.03
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_hj1jy"]
@@ -179,4 +182,4 @@ position_smoothing_speed = 3.0
 script = ExtResource("20_ebd3e")
 
 [node name="caretaker" parent="." instance=ExtResource("21_p20qc")]
-position = Vector2(-52, -6)
+position = Vector2(-31.29, -6)

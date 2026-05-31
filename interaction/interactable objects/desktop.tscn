@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://libdlapvtnta"]
 
 [ext_resource type="Script" uid="uid://chr8g3iaul3l5" path="res://interaction/interactable objects/desktop.gd" id="1_mnxox"]
-[ext_resource type="Texture2D" uid="uid://cw6yov0nag51t" path="res://assets/Ruby/Bedroom/desktop.png" id="2_2adnv"]
 [ext_resource type="Resource" uid="uid://baw1p6mdovot0" path="res://dialog/definition/desktop.tres" id="2_mnxox"]
+[ext_resource type="Texture2D" uid="uid://jo3rvllsdr8y" path="res://assets/Ruby/Bedroom/pc_on.png" id="3_2adnv"]
 [ext_resource type="Script" uid="uid://cq6r3it7jjj3i" path="res://interaction/interaction area/interaction_area.gd" id="4_x85gv"]
 [ext_resource type="PackedScene" uid="uid://bt1pjdw052frb" path="res://dialog/ui/speech_bubble.tscn" id="5_2adnv"]
 
@@ -10,7 +10,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2adnv")
+"texture": ExtResource("3_2adnv")
 }],
 "loop": true,
 "name": &"idle",
@@ -18,15 +18,15 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2adnv"]
-radius = 235.23305
+radius = 156.60352
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_mnxox")
 dialog = ExtResource("2_mnxox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.18187524, -15.047615)
-scale = Vector2(0.10751803, 0.10751797)
+position = Vector2(-1.0000006, -16.909088)
+scale = Vector2(0.07386363, 0.07386359)
 sprite_frames = SubResource("SpriteFrames_2adnv")
 animation = &"idle"
 autoplay = "idle"
@@ -41,11 +41,11 @@ interactable_object_name = "desktop"
 metadata/_custom_type_script = "uid://cq6r3it7jjj3i"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-26.100586, -24.827568)
+position = Vector2(-13.050262, -124.13806)
 shape = SubResource("CircleShape2D_2adnv")
 
 [node name="SpeechBubble" parent="." groups=["speech_bubble"] instance=ExtResource("5_2adnv")]
-position = Vector2(-3, -2)
+position = Vector2(-4, -9)
 
 [connection signal="body_entered" from="InteractionArea" to="InteractionArea" method="_on_body_entered"]
 [connection signal="body_exited" from="InteractionArea" to="InteractionArea" method="_on_body_exited"]

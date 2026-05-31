@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://d1tqknm461jxw"]
+
+[ext_resource type="Script" uid="uid://p1aekad1ju1t" path="res://npc/daughter.gd" id="1_vep0b"]
+[ext_resource type="Texture2D" uid="uid://cishf327rw5yl" path="res://assets/Margaretha/Npc/daughter_idle-Sheet_rotated.png" id="2_kjymt"]
+[ext_resource type="Texture2D" uid="uid://cc2uat7gn1omv" path="res://assets/Margaretha/Npc/daughter_walk-Sheet_rotated.png" id="3_a3jn3"]
+[ext_resource type="PackedScene" uid="uid://bt1pjdw052frb" path="res://dialog/ui/speech_bubble.tscn" id="4_cf47r"]
+[ext_resource type="Script" uid="uid://pof7ten1isde" path="res://npc/npc_interaction_area.gd" id="5_d4v8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf47r"]
+atlas = ExtResource("2_kjymt")
+region = Rect2(0, 0, 216, 456)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4v8u"]
+atlas = ExtResource("2_kjymt")
+region = Rect2(216, 0, 216, 456)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixpt2"]
+atlas = ExtResource("3_a3jn3")
+region = Rect2(0, 0, 216, 456)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_un18g"]
+atlas = ExtResource("3_a3jn3")
+region = Rect2(216, 0, 216, 456)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfvdq"]
+atlas = ExtResource("3_a3jn3")
+region = Rect2(432, 0, 216, 456)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn1h1"]
+atlas = ExtResource("3_a3jn3")
+region = Rect2(648, 0, 216, 456)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf47r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4v8u")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixpt2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_un18g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfvdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn1h1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4x81n"]
+radius = 21.095022
+
+[node name="daughter" type="Node2D"]
+script = ExtResource("1_vep0b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.09375095, -20.435211)
+scale = Vector2(0.09093751, 0.090937465)
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="SpeechBubble" parent="." instance=ExtResource("4_cf47r")]
+position = Vector2(-3, -16.945)
+
+[node name="NpcInteractionArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("5_d4v8u")
+npc_bubble_path = NodePath("../SpeechBubble")
+metadata/_custom_type_script = "uid://pof7ten1isde"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NpcInteractionArea"]
+position = Vector2(0, -21)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_4x81n")
+
+[connection signal="body_entered" from="NpcInteractionArea" to="NpcInteractionArea" method="_on_body_entered"]
+[connection signal="body_exited" from="NpcInteractionArea" to="NpcInteractionArea" method="_on_body_exited"]

@@ -6,6 +6,7 @@ extends Node2D
 @onready var initialPos = camera.offset
 @onready var player_bubble = $Player/SpeechBubble
 @onready var caretaker_bubble = $caretaker/SpeechBubble
+@onready var door = $Door/Door_Door
 
 @export var intro_dialog: DialogData
 @export var scene_id: String = "margaretha_room_day1"
@@ -181,10 +182,26 @@ func _maya_jump() -> void:
 	jump_tween.tween_property(caretaker, "position:y", start_y, 0.1)
 
 func _fade_out_caretaker() -> void:
-	var tween = create_tween()
-	tween.tween_property(caretaker, "modulate:a", 0.0, 1.0)
-	await tween.finished
+	var animated_sprite = caretaker.get_node("AnimatedSprite2D")
+	var target_pos_x = door.global_position.x
+	if caretaker.global_position.x < target_pos_x:
+		animated_sprite.flip_h = false
+	else:
+		animated_sprite.flip_h = true
+	animated_sprite.play("walk")
+	var speed = 20.0 
+	var distance = abs(caretaker.global_position.x - target_pos_x)
+	var walk_duration = distance / speed
+	var walk_tween = create_tween()
+	walk_tween.tween_property(caretaker, "global_position:x", target_pos_x, walk_duration)
+	await walk_tween.finished
+	animated_sprite.play("idle")
+	door.hide()
+	var fade_tween = create_tween()
+	fade_tween.tween_property(caretaker, "modulate:a", 0.0, 1.0)
+	await fade_tween.finished
 	_hide_npc(caretaker)
+	door.show()
 
 func _on_end_cutscene() -> void:
 	player.is_frozen = false
