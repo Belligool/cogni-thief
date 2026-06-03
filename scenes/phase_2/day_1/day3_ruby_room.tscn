@@ -323,7 +323,7 @@ process_material = SubResource("ParticleProcessMaterial_2mde2")
 position = Vector2(-51, -7)
 
 [node name="Player" parent="." instance=ExtResource("12_8vehw")]
-position = Vector2(56, -2)
+position = Vector2(56, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
 offset = Vector2(0, -33.425)

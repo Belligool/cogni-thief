@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://de2j12tftcyv4"]
+[gd_scene load_steps=13 format=3 uid="uid://de2j12tftcyv4"]
 
 [ext_resource type="Script" uid="uid://87e6kxv50q8n" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
 [ext_resource type="FontFile" uid="uid://cgmducf28r2ek" path="res://assets/fonts/Minecraftia-Regular.ttf" id="2_ob46e"]
 [ext_resource type="Resource" uid="uid://n3we65shm320" path="res://transition/definition/phase_1_day_1.tres" id="2_wem23"]
 [ext_resource type="Texture2D" uid="uid://clmyfdl0pm4oo" path="res://assets/ui/misc/IMG_4149.PNG" id="3_ob46e"]
 [ext_resource type="Texture2D" uid="uid://cf4bt345dv24c" path="res://assets/ui/misc/IMG_4081.PNG" id="3_wem23"]
+[ext_resource type="AudioStream" uid="uid://qtohinyyknei" path="res://assets/music/intro.mp3" id="6_3ovsr"]
+[ext_resource type="Texture2D" uid="uid://dddqvay2m8ci1" path="res://assets/ui/misc/IMG_4312.PNG" id="6_4xg86"]
+[ext_resource type="Script" uid="uid://dv5y1ybemmy37" path="res://scenes/main_menu/audio_stream_player.gd" id="7_5seab"]
 
 [sub_resource type="Curve" id="Curve_uqeha"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -68,12 +71,12 @@ process_material = SubResource("ParticleProcessMaterial_wem23")
 layout_mode = 1
 anchors_preset = -1
 offset_left = -84.0
-offset_top = -448.40857
+offset_top = -417.00003
 offset_right = 616.2516
-offset_bottom = 251.84302
+offset_bottom = 283.25156
 grow_horizontal = 0
 grow_vertical = 2
-scale = Vector2(0.9139573, 0.9139573)
+scale = Vector2(0.819, 0.819)
 theme_override_styles/panel = SubResource("StyleBoxTexture_uqeha")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
@@ -83,13 +86,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 93.0
-offset_top = 304.0
-offset_right = 509.29745
-offset_bottom = 362.64505
+offset_left = 32.0
+offset_top = 274.0
+offset_right = 797.81683
+offset_bottom = 386.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.7991943, 1.7991943)
+scale = Vector2(1.059, 1.059)
 theme_override_constants/separation = 10
 alignment = 1
 
@@ -98,7 +101,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_ob46e")
-text = "Start"
+toggle_mode = true
+icon = ExtResource("6_4xg86")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -114,3 +121,9 @@ position = Vector2(569, 314)
 color = Color(5.602208, 5.602208, 5.602208, 1)
 energy = 0.35
 max_distance = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3ovsr")
+volume_db = -7.5
+autoplay = true
+script = ExtResource("7_5seab")

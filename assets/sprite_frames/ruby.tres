@@ -1,40 +1,40 @@
 [gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://b15of1h8hhnsr"]
 
-[ext_resource type="Texture2D" uid="uid://bhx8mgs0euud6" path="res://assets/Ruby/Sprite Sheet Char/adult_idle-Sheet.png" id="1_0tbyk"]
-[ext_resource type="Texture2D" uid="uid://8ei8elgr2j13" path="res://assets/Ruby/Sprite Sheet Char/adult_walk-Sheet.png" id="2_0ehvh"]
+[ext_resource type="Texture2D" uid="uid://d0ilelrj22wqk" path="res://assets/Ruby/Sprite Sheet Char/ADULT_IDLE2-Sheet.png" id="1_0tbyk"]
+[ext_resource type="Texture2D" uid="uid://dhfvbrm36vd0i" path="res://assets/Ruby/Sprite Sheet Char/ADULT_WALK2-Sheet.png" id="2_0ehvh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tbyk"]
 atlas = ExtResource("1_0tbyk")
-region = Rect2(0, 0, 230, 560)
+region = Rect2(0, 0, 184, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jej6c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ehvh"]
 atlas = ExtResource("1_0tbyk")
-region = Rect2(230, 0, 230, 560)
+region = Rect2(184, 0, 184, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp5vq"]
 atlas = ExtResource("2_0ehvh")
-region = Rect2(0, 0, 250, 560)
+region = Rect2(0, 0, 184, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cht78"]
 atlas = ExtResource("2_0ehvh")
-region = Rect2(250, 0, 250, 560)
+region = Rect2(184, 0, 184, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bgib"]
 atlas = ExtResource("2_0ehvh")
-region = Rect2(500, 0, 250, 560)
+region = Rect2(368, 0, 184, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hseyn"]
 atlas = ExtResource("2_0ehvh")
-region = Rect2(750, 0, 250, 560)
+region = Rect2(552, 0, 184, 448)
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3v2ag")
+"texture": SubResource("AtlasTexture_0tbyk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jej6c")
+"texture": SubResource("AtlasTexture_0ehvh")
 }],
 "loop": true,
 "name": &"idle",
@@ -42,16 +42,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f1ej7")
+"texture": SubResource("AtlasTexture_bp5vq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oprun")
+"texture": SubResource("AtlasTexture_cht78")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a8ls1")
+"texture": SubResource("AtlasTexture_5bgib")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qfm1y")
+"texture": SubResource("AtlasTexture_hseyn")
 }],
 "loop": true,
 "name": &"walk",

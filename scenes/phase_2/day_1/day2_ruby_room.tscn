@@ -369,7 +369,7 @@ process_material = SubResource("ParticleProcessMaterial_ir0wi")
 position = Vector2(56, -2)
 
 [node name="Player" parent="." instance=ExtResource("11_ogbap")]
-position = Vector2(56, -2)
+position = Vector2(56, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
 offset = Vector2(0, -33.425)
@@ -382,4 +382,5 @@ position_smoothing_speed = 3.0
 script = ExtResource("12_uvqab")
 
 [node name="roby" parent="." instance=ExtResource("16_82b33")]
-position = Vector2(11, 3)
+position = Vector2(11.000001, -2.3841858e-07)
+scale = Vector2(0.875, 0.875)

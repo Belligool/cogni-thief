@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7bg4np42y86j"
+path="res://.godot/imported/intro tambah drum kayaknya buat outro.mp3-90b426c6d7f58495074477117568dd09.mp3str"
+
+[deps]
+
+source_file="res://assets/music/intro tambah drum kayaknya buat outro.mp3"
+dest_files=["res://.godot/imported/intro tambah drum kayaknya buat outro.mp3-90b426c6d7f58495074477117568dd09.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
