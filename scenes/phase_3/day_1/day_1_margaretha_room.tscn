@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bjqddc0pnywbw"]
+[gd_scene load_steps=31 format=3 uid="uid://bjqddc0pnywbw"]
 
 [ext_resource type="Script" uid="uid://tyi1p613h5ii" path="res://scenes/phase_3/day_1/day_1_margaretha_room.gd" id="1_w0gmv"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_uby2m"]
@@ -18,9 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="14_i4m5u"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="15_y0l8x"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="16_l1a2j"]
-[ext_resource type="SpriteFrames" uid="uid://cmleldxwpmlwd" path="res://assets/sprite_frames/matthijs.tres" id="17_wrtrn"]
-[ext_resource type="SpriteFrames" uid="uid://b15of1h8hhnsr" path="res://assets/sprite_frames/ruby.tres" id="18_oioo6"]
-[ext_resource type="SpriteFrames" uid="uid://cx8w1lesiacli" path="res://assets/sprite_frames/margaretha.tres" id="19_tpug6"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="20_ebd3e"]
 [ext_resource type="PackedScene" uid="uid://cwtqm5fiavqvo" path="res://npc/caretaker.tscn" id="21_p20qc"]
 
@@ -164,12 +161,8 @@ process_material = SubResource("ParticleProcessMaterial_7h8i6")
 
 [node name="QuestUI" parent="." instance=ExtResource("15_y0l8x")]
 
-[node name="SpawnPoint_FromRubysDoor" type="Node2D" parent="."]
-position = Vector2(-52, -7)
-
 [node name="Player" parent="." instance=ExtResource("16_l1a2j")]
 position = Vector2(19.74, -6)
-animated_sprites = Array[SpriteFrames]([ExtResource("17_wrtrn"), ExtResource("18_oioo6"), ExtResource("19_tpug6")])
 
 [node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
 offset = Vector2(0, -33.425)

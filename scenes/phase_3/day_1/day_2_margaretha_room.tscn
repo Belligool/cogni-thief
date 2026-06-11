@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://76suiuw75iqp"]
+[gd_scene load_steps=36 format=3 uid="uid://76suiuw75iqp"]
 
 [ext_resource type="Script" uid="uid://drafcy0ukvgwn" path="res://scenes/phase_3/day_1/day_2_margaretha_room.gd" id="1_7iy0a"]
 [ext_resource type="Texture2D" uid="uid://ded3scocqpnkx" path="res://assets/Margaretha/Room/elder room_wall.png" id="5_3ljal"]
+[ext_resource type="Resource" uid="uid://f4dwbu8481i8" path="res://transition/definition/phase_3_day_3.tres" id="5_5tvur"]
 [ext_resource type="PackedScene" uid="uid://dsh6vdbj4c635" path="res://interaction/interactable objects/Door_Door.tscn" id="5_xvg2e"]
 [ext_resource type="Script" uid="uid://cia682gsywcom" path="res://interaction/interactable objects/Door_Door.gd" id="6_hwiew"]
 [ext_resource type="Texture2D" uid="uid://s6bk6sndybkt" path="res://assets/Margaretha/Objects/pintu_blank back.png" id="6_rryyb"]
@@ -88,6 +89,7 @@ color = Color(1, 1, 1, 0.5921569)
 [node name="day_2_margaretha_room" type="Node2D"]
 script = ExtResource("1_7iy0a")
 intro_dialog = SubResource("Resource_rryyb")
+next_day_transition = ExtResource("5_5tvur")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(41.335983, -44.249996)

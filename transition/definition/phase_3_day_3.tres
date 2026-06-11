@@ -3,19 +3,19 @@
 [ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_uyx4x"]
 [ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_uqueo"]
 
-[sub_resource type="Resource" id="Resource_kv0de"]
+[sub_resource type="Resource" id="Resource_uyx4x"]
 script = ExtResource("1_uyx4x")
-id = "answer_door"
-title = "Answer the Door"
-objective = "See Who's Knocking On The Door."
+id = "read_final_message"
+title = "The Final Message"
+objective = "Maya has something for you. Talk to her."
 completion_type = 1
-completion_target = "Door_Door"
-cutscene = "daughter_arrival"
+completion_target = "caretaker"
+cutscene = "final_day_cutscene"
 metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
 
 [resource]
 script = ExtResource("2_uqueo")
-lines = Array[String](["I sat down at the spot I usually sat before.", "Mindlessly staring at the screen.", "When a knock on the door startled me.", "Weird...", "I don't remember the old woman having any friends.", "At least not from the pictures she kept."])
-next_scene = "res://scenes/phase_3/day_1/day_2_margaretha_room.tscn"
-next_day_quests = Array[ExtResource("1_uyx4x")]([SubResource("Resource_kv0de")])
+lines = Array[String](["I woke up on the sofa one last time.", "And looked back at what happened so far.", "But I can't do that.", "As there's another message from Elise."])
+next_scene = "res://scenes/phase_3/day_1/day_3_margaretha_room.tscn"
+next_day_quests = Array[ExtResource("1_uyx4x")]([SubResource("Resource_uyx4x")])
 metadata/_custom_type_script = "uid://bhqs24s4ximjh"

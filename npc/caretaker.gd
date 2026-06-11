@@ -1,18 +1,19 @@
 extends Node2D
-
+ 
 @onready var interaction_area: NpcInteractionArea = $NpcInteractionArea
 @onready var bubble: Node2D = $SpeechBubble
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-
+ 
 @export var dialog: DialogData
 @export var dialogs_per_day: Array[DialogData] = []
-@export var one_time_only: bool = false     # can only interact once
+@export var one_time_only: bool = false
 @export var current_flag: String = "lock"
 
-
+@export var force_available: bool = false
+ 
 var player = null
 var player_bubble = null
-
+ 
 func _ready() -> void:
 	interaction_area.action_name = "talk"
 	interaction_area.interact = Callable(self, "_on_interact")
@@ -23,10 +24,17 @@ func _ready() -> void:
 	QuestManager.trigger_flag.connect(_evaluate_availability)
 	dialog = _get_current_dialog()
 	_evaluate_availability()
-  
+ 
 func _evaluate_availability(quest: QuestData = null) -> void:
+	# Hard bypass for scenes that manage Maya directly (e.g. day_3_margaretha_room)
+	if force_available:
+		interaction_area.monitoring = true
+		interaction_area.monitorable = true
+		return
+ 
 	print("evaluating availability for: ", interaction_area.interactable_object_name)
 	var available = true
+ 
 	if quest != null:
 		if quest.flag_target != interaction_area.interactable_object_name:
 			return
@@ -51,31 +59,31 @@ func _evaluate_availability(quest: QuestData = null) -> void:
 		interaction_area.monitoring = available
 		interaction_area.monitorable = available
 		return
-
+ 
 func _get_current_dialog() -> DialogData:
 	if not dialogs_per_day.is_empty():
 		var day = QuestManager.get_current_day()
-		var index = day-1
+		var index = day - 1
 		return dialogs_per_day[index]
 	return dialog
-
+ 
 func _on_interact() -> void:
 	var current_dialog = _get_current_dialog()
 	if dialog == null:
 		return
-		
+ 
 	if player != null:
 		var direction = player.global_position - global_position
 		if direction.x < 0:
 			animated_sprite.flip_h = false
 		elif direction.x > 0:
 			animated_sprite.flip_h = true
-			
+ 
 	print("starting interaction with npc ")
 	DialogManager.start(current_dialog)
 	PlayerManager.add_interacted_npc("caretaker")
 	await DialogManager.dialog_ended
-	
+ 
 func _on_line_changed(line: DialogLine) -> void:
 	if not DialogManager.is_active:
 		return
@@ -90,9 +98,10 @@ func _on_line_changed(line: DialogLine) -> void:
 		bubble.show_line(line)
 	else:
 		player_bubble.show_line(line)
-		
+ 
 func _on_dialog_ended(_npc_id: String) -> void:
 	bubble.clear()
 	if player:
 		player.get_node("SpeechBubble").clear()
 	_evaluate_availability()
+ 
