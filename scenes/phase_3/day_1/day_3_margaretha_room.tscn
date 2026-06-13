@@ -98,9 +98,6 @@ position = Vector2(20, -68)
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("23_5invm")
 
-[node name="caretaker" parent="." instance=ExtResource("23_8npmk")]
-position = Vector2(-62, -6)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(2, -4)
 
@@ -139,8 +136,11 @@ process_material = SubResource("ParticleProcessMaterial_7h8i6")
 [node name="SpawnPoint_FromRubysDoor" type="Node2D" parent="."]
 position = Vector2(-52, -7)
 
+[node name="caretaker" parent="." instance=ExtResource("23_8npmk")]
+position = Vector2(-62, -6)
+
 [node name="Player" parent="." instance=ExtResource("18_xo8ps")]
-position = Vector2(-25.2, -6)
+position = Vector2(22.06, -6)
 
 [node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
 offset = Vector2(0, -33.425)

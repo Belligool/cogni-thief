@@ -23,7 +23,7 @@ func _ready() -> void:
 	_set_interactable(caretaker, false)
 
 	# Place her off to the right side, outside the visible area
-	caretaker.global_position.x = player.global_position.x + 300.0
+	caretaker.global_position.x = player.global_position.x - 200.0
 
 	await get_tree().process_frame
 	await _start_day_cutscene()
@@ -54,7 +54,7 @@ func _start_day_cutscene() -> void:
 	await get_tree().create_timer(0.8).timeout
 
 	# Maya walks toward the player from the right
-	var approach_pos = player.global_position.x + 60.0
+	var approach_pos = player.global_position.x - 30.0
 	await _sprite_walk(caretaker, approach_pos, 50.0)
 
 	_sprite_face(caretaker, player.global_position.x)
@@ -62,7 +62,7 @@ func _start_day_cutscene() -> void:
 
 	# Maya delivers the message
 	await _play_bubble(player_bubble, "mc", "Hm? What's this", false)
-	await _play_bubble(caretaker_bubble, "Caretaker", "It's another message, from your daughter, mam", false)
+	await _play_bubble(caretaker_bubble, "Caretaker", "It's another message, from your daughter, maam", false)
 
 	# MC reads the message
 	await get_tree().create_timer(1.0).timeout
@@ -122,7 +122,7 @@ func _aftermath_good() -> void:
 	anim.flip_h = not anim.flip_h
 	await get_tree().create_timer(0.4).timeout
 
-	await _play_bubble(caretaker_bubble, "Caretaker", "Mam? Is everything alright?", false)
+	await _play_bubble(caretaker_bubble, "Caretaker", "Maam? Is everything alright?", false)
 	await _play_bubble(player_bubble, "mc", "...Yes, tell Elise that... little Jos and her can visit any time.", false)
 
 	await get_tree().create_timer(0.5).timeout
@@ -131,7 +131,7 @@ func _aftermath_good() -> void:
 func _aftermath_neutral() -> void:
 	await _play_bubble(player_bubble, "mc", "It seems like the old woman no longer has the capacity to care.", true)
 	await _play_bubble(player_bubble, "mc", "Thank you, Maya.", false)
-	await _play_bubble(caretaker_bubble, "Caretaker", "Excuse me, mam. But are you not going to answer her?", false)
+	await _play_bubble(caretaker_bubble, "Caretaker", "Excuse me, maam. But are you not going to answer her?", false)
 
 func _aftermath_bad() -> void:
 	await _play_bubble(player_bubble, "mc", "*Scoffs*", false)
@@ -140,12 +140,12 @@ func _aftermath_bad() -> void:
 	await _play_bubble(player_bubble, "mc", "Came back crying every time she was hurt despite every warning.", false)
 
 	# MC shoves the tablet at Maya, Maya steps back
-	var backup_pos = caretaker.global_position.x + 20.0
+	var backup_pos = caretaker.global_position.x - 20.0
 	await _sprite_walk(caretaker, backup_pos, 60.0)
 	_sprite_face(caretaker, player.global_position.x)
 
 	await _play_bubble(player_bubble, "mc", "I don't want you showing me that again.", false)
-	await _play_bubble(caretaker_bubble, "Caretaker", "...You don't need to worry about that, mam.", false)
+	await _play_bubble(caretaker_bubble, "Caretaker", "...You don't need to worry about that, maam.", false)
 	await _play_bubble(player_bubble, "mc", "Hm?", false)
 
 # ==========================================

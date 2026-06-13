@@ -129,7 +129,7 @@ func _start_arrival_cutscene() -> void:
 	await _play_bubble(caretaker_bubble, "Caretaker", "We don't want you breathing in all that dust, do we?", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "I'll give it a quick clean.", false)
 	
-	await _sprite_walk(caretaker, cabinet.global_position.x, 50.0)
+	await _sprite_walk(caretaker, cabinet.global_position.x, 60.0)
 	_sprite_face(caretaker, cabinet.global_position.x + 10.0) 
 	_phase = 1
 	_is_cutscene_playing = false
@@ -146,7 +146,7 @@ func _start_picture_cutscene() -> void:
 	InteractionManager.can_interact = false
 	player.is_frozen = true
 	
-	var right_side_pos = caretaker.global_position.x + 40.0
+	var right_side_pos = caretaker.global_position.x + 20.0
 	await _sprite_walk(player, right_side_pos, 50.0)
 	
 	_sprite_face(player, caretaker.global_position.x)
@@ -239,7 +239,7 @@ func _start_drawer_transition() -> void:
 	await _play_bubble(caretaker_bubble, "Caretaker", "I'll have a rest now.", false)
 	
 	# Maya leaves the room
-	await _sprite_walk(caretaker, door.global_position.x, 50.0)
+	await _sprite_walk(caretaker, door.global_position.x, 60.0)
 	door.hide()
 	var fade = create_tween()
 	fade.tween_property(caretaker, "modulate:a", 0.0, 0.5)
@@ -384,7 +384,7 @@ func _start_daughter_arrival_cutscene() -> void:
 	door.show()
 	
 	# Daughter walks in
-	var daughter_target_pos = player.global_position.x + 60.0
+	var daughter_target_pos = player.global_position.x + 30.0
 	await _sprite_walk(daughter, daughter_target_pos, 40.0)
 	
 	_sprite_face(daughter, player.global_position.x)
