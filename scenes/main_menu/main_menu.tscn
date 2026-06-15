@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://de2j12tftcyv4"]
+[gd_scene load_steps=14 format=3 uid="uid://de2j12tftcyv4"]
 
 [ext_resource type="Script" uid="uid://87e6kxv50q8n" path="res://scenes/main_menu/main_menu.gd" id="1_0ebjn"]
 [ext_resource type="Resource" uid="uid://n3we65shm320" path="res://transition/definition/phase_1_day_1.tres" id="2_4xg86"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://qtohinyyknei" path="res://assets/music/intro.mp3" id="6_3ovsr"]
 [ext_resource type="Texture2D" uid="uid://dddqvay2m8ci1" path="res://assets/ui/misc/IMG_4312.PNG" id="6_4xg86"]
 [ext_resource type="Script" uid="uid://dv5y1ybemmy37" path="res://scenes/main_menu/audio_stream_player.gd" id="7_5seab"]
+[ext_resource type="Texture2D" uid="uid://c27wsw3bdw6j1" path="res://assets/ui/misc/IMG_4316.PNG" id="7_thkx5"]
 
 [sub_resource type="Curve" id="Curve_uqeha"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.072010875, 1), 0.0, 0.0, 0, 0, Vector2(0.9103261, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -112,8 +113,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("2_ob46e")
-text = "Exit
+text = "
 "
+icon = ExtResource("7_thkx5")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
