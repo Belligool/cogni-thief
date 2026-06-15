@@ -124,10 +124,12 @@ func _start_arrival_cutscene() -> void:
 	await _play_bubble(caretaker_bubble, "Caretaker", "You're already awake, Ma'am?", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Did you have a good rest?", false)
 	await _play_bubble(player_bubble, "mc", "I've had better sleep.", false)
+	await get_tree().create_timer(0.5).timeout
 	
 	await _play_bubble(caretaker_bubble, "Caretaker", "Anyways, I had just noticed how dusty your bookshelf had been.", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "We don't want you breathing in all that dust, do we?", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "I'll give it a quick clean.", false)
+	await get_tree().create_timer(0.5).timeout
 	
 	await _sprite_walk(caretaker, cabinet.global_position.x, 60.0)
 	_sprite_face(caretaker, cabinet.global_position.x + 10.0) 
@@ -159,6 +161,7 @@ func _start_picture_cutscene() -> void:
 	await _play_bubble(caretaker_bubble, "Caretaker", "This...", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Is this you and your daughter?", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "It's hard to believe, but it looks like you two can go well together.", false)
+	await get_tree().create_timer(0.5).timeout
 	
 	player_bubble.clear()
 	await get_tree().process_frame 
@@ -182,6 +185,7 @@ func _start_picture_cutscene() -> void:
 		DialogChoice.PointType.NEUTRAL: await _caretaker_aftermath_neutral()
 		DialogChoice.PointType.BAD: await _caretaker_aftermath_bad()
 			
+	await get_tree().create_timer(0.5).timeout
 	await _play_bubble(caretaker_bubble, "Caretaker", "Would you like to keep that photo here?", false)
 	await _play_bubble(player_bubble, "mc", "Just seeing that picture,", true)
 	await _play_bubble(player_bubble, "mc", "...made me uneasy.", true)
@@ -190,10 +194,12 @@ func _start_picture_cutscene() -> void:
 	await _play_bubble(player_bubble, "mc", "I wonder...", true)
 	await _play_bubble(player_bubble, "mc", "What else is inside the drawer?", true)
 	await _play_bubble(player_bubble, "mc", "I need to check later.", true)
+	await get_tree().create_timer(0.5).timeout
 	
 	_start_drawer_transition()
 
 func _caretaker_aftermath_good() -> void:
+	await get_tree().create_timer(0.5).timeout
 	await _play_bubble(player_bubble, "mc", "How much did she tell you about me?", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Oh...", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Well... for starters, I know she loved you.", false)
@@ -206,14 +212,19 @@ func _caretaker_aftermath_good() -> void:
 	await _play_bubble(player_bubble, "mc", "And the daughter...", true)
 	await _play_bubble(player_bubble, "mc", "Seems so reluctant,", true)
 	await _play_bubble(player_bubble, "mc", "To discuss about their relationship...", true)
+	await get_tree().create_timer(0.5).timeout
 
 func _caretaker_aftermath_neutral() -> void:
+	await get_tree().create_timer(0.5).timeout
 	await _play_bubble(player_bubble, "mc", "Yes, it is complicated.", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Really? Can I ask why?", false)
+	await get_tree().create_timer(0.5).timeout
 	await _play_bubble(player_bubble, "mc", "No, It's a long story...", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Ok... I understand.", false)
+	await get_tree().create_timer(0.5).timeout
 
 func _caretaker_aftermath_bad() -> void:
+	await get_tree().create_timer(0.5).timeout
 	shake_strength = randomStrength
 	await _play_bubble(player_bubble, "mc", "Who gave you the right to pry?!", false)
 	await get_tree().create_timer(0.5).timeout
@@ -225,18 +236,22 @@ func _caretaker_aftermath_bad() -> void:
 	await _play_bubble(caretaker_bubble, "Caretaker", "Y-yes, I'm...", false)
 	await _play_bubble(player_bubble, "mc", "Just do what you're paid for!", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Understood, ma'am.", false)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1).timeout
 	await _play_bubble(player_bubble, "mc", "I can hear her whisper...", true)
+	await get_tree().create_timer(0.5).timeout
 	await _play_bubble(caretaker_bubble, "Caretaker", "Just for another week....", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Then I can just... refuse to extend the contract.", false)
+	await get_tree().create_timer(1).timeout
 
 func _start_drawer_transition() -> void:
+	await get_tree().create_timer(0.5).timeout
 	await _play_bubble(caretaker_bubble, "Caretaker", "The bookshelf is clean now, Ma'am.", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Would you like me to help you to bed now?", false)
 	await _play_bubble(player_bubble, "mc", "I'll sit here for a while longer.", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Very well.", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "Let me know if you need anything.", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "I'll have a rest now.", false)
+	await get_tree().create_timer(0.5).timeout
 	
 	# Maya leaves the room
 	await _sprite_walk(caretaker, door.global_position.x, 60.0)
@@ -312,13 +327,19 @@ func _start_box_cutscene() -> void:
 	var chosen_choice = await DialogManager.choice_made
 	match chosen_choice.point_type:
 		DialogChoice.PointType.GOOD: 
+			await get_tree().create_timer(0.5).timeout
 			await _play_bubble(player_bubble, "mc", "Maybe she needed my help.", true)
+			await get_tree().create_timer(0.5).timeout
 		DialogChoice.PointType.NEUTRAL: 
+			await get_tree().create_timer(0.5).timeout
 			await _play_bubble(player_bubble, "mc", "What happened between these two was truly complicated.", true)
 			await _play_bubble(player_bubble, "mc", "Not something one can simply change.", true)
 			await _play_bubble(player_bubble, "mc", "There's nothing to be done that can fix the situation.", true)
+			await get_tree().create_timer(0.5).timeout
 		DialogChoice.PointType.BAD: 
+			await get_tree().create_timer(0.5).timeout
 			await _play_bubble(player_bubble, "mc", "Now look where you are.", true)
+			await get_tree().create_timer(0.5).timeout
 			
 	# Move to the time skip!
 	_start_time_skip_to_daughter()
@@ -348,7 +369,7 @@ func _start_time_skip_to_daughter() -> void:
 	fade_rect.queue_free()
 	
 	# The Knock sequence
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.2).timeout
 	await _play_bubble(player_bubble, "mc", "*Knock Knock Knock*", true)
 	await _play_bubble(player_bubble, "mc", "Hm?", true)
 	await _play_bubble(player_bubble, "mc", "I don't remember the old woman having any friends.", true)
@@ -426,6 +447,7 @@ func _start_daughter_arrival_cutscene() -> void:
 	_on_end_cutscene()
 
 func _daughter_aftermath_good() -> void:
+	await get_tree().create_timer(0.5).timeout
 	await _play_bubble(player_bubble, "mc", "I didn't know what to say.", false)
 	await _play_bubble(daughter_bubble, "Daughter", "...I brought some food from the market.", false)
 	await _play_bubble(daughter_bubble, "Daughter", "They're not as good as what you used to make, though.", false)
@@ -445,6 +467,7 @@ func _daughter_aftermath_good() -> void:
 	await _play_bubble(daughter_bubble, "Daughter", "Thank you, Mom.", false)
 
 func _daughter_aftermath_neutral() -> void:
+	await get_tree().create_timer(0.5).timeout
 	await _play_bubble(player_bubble, "mc", "I didn't have much to say.", false)
 	await _play_bubble(daughter_bubble, "Daughter", "...I brought some some food from the market.", false)
 	await _play_bubble(daughter_bubble, "Daughter", "They're not as good as what you used to make though.", false)
@@ -463,6 +486,7 @@ func _daughter_aftermath_neutral() -> void:
 	await _play_bubble(player_bubble, "mc", "...Okay.", false)
 
 func _daughter_aftermath_bad() -> void:
+	await get_tree().create_timer(0.5).timeout
 	await _play_bubble(player_bubble, "mc", "I didn't think I needed to.", false)
 	await _play_bubble(daughter_bubble, "Daughter", "Could you at least reply next time?", false)
 	

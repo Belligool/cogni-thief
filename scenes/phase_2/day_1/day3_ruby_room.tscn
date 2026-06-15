@@ -1,9 +1,10 @@
-[gd_scene load_steps=53 format=3 uid="uid://d2b185jlfkbds"]
+[gd_scene load_steps=54 format=3 uid="uid://d2b185jlfkbds"]
 
 [ext_resource type="Script" uid="uid://bs55f4rj7ut2y" path="res://scenes/phase_2/day_1/day_3_ruby_room.gd" id="1_8mf6p"]
 [ext_resource type="Script" uid="uid://nw5gof71bqt3" path="res://dialog/dialog_line.gd" id="2_uu5ap"]
 [ext_resource type="Script" uid="uid://cq8iorar8inmf" path="res://dialog/dialog_data.gd" id="3_4hixy"]
 [ext_resource type="Script" uid="uid://dlfh74f7gy1re" path="res://dialog/dialog_choice.gd" id="3_adka4"]
+[ext_resource type="Resource" uid="uid://483nua47scyw" path="res://transition/definition/phase_3_day_1.tres" id="5_0j0hv"]
 [ext_resource type="Texture2D" uid="uid://dnp5m5pw2kpdb" path="res://assets/Ruby/Bedroom/wall.png" id="5_34o5a"]
 [ext_resource type="Texture2D" uid="uid://bymxcp26o4aar" path="res://assets/Ruby/Bedroom/door.png" id="6_0j0hv"]
 [ext_resource type="Texture2D" uid="uid://cdwgx1ivsi7ta" path="res://assets/Ruby/Bedroom/clock_10.14.png" id="7_3klp8"]
@@ -208,6 +209,7 @@ color = Color(1, 1, 1, 0.5921569)
 [node name="day3_ruby_room" type="Node2D"]
 script = ExtResource("1_8mf6p")
 intro_dialog = SubResource("Resource_adka4")
+intro_narration = ExtResource("5_0j0hv")
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
 position = Vector2(41.499996, -44.249996)

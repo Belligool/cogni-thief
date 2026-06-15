@@ -39,7 +39,12 @@ func _ready() -> void:
 func _play_premise() -> void:
 	player.is_frozen = true
 	await get_tree().create_timer(1.0).timeout
-	DialogManager.start(intro_dialog)
+	
+	# Safe check to prevent black screen crashes
+	if intro_dialog != null:
+		DialogManager.start(intro_dialog)
+		await DialogManager.dialog_ended
+		
 	QuestManager.mark_intro_done(scene_id)
 	player.is_frozen = false
 
@@ -59,8 +64,10 @@ func _on_premise_dialog_ended(_npc_id: String) -> void:
 		player_bubble.clear()
 
 func start_cutscene(cutscene_id: String) -> void:
-	if _cutscene_map.has(cutscene_id):
-		await _cutscene_map[cutscene_id].call()
+	# Clean invisible spaces so the map check never fails
+	var clean_id = cutscene_id.strip_edges()
+	if _cutscene_map.has(clean_id):
+		await _cutscene_map[clean_id].call()
 
 func _wait_for_typing(bubble_node) -> void:
 	while bubble_node.is_typing():
@@ -119,6 +126,7 @@ func _start_caretaker_cutscene() -> void:
 	await _play_bubble(player_bubble, "mc", "This feels uncomfortable, Sharp...", true)
 	await _play_bubble(player_bubble, "mc", "...but this was different than anger.", true)
 	await _play_bubble(player_bubble, "mc", "What is this?", true)
+	await get_tree().create_timer(0.5).timeout
 	
 	
 	var choices: Array[DialogChoice] = [
@@ -156,6 +164,7 @@ func _caretaker_aftermath_good() -> void:
 	await _play_bubble(player_bubble, "mc", "I shouldn't act rashly.", true)
 	await _play_bubble(player_bubble, "mc", "No.", false)
 	await _play_bubble(player_bubble, "mc", "Not yet. Not now.", true)
+	await get_tree().create_timer(0.5).timeout
 	await _fade_out_caretaker()
 
 func _caretaker_aftermath_neutral() -> void:
@@ -174,6 +183,7 @@ func _caretaker_aftermath_bad() -> void:
 	await _play_bubble(player_bubble, "mc", "Silent. Too silent. And the tension in the air is undeniable.", true)
 	await _play_bubble(player_bubble, "mc", "There is a deep wound inside her, and it seems to be related to her daughter...", true)
 	await _play_bubble(player_bubble, "mc", "I should find more information tomorrow.", true)
+	await get_tree().create_timer(0.5).timeout
 
 func _maya_jump() -> void:
 	var jump_tween = create_tween()
