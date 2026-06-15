@@ -10,13 +10,17 @@ extends Node2D
 
 @export var intro_dialog: DialogData
 @export var scene_id: String = "ruby_bedroom_day3"
-@export var intro_narration: NarrationData
+@export var intro_narration_good: NarrationData
+@export var intro_narration_neutral: NarrationData
+@export var intro_narration_bad: NarrationData
+
 
 var shake_strength: float = 0.0
 var shake_fade: float = 5.0
 var randomStrength: float = 30.0
 var _cutscene_map: Dictionary = {} 
 var _skip_bubble = false 
+var points_gained: float = 0.0
 
 func _process(delta: float) -> void:
 	if QuestManager.was_cutscene_seen("ruby_bedroom_day3"):
@@ -44,7 +48,7 @@ func _on_premise_dialog_ended(_npc_id: String) -> void:
 
 func start_cutscene(cutscene_id: String) -> void:
 	var current_points = PlayerManager.get_total_points()
-	var points_gained = current_points - initial_point
+	points_gained = current_points - initial_point
 	
 	if cutscene_id == "ruby_bedroom_day3":
 		await _cutscene_map["ruby_room_day3_after_premise"].call()
@@ -236,9 +240,6 @@ func _ruby_room_day_3_aftermath_good():
 	
 	await _play_bubble(player_bubble, "mc", "Well then...I'm going to sleep", true)
 	
-	InterludeManager.show_interlude(["The next morning...", "I immediately text my boss and my mom", "I told them to not runaway from him", "I don’t think that’s the best idea to move out.","I will try to find my way to solve this without running away from him.", "I’ll probably tell my boss and my friends that I’m pregnant.", "I hope that they understand my condition.", "I believe that I can fix him someday..."])
-	await InterludeManager.interlude_finished
-	
 func _ruby_room_day_3_aftermath_neutral():
 	player.is_frozen = true
 	
@@ -250,10 +251,7 @@ func _ruby_room_day_3_aftermath_neutral():
 	await _play_bubble(player_bubble, "mc", "Maybe I'll reconsider it later...", true)
 	
 	await _play_bubble(player_bubble, "mc", "Well then...I'm going to sleep", true)
-	
-	InterludeManager.show_interlude(["The next morning...", "I prepared things to go to work", "I still a lot of things to do...", "That's why...", "I just do whatever I can"])
-	await InterludeManager.interlude_finished
-	
+
 func _ruby_room_day_3_aftermath_bad():
 	player.is_frozen = true
 	
@@ -264,9 +262,6 @@ func _ruby_room_day_3_aftermath_bad():
 	await _play_bubble(player_bubble, "mc", "Be a better husband, my dearest", true)
 	await _play_bubble(player_bubble, "mc", "I dont know you will survive this or not", true)
 	await _play_bubble(player_bubble, "mc", "You just have to dig your own grave, my dearest", true)
-	
-	InterludeManager.show_interlude(["The next morning...", "I quickly ran away from her house", "I moved to the apartment without her husband knowing.", "I blocked her phone number from her husband", "There's no chance that he will screw my life"])
-	await InterludeManager.interlude_finished
 	
 func _play_bubble(bubble_node, speaker_name, text_content, is_thought, translation: String = "") -> void:
 	var data = DialogLine.new()
@@ -302,4 +297,9 @@ func _on_end_cutscene():
 	QuestManager.set_day(1)
 	QuestManager.set_phase(3)
 	InteractionManager.can_interact = true
-	TransitionManager.start(intro_narration)
+	if points_gained > 0:
+		TransitionManager.start(intro_narration_good)
+	elif points_gained == 0:
+		TransitionManager.start(intro_narration_neutral)
+	else:
+		TransitionManager.start(intro_narration_good)

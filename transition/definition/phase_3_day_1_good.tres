@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="NarrationData" load_steps=4 format=3 uid="uid://c2ehhy1fmrvix"]
+
+[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_0ylkq"]
+[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_g8at8"]
+
+[sub_resource type="Resource" id="Resource_3ubbc"]
+script = ExtResource("1_0ylkq")
+id = "check_cabinet"
+title = "Check The Cabinet"
+objective = "Check The Cabinet"
+completion_type = 1
+completion_target = "cabinet"
+cutscene = "caretaker_arrival"
+metadata/_custom_type_script = "uid://dq2r2uoon2ehc"
+
+[resource]
+script = ExtResource("2_g8at8")
+lines = Array[String](["The next morning...", "I immediately text my boss and my mom", "I told them to not runaway from him", "I don’t think that’s the best idea to move out.", "I will try to find my way to solve this without running away from him.", "I’ll probably tell my boss and my friends that I’m pregnant.", "I hope that they understand my condition.", "I believe that I can fix him someday...", "...", "T-This...", "This keeps on happening.", "Oh, so hard to stand..."])
+delay_between_lines = 10.0
+next_scene = "res://scenes/phase_3/day_1/day_1_margaretha_room.tscn"
+next_day_quests = Array[ExtResource("1_0ylkq")]([SubResource("Resource_3ubbc")])
+metadata/_custom_type_script = "uid://bhqs24s4ximjh"
