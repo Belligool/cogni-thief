@@ -5,7 +5,7 @@ extends Node2D
 @onready var initialPos = camera.offset
 @onready var player_bubble = $Player/SpeechBubble
 @onready var initial_point = PlayerManager.get_total_points()
-
+@onready var audio_player = $AudioStreamPlayer2D
 
 @export var intro_dialog: DialogData
 @export var scene_id: String = "ruby_bedroom_day1"
@@ -73,13 +73,19 @@ func _ready() -> void:
 	
 
 func _play_premise() -> void:
+	audio_player.play()
 	player.is_frozen = true
 	await get_tree().create_timer(1.0).timeout
 	DialogManager.start(intro_dialog)
 	QuestManager.mark_intro_done(scene_id)
 	player.is_frozen = false
 	
+	
 func _ruby_room_day_1_after_premise():
+	var tween = create_tween()
+	tween.tween_property(audio_player, "volume_db", -80, 1.0)
+	await tween.finished
+	audio_player.stop() 
 	player.is_frozen = true
 	player.animated_sprite.play("idle")
 	

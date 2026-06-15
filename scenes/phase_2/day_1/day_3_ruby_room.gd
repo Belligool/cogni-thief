@@ -160,10 +160,11 @@ func _ruby_room_day_3_after_premise():
 	await get_tree().create_timer(0.5).timeout
 	
 	await _play_bubble(player_bubble, "mc", "Wh...What???", false)
-	await _play_bubble(desktop_bubble, "desktop", "If that’s bothering you that much...you should go!", false)
+	await _play_bubble(desktop_bubble, "desktop", "If that’s bothering you that much...", false)
+	await _play_bubble(desktop_bubble, "desktop", "you should go!", false)
+	
 	await _play_bubble(desktop_bubble, "desktop", "We still need your help, Ruby! We need to live!", false)
 	
-	await _play_bubble(desktop_bubble, "desktop", "If he doesn’t want to work together...then divorce him!", false)
 	await _play_bubble(desktop_bubble, "desktop", "He promised that he will help us!", false)
 	await _play_bubble(desktop_bubble, "desktop", "And now he betrayed you!", false)
 	await _play_bubble(desktop_bubble, "desktop", "Just find another man that can help us!", false)
@@ -172,13 +173,17 @@ func _ruby_room_day_3_after_premise():
 	
 	await _play_bubble(desktop_bubble, "desktop", "You can take care of yourself!", false)
 	await _play_bubble(desktop_bubble, "desktop", "You’re already an adult!", false)
-	await _play_bubble(desktop_bubble, "desktop", "You have priorities to do!If he doesn’t want to work together...then divorce him!", false)
+	await _play_bubble(desktop_bubble, "desktop", "You have priorities to do!", false)
+	await _play_bubble(desktop_bubble, "desktop", "If he doesn’t want to work together...", false)
+	
+	shake_strength = randomStrength
+	await _play_bubble(desktop_bubble, "desktop", "THEN DIVORCE HIM!!!", false)
 	await _play_bubble(desktop_bubble, "desktop", "Just leave him alone!", false)
 	
 	await _play_bubble(player_bubble, "mc", "B...but...", false)
 	
 	await _play_bubble(desktop_bubble, "desktop", "Whatever!", false)
-	await _play_bubble(desktop_bubble, "desktop", "I don’t want to hear about it ever again from you!", false)
+	await _play_bubble(desktop_bubble, "desktop", "I don’t want to hear more from you!", false)
 	await _play_bubble(desktop_bubble, "desktop", "Just obey your mother!", false)
 	
 	await get_tree().create_timer(1).timeout

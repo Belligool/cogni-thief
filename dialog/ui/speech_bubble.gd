@@ -19,8 +19,10 @@ var _translation_chars_shown: int = 0
 
 func _ready() -> void: 
 	hide()
-	# Position handling for the bubble to always be ontop of the current talking sprite
+	#print("bubble owner: ", get_parent().name, " sprite scale: ", sprite.scale, " global: ", sprite.global_scale)
+
 func _process(delta: float) -> void:
+	#print("processing bubble for: ", get_parent().name)
 	if not _is_visible_and_active or not _typing:
 		return
 	bubble_bg.size = container.size

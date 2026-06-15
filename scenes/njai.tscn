@@ -1,31 +1,31 @@
 [gd_scene load_steps=13 format=3 uid="uid://c3echx27rx2vp"]
 
-[ext_resource type="Texture2D" uid="uid://dc8b1pnkla1ri" path="res://assets/Matthijs/Sprite Sheet Char/child_idle-Sheet.png" id="1_axgia"]
-[ext_resource type="Texture2D" uid="uid://dr4keuafsy35a" path="res://assets/Matthijs/Sprite Sheet Char/child_walk-Sheet.png" id="2_2whqp"]
+[ext_resource type="Texture2D" uid="uid://bh87cfob13aoq" path="res://assets/Matthijs/Sprite Sheet Char/Maid 2_Idle-Sheet.png" id="1_axgia"]
+[ext_resource type="Texture2D" uid="uid://b2tu7yt2c2a5l" path="res://assets/Matthijs/Sprite Sheet Char/Maid 2_Walk-Sheet.png" id="2_2whqp"]
 [ext_resource type="AudioStream" uid="uid://qt4y7x3sqqri" path="res://assets/sounds/freesound_community-walking-on-a-wooden-floor-14743.mp3" id="3_kry7v"]
 [ext_resource type="PackedScene" uid="uid://bt1pjdw052frb" path="res://dialog/ui/speech_bubble.tscn" id="4_6eja1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y4r1p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kry7v"]
 atlas = ExtResource("1_axgia")
 region = Rect2(0, 0, 184, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eja1"]
 atlas = ExtResource("1_axgia")
 region = Rect2(184, 0, 184, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_orjom"]
 atlas = ExtResource("2_2whqp")
 region = Rect2(0, 0, 200, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gcy8"]
 atlas = ExtResource("2_2whqp")
 region = Rect2(200, 0, 200, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee6ut"]
 atlas = ExtResource("2_2whqp")
 region = Rect2(400, 0, 200, 448)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_drqxv"]
 atlas = ExtResource("2_2whqp")
 region = Rect2(600, 0, 200, 448)
 
@@ -33,10 +33,10 @@ region = Rect2(600, 0, 200, 448)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y4r1p")
+"texture": SubResource("AtlasTexture_kry7v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d2wvv")
+"texture": SubResource("AtlasTexture_6eja1")
 }],
 "loop": true,
 "name": &"idle",
@@ -44,16 +44,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tuyoq")
+"texture": SubResource("AtlasTexture_orjom")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fjrip")
+"texture": SubResource("AtlasTexture_2gcy8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_smehm")
+"texture": SubResource("AtlasTexture_ee6ut")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ur7pv")
+"texture": SubResource("AtlasTexture_drqxv")
 }],
 "loop": true,
 "name": &"walk",

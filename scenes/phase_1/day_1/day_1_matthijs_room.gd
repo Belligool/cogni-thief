@@ -61,23 +61,23 @@ func start_cutscene(cutscene_id: String) -> void:
 	
 	await _walk_player_to_moeder()
 	
-	await _play_bubble(moeder_bubble, "???", "Schatje...", false, "Sweetie...")
+	await _play_bubble(moeder_bubble, "???", "Schatje...", false)
 	await _play_bubble(moeder_bubble, "???", "Are you awake?", false)
 	
 	
-	await _play_bubble(moeder_bubble, "???", "Liefje?", false, "Little treasure?")
+	await _play_bubble(moeder_bubble, "???", "Liefje?", false)
 	await get_tree().create_timer(0.5).timeout
 	await _play_bubble(player_bubble, "mc", "The... warm lady from that picture?", true)
 	await get_tree().create_timer(0.8).timeout
 	await _play_bubble(player_bubble, "mc", "Mamma..? I'm- Matthijs' is sorry..", false)
 	
-	await _play_bubble(moeder_bubble, "Mamma", "Worry not, Schatje.", false, "Worry not, Sweetie.")
+	await _play_bubble(moeder_bubble, "Mamma", "Worry not, Schatje.", false)
 	await _play_bubble(moeder_bubble, "Mamma", "You just woke up.", false)
 	await _play_bubble(moeder_bubble, "Mamma", "Have you not?", false)
 	await _play_bubble(moeder_bubble, "Mamma", "It's time for afternoon tea.", false)
 	await _play_bubble(moeder_bubble, "Mamma", "Father is waiting for you.", false)
 	await _play_bubble(moeder_bubble, "Mamma", "Be sure to look presentable.", false)
-	await _play_bubble(moeder_bubble, "Mamma", "verstaan?", false, "understand?  ")
+	await _play_bubble(moeder_bubble, "Mamma", "verstaan?", false)
 	
 	await _play_bubble(player_bubble, "mc", "Yes, Mamma.", false)
 	var tween = create_tween()
