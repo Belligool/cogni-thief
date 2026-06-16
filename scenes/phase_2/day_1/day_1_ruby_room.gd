@@ -170,13 +170,13 @@ func _ruby_room_day_1_after_premise():
 		DialogChoice.new(),
 	]
 	
-	choices[0].label = "Do I have to move?"
+	choices[0].label = "Should I stay?"
 	choices[0].point_type = DialogChoice.PointType.GOOD
 
 	choices[1].label = "Not my problem"
 	choices[1].point_type = DialogChoice.PointType.NEUTRAL
 
-	choices[2].label = "Do I really have to stay?"
+	choices[2].label = "Should I move away?"
 	choices[2].point_type = DialogChoice.PointType.BAD
 
 	DialogManager.show_choices(choices)

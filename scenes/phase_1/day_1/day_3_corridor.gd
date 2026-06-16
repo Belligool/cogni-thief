@@ -193,7 +193,7 @@ func _matthijs_corridor_day_3_aftermath_neutral():
 	await _play_bubble(moeder_bubble, "moeder", "Zo, what is this little secret you want to tell, Schatje?", false)
 	await _play_bubble(player_bubble, "mc", "Ma, is it true that.. ", false)
 	await _play_bubble(player_bubble, "mc", "Matthijs should’ve had a little sibling? ", false)
-	await _play_bubble(moeder_bubble, "moeder", "..Yes, Schatje.", false, "..Yes, Darlimg.")
+	await _play_bubble(moeder_bubble, "moeder", "..Yes, Schatje.", false)
 	await _play_bubble(player_bubble, "mc", "What happened, Ma? ", false)
 	await _play_bubble(moeder_bubble, "moeder", "Accidents.. Can happen, Schatje.", false)
 	await _play_bubble(moeder_bubble, "moeder", "And back then, it cost your little brother.", false)

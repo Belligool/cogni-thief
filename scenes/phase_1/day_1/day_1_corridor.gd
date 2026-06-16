@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 	else:
 		camera.offset = initialPos
 	_mamma_face_player()
+	
 	if QuestManager.was_cutscene_seen(scene_id):
 		pass
 	else:

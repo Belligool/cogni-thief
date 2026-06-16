@@ -11,6 +11,12 @@ extends Node2D
 var player = null
 var player_bubble = null
 
+func _process(_delta: float) -> void:
+	if not _is_base_available():
+		return
+	
+	_check_player_facing_direction()
+
 func _ready() -> void:
 	interaction_area.action_name = "talk"
 	interaction_area.interact = Callable(self, "_on_interact")
@@ -21,7 +27,35 @@ func _ready() -> void:
 	QuestManager.trigger_flag.connect(_evaluate_availability)
 	dialog = _get_current_dialog()
 	_evaluate_availability()
-  
+ 
+func _check_player_facing_direction() -> void:
+	if player == null:
+		return
+		
+	var player_sprite = player.get_node_or_null("AnimatedSprite2D")
+	if not player_sprite:
+		return
+		
+	var moeder_is_to_the_right: bool = player.global_position.x < global_position.x
+	var player_is_facing_moeder: bool = false
+	
+	if moeder_is_to_the_right and not player_sprite.flip_h:
+		player_is_facing_moeder = true
+	elif not moeder_is_to_the_right and player_sprite.flip_h:
+		player_is_facing_moeder = true
+		
+	interaction_area.monitoring = player_is_facing_moeder
+	interaction_area.monitorable = player_is_facing_moeder
+
+func _is_base_available() -> bool:
+	if PlayerManager.interacted_npc.has("moeder"):
+		return false
+	if (QuestManager.is_flag_active('unlock_interact_with_mother_day_1')) and (QuestManager.get_current_day() == 1) and (get_tree().current_scene.name == 'day1_corridor') and !(PlayerManager.is_npc_interacted("moeder")):
+		return true
+	if current_flag == "lock":
+		return false
+	return true
+		
 func _evaluate_availability(quest: QuestData = null) -> void:
 	print("evaluating availability for: ", interaction_area.interactable_object_name)
 	var available = true
@@ -46,8 +80,11 @@ func _evaluate_availability(quest: QuestData = null) -> void:
 		elif current_flag == "lock":
 			print('moeder locked')
 			available = false
-		interaction_area.monitoring = available
-		interaction_area.monitorable = available
+		
+		if not available:
+			interaction_area.monitoring = false
+			interaction_area.monitorable = false
+			
 		return
 
 func _get_current_dialog() -> DialogData:

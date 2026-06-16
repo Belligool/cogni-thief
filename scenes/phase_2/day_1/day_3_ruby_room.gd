@@ -302,4 +302,4 @@ func _on_end_cutscene():
 	elif points_gained == 0:
 		TransitionManager.start(intro_narration_neutral)
 	else:
-		TransitionManager.start(intro_narration_good)
+		TransitionManager.start(intro_narration_bad)

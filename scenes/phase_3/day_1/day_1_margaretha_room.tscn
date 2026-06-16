@@ -162,7 +162,7 @@ process_material = SubResource("ParticleProcessMaterial_7h8i6")
 [node name="QuestUI" parent="." instance=ExtResource("15_y0l8x")]
 
 [node name="Player" parent="." instance=ExtResource("16_l1a2j")]
-position = Vector2(19.74, -6)
+position = Vector2(20, -7)
 
 [node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
 offset = Vector2(0, -33.425)

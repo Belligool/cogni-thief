@@ -147,6 +147,11 @@ func _aftermath_bad() -> void:
 	await _play_bubble(player_bubble, "mc", "I don't want you showing me that again.", false)
 	await _play_bubble(caretaker_bubble, "Caretaker", "...You don't need to worry about that, maam.", false)
 	await _play_bubble(player_bubble, "mc", "Hm?", false)
+	await get_tree().create_timer(0.2).timeout
+	await _play_bubble(caretaker_bubble, "Caretaker", "...I'm resigning.", false)
+	await _play_bubble(caretaker_bubble, "Caretaker", "I'm leaving by Thursday at the latest.", false)
+	await _play_bubble(player_bubble, "mc", "Fine.", false)
+	await _play_bubble(player_bubble, "mc", "I can handle myself.", false)
 
 # ==========================================
 # ENDING: MAYA RESIGNS
@@ -154,11 +159,7 @@ func _aftermath_bad() -> void:
 
 func _ending_sequence() -> void:
 	await get_tree().create_timer(0.5).timeout
-	await _play_bubble(caretaker_bubble, "Caretaker", "...I'm resigning.", false)
-	await _play_bubble(caretaker_bubble, "Caretaker", "I'm leaving by Thursday at the latest.", false)
-
-	await _play_bubble(player_bubble, "mc", "Fine.", false)
-	await _play_bubble(player_bubble, "mc", "I can handle myself.", false)
+	
 
 	# Maya walks to the door and fades out
 	var door_node = get_node_or_null("Door/Door_Door")

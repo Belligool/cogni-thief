@@ -72,19 +72,19 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 [sub_resource type="Resource" id="Resource_prfth"]
 script = ExtResource("1_p1rai")
 speaker = "moeder"
-text = "Pappa and Mamma wanted the best for you-for us."
+text = "Pappa and Mamma wanted the best for you."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_0bl42"]
 script = ExtResource("1_p1rai")
 speaker = "moeder"
-text = "as tomorrow we would go back to Pappa’s work."
+text = "Tomorrow we would go back to Pappa’s work."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_e2c8k"]
 script = ExtResource("1_p1rai")
 speaker = "moeder"
-text = "It would be bad if our time together is ruined."
+text = "Would be bad if our time together is ruined."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_vuxrn"]
@@ -208,7 +208,7 @@ metadata/_custom_type_script = "uid://nw5gof71bqt3"
 [sub_resource type="Resource" id="Resource_pnrlq"]
 script = ExtResource("1_p1rai")
 speaker = "moeder"
-text = "Mamma will make sure this will not happen again, Schatje."
+text = "Mamma will make sure this will not happen again."
 metadata/_custom_type_script = "uid://nw5gof71bqt3"
 
 [sub_resource type="Resource" id="Resource_kr1rf"]
