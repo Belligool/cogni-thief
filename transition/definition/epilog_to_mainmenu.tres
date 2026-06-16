@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NarrationData" load_steps=3 format=3 uid="uid://dxfsixa21hy65"]
+
+[ext_resource type="Script" uid="uid://dq2r2uoon2ehc" path="res://quests/quest_data.gd" id="1_fi40a"]
+[ext_resource type="Script" uid="uid://bhqs24s4ximjh" path="res://transition/narration_data.gd" id="2_0t0c3"]
+
+[resource]
+script = ExtResource("2_0t0c3")
+next_scene = "res://scenes/main_menu/main_menu.tscn"
+metadata/_custom_type_script = "uid://bhqs24s4ximjh"

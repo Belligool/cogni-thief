@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://76suiuw75iqp"]
+[gd_scene load_steps=33 format=3 uid="uid://76suiuw75iqp"]
 
 [ext_resource type="Script" uid="uid://drafcy0ukvgwn" path="res://scenes/phase_3/day_1/day_2_margaretha_room.gd" id="1_7iy0a"]
 [ext_resource type="Texture2D" uid="uid://ded3scocqpnkx" path="res://assets/Margaretha/Room/elder room_wall.png" id="5_3ljal"]
@@ -19,9 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://btric8xo0yk78" path="res://dialog/ui/choices_ui.tscn" id="15_m0el4"]
 [ext_resource type="PackedScene" uid="uid://cxeg4f1oegwdu" path="res://quests/ui/quest_ui.tscn" id="16_qrqw5"]
 [ext_resource type="PackedScene" uid="uid://bxhe8bcuuj8pn" path="res://scenes/player.tscn" id="17_lg8n6"]
-[ext_resource type="SpriteFrames" uid="uid://cmleldxwpmlwd" path="res://assets/sprite_frames/matthijs.tres" id="18_j2qwb"]
-[ext_resource type="SpriteFrames" uid="uid://b15of1h8hhnsr" path="res://assets/sprite_frames/ruby.tres" id="19_rbf8s"]
-[ext_resource type="SpriteFrames" uid="uid://cx8w1lesiacli" path="res://assets/sprite_frames/margaretha.tres" id="20_ncrmq"]
 [ext_resource type="Script" uid="uid://bi0oennxvyput" path="res://scenes/phase_1/day_1/camera_2d.gd" id="21_jurna"]
 [ext_resource type="PackedScene" uid="uid://cwtqm5fiavqvo" path="res://npc/caretaker.tscn" id="22_niqfw"]
 [ext_resource type="PackedScene" uid="uid://d1tqknm461jxw" path="res://npc/daughter.tscn" id="25_1ff0c"]
@@ -171,7 +168,6 @@ position = Vector2(-52, -7)
 
 [node name="Player" parent="." instance=ExtResource("17_lg8n6")]
 position = Vector2(19.74, -6)
-animated_sprites = Array[SpriteFrames]([ExtResource("18_j2qwb"), ExtResource("19_rbf8s"), ExtResource("20_ncrmq")])
 
 [node name="Camera2D" type="Camera2D" parent="Player" groups=["player"]]
 offset = Vector2(0, -33.425)

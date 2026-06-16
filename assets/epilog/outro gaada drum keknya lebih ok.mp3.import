@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3d806i4edfru"
+path="res://.godot/imported/outro gaada drum keknya lebih ok.mp3-1bd8c856db7df8194dddcde1a0ab23f1.mp3str"
+
+[deps]
+
+source_file="res://assets/epilog/outro gaada drum keknya lebih ok.mp3"
+dest_files=["res://.godot/imported/outro gaada drum keknya lebih ok.mp3-1bd8c856db7df8194dddcde1a0ab23f1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
